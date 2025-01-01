@@ -6,5 +6,5 @@
 .Rproj
 .lintr
 .json
-.csv
+county*.csv
 .xslx
