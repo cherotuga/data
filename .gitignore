@@ -6,6 +6,6 @@
 .Rproj
 .lintr
 .json
-.csv
+*.csv
 .xslx
 .RData
