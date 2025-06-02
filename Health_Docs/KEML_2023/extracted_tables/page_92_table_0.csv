@@ -1,0 +1,22 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+28.2.10,Leflunomide533,Tablet,20mg,6.0
+28.2.11,Methotrexate (MTX),Tablet534,2.5mg (as sodium salt),4.0
+,,Injection (prefilled syringe)535,10mg/mL (0.4mL),4.0
+,,,25mg/mL (0.4mL),4.0
+28.2.12,Methylprednisolone,PFI,125mg (as sodiumsuccinate),4.0
+,,,500mg (as sodiumsuccinate),4.0
+28.2.13,Prednisolone,Tablet,5mg,5.0
+,,,20mg,5.0
+28.2.14,Rituximab536,Injection (IV),10mg/mL (10mL vial),6.0
+,,,10mg/mL (50mL vial),6.0
+28.2.15,Sulfasalazine (SSZ),Tablet,500mg,4.0
+28.2.16,Tocilizumab537,(Solution for IV infusion),20mg/mL (4mL vial),6.0
+,,"Injection, single use prefilledsyringe for subcutaneousinjection",162mg/0.9mL,6.0
+28.2.17,Triamcinolone538,Injection (suspension),40mg/1mL amp(as acetonide orhexacetonide),5.0
+28.3 Medicines for Juvenile joint diseases,,,,
+28.3.1,Acetylsalicylic acid (Aspirin)539,Tablet (scored),300mg,4.0
+28.3.2,Adalimumab540,Injection,40mg/0.4mL,6.0
+28.3.3,Etanercept541,Injection,25mg vial,6.0
+28.3.4,Methotrexate (MTX),Tablet542,2.5mg (as sodium salt),4.0
+Injection (prefilled syringe)543,10mg/mL (0.4mL),4,,
+25mg/mL (0.4mL),4,,,

@@ -1,0 +1,21 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+22.2.4,Methylprednisolone435,PFI,1g vial (as sodiumsuccinate),5.0
+22.2.5,Prednisolone,Solution (eye-drops),1% (as acetate) (5mL),4.0
+22.2.6,Triamcinolone436,Injection suspension,40mg/1mL amp(as acetonide orhexacetonide),5.0
+22.3 Local Anaesthetics,,,,
+22.3.1,Lignocaine437,Solution (eye-drops),2% (as HCL),4.0
+22.3.2,Lignocaine + Epinephrine(Adrenaline),Solution (eye-drops),"Lignocaine 2% andEpinephrine (Adrenaline)1:100,000 or1:200,000(as HCl)",5.0
+22.3.3,Proparacaine438,Solution (eye-drops),0.5% (as HCl),4.0
+22.3.4,Tetracaine,Solution (eye-drops),0.5% (as HCl),4.0
+22.4 Miotics and Anti-Glaucoma Medicines,,,,
+22.4.1,Acetazolamide439,Tablet,250mg,4.0
+22.4.2,Bimatoprost440,Solution (eye-drops),0.01%,4.0
+,,,0.03%,4.0
+22.4.3,Bimatoprost + Timolol,Solution (eye-drops),Bimatoprost 0.03%+Timolol 0.5%,4.0
+22.4.4,Brimonidine + Timolol,Solution (eye-drops),Brimonidine 0.2% +Timolol0.5%,5.0
+22.4.5,Dorzolamide,Solution (eye-drops),2% (as HCl),4.0
+22.4.6,Latanoprost,Solution (eye-drops),0.005%,4.0
+22.4.7,Pilocarpine,Solution (eye-drops)441,4% (as HCl or nitrate),5.0
+,2%,5,,
+,1%,5,,
+Injection442,0.5% w/v(as nitrate) vial,5,,

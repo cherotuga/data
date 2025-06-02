@@ -1,0 +1,19 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+11.2,Memantine284,Tablet,5mg,4.0
+11.3,Rivastigmine285,Capsule,1.5mg,5.0
+12  MEDICINES affecting the BLOOD,,,,
+12.1 Antianaemics,,,,
+12.1.1,Darbepoetin alfa286,Injection,25 micrograms forsubcutaneous injection,5.0
+,,,40 micrograms forsubcutaneous injection,5.0
+12.1.2,Erythropoetin (alfa or beta)stimulating agents,Injection (prefilled syringe),"2,000 IU",4.0
+12.1.3,Ferrous salt,Oral liquid (drops),25mg (iron as sulphate)/mL,2.0
+,,Tablet (f/c),60-65mg elemental iron,2.0
+12.1.4,Ferrous salt + Folic acid287,Tablet,60-65mg elemental iron +400mcg,2.0
+12.1.5,Folic acid,Tablet,400 micrograms288,1.0
+,,,5mg289,1.0
+12.1.6,Hydroxocobalamin (Vit B12),Injection,"1mg/1mL amp (as HCl,acetate or sulphate)",4.0
+12.1.7,Iron sucrose290,Injection,100mg,4.0
+12.2 Medicines affecting coagulation,,,,
+12.2.1 Coagulant medicines,,,,
+12.2.1.1,Phytomenadione (Vit K1),Injection,10mg/mL (0.2mL) amp[c]291,2.0
+10mg/mL (1mL amp),4,,,

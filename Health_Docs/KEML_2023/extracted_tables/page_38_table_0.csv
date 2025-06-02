@@ -1,0 +1,17 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+7.3.3,Fluconazole,Tablet / Capsule,150mg139,2.0
+,,200mg,4,
+,Injection140,2mg/mL (100mL bottle),4,
+,Oral liquid,50mg/5mL,4,
+7.3.4,Flucytosine141,Capsule,250mg,4.0
+,Injection,2.5g/250mL,4,
+7.3.5,Griseofulvin142,Tablet,125mg,2.0
+,,500mg,2,
+7.3.6,Itraconazole143,Capsule,100mg,5.0
+7.3.7,Nystatin,Oral liquid (suspension),"100,000 IU/mL [c]",2.0
+7.3.8,Posaconazole144,Tablet (Delayed Release),100mg,6.0
+,Injection,18mg/mL(300mg/16.7mL),6,
+7.3.9,Terbinafine,Tablet,125mg,4.0
+,,250mg,4,
+7.3.10,Voriconazole145,Tablet,200mg,5.0
+PFI,200mg vial,5,,

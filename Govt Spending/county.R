@@ -224,6 +224,11 @@ names_department <- c(
 
 # TO DO: Make NAs Total 
 
+# January 2025 (1/4 of the year) ----
+
+## Total ---
+
+
 # September 2024 (Annual Expenditure) ----
 
 ## Total ----
@@ -280,7 +285,6 @@ baringo_department_sep24 <- bind_rows(
 # Also why does the Governor's office have such huge expenditure?
 
 rm(county_sep24_table_36)
-
 
 ### Program
 county_sep24_table_37a <- read_csv("Govt Spending/sep2024/county_sep24_table_43.csv")

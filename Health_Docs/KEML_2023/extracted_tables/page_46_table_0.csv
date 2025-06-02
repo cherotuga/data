@@ -1,0 +1,20 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+8.1.2,Ibuprofen191,Tablet,200mg [c],2.0
+8.1.3,Paracetamol,Tablet (scored),500mg,1.0
+,,Oral liquid,120mg/5mL[c],1.0
+8.1.4,Sumatriptan192,Tablet,25mg,5.0
+,,,50mg,5.0
+8.2 Prophylaxis,,,,
+8.2.1,Propranolol193,Tablet,40mg (as HCl),4.0
+8.2.2,Topiramate194,Tablet,25mg,5.0
+,,,50mg,5.0
+9  IMMUNOMODULATORS AND ANTINEOPLASTICS,,,,
+9.1 Immunomodulators for non-malignant disease and supportive medicines,,,,
+9.1.1,Antithymocyte globulin (ATG)(Equine)195,Injection,"50mg/mL, 5mL vial",6.0
+9.1.2,Azathioprine,Tablet (scored),50mg,5.0
+9.1.3,Basiliximab196,PFI,20mg,6.0
+9.1.4,Cyclosporin197,Capsule,25mg,6.0
+,,,100mg,6.0
+,,Concentrate for injection198,50mg/mL in 1mL amp,6.0
+9.1.5,Cyclophosphamide199,PFI,500mg vial,5.0
+1g vial,5,,,

@@ -1,0 +1,16 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+7.2.2.8,Clarithromycin119,Tablet (scored),500mg,4.0
+7.2.2.9,Clindamycin120,Capsule,150mg (as HCl),4.0
+,,Injection121,150mg (as phosphate)/mL(2mL vial),4.0
+,,Oral liquid,75mg (as palmitate)/5mL [c],4.0
+7.2.2.10,Cotrimoxazole(Sulfamethoxazole +Trimethoprim),Injection122,"80mg + 16mg (i.e., 96mg)/mL (5mL amp)",4.0
+,,Oral liquid123,"200mg +40mg (i.e.,240mg) /5mL [c]",2.0
+,,Tablet (scored)123,"800 + 160mg (i.e., 960mg)",2.0
+7.2.2.11,Erythromycin124,Tablet,250mg,3.0
+,,,500mg,3.0
+7.2.2.12,Piperacillin + Tazobactam125,PFI,4g (as sodium salt) +500mg (as sodium salt),5.0
+7.2.3 Reserve group antibiotics,,,,
+7.2.3.1,Ceftazidime + avibactam126,PFI,2000mg+500mg,5.0
+7.2.3.2,Colistin127,PFI,1MU(as colistemethatesodium) vial,5.0
+7.2.3.3,Fosfomycin,Granules for oral suspension128,3g sachet,5.0
+PFI129,3g (as sodium) vial,5,,

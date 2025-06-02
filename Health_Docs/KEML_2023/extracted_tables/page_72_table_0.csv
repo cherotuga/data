@@ -1,0 +1,21 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+19.2.5,Olanzapine382,Tablet,5mg,5.0
+19.2.6,Ondansetron383,Injection,2mg (as HCl)/mL (2mLamp),2.0
+,,Oral liquid,4mg base/5mL [c]384,2.0
+,,Tablet,4mg (as HCl),2.0
+19.2.7,Palonosetron385,Injection,"0.05mg/mL, 5mL vial",4.0
+19.3 Anti-inflammatory medicines,,,,
+19.3.1,Mesalazine,Tablet (e/c),400mg,4.0
+,,Suppository,1g,5.0
+,,Enema,4g/60mL,5.0
+19.3.2,Prednisolone,Tablet,5mg,4.0
+19.4 Laxatives,,,,
+19.4.1,Bisacodyl,Tablet,5mg,2.0
+,,Suppository,5mg,2.0
+19.4.2,Lactulose386,Oral liquid,3.1-3.7g/5mL,4.0
+19.5 Medicines used in Diarrhoea and Oral Rehydration,,,,
+19.5.1,Oral rehydration salts + Zincsulphate,Co-pack (4 sachets + 10 Tablet(dispersible)),PFOL in sachet to make500mL + 20mg Tablet [c],2.0
+19.5.2,Oral rehydration salts (ORS),PFOL (to make 500mL),Sachet (WHO low-osmolarity formula),1.0
+19.5.3,Rehydration solution formalnutrition (ReSoMal)387,PFOL (to make 1L),Sachet (42g) (WHOformula),4.0
+19.6 Vasoconstrictor Medicines,,,,
+19.6.1,Terlipressin388,Injection,1mg (as acetate) in 8.5mlsolution,4.0

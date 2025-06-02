@@ -1,0 +1,18 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+33.2.5,Therapeutic diet feed(F-100)630,PFOL (for approx. 600mL),Standard formula (114gsachet),4.0
+,PFOL,Standard formula(400g tin),4,
+34   NUCLEAR MEDICINE (RADIOPHARMACEUTICALS)Radiopharmaceutical means pharmaceutical agent that when ready for use contains one or more radioactive isotopes.,,,,
+34.1 Diagnostic Radiopharmaceuticals,,,,
+34.1.1 Radiopharmaceuticals for planar and single photon emission computed tomography (SPECT) imagingUse in Single photon emission computed tomography (SPECT).,,,,
+34.1.1.1,Technetium Tc- 99m (99mTc) Succimer (TechnetiumTc-99m DimercaptosuccinicAcid (DMSA)631,"Injection, prepared from anon-radioactive succimer kitfor radiolabelling with 99mTcprior to administration",,6.0
+34.1.1.2,Hexamethyl propylene amineoxime (HMPAO) (Technetium-99m exametazime)632,"Injection, prepared from a non-radioactive exametazine kit forradiolabelling with 99mTc priorto administration",,6.0
+34.1.1.3,Iodine -123 (sodium iodide)633,Capsule (Oral),3.7MBq (100uCi),6.0
+,,7.4MBq (200uCi),6,
+,,14.8MBq (400uCi),6,
+34.1.1.4,Iodine 131(sodium iodide)634,Capsule (Oral),0.33 MBq (9uCi),6.0
+,,0.61MBq (16.5uCi),6,
+,,1.11MBq (30uCi),6,
+,,2.03MBq (55uCi),6,
+,,3.7MBq (100uCi),6,
+34.1.1.5,Mercaptoacetyltriglycine(MAG3) (Technetium -99mmertiatide)635,"Injection, prepared from anon-radioactive betiatide kitfor radiolabelling with 99mTcprior to administration",,5.0
+34.1.1.6,Methylene diphosphonate(MDP) (Technetium -99mmedronate)636,"Injection, prepared from anon-radioactive medronate kitfor radiolabeling with 99mTcprior to administration",,5.0

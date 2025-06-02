@@ -1,0 +1,20 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+14.4.13,Losartan,Tablet (f/c),50mg,4.0
+14.4.14,Metolazone329,Tablet,5mg,5.0
+14.4.15,Milrinone330,Injection (solution),1mg/mL (10mL),6.0
+14.4.16,Nitroglycerin (NTG),Injection,2.5mg/mL (10mL) amp,5.0
+14.4.17,Norepinephrine(Noradrenaline)331,Injection,1mg/mL,5.0
+14.4.18,Sacubitril + Valsartan332,Tablet (f/c),24mg + 26mg,5.0
+,,,48mg + 52mg,5.0
+14.4.19,Spironolactone,Tablet (scored),25mg,4.0
+14.4.20,Torsemide333,Tablet (scored),20mg,4.0
+,,,10mg,4.0
+14.5 Antithrombotic medicines,,,,
+14.5.1 Anti-platelet medicines,,,,
+14.5.1.1,Acetylsalicylic acid (Aspirin),Tablet,75mg,4.0
+14.5.1.2,Clopidogrel,Tablet,75mg,4.0
+14.5.1.3,Acetylsalicylic acid (Aspirin) +Clopidogrel,Tablet,75mg + 75mg,4.0
+14.5.2 Thrombolytic medicines,,,,
+14.5.2.1,Alteplase334,PFI,50mg,5.0
+,,,100mg,5.0
+14.5.2.2,Reteplase335,PFI,10 Units,5.0

@@ -1,0 +1,16 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+9.2.2.12,Sorafenib255,Capsule,200mg,5.0
+9.2.2.13,Trastuzumab,PFI256,150mg vial,5.0
+,,,440mg vial + diluent,5.0
+,,Injection (Solution forsubcutaneous injection)257,600mg,5.0
+9.2.3 Immunomodulators,,,,
+9.2.3.1,Filgrastim258,Injection (prefilled syringe),120 micrograms/0.2mL,5.0
+,,,300 micrograms/0.5mL,5.0
+9.2.3.2,Lenalidomide259,Capsule,10mg,5.0
+,,,25mg,5.0
+9.2.3.3,Peg-Filgrastim260,Injection (prefilled syringe),6mg/0.6mL,5.0
+9.2.3.4,Pembrolizumab261,Injection,100mg/4mL,5.0
+9.2.3.5,Thalidomide262,Capsule,100mg,5.0
+9.2.4 Hormones and antihormones,,,,
+9.2.4.1,Abiraterone263,Tablet,250mg,5.0
+9.2.4.2,Anastrozole264,Tablet,1mg,5.0

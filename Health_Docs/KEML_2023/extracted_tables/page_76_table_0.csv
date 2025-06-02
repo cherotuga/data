@@ -1,0 +1,21 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+20.5.2.6.3,Sitagliptin + Metformin,Tablet,50mg + 500mg,4.0
+,,,50mg + 850mg,4.0
+,,,50mg + 1000mg,4.0
+20.6 Medicines for hypoglycaemia,,,,
+20.6.1,Diazoxide405,Suspension,50mg/mL,4.0
+20.6.2,Glucagon,injection,1mg/mL,4.0
+20.7 Thyroid Hormones and Anti-thyroid Medicines,,,,
+20.7.1,Carbimazole,Tablet,5mg,4.0
+,,,10mg,4.0
+20.7.2,Levothyroxine,Tablet,25 micrograms [c] (assodium salt),4.0
+,,,50 micrograms (as sodiumsalt),4.0
+,,,100 micrograms (assodium salt),4.0
+20.7.3,Lugol’s Iodine solution406,Solution,~130mg total iodine/mL,4.0
+20.7.4,Propranolol407,Tablet (scored),40mg,4.0
+20.7.5,Propylthiouracil408,Tablet,50mg,4.0
+20.8 Medicines for Management of Hyperparathyroidism,,,,
+20.8.1,Calcitriol (Vit D3)409,Capsule,250 micrograms,4.0
+,,Injection,1 microgram/mL (1 mL),4.0
+20.9 Other endocrine medicines,,,,
+20.9.1,Cabergoline410,Tablet,0.5mg,4.0

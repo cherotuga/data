@@ -1,0 +1,20 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+14.3.6.5 non-selective alpha adrenoceptor antagonist,,,,
+14.3.6.5.1,Phenoxybenzamine322,Capsule,10mg,5.0
+14.3.6.6 Others,,,,
+14.3.6.6.1,Bosentan323,Tablet,62.5mg,4.0
+14.3.6.6.2,Sildenafil324,Tablet,25mg,4.0
+14.3.6.6.3,Tadalafil325,Tablet,20mg,4.0
+14.3.7 Combination Antihypertensive medicinesFixed dose combination (FDC) drugs are recommended as they minimize toxicity and therefore side effects as well asimprove adherence to treatment.,,,,
+14.3.7.1,Amlodipine +Hydrochlorothiazide (HCTZ),Tablet,5mg + 12.5mg,3.0
+14.3.7.2,Amlodipine + Indapamide,Tablet,5mg + 1.25mg,3.0
+14.3.7.3,Lisinopril +Hydrochlorothiazide (HCTZ),Tablet,20mg + 12.5mg,3.0
+14.3.7.4,Losartan +Hydrochlorothiazide (HCTZ),Tablet,50mg + 12.5mg,3.0
+14.3.7.5,Perindopril + Amlodipine,Tablet,5mg + 5mg,3.0
+,,,5mg + 10mg,5.0
+14.3.7.6,Perindopril + Amlodipine +Indapamide,Tablet (Film-coated),5mg + 5mg + 1.25mg,4.0
+,,,10mg + 10mg+ 2.5mg,4.0
+14.3.7.5,Telmisartan + Amlodipine,Tablet,40mg + 5mg,3.0
+14.3.7.6,Telmisartan+ Amlodipine+Hydrochlorothiazide (HCTZ),Tablet,40mg + 5mg + 12.5mg,4.0
+14.3.7.7,Telmisartan +Hydrochlorothiazide (HCTZ),Tablet,40mg + 12.5mg,3.0
+80mg + 12.5mg,3,,,

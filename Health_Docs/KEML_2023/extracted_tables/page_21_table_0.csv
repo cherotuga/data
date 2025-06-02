@@ -1,0 +1,16 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+1.3.9,Ondansetron23,Injection,2mg/mL (2mL Ampoule),4.0
+1.3.10,Phenylephrine24,Injection,10mg/mL Hydrochloride1mL,5.0
+1.3.11,Propofol25,Injection,10mg/mL (20mL vial),4.0
+1.3.12,Remifentanyl,PFI,2mg/2mL,5.0
+1.4 Medical gases,,,,
+1.4.1,Medical air,Inhalation (medical gas),,4.0
+1.4.2,Nitrous oxide,Inhalation (medical gas),,4.0
+1.4.3,Oxygen26,Inhalation (medical gas),,2.0
+"2  MUSCLE RELAXANTS (PERIPHERALLY ACTING), CHOLINESTERASE INHIBITORS andANTICHOLINERGICS",,,,
+2.1 Muscle relaxants,,,,
+2.1.1,Atracurium,Injection,10mg (as besilate)/mL(5mL amp),4.0
+2.1.2,Cisatracurium,Injection,2mg (as besilate)/mL(10mL amp),4.0
+2.1.3,Rocuronium,Injection,"10mg/mL (as bromide),5mL vial",5.0
+2.1.4,Suxamethonium27,Injection,50mg (as chloride)/mL(2mL amp),4.0
+2.1.5,Vecuronium,PFI,10mg (as bromide) vial[c],6.0

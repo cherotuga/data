@@ -1,0 +1,22 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+20.5.2.2 Biguanides,,,,
+20.5.2.2.1,Metformin400,Tablet,500mg (as HCl),3.0
+,,850mg (as HCl),3,
+,,1gm (as HCl),3,
+20.5.2.3 Thiazolidinediones,,,,
+20.5.2.3.1,Pioglitazone401,Tablet,15mg,4.0
+,,30mg,4,
+20.5.2.4 DipeptidyIpeptidase (DPP)-4 inhibitors (Gliptins),,,,
+20.5.2.4.1,Linagliptin402,Tablet (f/c),5mg,5.0
+20.5.2.4.2,Sitagliptin403,Tablet,50mg,4.0
+,,100mg,5,
+20.5.2.5 SGLT-2 inhibitors,,,,
+20.5.2.5.1,Empagliflozin404,Tablet,10mg,4.0
+,,25mg,5,
+20.5.2.6 Fixed Dose Combinations,,,,
+20.5.2.6.1,Empagliflozin + Metformin,Tablet (i/r),12.5mg + 500mg,4.0
+,,12.5mg + 1000mg,4,
+,,5mg + 500mg,4,
+,,5mg + 1000mg,4,
+20.5.2.6.2,Pioglitazone + Metformin,Tablet,15mg + 500mg,4.0
+15mg + 850mg,4,,,

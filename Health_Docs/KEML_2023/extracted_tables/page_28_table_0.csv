@@ -1,0 +1,18 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+6.6,Gabapentin,Tablet,300mg,4.0
+,,,100mg,4.0
+6.7,Lamotrigine78,Tablet,25mg,4.0
+,,,100mg,4.0
+,,"Tablet, (chewable, dispersible)",5mg,4.0
+,,,25mg,4.0
+6.8,Levetiracetam,Injection (IV)79,500mg,5.0
+,,Oral Solution,100mg/mL,5.0
+,,Tablet (scored)80,500mg,4.0
+6.9,Lorazepam81,Injection,4mg/1mL amp,2.0
+6.10,Magnesium sulphate82,Injection,"500mg/mL (50%), (10mLamp/vial)",2.0
+6.1,Midazolam,Injection,1mg (as HCl)/mL (5mLamp)83,4.0
+,,,5mg (as HCl)/mL (3mLamp84,4.0
+,,Oromucosal solution85,5mg/mL,4.0
+,,,10mg/mL,4.0
+6.12,Oxcarbazepine,SODF,150mg,4.0
+300mg,4,,,

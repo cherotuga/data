@@ -1,0 +1,16 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+7.2.3.4,Linezolid130,Injection (IV),2mg/mL in 300mL bag,5.0
+,,Tablet,600mg,5.0
+7.2.3.5,Meropenem131,PFI,500mg (as trihydrate),5.0
+7.2.3.6,Polymyxin B132,PFI,"500,000 IU vial",5.0
+7.2.3.7,Teicoplanin133,Injection,200mg,5.0
+7.2.3.8,Tigecycline134,PFI,50mg vial,5.0
+7.2.3.9,Vancomycin135,PFI,500mg vial (as HCl),5.0
+"7.2.4 Antileprosy medicinesThese Anti-leprosy medicines to be used only in combination, never individually, to prevent emergence of drugresistance.",,,,
+7.2.4.1,Clofazamine,Capsule,50mg,4.0
+,,,100mg,4.0
+7.2.4.2,Dapsone,Tablet,100mg,4.0
+,,,25mg,4.0
+7.2.4.3,Rifampicin (R),Tablet / Capsule,150mg,4.0
+300mg,4,,,
+7.2.5 Antituberculosis medicinesAntituberculosis treatment must always be with FDCs +/- additional relevant individual drugs.,,,,

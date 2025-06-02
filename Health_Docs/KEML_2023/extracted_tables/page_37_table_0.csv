@@ -1,0 +1,24 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+7.2.5.3.4,Clofazimine (Cfx),Capsule,50mg,3.0
+,,,100mg,3.0
+7.2.5.3.5,Cycloserine (Cs),Tablet,125mg [c],3.0
+,,,250mg,3.0
+7.2.5.3.6,Delamanid (Dlm),Tablet,50mg,3.0
+7.2.5.3.7,Imipenem + Cilastatin,PFI,250mg + 250mg vial,3.0
+,,,500mg + 500mg vial,3.0
+7.2.5.3.8,Levofloxacin (Lfx),Tablet (dispersible),100mg [c],3.0
+,,Tablet,250mg,3.0
+,,,500mg (scored),3.0
+,,,750mg,3.0
+7.2.5.3.9,Linezolid (Lzd),Tablet (dispersible),150mg [c],3.0
+,,Tablet,600mg,3.0
+7.2.5.3.10,Moxifloxacin (Mfx),Tablet (dispersible),100mg [c],3.0
+,,Tablet,400mg,3.0
+7.2.5.3.11,p-aminosalicylic acid (PAS),Granules,4g sachet,3.0
+7.2.5.3.12,Prothionamide (Pto),Tablet,250mg,3.0
+7.2.5.3.13,Terizidone (Trd),Tablet,300mg,3.0
+7.2.5.3.14,Pretomanid136,Tablet,200mg,3.0
+7.3 Antifungal Medicines,,,,
+7.3.1,Amphotericin B137,PFI,50mg (as sodiumdeoxycholate) vial,4.0
+,,Injection,(Liposomal) 50mg vial,4.0
+7.3.2,Clotrimazole138,Vaginal Tablet,500mg,2.0
