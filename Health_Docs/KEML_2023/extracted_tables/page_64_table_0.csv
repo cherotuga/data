@@ -1,0 +1,22 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+14.4 Medicines used in Heart Failure,,,,
+14.4.1,Bisoprolol,Tablet,2.5mg,4.0
+,,,5mg,4.0
+14.4.2,Carvedilol,Tablet,3.125mg,
+,,,6.25mg,4.0
+,,,12.5mg,4.0
+,,,25mg,4.0
+14.4.3,Digoxin,Oral liquid326,50 micrograms/mL,4.0
+,,Tablet,125 micrograms,4.0
+14.4.4,Dobutamine,Injection (solution),12.5mg/mL (20mL),5.0
+14.4.5,Dopamine327,Injection,40mg/mL (as HCl) (5mLvial),5.0
+14.4.6,Empagliflozin,Tablet,10mg,5.0
+14.4.7,Enalapril,Tablet (scored),5mg (as hydrogenmaleate),4.0
+14.4.8,Eplerenone,Tablet,25mg,4.0
+14.4.9,Furosemide,Injection,10mg/mL (2mL amp),4.0
+,,Tablet (cross-scored)328,40mg,3.0
+14.4.10,Hydralazine,Tablet,25mg (as HCl),4.0
+,,,50mg (as HCl),4.0
+14.4.11,Isosorbide dinitrate,Tablet,20mg,4.0
+14.4.12,Ivabradine,Tablet (f/c),5mg,5.0
+Tablet (f/c),7.5mg,5,,

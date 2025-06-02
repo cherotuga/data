@@ -1,0 +1,21 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+7.4.2.3.2,Darunavir (DRV)149,Tablet,75mg,3.0
+,,150mg,3,
+,,600mg (f/c),3,
+,Oral liquid,10mg/mL (200mL),3,
+7.4.2.3.3,Darunavir + Ritonavir(DRV+r),Tablet,600mg + 100mg,3.0
+,,800mg + 100mg,3,
+7.4.2.3.4,Lopinavir + ritonavir (LPV+r),Tablet (heat-stable),100mg + 25mg,2.0
+,,200mg + 50mg,2,
+,Granules (In Sachet)150,40mg +10mg,2,
+7.4.2.3.5,Ritonavir (RTV),Tablet (heat-stable),100mg,2.0
+,Oral powder,100mg sachet [c],2,
+7.4.2.4 Integrase Inhibitors (PI),,,,
+7.4.2.4.1,Cabotegravir151,"Injection (Long acting), Single-dose vial",600mg/3mL,2.0
+7.4.2.4.2,Dolutegravir (DTG)152,Tablet,50mg,2.0
+,,10mg,2,
+,Tablet (dispersible),10mg,2,
+7.4.2.5 Fixed Dose Combinations (FDCs),,,,
+7.4.2.5.1,Abacavir + lamivudine(ABC+3TC),"Tablet, (dispersible, scored)",120mg (as sulphate) +60mg,2.0
+,Tablet,600mg (as sulphate) +300mg,2,
+7.4.2.5.2,Tenofovirdisoproxil fumarate +Emtricitabine (TDF+FTC)153,Tablet,300mg + 200mg,2.0

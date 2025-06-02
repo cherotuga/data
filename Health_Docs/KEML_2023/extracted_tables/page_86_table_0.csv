@@ -1,0 +1,24 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+25.1.7,Midazolam488,Injection (IM),5mg/mL (3mL amp),4.0
+25.1.8,Olanzapine489,PFI,10mg,5.0
+,,Tablet,10mg,3.0
+,,,5mg,3.0
+,,Tablet (dispersible),10mg,3.0
+25.1.9,Paliperidone palmitate490,Injection,75mg/mL,5.0
+,,,100mg/mL,5.0
+,,,150mg/mL,5.0
+25.1.10,Quetiapine,"Tablet (i/r, scored)",100mg,4.0
+,,,300mg,4.0
+,,,200mg,4.0
+,,Tablet (e/r),300mg,4.0
+,,,200mg,4.0
+25.1.11,Risperidone,Tablet (scored),2mg,3.0
+25.1.12,Zuclopenthixol,Injection (aqua)491,100mg (as acetate)/mL(2mL amp),4.0
+,,"Injection (oily, depot)492",200mg (as decanoate)/1mLamp,4.0
+,,Oral drops493,20mg/mL (20mL),4.0
+25.2 Medicines used in Mood disorders,,,,
+25.2.1 Medicines used in Depressive disorders,,,,
+25.2.1.1,Amitriptyline,Tablet,25mg (as HCl),2.0
+25.2.1.2,Escitalopram494,Tablet,10mg,3.0
+25.2.1.3,Fluoxetine,Tablet (scored),20mg (as HCl),3.0
+25.2.1.4,Mirtazapine495,Tablet,15mg,5.0

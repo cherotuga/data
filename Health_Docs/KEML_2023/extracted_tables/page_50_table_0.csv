@@ -1,0 +1,16 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+9.2.1.22,Irinotecan225,Injection,20mg/mL (2mL vial),5.0
+,,,20mg/mL (5mL vial),5.0
+9.2.1.23,L - Asparaginase226,PFI,"10,000 IU vial",5.0
+9.2.1.24,Liposomal Doxorubicin(Pegylated)227,Solution for Injection,20mg vial,5.0
+,,,50mg vial,5.0
+9.2.1.25,Melphalan,Tablet228,2mg,5.0
+,,PFI229,50mg vial,5.0
+9.2.1.26,Mercaptopurine230,Tablet,50mg,5.0
+9.2.1.27,Methotrexate231,PFI (preservative-free),25mg (as sodium salt)/mL(2mL vial),5.0
+,,PFI (preservative-free),25mg (as sodium salt)/mL(20mL vial)232,5.0
+,,Tablet,2.5mg (as sodium salt),5.0
+,,,10mg,5.0
+9.2.1.28,Mitomycin C233,Injection,10mg,5.0
+9.2.1.29,Oxaliplatin234,Solution for Injection,2mg/mL (25mL vial),5.0
+2mg/mL (50mL vial),5,,,

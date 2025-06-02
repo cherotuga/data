@@ -1,0 +1,23 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+14.3 Antihypertensive medicines,,,,
+14.3.1 Angiotensin converting enzyme Inhibitors (ACEIs),,,,
+14.3.1.1,Enalapril,Tablet (scored),5mg (as hydrogenmaleate),3.0
+,,,10mg (as hydrogenmaleate),3.0
+,,,20mg (as hydrogenmaleate),3.0
+14.3.2 Angiotensin Receptor Blockers (ARBs),,,,
+14.3.2.1,Losartan,Tablet (f/c),50mg,3.0
+14.3.2.2,Telmisartan,Tablet,40mg,4.0
+,,,80mg,4.0
+14.3.3 Beta Blockers (BBs),,,,
+14.3.3.1,Bisoprolol,Tablet,2.5mg,4.0
+,,,5mg,4.0
+14.3.3.2,Labetalol,Injection314,5mg/mL (20mL amp),4.0
+,,Tablet315,100mg,3.0
+,,,200mg,3.0
+14.3.3.3,Metoprolol,Tablet(e/r),25mg,3.0
+,,,50mg,3.0
+14.3.3.4,Nebivolol,Tablet,2.5mg,3.0
+,,,5mg,3.0
+14.3.4 Calcium channel Blockers (CCBs),,,,
+14.3.4.1,Amlodipine,Tablet,5mg,3.0
+10mg,3,,,

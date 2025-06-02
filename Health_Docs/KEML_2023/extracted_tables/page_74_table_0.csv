@@ -1,0 +1,22 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+20.5 Medicines for diabetes,,,,
+20.5.1 Insulins,,,,
+20.5.1.1,"Insulin,intermediate-acting (NPH)",Injection,100 IU/mL (10mL vial),4.0
+20.5.1.2,"Insulin, long-acting, Detemir",Injection,100U/mL (10mL vial),4.0
+,,,100 IU/mL (3 mL cartridgeor prefilled pen),4.0
+20.5.1.3,"Insulin, Long-acting (basal),Glargine",Injection,100 IU/mL (10mL vial),4.0
+,,,100 IU/mL (3 mL cartridgeor prefilled pen),4.0
+20.5.1.4,"Insulin, Premixed (Shortacting + Intermediate acting)(Human)397",Injection,100 IU/mL (10mL vial),4.0
+,,,100 IU/mL (3mL prefilledpen),4.0
+20.5.1.5,"Insulin, Premixed (Ultrashort acting + Intermediateacting)398",Injection,100 IU/mL (10mL vial),4.0
+,,,100 IU/mL (3mL prefilledpen),4.0
+20.5.1.6,"Insulin, Short acting(Soluble / regular)",Injection,100 IU/mL (10mL vial),3.0
+,,,100IU/mL (3mL penfill),3.0
+20.5.1.7,"Insulin, Ultra short-acting(Rapid)(Insulin Lispro and Aspart)",Injection,100 IU/mL (10mL vial),4.0
+,,,100IU/mL (3mL prefilledpen),4.0
+20.5.2 Oral hypoglycaemic agents,,,,
+20.5.2.1 Sulphonylureas,,,,
+20.5.2.1.1,Gliclazide399,Tablet (m/r),30mg,3.0
+,60mg,3,,
+Tablet (i/r),40mg,3,,
+80mg,3,,,

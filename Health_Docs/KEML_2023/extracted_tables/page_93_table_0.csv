@@ -1,0 +1,21 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+28.3.5,Rituximab544,Injection (IV),10mg/mL (10mL vial),6.0
+,,,10mg/mL (50mL vial),6.0
+28.3.6,Tocilizumab545,Injection (solution for IVinfusion),20mg/mL (4mL vial),6.0
+,,"Injection, single use prefilledsyringe for subcutaneousinjection",162mg/0.9mL,6.0
+28.3.7,Triamcinolone546,Injection (suspension),40mg/1mL amp(as acetonide orhexacetonide),6.0
+29  MEDICINES for OSTEOPOROSIS,,,,
+29.1,Alendronate,Tablet,70mg,4.0
+29.2,Zoledronic acid,Injection,5mg (in 100mL),5.0
+30  MEDICINES for WOUND CARE,,,,
+30.1,β-Sitosterol547,Ointment,0.25% w/w (30gm),2.0
+30.2,Collagenaseclostridiopeptidase A +Proteases548,Ointment,1.2 units + 0.24 units (15g),2.0
+30.3,Distilled water549,Liquid,500mL,2.0
+30.4,Human Epidermal growthfactor (recombinant)550,Gel (water-based),60 micrograms (15g),4.0
+30.5,Human Platelet derivedgrowth factor (recombinant),Gel (water-based),100 micrograms (15g),4.0
+30.6,Metronidazole551,Gel,0.75% or 0.80%,4.0
+30.7,Papain + Urea(Papain-urea topical)552,Ointment,"521,700 IU + 100mg (15g)",4.0
+30.8,Silver ion553,Solution,0.01% (100mL),4.0
+,,,0.01% (250mL),4.0
+30.9,Silver sulphadiazine554,Cream,1% (50g),2.0
+1% (250g),2,,,

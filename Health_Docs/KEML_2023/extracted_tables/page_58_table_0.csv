@@ -1,0 +1,21 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+13  BLOOD PRODUCTS of HUMAN ORIGIN and PLASMA SUBSTITUTES,,,,
+13.1 Blood and Blood Components,,,,
+13.1.1,Cryoprecipitate297,,,5.0
+13.1.2,"Plasma, fresh-frozen",,,4.0
+13.1.3,Platelets,,,4.0
+13.1.4,Red blood cells,,,4.0
+13.1.5,Whole blood,,,4.0
+13.2 Plasma-derived Medicines,,,,
+13.2.1 Human immunoglobulins,,,,
+13.2.1.1,Anti-D immunoglobulin298,PFI + diluent,750 IU/mL (2mL vial),4.0
+13.2.1.2,Anti-Hepatitis Bimmunoglobulin (HBIG)299,Injection,100 IU/mL,4.0
+13.2.1.3,Anti-Rabiesimmunoglobulin300,Injection,200 IU/mL (5mL vial),2.0
+13.2.1.4,Ant-Tetanusimmunoglobulin301,Injection,1500 IU vial,4.0
+13.2.1.5,Normal immunoglobulin302,Injection (IV),5% protein solution(100mL vial),5.0
+,,10% protein solution(100mL vial),5,
+13.2.2 Blood Coagulation Factors,,,,
+13.2.2.1,Coagulation factor VIII,PFI (Extended half-life),250 IU vial,4.0
+500 IU vial,4,,,
+"1,000 IU vial",4,,,
+"2,000 IU vial",4,,,

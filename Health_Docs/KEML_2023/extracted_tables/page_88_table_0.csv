@@ -1,0 +1,19 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+25.5.2,Vitamin B and C499,Injection (IV),Pair of amps. (2 x 5mL),4.0
+25.5.3,Buprenorphine500,Tablet (sublingual),2mg (as HCl),4.0
+,,8mg (as HCl),4,
+25.5.4,Buprenorphine + Naloxone,Tablet (sublingual),2mg + 500 micrograms(both as HCl),4.0
+,,8mg + 2mg (both as HCl),4,
+25.5.5,Bupropion501,Tablet,150mg,4.0
+25.5.6,Methadone502,Oral liquid,5mg/mL (as HCl)(concentrate),4.0
+25.5.7,Naltrexone,Tablet503,50mg (as HCl),4.0
+,"Injection (IM, suspension forextended release)504",380mg (as HCl),4,
+,Implant505,765mg (as HCl),6,
+25.5.8,Nicotine (NRT)506,Chewing gum,2mg,4.0
+,,4mg,4,
+,Transdermal patch507,7-21mg/24 hours,4,
+25.6 Medicines used in attention deficit hyperactivity disorder (ADHD),,,,
+25.6.1,Atomoxetine,Tablet,10mg,6.0
+25.6.2,Methylphenidate508,Tablet,10mg,4.0
+Tablet (e/r),18mg,4,,
+27mg,5,,,

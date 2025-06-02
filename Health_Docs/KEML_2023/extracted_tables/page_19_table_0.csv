@@ -1,0 +1,19 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+"1  ANAESTHETICS, PRE- & INTRA-OPERATIVE MEDICINES and MEDICAL GASE",,,,
+1.1 General Anaesthetics,,,,
+1.1.1 Inhalational medicines,,,,
+1.1.1.1,Halothane,Inhalation,250mL,4.0
+1.1.1.2,Isoflurane,Inhalation,250mL,4.0
+1.1.1.3,Sevoflurane2,Inhalation,250mL,5.0
+1.1.2 Injectable medicines,,,,
+1.1.2.1,Dexmedetomidine3,Injection,200 micrograms/2mL,5.0
+1.1.2.2,Etomidate4,Injection,2mg/mL (10mL Vial),6.0
+1.1.2.3,Fentanyl5,Injection,50micrograms/mL (2mLAmpoule),4.0
+1.1.2.4,Ketamine,Injection,50mg (as HCL)/mL (10mLvial),4.0
+1.1.2.5,Midazolam6,Injection,1mg (as HCl)/mL (5mLamp),4.0
+1.1.2.6,Propofol7,Injection,10mg/mL (20mL vial),4.0
+1.1.2.7,Remifentanyl8,PFI,2mg/2mL,5.0
+1.1.2.8,Thiopental sodium9,PFI,500mg vial,4.0
+"1.2 Local AnaestheticsFor spinal, epidural, caudal or IV regional anaesthesia, use preservative-free injections.",,,,
+1.2.1,Bupivacaine,Injection,0.5% (as HCl) (10mL vial),4.0
+1.2.2,Bupivacaine + Glucose10,Injection,0.5% (as HCl) (5mg/mL) +glucose 8% (80mg/mL)(4mL amp),4.0

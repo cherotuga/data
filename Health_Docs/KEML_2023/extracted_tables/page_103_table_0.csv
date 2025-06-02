@@ -1,0 +1,12 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+34.1.1.7,Molybdenum-99 /Technetium-99mradionuclide generator637,Radionuclide generator,"1, 2, 2.5, 3, 4, 4.5, 5, 6, 7.5,10, 12.5, 15, 18, 20 Ci of99Mo",5.0
+34.1.1.8,Sestamethoxyisobutylisonitrile(sestamibi) (Technetium-99m Sestamibi)638,"Injection, prepared from anon-radioactive sestamibi kitfor radiolabeling with 99mTcprior to administration",,5.0
+34.1.1.9,Technetium - 99m disofenin(DISIDA)639,"Injection, prepared from anon-radioactive disofenin kitfor radiolabelling with 99mTcprior to administration",,6.0
+34.1.1.10,Technetium - 99mleucocytes640,Injection,,6.0
+34.1.1.11,Technetium - 99mmebrofenin (BRIDA)641,"Injection, prepared from anon-radioactive mebrofenin kitfor radiolabelling with 99mTcprior to administration",,5.0
+34.1.1.12,Technetium-99m pentetate(DTPA)642,"Injection, Inhalation, preparedfrom a non-radioactivepentetate kit for radiolabellingwith 99mTcprior to administration",,6.0
+34.1.1.13,Technetium-99m sodiumpertechnetate643,"Injection, eluted fromapproved 99Mo/99mTcradionuclide generator",,6.0
+34.1.1.14,Technetium-99m sodiumpertechnetate,"Precursorradiopharmaceutical, elutedfrom approved 99Mo/99mTcradionuclide generator",,6.0
+34.1.2 Radiopharmaceuticals for Positron emission tomography (PET)Use in Positron emission tomography (PET).,,,,
+34.1.2.1,[Fluorine-18] ProstateSpecific Membrane Antigen(PSMA) 1007,,,6.0
+34.1.2.2,Fluorodeoxyglucose (FDG)(Fluorine -18),Injection,0.74 – 11.1 GBq (20 – 300mCi/mL),5.0

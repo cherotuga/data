@@ -1,0 +1,19 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+21.3.7,Pneumococcal vaccine (13valent or higher adsorbedconjugate)419,Injection (syringe),Single or multi dose vial,2.0
+21.3.8,Polio vaccine (IPV),Injection,Multi dose vial,2.0
+21.3.9,"Polio vaccine, oral (OPV) (liveattenuated)",Oral drops,10mL vial (20 doses),2.0
+21.3.10,Rotavirus vaccine420,Oral suspension,5 dose vial,2.0
+21.3.11,Tetanus + Diphtheria (Td)vaccine421,Injection,10mL vial (20 doses),2.0
+21.3.12,Tetanus + Diphtheria +Pertussis (Tdap) vaccine422,Injection,0.5mL (single dose),2.0
+Recommended for some regions,,,,
+21.3.13,"Yellow fever vaccine (live,attenuated)423",Injection,Single or multi dose vial,2.0
+Recommended for some high-risk populations,,,,
+21.3.14,Cholera vaccine,Oral suspension,1.5mL vial (single dose) -single dose vial,2.0
+21.3.15,Hepatitis A vaccine,Injection,80 units (Paed),2.0
+,,160 units (Adult),2,
+21.3.16,Malaria vaccine424,Injection,1mL vial (2 doses),2.0
+21.3.17,Meningococcal meningitisvaccine425,Injection,Single or multi dose,2.0
+21.3.18,Rabies vaccine (cell culture),Injection,Single dose (PurifiedVerocell / Human diploid),2.0
+21.3.19,Typhoid vaccine426,Injection (solution),Single or multi dose,2.0
+Recommended for immunisation programmes with certain characteristics,,,,
+21.3.20,Influenza vaccine(inactivated)427,Injection,0.5mL vial (single dose),2.0

@@ -1,0 +1,20 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+9.1.6,Everolimus200,Tablet,500 micrograms (or0.5mg),5.0
+9.1.7,Methylprednisolone,PFI,125mg (as sodiumsuccinate),4.0
+,,500mg (as sodiumsuccinate),4,
+9.1.8,Mycophenolic acid201,Tablet (e/c),180mg (as mycophenolatesodium),6.0
+,,360mg (as mycophenolatesodium),6,
+9.1.9,Mycophenolate mofetil202,Tablet,250mg,6.0
+,,500mg,6,
+9.1.10,Prednisolone,Tablet,5mg,5.0
+,,20mg,5,
+9.1.11,Rituximab203,Injection (IV),10mg/mL (10mL vial),6.0
+,,10mg/mL (50mL vial),6,
+9.1.12,Tacrolimus,Concentrate(for IV infusion),5mg/1mL amp,6.0
+,Capsule,500 micrograms,6,
+,,1mg,6,
+,,5mg,6,
+9.2 Antineoplastic and supportive medicines,,,,
+9.2.1 Cytotoxic medicines,,,,
+9.2.1.1,Arsenic trioxide204,Concentrate solution forInfusion,1mg/mL,6.0
+9.2.1.2,Bendamustine205,Injection,100mg vial,5.0

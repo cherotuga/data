@@ -1,0 +1,18 @@
+#,Name of Medicine,Dose-form,Strength  / Size,LOU
+20.9.2,Desmopressin,Injection411,4mcg/mL,5.0
+,,Nasal spray412,10mcg/spray,5.0
+20.9.3,Somatropin (recombinanthuman growth hormone)413,Prefilled pen,12mg,5.0
+21  IMMUNOLOGICALS,,,,
+21.1 Diagnostic agents,,,,
+21.1.1,"Tuberculin, purified protein,derivative (PPD)414",Injection (solution),0.1mL vial (single dose),4.0
+21.2 Sera and Immunoglobulins,,,,
+21.2.1,Anti Snake venomimmunoglobulin415,Injection (for IV infusion),Polyvalent serum(African) (10mL vial),4.0
+21.3 Vaccines,,,,
+Recommended for all,,,,
+21.3.1,BCG vaccine (live attenuated),PFI + diluent,1mL vial (multi doses),2.0
+21.3.2,DPT + HiB + Hep B vaccine(pentavalent)416,Injection (suspension),5mL vial (10 doses),2.0
+21.3.3,Hepatitis B vaccine,Injection (suspension),Single dose vial,2.0
+,,Injection (suspension),Multi dose vial,2.0
+21.3.4,HPV vaccine (quadrivalent)417,Injection,Single or multi dose vial,2.0
+21.3.5,Measles + Rubella vaccine(MR)418,PFI + diluent,5mL vial (10 doses),2.0
+21.3.6,Pneumococcal vaccine(10-valent ads. conjugate),Injection (suspension),2mL vial (4 doses),2.0
