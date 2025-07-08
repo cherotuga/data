@@ -6,6 +6,9 @@ import re  # For regular expressions
 import warnings  # For suppressing warnings
 from fuzzywuzzy import process  # For fuzzy matching county names
 import logging  # For detailed logging
+import datetime
+import argparse
+from statistics import mode
 
 # Set up logging to track progress and debug issues
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -26,7 +29,7 @@ COUNTIES = [
 # Debugging
 TARGET_COUNTY = ["nakuru"]  # Case-sensitive
 header_debug = False
-match_line_debug = False
+match_line_debug = True
 normalize_debug = False
 toc_debug = False
 
@@ -251,29 +254,21 @@ def finalize_buffer(current_county, table_buffer, county_tables):
         if current_county in TARGET_COUNTY:
             logging.info("No program tables for %s; keeping empty DataFrame", current_county)
 
+from statistics import mode
+
 def extract_programme_tables(pdf_path):
-    """
-    Extract program tables for each county from a PDF using an iterative approach.
-    
-    Args:
-        pdf_path (str): Path to the PDF file.
-    
-    Returns:
-        dict: County names to DataFrames, plus list of errors.
-    """
     county_tables = {county: pd.DataFrame() for county in NORMALIZED_COUNTY_MAP}
     errors = []
     
-    # Regex patterns for headings and section ends
-    program_heading_pattern = r"Table\s+\d+\.\d+\s*:\s*([A-Za-z\s’'-]+?)\s*County\s*[,;]?\s*(Budget\s+Execution\s+by\s+(?:Programmes|Programs)\s+and\s+(?:Sub-Programmes|Sub-Programs)[^0-9]*?)(?=\n|$|\s*\d+\.\d+)"
-    new_county_pattern = r"(?:\d+\.\d+\.\s*)?County\s+Government\s+of\s+([A-Za-z\s'-]+?)(?=\n|$)"
-    nairobi_pattern = r"(?:\d+\.\d+\.\s*)?Nairobi\s+City\s+County(?:\s+Government)?(?=\n|$)"
+    # Updated regex patterns
+    program_heading_pattern = r"Table\s+\d+\s*:\s*([A-Za-z\s’'-]+?)\s*County\s*[,;]?\s*(Budget\s+Execution\s+by\s+(?:Programmes|Programs)\s+and\s+(?:Sub-Programmes|Sub-Programs)[^0-9]*?)(?:\s*\.*\s*\d+)?(?=\n|$)"
+    new_county_pattern = r"(?:\d+\.\d+\.\s*)?County\s+Government\s+of\s+([A-Za-z\s'-]+?)(?:\s*\.*\s*\d+)?(?=\n|$)"
+    nairobi_pattern = r"(?:\d+\.\d+\.\s*)?Nairobi\s+City\s+County(?:\s+Government)?(?:\s*\.*\s*\d+)?(?=\n|$)"
     overview_pattern = r"Overview\s+of\s+FY\s+2023/24\s+Budget"
     end_section_pattern = r"(Accounts\s+Operated\s+(?:by\s+)?Commercial\s+Banks|Key\s+Observations\s+and\s+Recommendations)"
     
     try:
         with pdfplumber.open(pdf_path) as pdf:
-            # Parse TOC for validation
             toc_map = parse_toc(pdf)
             if toc_debug:
                 logging.info(
@@ -290,34 +285,37 @@ def extract_programme_tables(pdf_path):
             last_heading_lines = []
             
             for page_num, page in enumerate(pdf.pages, 1):
-                # Extract text lines with font size
                 text_lines = []
                 if hasattr(page, 'chars'):
                     current_line = []
+                    font_sizes = []
                     prev_y = None
-                    current_font_size = None
                     for char in page.chars:
                         y = char['y0']
                         font_size = char.get('size', 10)
                         if prev_y is not None and abs(y - prev_y) > 5:
                             if current_line:
                                 line_text = ''.join(current_line)
-                                text_lines.append((line_text, current_font_size))
+                                line_font_size = mode([fs for fs in font_sizes if fs > 0]) if any(fs > 0 for fs in font_sizes) else max(font_sizes, default=10)
+                                text_lines.append((line_text, line_font_size))
                             current_line = [char['text']]
-                            current_font_size = font_size
+                            font_sizes = [font_size]
                         else:
                             current_line.append(char['text'])
+                            font_sizes.append(font_size)
                         prev_y = y
                     if current_line:
-                        text_lines.append((''.join(current_line), current_font_size))
+                        line_text = ''.join(current_line)
+                        line_font_size = mode([fs for fs in font_sizes if fs > 0]) if any(fs > 0 for fs in font_sizes) else max(font_sizes, default=10)
+                        text_lines.append((line_text, line_font_size))
                 
-                # Check previous page's headings if no county set
                 if not current_county and not text_lines and last_heading_lines:
                     for line, font_size in last_heading_lines[-5:]:
                         nairobi_match = re.search(nairobi_pattern, line, re.IGNORECASE)
                         new_county_match = re.search(new_county_pattern, line, re.IGNORECASE)
                         program_match = re.search(program_heading_pattern, line, re.IGNORECASE)
-                        if nairobi_match and font_size > 10:
+                        is_heading = font_size is not None and (font_size >= 10 or font_size == 0.0)
+                        if nairobi_match and is_heading:
                             county = fuzzy_match_county("Nairobi City", NORMALIZED_COUNTY_MAP)
                             if county:
                                 finalize_buffer(current_county, table_buffer, county_tables)
@@ -328,7 +326,7 @@ def extract_programme_tables(pdf_path):
                                     logging.info("Page %d: Set county to %s from previous page Nairobi heading (font_size=%.1f): %s", 
                                              page_num, county, font_size or 0, line.strip())
                                 break
-                        elif new_county_match and font_size > 10:
+                        elif new_county_match and is_heading:
                             county_raw = new_county_match.group(1).strip()
                             county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
                             if county:
@@ -340,7 +338,7 @@ def extract_programme_tables(pdf_path):
                                     logging.info("Page %d: Set county to %s from previous page county heading (font_size=%.1f): %s", 
                                              page_num, county, font_size or 0, line.strip())
                                 break
-                        elif program_match and font_size > 10:
+                        elif program_match and is_heading:
                             county_raw = program_match.group(1).strip()
                             county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
                             if county:
@@ -353,18 +351,33 @@ def extract_programme_tables(pdf_path):
                                              page_num, county, font_size or 0, line.strip())
                                 break
                 
-                # Detect headings and section ends
                 for line, font_size in text_lines:
                     normalized_line = normalize_county_name(line)
-                    is_heading = font_size is not None and font_size > 10
                     log_county = any(c in normalized_line for c in TARGET_COUNTY)
                     
-                    if log_county and not is_heading and match_line_debug == True:
-                        logging.warning("Unmatched county line: line='%s', font_size=%.1f, reason='Font size too small'", 
-                                       line, font_size or 0)
-                    
-                    # Check for Nairobi City heading
                     nairobi_match = re.search(nairobi_pattern, line, re.IGNORECASE)
+                    new_county_match = re.search(new_county_pattern, line, re.IGNORECASE)
+                    program_match = re.search(program_heading_pattern, line, re.IGNORECASE)
+
+                    overview_match = re.search(overview_pattern, line, re.IGNORECASE)
+                    end_match = re.search(end_section_pattern, line, re.IGNORECASE)
+                    
+                    is_heading = font_size is not None and (font_size >= 10 or font_size == 0.0)
+                    
+                    if log_county and match_line_debug:
+                        if nairobi_match:
+                            logging.debug("✅ Nairobi regex matched: line='%s'", line)
+                        if new_county_match:
+                            logging.debug("✅ New county regex matched: line='%s', county_raw='%s'", line, new_county_match.group(1).strip())
+                        if program_match:
+                            logging.debug("✅ Program regex matched: line='%s', county_raw='%s'", line, program_match.group(1).strip())
+                        if not (nairobi_match or new_county_match or program_match):
+                            logging.warning("🙅‍♀️Unmatched county line: line='%s', font_size=%.1f, reason='No regex match'", 
+                                           line, font_size or 0)
+                        if not is_heading:
+                            logging.warning("🚫Unmatched county line: line='%s', font_size=%.1f, reason='Font size too small'", 
+                                           line, font_size or 0)
+                    
                     if nairobi_match and is_heading:
                         county = fuzzy_match_county("Nairobi City", NORMALIZED_COUNTY_MAP)
                         if county:
@@ -377,8 +390,6 @@ def extract_programme_tables(pdf_path):
                                          line, font_size or 0, county)
                             continue
                     
-                    # Check for new county heading
-                    new_county_match = re.search(new_county_pattern, line, re.IGNORECASE)
                     if new_county_match and is_heading:
                         county_raw = new_county_match.group(1).strip()
                         county_raw_clean = re.sub(r"County\s+Government\s+of\s+", "", county_raw, flags=re.IGNORECASE)
@@ -393,19 +404,16 @@ def extract_programme_tables(pdf_path):
                                          line, font_size or 0, county)
                             continue
                     
-                    # Check for overview (confirm current county)
-                    overview_match = re.search(overview_pattern, line, re.IGNORECASE)
-                    if overview_match and is_heading and current_county:
-                        finalize_buffer(current_county, table_buffer, county_tables)
-                        table_buffer = []
-                        prev_headers = None
-                        if current_county in TARGET_COUNTY:
-                            logging.info("🔍 Overview matched for %s: line='%s', font_size=%.1f", 
-                                     current_county, line, font_size or 0)
-                        continue
+                    # Overview is a back up in case the start isn't detected.
+                    # if overview_match and is_heading and current_county:
+                    #     finalize_buffer(current_county, table_buffer, county_tables)
+                    #     table_buffer = []
+                    #     prev_headers = None
+                    #     if current_county in TARGET_COUNTY:
+                    #         logging.info("🔍 Overview matched for %s: line='%s', font_size=%.1f", 
+                    #                  current_county, line, font_size or 0)
+                    #     continue
                     
-                    # Check for program heading
-                    program_match = re.search(program_heading_pattern, line, re.IGNORECASE)
                     if program_match and is_heading:
                         county_raw = program_match.group(1).strip()
                         county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
@@ -420,8 +428,6 @@ def extract_programme_tables(pdf_path):
                                          line.strip(), county_raw, county)
                             continue
                     
-                    # Check for section end
-                    end_match = re.search(end_section_pattern, line, re.IGNORECASE)
                     if end_match and current_county:
                         finalize_buffer(current_county, table_buffer, county_tables)
                         table_buffer = []
@@ -430,12 +436,7 @@ def extract_programme_tables(pdf_path):
                         if current_county in TARGET_COUNTY:
                             logging.info("Section end detected (font_size=%.1f): %s", font_size or 0, line.strip())
                         continue
-                    
-                    # Log unmatched county lines
-                    if log_county and match_line_debug == True:
-                        logging.warning("Unmatched county line: line='%s', font_size=%.1f, reason='No regex match'", 
-                                       line, font_size or 0)
-                
+                                
                 # Store headings for next page
                 last_heading_lines = text_lines[-5:] if text_lines else last_heading_lines
                 
@@ -617,35 +618,136 @@ def process_pdf(pdf_path):
         logging.exception("Failed to process %s: %s", pdf_path, str(e))
 
 
-def main():
-    base_dir = Path(".")  # or Path("Govt Spending")
+def main(year=None, quarter=None, end_year=None, end_quarter=None, all_available=False):
+    """
+    Process county PDFs with flexible selection options.
+    
+    Args:
+        year: Starting year (optional)
+        quarter: Starting quarter (optional, defaults to 1)
+        end_year: Ending year (for range processing)
+        end_quarter: Ending quarter (for range processing)
+        all_available: If True, processes all available PDFs (overrides other args)
+    """
+    base_dir = Path(".")
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-    # Match folders starting with 2019 or later (e.g., 2019_20, 2020_21, etc.)
-    valid_year_dirs = [
-        d for d in base_dir.iterdir()
-        if d.is_dir() and re.match(r"20\d{2}_\d{2}", d.name)
-        and int(d.name[:4]) >= 2023
-    ]
+    # Validate arguments
+    if all_available and (year or end_year): # Changed from 'all' to check if any specific range arg is present
+        logging.warning("Both range parameters (year/end_year) and all_available=True specified. Using all_available mode.")
+    
+    
+    if all_available:
+        # Case 3: Process all available PDFs from 2019 onwards
+        # For all_available, we need a broad range to find all possible files
+        # We set a very late end_year/quarter to ensure we catch everything up to current.
+        pdf_paths = find_pdfs_in_range(base_dir, 2019, 1, datetime.now().year + 5, 4) # Added a future end year
+        action_desc = "all available PDFs from 2019 onwards"
 
-    pdf_paths = []
-    for year_dir in valid_year_dirs:
-        # Recursively find PDFs in */county/*.pdf
-        year_pdfs = list(year_dir.glob("**/county/*.pdf"))
-        pdf_paths.extend(year_pdfs)
+    elif year and end_year:
+        # Case 2: Process a range
+        quarter = quarter or 1
+        end_quarter = end_quarter or 4
+        pdf_paths = find_pdfs_in_range(base_dir, year, quarter, end_year, end_quarter)
+        action_desc = f"PDFs from {year} Q{quarter} to {end_year} Q{end_quarter}"
+    elif year:
+        # Case 1: Process single year/quarter
+        quarter = quarter or 1
+        pdf_paths = find_pdfs_in_range(base_dir, year, quarter, year, quarter)
+        action_desc = f"PDFs for {year} Q{quarter}"
+    else:
+        # Default case: Process all from 2019
+        pdf_paths = find_pdfs_in_range(base_dir, 2019, 1, datetime.now().year + 5, 4) # Added a future end year
+        action_desc = "all available PDFs from 2019 onwards (default)"
 
     if not pdf_paths:
-        logging.warning("No county PDFs found from 2019/20 onwards.")
+        logging.warning(f"No county PDFs found for {action_desc}.")
         return
 
-    logging.info("Found %d county PDF files from 2019/20 onwards", len(pdf_paths))
+    logging.info("Found %d county PDF files for %s", len(pdf_paths), action_desc)
+    process_pdfs(pdf_paths)
 
+def find_pdfs_in_range(base_dir, start_year, start_quarter, end_year=None, end_quarter=None):
+    """
+    Find PDFs within a specified range, parsing year and quarter from PDF filenames.
+    Assumes PDF filenames are in the format: YYYY_YY_QQ_county.pdf
+    e.g., 2019_20_01_county.pdf
+    """
+    end_year = end_year if end_year is not None else datetime.now().year
+    end_quarter = end_quarter if end_quarter is not None else 4 # Default to Q4 of end_year
+
+    
+    all_found_pdfs = []
+    # Glob for all potential PDF files first, then filter
+    for pdf_path in base_dir.glob("**/county/*.pdf"):
+        # Extract filename (e.g., "2019_20_01_county.pdf")
+        filename = pdf_path.name
+        
+        # Regex to match the expected filename format
+        match = re.match(r"(\d{4})_\d{2}_(\d{2})_county\.pdf", filename)
+        
+        if match:
+            pdf_file_year = int(match.group(1))
+            pdf_file_quarter = int(match.group(2))
+
+            # Check if this PDF's year and quarter fall within the requested range
+            is_after_start = (pdf_file_year > start_year) or \
+                             (pdf_file_year == start_year and pdf_file_quarter >= start_quarter)
+            
+            is_before_end = (pdf_file_year < end_year) or \
+                            (pdf_file_year == end_year and pdf_file_quarter <= end_quarter)
+            
+            if is_after_start and is_before_end:
+                all_found_pdfs.append(pdf_path)
+    
+    # Sort for consistent processing order (optional but good practice)
+    all_found_pdfs.sort()
+    return all_found_pdfs
+
+
+def process_pdfs(pdf_paths):
+    """Process a list of PDF paths"""
     for pdf_path in pdf_paths:
         try:
-            process_pdf(pdf_path)
+            # Assuming process_pdf is defined elsewhere and handles the actual work
+            print(f"Processing {pdf_path}") # Placeholder for actual processing
+            process_pdf(pdf_path) 
         except Exception as e:
             logging.error("Failed to process %s: %s", pdf_path, e)
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Process government spending PDFs by financial year")
+    
+    # Main arguments
+    parser.add_argument("--year", "-y", type=int, help="Starting year (e.g., 2022)")
+    parser.add_argument("--quarter", "-q", type=int, choices=[1,2,3,4], help="Starting quarter (1-4)")
+    
+    # Range arguments
+    parser.add_argument("--end-year", "-ey", type=int, help="End year for range processing")
+    parser.add_argument("--end-quarter", "-eq", type=int, choices=[1,2,3,4], help="End quarter for range processing")
+    
+    # All-available flag
+    parser.add_argument("--all", "-a", action="store_true", dest="all_available", 
+                       help="Process all available PDFs (overrides other arguments)")
+    
+    args = parser.parse_args()
+    
+    main(
+        year=args.year,
+        quarter=args.quarter,
+        end_year=args.end_year,
+        end_quarter=args.end_quarter,
+        all_available=args.all_available
+    )
+
+
+### END OF SCRIPT ### 
+
+# TO RUN:
+# python program.py --year 2022 --quarter 4
+# python program.py -y 2022 -q 4 (shorthand)
+# python program.py --year 2020 --quarter 2 --end-year 2021 --end-quarter 3 (exact range)
+# python program.py --all (all available pdfs)
+# python program.py (default; same as all available)
+# python program.py --help (help)
