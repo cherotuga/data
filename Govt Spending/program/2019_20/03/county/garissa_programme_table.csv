@@ -1,1 +1,127 @@
-
+Programme,Sub- Programme,Budget (Kshs),Payments (Kshs),Variance (Kshs),"Absorption
+(%)",page_number,table_index
+AGRICULTURE,Agriculture Department,"1,200,000","600,000","600,000",50.0,82,1
+,Crop Production and Irrigation services,"1,200,000","600,000","600,000",50.0,82,1
+,Administrative and support services,-,-,-,-,82,1
+,Administrative and support services,-,-,-,-,82,1
+,Livestock Department,"83,645,730","7,615,139","76,030,591",9.1,82,1
+,Livestock production services,"83,645,730","7,615,139","76,030,591",9.1,82,1
+,Irrigation Department,-,-,-,-,82,1
+,Crop Production and Irrigation services,-,-,-,-,82,1
+,Fisheries Department,"200,000",0,"200,000",-,82,1
+,0 Fisheries production services,"200,000",0,"200,000",-,82,1
+,,"355,481,104","72,425,386","283,055,718",20.4,82,1
+,Administrative and support services,"355,481,104","72,425,386","283,055,718",20.4,82,1
+,,"600,000",-,"600,000",-,82,1
+,Administrative and support services,"600,000",-,"600,000",-,82,1
+,"Environment and Natural Resource Manage-
+ment",,,,,82,1
+ENVIRONMENT,Environment and Forestry Department,"1,100,000","396,300","703,700",36.0,82,1
+,"Forest, Wildlife and Tourism","1,100,000","396,300","703,700",36.0,82,1
+,Natural Resources Department,"1,600,000","310,000","1,290,000",19.4,82,1
+,"Environment and Natural Resource Manage-
+ment","1,600,000","310,000","1,290,000",19.4,82,1
+,Tourism Departments,-,-,-,-,82,1
+,"Forest, Wildlife and Tourism",-,-,-,-,82,1
+,Animal Disease Control,"119,243,025","11,973,532","107,269,493",10.0,82,1
+,Administration and Support Services,"119,243,025","11,973,532","107,269,493",10.0,82,1
+ROADS,Roads,"466,571,746","201,290,728","265,281,018",43.1,82,1
+,Roads network and Transport services,"2,417,200","468,900","1,948,300",19.4,82,1
+,"General Administration and Support Ser-
+vices",-,-,-,-,82,1
+,Roads Development Program,"464,154,546","200,821,828","263,332,718",43.3,82,1
+,Administration Department,"37,906,400","4,029,600","33,876,800",10.6,82,1
+,"General Administration and Support Ser-
+vices","37,906,400","4,029,600","33,876,800",10.6,82,1
+,Lands Department,,,,,82,1
+TRADE,Cooperative Development,,,,,83,0
+,"Trade And Co-Operative Development Pro-
+gram",,,,,83,0
+,Trade Department,"102,400,000","368,000","102,032,000",0.4,83,0
+,Departmental service programme,"100,000,000",-,"100,000,000",-,83,0
+,Administrative and support Services,-,-,-,-,83,0
+,"Trade And Co-Operative Development Pro-
+gram","2,400,000","368,000","2,032,000",15.3,83,0
+,Weight and Measures Department,"1,350,000","650,000","700,000",48.1,83,0
+,Departmental service programme,"1,350,000","650,000","700,000",48.1,83,0
+,Village Polytechnics,"105,447,996","5,865,922","99,582,074",5.6,83,0
+,Administrative and support Services,"105,447,996","5,865,922","99,582,074",5.6,83,0
+,,"802,259",-,"802,259",-,83,0
+,"Forest, Wildlife and Tourism",-,-,-,-,83,0
+,Administrative and support Services,"802,259",-,"802,259",-,83,0
+HEALTH,"Curative and Emergency Services Depart-
+ment",-,-,-,-,83,0
+,Curative Services,-,-,-,-,83,0
+,Preventive and Promotive Health,"711,013,649","117,348,176","593,665,473",16.5,83,0
+,Preventive and Promotive Services,"22,718,750","8,600,783","14,117,967",37.9,83,0
+,Curative Services,"497,414,894","97,792,400","399,622,494",19.7,83,0
+,"General Administration and Support Ser-
+vices","190,880,005","10,954,993","179,925,012",5.7,83,0
+,Administration Finance and HR,"2,161,075,806","1,725,059,544","436,016,262",79.8,83,0
+,Preventive and Promotive Services,"49,638,369","38,247,239","11,391,130",77.1,83,0
+,Curative Services,"68,320,000",0,"68,320,000",0.0,83,0
+,"General Administration and Support Ser-
+vices","2,043,117,437","1,686,812,305","356,305,132",82.6,83,0
+EDUCATION,Education Department,"385,619,161","12,032,795","373,586,366",3.1,83,0
+,ECD Program,-,-,-,-,83,0
+,Youth polytechnics,"24,628,298","6,030,000","18,598,298",24.5,83,0
+,"General Administration and Support Ser-
+vices","360,990,863","6,002,795","354,988,068",1.7,83,0
+,Polytechnics Department,"44,412,400","27,650,534","16,761,866",62.3,83,0
+,ECD Program,"44,412,400","27,650,534","16,761,866",62.3,83,0
+,Public Service Board and Human Resource,"136,991,478","7,880,189","129,111,289",5.8,83,0
+,ECD Program,-,-,-,-,83,0
+,"General Administration and Support Ser-
+vices","136,991,478","7,880,189","129,111,289",5.8,83,0
+,Administration and construction works,-,-,-,-,83,0
+,"Research, Statistics and Information","40,782,733","1,799,800","38,982,933",4.4,83,0
+,Departmental Programs,"40,782,733","1,799,800","38,982,933",4.4,83,0
+"COUNTY AF-
+FAIRS",Governor's Office,"179,400,000","56,686,673","122,713,327",31.6,84,0
+,Administration and construction works,-,-,-,-,84,0
+,County Executive Services,"179,400,000","56,686,673","122,713,327",31.6,84,0
+,Deputy Governor's Office,"36,120,000","12,803,985","23,316,015",35.4,84,0
+,County Executive Services,"36,120,000","12,803,985","23,316,015",35.4,84,0
+,Operations and Sub County Offices,"210,962,000","153,322,817","57,639,184",72.7,84,0
+,Departmental Programs,"120,152,000","92,116,838","28,035,162",76.7,84,0
+,County Executive Services,-,-,-,-,84,0
+,Administration and construction works,"90,810,000","61,205,978","29,604,022",67.4,84,0
+,Human Resource Department,-,-,-,-,84,0
+,Administration and construction works,-,-,-,-,84,0
+,Information Department,"20,000,000","5,596,700","14,403,300",28.0,84,0
+,Construction Works,-,-,-,-,84,0
+,Administration and construction works,"20,000,000","5,596,700","14,403,300",28.0,84,0
+,Departmental Programs,-,-,-,-,84,0
+,"Special Program and Inter Governmental
+Relations Department",-,-,-,-,84,0
+,Departmental Programs,-,-,-,-,84,0
+,Street Lighting,"48,656,215","19,242,400","29,413,815",39.5,84,0
+,Administration and construction works,"48,656,215","19,242,400","29,413,815",39.5,84,0
+,,"18,812,430","6,993,800","11,818,630",37.2,84,0
+,Departmental Programs,"18,812,430","6,993,800","11,818,630",37.2,84,0
+,,-,-,-,-,84,0
+,Departmental Programs,-,-,-,-,84,0
+FINANCE,Accounting Department,"3,713,739","2,604,000","1,109,739",70.1,84,0
+,Construction Works,-,-,-,-,84,0
+,Departmental programs,"3,713,739","2,604,000","1,109,739",70.1,84,0
+,Water Services,-,-,-,-,84,0
+,Budgetary Department,"6,780,000","4,009,664","2,770,336",59.1,84,0
+,Departmental programs,"6,780,000","4,009,664","2,770,336",59.1,84,0
+,Revenue Department,"208,927,781","142,225,385","66,702,396",68.1,84,0
+,Departmental programs,"208,927,781","142,225,385","66,702,396",68.1,84,0
+,Economic Planning Department,"34,086,000","8,525,562","25,560,438",25.0,84,0
+,Departmental programs,"34,086,000","8,525,562","25,560,438",25.0,84,0
+,Town Management Services,-,-,-,-,84,0
+,Supply Chain Management,"5,630,000","2,037,984","3,592,016",36.2,84,0
+,Departmental programs,"5,630,000","2,037,984","3,592,016",36.2,84,0
+,Internal Audit Department,"3,862,600","1,340,700","2,521,900",34.7,84,0
+,Departmental programs,"3,862,600","1,340,700","2,521,900",34.7,84,0
+,Special Program,"272,940,000","56,168,704","216,771,296",20.6,84,0
+,Administration and construction works,"272,940,000","56,168,704","216,771,296",20.6,84,0
+,Urban Planning,"511,848,000",-,"511,848,000",-,84,0
+,Construction Works,-,-,-,-,84,0
+,Town Management Services,"511,848,000",-,"511,848,000",-,84,0
+,,"431,420,628","281,679,050","149,741,578",65.3,84,0
+,Administration and construction works,"431,420,628","281,679,050","149,741,578",65.3,84,0
+,,"16,780,548","7,901,169","8,879,380",47.1,84,0
+,Administration and construction works,"16,780,548","7,901,169","8,879,380",47.1,84,0

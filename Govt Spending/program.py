@@ -1,4 +1,6 @@
 # Import required libraries
+import asyncio
+import platform
 import pdfplumber  # For PDF text and table extraction
 import pandas as pd  # For handling data in DataFrames
 from pathlib import Path  # For file path manipulation
@@ -28,10 +30,10 @@ COUNTIES = [
 
 # Debugging
 TARGET_COUNTY = ["nakuru"]  # Case-sensitive
-header_debug = False
-match_line_debug = False
-normalize_debug = False
 toc_debug = False
+normalize_debug = False
+match_line_debug = False 
+header_debug = False
 
 def normalize_county_name(name):
     """
@@ -45,10 +47,10 @@ def normalize_county_name(name):
     """
     if not name:
         return ""
-    # Replace curly quotes with nothing, or just remove all apostrophes directly
-    no_apostrophe = re.sub(r"[’‘']", '', name)  # Remove all types of apostrophes
-    # Remove characters except letters, spaces, hyphens, apostrophes
-    letters_only = re.sub(r"[^a-zA-Z\s\-']", '', no_apostrophe)
+    # Replace curly quotes, en-dashes, and other special characters
+    no_special = re.sub(r"[’‘'‑-]", '', name)  # Remove apostrophes and dashes
+    # Remove characters except letters, spaces
+    letters_only = re.sub(r"[^a-zA-Z\s\-']", '', no_special)
     # Collapse spaces and lowercase
     normalized = re.sub(r'\s+', ' ', letters_only).strip().lower()
 
@@ -90,7 +92,9 @@ def parse_toc(pdf):
     Returns:
         dict: Mapping of county to [(table_number, description), ...].
     """
-    toc_pattern = r"Table\s+(\d+\.\d+)\s*:\s*([A-Za-z\s’'’-]+?)\s*County\s*,\s*(.*?)\.*\s*(\d+)$"
+
+    # Updated TOC pattern to handle en-dashes, varied spacing, and simpler county formats
+    toc_pattern = r"Table\s+(\d+\.\d+(?:\.\d+)?)[\s]*(?:[:-‑])\s*([A-Za-z\s’'’‑-]+?)(?:\s*County)?(?:\s*,\s*(.*?))?(?:\s*\.*\s*\d+)?$"
     toc_map = {}
     in_toc = False
     seen_names = set()
@@ -114,15 +118,19 @@ def parse_toc(pdf):
         # Process TOC lines if in TOC section
         if in_toc:
             for line in text.splitlines():
+                line = line.strip()
+                
                 if toc_debug:
-                    print(f"[TOC Line] {line}")  # 👈 Diagnostic line
+                    print(f"[TOC Line] {line}")  # Diagnostic line
                 match = re.search(toc_pattern, line, re.IGNORECASE)
                 if match:
                     table_number = match.group(1)
                     county_raw = match.group(2).strip()
                     if toc_debug:
+                        print(f"table_number: {table_number}")
+                        print(f"county_raw: {county_raw}")
                         seen_names.add(county_raw)  # Track seen county name (raw)
-                    description = match.group(3).strip()
+                    description = match.group(3).strip() if match.group(3) else ""
                     county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
                     if county:
                         if county not in toc_map:
@@ -133,7 +141,8 @@ def parse_toc(pdf):
                     else:
                         logging.warning("Failed to match county in TOC: %s", county_raw)
                 elif toc_debug:
-                    print(f"[NO MATCH] {line}")  # 👈 Highlight unmatched lines
+                    print(f"[NO MATCH] {line}")  # Highlight unmatched lines
+
     
     # Print all seen names at the end
     if toc_debug:
@@ -261,8 +270,8 @@ def extract_programme_tables(pdf_path):
     errors = []
     
     # Updated regex patterns
-    program_heading_pattern = r"Table\s+\d+\s*:\s*([A-Za-z\s’'-]+?)\s*County\s*[,;]?\s*(Budget\s+Execution\s+by\s+(?:Programmes|Programs)\s+and\s+(?:Sub-Programmes|Sub-Programs)[^0-9]*?)(?:\s*\.*\s*\d+)?(?=\n|$)"
-    new_county_pattern = r"^(?:\d+\.\d+\s*)?County\s+Government\s+of\s+([A-Za-z\s'-]+?)\s*$"
+    program_heading_pattern = r"Table\s+(\d+\.\d+(?:\.\d+)?)[\s]*(?:[:-‑])\s*(?:(?:[A-Za-z\s’'’-]+?)\s*County\s*[,;]?\s*)?(Budget\s+Execution\s+by\s+(?:Programmes|Programs)\s+and\s+(?:Sub-Programmes|Sub-Programs)[^0-9]*?)(?:\s*\.*\s*\d+)?(?=\n|$)"
+    new_county_pattern = r"^(?:\d+\.\d+\s*)?(?:County\s+Government\s+of\s+)?([A-Za-z\s’'’-]+?)(?:\s*County)?(?:\s*\.*\s*\d+)?$"
     nairobi_pattern = r"(?:\d+\.\d+\.\s*)?Nairobi\s+City\s+County(?:\s+Government)?(?:\s*\.*\s*\d+)?(?=\n|$)"
     overview_pattern = r"Overview\s+of\s+FY\s+2023/24\s+Budget"
     end_section_pattern = r"(Accounts\s+Operated\s+(?:by\s+)?Commercial\s+Banks|Key\s+Observations\s+and\s+Recommendations)"
