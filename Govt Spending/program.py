@@ -262,7 +262,7 @@ def extract_programme_tables(pdf_path):
     
     # Updated regex patterns
     program_heading_pattern = r"Table\s+\d+\s*:\s*([A-Za-z\s’'-]+?)\s*County\s*[,;]?\s*(Budget\s+Execution\s+by\s+(?:Programmes|Programs)\s+and\s+(?:Sub-Programmes|Sub-Programs)[^0-9]*?)(?:\s*\.*\s*\d+)?(?=\n|$)"
-    new_county_pattern = r"(?:\d+\.\d+\.\s*)?County\s+Government\s+of\s+([A-Za-z\s'-]+?)(?:\s*\.*\s*\d+)?(?=\n|$)"
+    new_county_pattern = r"^(?:\d+\.\d+\s*)?County\s+Government\s+of\s+([A-Za-z\s'-]+?)\s*$"
     nairobi_pattern = r"(?:\d+\.\d+\.\s*)?Nairobi\s+City\s+County(?:\s+Government)?(?:\s*\.*\s*\d+)?(?=\n|$)"
     overview_pattern = r"Overview\s+of\s+FY\s+2023/24\s+Budget"
     end_section_pattern = r"(Accounts\s+Operated\s+(?:by\s+)?Commercial\s+Banks|Key\s+Observations\s+and\s+Recommendations)"
