@@ -1,1 +1,108 @@
-
+col_0,Programme,"Approved Budget
+(Kshs.)","Actual Payments
+(Kshs.",Variance (Kshs.),"Absorption
+Rate (%)",page_number,table_index
+Department of the County Assembly,,,,,,346,0
+Sub total,,"487,337,200","327,930,200","159,406,999",67.3,346,0
+010100,"Policy planning, general administration","332,337,200","239,672,356","92,664,843",72.1,346,0
+070900,Legislation and representation services,"155,000,000","88,257,844","66,742,155",31.9,346,0
+Sub total,,"280,107,233","206,417,597","73,689,635",56.9,346,0
+070800,Committee management services,"33,395,023","33,136,795","258,228",99.2,346,0
+070900,Legislation and representation services,"246,712,210","173,280,802","73,431,407",29.8,346,0
+Department of County executive,,,,,,346,0
+070100,General administration and support services,"379,649,855","285,716,236","93,933,618",75.3,346,0
+Subtotal,,"379,649,855","285,716,236","93,933,618",75.3,346,0
+070100,General administration and support services,"18,489,700","14,092,868","4,396,831",76.2,346,0
+070600,Governance and coordination services,"54, 022, 770","30,738,978","23,283,792",56.9,346,0
+Subtotal,,"72, 512,470","44,831,846","27,680,623","61,8",346,0
+Department of Finance and economic planning,,,,,,346,0
+050400,ICT Services,"3, 000, 000","2,509,229","490,771",83.6,346,0
+070100,General administration and support services,"255,486,995","211,810,698","43,676,296",82.9,346,0
+070500,Resource mobilization,"15,254,660","9,386,020","5,868,640",61.5,346,0
+Sub total,,"273,741,655","223,705,947","50,035,707",81.7,346,0
+050400,ICT Services,"12,657,902","1,061,552","11,596,350",8.3,346,0
+070200,Budget formulation and management,"8,600,010","7,009,450","1, 590,560",81.5,346,0
+Sub total,,"21,257,912","8,071,002","13,186,910",38.0,346,0
+070200,Budget formulation and management,"99,686,841","36,006,118","63,680,723",36.1,346,0
+Subtotal,,"99,686,841","36,006,118","63,680,723",36.1,346,0
+070400,County financial management & control,"3, 000, 000","2,846,486","153,513",94.9,346,0
+Sub total,,"3, 000, 000","2,846,486","153,513",94.9,346,0
+070100,General administration and support services,"3, 000, 020","2,344,115","655,905",78.1,346,0
+Sub total,,"3, 000, 020","2,344,115","655,905",78.1,346,0
+070400,County financial management & control,"3, 000, 006","2,401,300","598,706",80.0,346,0
+Sub total,,"3,000,006","2,401,300","598,706",80.0,346,0
+050400,ICT services,"112, 815, 048",0.00,"112, 815, 048",0.0,346,0
+070200,Budget formulation and management,"105, 000, 000","28,330,005","76,669,995",27.0,346,0
+Sub total,,"217,815,048","28,630,005","189,185,043",13.1,346,0
+"Department of Agriculture, livestock and fisheries development",,,,,,346,0
+010100,"Policy planning, general administration and sup-
+port services","163,541,681","129,001,633","34,539,984",78.9,346,0
+Sub total,,"163,541,681","129, 001,633","34,539,984",78.9,346,0
+010400,Livestock promotion and development,"2,500,000","2,500,000",0,0.0,346,0
+Sub total,,"2,500,000","2, 500, 000",0,0.0,346,0
+010200,"Crop, agribusiness & land management services","313,081,363","51,867,256","261,214,107",16.6,346,0
+Sub total,,"313,081,363","51,867,256","261,214,107",16.6,346,0
+010300,Fisheries development & promotion services,"1, 113, 000","1,084,500","28,500",97.4,346,0
+Sub total,,"1, 113, 000","1,084,500","28,500",97.4,346,0
+"Environment, water and natural resources",,,,,,346,0
+100100,"Policy planning, general administration and sup-
+port services","78,623,857","58,179,676","20,444,180",74.0,346,0
+Subtotal,,"78,623,857","58,179,676","20,444,180",74.0,346,0
+Sub total,,"22, 509,200","18,178,580","4,333,619",80.8,347,0
+100300,Water supply and management services,"143,890,800","48,382,922","95,507,877",33.6,347,0
+Subtotal,,"143,890,800","48,382,922","95,507,877",33.6,347,0
+Department of Education and vocational training,,,,,,347,0
+050100,"General administration, policy planning & sup-
+port services","363,032,278","286,153,448","76,878,829",78.8,347,0
+Sub total,,"363,032,278","286,153,448","76,878,829",78.8,347,0
+050200,ECDE and CCC development services,"19,660,732","37,897,024","(18,236,292)",192,347,0
+Subtotal,,"19,660,732","37,897,024","(18,236,292)",192,347,0
+050300,Vocational training and development services,"114, 275,430","123,359,996","(9,084,566)",107,347,0
+Subtotal,,"114, 275,430","123, 359,996","(9,084,566)",107,347,0
+Department of Health services,,,,,,347,0
+040100,"General administration, planning and support
+services","1,588,855,521","1,137,704,445","450,795,546",71.6,347,0
+040200,Curative health services,"10,355,529","6,484,560","3,870,968",62.6,347,0
+Subtotal,,"1,598,855,521","1,144,189,005","454,666,515",71.6,347,0
+040200,Curative health services,"700,271,470","345,566,075","354,705,394",49.3,347,0
+Subtotal,,"700,271,470","345,566,075","354,705,394",49.3,347,0
+"Department of Lands, housing and urban development",,,,,,347,0
+010100,"Policy planning, general administration and sup-
+port services","80,352,053","62,879,351","17,472,701",78.3,347,0
+010500,Physical planning and surveying services,"24,998,000","22,217,500","2,780,500",88.9,347,0
+010700,Management and development of towns,"63,255,194","8,445,694","54, 809,499",13.4,347,0
+Subtotal,,"168,605,247","93,542,545","75,062,701",55.5,347,0
+010600,Housing improvement development,"54,187,416","922,500","53,264,916",1.7,347,0
+Subtotal,,"54,187,416","922, 500","53,264,916",1.7,347,0
+"Department of roads, transport and public works",,,,,,347,0
+010100,"Policy planning, general administration and sup-
+port services","8,500,000","8,495,000","500, 000",99.9,347,0
+020100,General administration and support services,"112,861,008","75,314,926","37,546,081",66.7,347,0
+Subtotal,,"121,361,008","83,809,926","37,551,081",69.1,347,0
+020200,Roads development and management,"263,900,044","124,828,612","139,071,431",47.3,347,0
+Subtotal,,"263,900,044","124,828,612","139,071,431",47.3,347,0
+020200,Roads development and management,"450, 000","352,280","97,720",78.3,347,0
+Subtotal,,"450, 000","352,280","97,720",78.3,347,0
+"Department of trade, tourism, industrialisation and co – operative development",,,,,,347,0
+030100,"Policy planning, general administration and sup-
+port services","34,481,800","25,277,680","9,413,793",73.3,347,0
+030300,Tourism development and promotion,"896, 000","686,326","209,674",79.0,347,0
+,Subtotal,"35,377,800","25,964,006","9,204,119",73.4,347,0
+030200,"Trade, cooperative, investment development pro-
+motion","57,927,337","24,071,954","33,855,383",41.6,347,0
+Subtotal,,"457,927,337","24,071,954","33,855.383",41.6,347,0
+"Department of youths, sports, gender, culture social services",,,,,,347,0
+070100,General administration and support services,"51,889,578","38,260,954","13,628,583",73.7,347,0
+,Subtotal,"51,889,578","38,260,954","13,628,583",73.7,347,0
+090200,Promotion and management of sports,"4, 725, 000",591.600,"4,133,400",12.5,347,0
+Subtotal,,"4, 725, 000","591,600","4,133,400",12.5,347,0
+090200,Promotion and management of sports,"54,394, 800","22,744,851","31,649,948",41.8,347,0
+Subtotal,,"54,394,800","22,744,851","31,649,948",41.8,347,0
+Department of County public service board,,,,,,347,0
+070100,General administration and support services,"5, 394,500","2,693,600","2,687,900",49.3,347,0
+100100,"Policy planning, general administration and sup-
+port services","60, 731, 790","42,614,769","18,117,020",70.2,347,0
+Subtotal,,"66, 113, 290","45,308,369","20,804,920",69.0,347,0
+Department of public service management,,,,,,347,0
+010100,"Policy planning, general administration and sup-
+port services","347,035,806","278,153,148","68,882,657",80.2,347,0
