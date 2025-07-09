@@ -1,1 +1,465 @@
-
+Sub Program,Name of the Programme,"Approved Esti-
+mates (Kshs.)","Expenditure
+(Kshs.)","Variance
+(Kshs.)","Absorption
+Rate (%)",page_number,table_index
+,,A,B,C=A-B,D=B/A*100,353,1
+"Adjudication, registry and settlement",,"30,655,100","4,194,723","26,460,377",13.7,353,1
+102014110,"Delineation & adjudication of community
+land","30,655,100","4,194,723","26,460,377",13.7,353,1
+,Spatial Planning,"44,804,913","2,784,682","42,020,231",6.2,353,1
+103044110,Spatial Planning,"44,804,913","2,784,682","42,020,231",6.2,353,1
+Formulation of community land policy and regulations,,"62,415,161","118,760","62,296,401",0.2,353,1
+104024110,Municipality Upgrade,"14,500,000",-,"14,500,000",0.0,353,1
+104064110,Transport Parks,"22,405,000",-,"22,405,000",0.0,353,1
+104074110,Urban Centre Mgt,"25,510,161","118,760","25,391,401",0.5,353,1
+,"Compulsory land acquisition for public
+utilities","4,185,867","680,654","3,505,213",16.3,353,1
+105014110,Land acquisition for public utilities,"4,185,867","680,654","3,505,213",16.3,353,1
+,"Establishment and rehabilitation of public
+utilities in Lodwar","98,283,302","2,232,370","96,050,932",2.3,353,1
+109014110,Improvement of Moi Garden Stadia,"52,783,302","2,232,370","50,550,932",4.2,353,1
+109024110,completion of recreational park,"37,500,000",-,"37,500,000",0.0,353,1
+109034110,setting up of dumping site in Lodwar,"8,000,000",-,"8,000,000",0.0,353,1
+Revival of Turkana Fishermen Co-op. society,,"440,697,982","5,241,762","435,456,220",1.2,353,1
+110044110,Spate Irrigation Technology,"158,875,747","5,241,762","153,633,985",3.3,353,1
+110054110,Rehabilitation,"112,357,235",-,"112,357,235",0.0,353,1
+110064110,Soil & Water Conservation,"77,000,000",-,"77,000,000",0.0,353,1
+110074110,Spate Irrigation Technology,"61,350,000",-,"61,350,000",0.0,353,1
+,,A,B,C=A-B,D=B/A*100,354,0
+110084110,Rehabilitation,"8,170,000",-,"8,170,000",0.0,354,0
+110094110,Soil & Water Conservation,"22,945,000",-,"22,945,000",0.0,354,0
+Fish market infrastructure/ fish value addition,,"36,434,905","2,020,889","34,414,016",5.5,354,0
+111014110,"Fish market infrastructure/ fish value addi-
+tion","2,778,795","367,109","2,411,686",13.2,354,0
+111024110,Fisheries livelihood support,"2,704,680","811,132","1,893,548",30.0,354,0
+111034110,Fisheries Extension Services,"3,121,280","15,758","3,105,522",0.5,354,0
+111044110,Fisheries resource management,"7,278,949","238,119","7,040,830",3.3,354,0
+111054110,Fisheries resource management,"13,343,252","588,770","12,754,482",4.4,354,0
+111064110,Fisheries resource management,"4,258,735",-,"4,258,735",0.0,354,0
+111084110,Fish Farming & Aquaculture,"2,949,214",-,"2,949,214",0.0,354,0
+Sustainable management of fisheries resources,,"75,858,148","7,393,946","68,464,202",9.7,354,0
+115014110,Frame survey,"65,924,148","4,245,517","61,678,631",6.4,354,0
+115024110,Fish Stock assessment,"2,880,000","1,116,110","1,763,890",38.8,354,0
+115034110,"Monitoring, Control and Surveillance","4,992,000","903,378","4,088,622",18.1,354,0
+115044110,Resource monitoring facilities,"2,062,000","1,128,941","933,059",54.7,354,0
+Livestock breed improvement,,"98,663,187","4,726,072","93,937,115",4.8,354,0
+117014110,"Establish livestock Multiplication and
+breeding Centre.","3,240,000","300,676","2,939,324",9.3,354,0
+117034110,Provision of Livestock Extension services,"6,624,000","1,019,074","5,604,926",15.4,354,0
+117054110,"Livestock multiplication and breeding Cen-
+tre","5,940,000","1,166,286","4,773,714",19.6,354,0
+117064110,Livestock Risk Management,"1,440,000","900,364","539,636",62.5,354,0
+117074110,Livestock Value Chain,"55,339,187","1,339,672","53,999,515",2.4,354,0
+117084110,Skills Devt,"26,080,000",-,"26,080,000",0.0,354,0
+General Administration,,"777,463,896","179,387,097","598,076,799",23.1,354,0
+125014110,General Administration,"99,779,055","49,158,754","50,620,301",49.3,354,0
+125024110,"General Administration and Support Ser-
+vices- Pastoral Economy and","128,177,406","38,434,185","89,743,221",30.0,354,0
+125034110,"General Administration, Planning and Sup-
+port Services - Lands","549,507,435","91,794,158","457,713,277",16.7,354,0
+Agriculture Programme,,"50,875,177","9,926,541","40,948,636",19.5,354,0
+126044110,"Agri-nutrition/Urban & peri-urban agricul-
+ture","324,000","76,601","247,399",23.6,354,0
+126064110,"Smart agriculture practices (Innovations/
+technologies to mitigate","5,000,000",-,"5,000,000",0.0,354,0
+126084110,"Agricultural Sector Development Support
+Programme (ASDSP)","23,981,177","9,379,705","14,601,472",39.1,354,0
+126104110,Agricultural Mechanization,"9,250,000",-,"9,250,000",0.0,354,0
+126114110,Agriculture market Access,"720,000","76,288","643,712",10.6,354,0
+126124110,Agriculture Extension & Development,"1,440,000","163,982","1,276,018",11.4,354,0
+126134110,Subsidy & Support,"6,440,000",-,"6,440,000",0.0,354,0
+126144110,Pest Control & Management,"3,720,000","229,965","3,490,035",6.2,354,0
+Land Governance,,"17,640,280","26,563","17,613,717",0.2,354,0
+127054110,Land Policies,"17,640,280","26,563","17,613,717",0.2,354,0
+,,"333,083,647","333,083,647",(0),100.0,354,0
+129014110,NARIGP,"333,083,647","333,083,647",(0),100.0,354,0
+,,"310,000,000","12,506,273","297,493,727",4.0,354,0
+130014110,DRNKP/KfW,"310,000,000","12,506,273","297,493,727",4.0,354,0
+,,"30,000,000",-,"30,000,000",0.0,354,0
+131014110,Land Development,"30,000,000",-,"30,000,000",0.0,354,0
+Develop and maintain roads,,"599,397,989","121,566,756","477,831,233",20.3,354,0
+201024110,Gravel rural roads,"5,000,000",-,"5,000,000",0.0,354,0
+,,A,B,C=A-B,D=B/A*100,355,0
+201044110,Road Designs system and software,"2,850,547",-,"2,850,547",0.0,355,0
+201054110,"Annual Roads Inventory and Conditional
+Survey (ARICS)","3,016,738",-,"3,016,738",0.0,355,0
+201064110,Roads Safety initiatives,"3,500,000","1,038,233","2,461,767",29.7,355,0
+201074110,Roads maintenance levy fund(RMLF),"558,530,704","114,435,506","444,095,198",20.5,355,0
+201094110,Roads,"26,500,000","6,093,016","20,406,984",23.0,355,0
+Develop and maintain other public works,,"53,398,455","919,211","52,479,244",1.7,355,0
+203134110,Machinery,"3,500,000",-,"3,500,000",0.0,355,0
+203144110,Machinery,"27,898,455",-,"27,898,455",0.0,355,0
+203154110,Feasibility & Consultancy,"14,000,000",-,"14,000,000",0.0,355,0
+203164110,Capacity Building,"5,600,000","919,211","4,680,789",16.4,355,0
+203184110,Professional Capacity Building,"2,400,000",-,"2,400,000",0.0,355,0
+General Administration,,"155,468,861","60,907,531","94,561,330",39.2,355,0
+205014110,General Administration,"128,764,604","59,415,220","69,349,384",46.1,355,0
+205024110,General Administration- Public works,"26,704,257","1,492,311","25,211,946",5.6,355,0
+,,"4,100,000","2,162,084","1,937,916",52.7,355,0
+206014110,Mechanical Services,"4,100,000","2,162,084","1,937,916",52.7,355,0
+,,"4,900,000","2,123,340","2,776,660",43.3,355,0
+207014110,Structural Services,"4,900,000","2,123,340","2,776,660",43.3,355,0
+,,"3,100,000",-,"3,100,000",0.0,355,0
+208014110,Electrical Services,"3,100,000",-,"3,100,000",0.0,355,0
+,,"1,700,000",-,"1,700,000",0.0,355,0
+209014110,Building Inspectorate,"1,700,000",-,"1,700,000",0.0,355,0
+,,"2,640,000","1,305,217","1,334,783",49.4,355,0
+210014110,Architectural Services,"2,640,000","1,305,217","1,334,783",49.4,355,0
+"Cooperative Societies Development & Performance Im-
+provement",,"165,721,467","30,882,589","134,838,878",18.6,355,0
+302014110,Cooperatives Development Fund,"9,359,600","272,393","9,087,207",2.9,355,0
+302024110,Value Addition Initiatives,"6,512,000","1,656,148","4,855,852",25.4,355,0
+302034110,"Business Development and Training Ser-
+vices","2,196,000",-,"2,196,000",0.0,355,0
+302044110,Liquor control Programme,"2,268,000","541,021","1,726,979",23.9,355,0
+302054110,"Cooperative societies development and re-
+vival programmes","6,134,000","1,160,582","4,973,418",18.9,355,0
+302064110,Legal Metrology Services,"2,934,000",-,"2,934,000",0.0,355,0
+302074110,Verification of traders equipment,"2,214,000","679,591","1,534,409",30.7,355,0
+302084110,Consumer rights education,"1,134,000",-,"1,134,000",0.0,355,0
+302104110,Standards and Anti-Counterfeit Services,"756,000",-,"756,000",0.0,355,0
+302114110,Market Infrastructure Development,"17,000,000",-,"17,000,000",0.0,355,0
+302124110,Industrial Development and Investments,"6,057,000",-,"6,057,000",0.0,355,0
+302134110,Biashara Fund,"25,419,400","25,419,400",0,100.0,355,0
+302144110,Completion of Biashara Centre,"70,000,000",-,"70,000,000",0.0,355,0
+302154110,North Rift Economic & FCDC Blocs,"6,237,467","1,153,454","5,084,013",18.5,355,0
+302164110,Standardization and Metrology,"3,000,000",-,"3,000,000",0.0,355,0
+302174110,Mgt of Kakuma Biashara Centre,"4,500,000",-,"4,500,000",0.0,355,0
+Modern Physical Markets Infrastructure,,"59,925,415","30,972,341","28,953,074",51.7,355,0
+303014110,"Construction & Development of Modern
+Physical Market","7,701,510","1,213,859","6,487,651",15.8,355,0
+303024110,"Co-operative Marketing, Value Addition,
+Surveys & Research","6,866,400","1,238,121","5,628,279",18.0,355,0
+303034110,"Co-operative Education, Training, Ex-
+change and Ushirika Day Celeb","7,151,420","2,345,677","4,805,743",32.8,355,0
+,,A,B,C=A-B,D=B/A*100,356,0
+303044110,"Strengthening of Key Dormant Co-opera-
+tive Societies","7,623,000",-,"7,623,000",0.0,356,0
+303054110,"Formulation of Cooperative Policy and Le-
+gal Frame Work","4,408,400",-,"4,408,400",0.0,356,0
+303064110,Cooperative Development Fund,"26,174,685","26,174,685",0,100.0,356,0
+,General Administration,"130,026,817","8,367,040","121,659,777",6.4,356,0
+307014110,General Administration,"130,026,817","8,367,040","121,659,777",6.4,356,0
+Gender Promotion,,"21,331,000","5,297,570","16,033,430",24.8,356,0
+308014110,Gender Empowerment and advocacy,"9,966,000","3,408,835","6,557,165",34.2,356,0
+308024110,Gender Mainstreaming and Coordination,"4,187,000","683,255","3,503,745",16.3,356,0
+308034110,Legal Compliance and Redress,"3,098,000",-,"3,098,000",0.0,356,0
+308044110,"Promotion of Gender Equality and Empow-
+erment","4,080,000","1,205,480","2,874,520",29.5,356,0
+Youth Affairs Development,,"80,633,800","38,257,681","42,376,119",47.4,356,0
+309014110,Youth Coordination and Representation,"17,860,000","1,500,752","16,359,248",8.4,356,0
+309024110,Youth Employment Scheme,"20,420,000","5,429,095","14,990,905",26.6,356,0
+309034110,Youth Rare skills,"14,840,000","3,814,033","11,025,967",25.7,356,0
+309044110,Youth and Women Fund,"27,513,800","27,513,800",(0),100.0,356,0
+"General Administration, Planning and support services",,"748,622,804","335,910,218","412,712,586",44.9,356,0
+401014110,"General Administration, Planning and sup-
+port services","564,607,836","335,910,218","228,697,618",59.5,356,0
+401074110,Health Facilities,"284,014,968",-,"284,014,968",0.0,356,0
+Support to Health Programs,,"432,280,000","50,489,043","381,790,957",11.7,356,0
+402114110,Health promotion,"400,000,000","28,957,318","371,042,682",7.2,356,0
+402134110,"Emergency preparedness & disaster re-
+sponse","30,480,000","21,531,725","8,948,275",70.6,356,0
+402164110,mainstreaming,"1,800,000",-,"1,800,000",0.0,356,0
+,Curative Health Services,-,-,-,,356,0
+409014110,Curative Health Services,-,-,-,,356,0
+,,"95,920,000","2,081,694","93,838,306",2.2,356,0
+410024110,Blood Transfusion Services,"1,800,000",-,"1,800,000",0.0,356,0
+410044110,Referrals & Emergency Services,"3,600,000",-,"3,600,000",0.0,356,0
+410094110,Rural Health Facility Support,"45,000,000",-,"45,000,000",0.0,356,0
+410104110,Sub county Health Facilities Support,"45,520,000","2,081,694","43,438,306",4.6,356,0
+,,"16,200,000","1,431,968","14,768,032",8.8,356,0
+411014110,LCRH Devt,"7,200,000","1,431,968","5,768,032",19.9,356,0
+411024110,LCRH Devt,"9,000,000",-,"9,000,000",0.0,356,0
+,,"344,440,000","11,312,374","333,127,626",3.3,356,0
+412014110,Medical Supplies,"343,000,000","11,312,374","331,687,626",3.3,356,0
+412024110,Health mgt,"1,440,000",-,"1,440,000",0.0,356,0
+,,"31,410,000","18,538,188","12,871,812",59.0,356,0
+413014110,Health Information & Mgt,"1,440,000",-,"1,440,000",0.0,356,0
+413034110,Universal Health Care,"29,970,000","18,538,188","11,431,812",61.9,356,0
+,,"5,458,000","308,855","5,149,145",5.7,356,0
+414014110,Rehabilitation & Treatment,"4,000,000","170,335","3,829,665",4.3,356,0
+414034110,Liquor Licensing,"1,458,000","138,519","1,319,481",9.5,356,0
+Social protection programs/ Affirmative Action,,"60,402,535","9,882,164","50,520,371",16.4,356,0
+503024110,"Construction of PWDs multi-purpose re-
+source center","22,900,000","1,357,138","21,542,862",5.9,356,0
+503074110,Marginalized and Minority groups support,"3,160,000",-,"3,160,000",0.0,356,0
+503084110,Child Rescue Centres,"12,000,000",-,"12,000,000",0.0,356,0
+503094110,Child Care & Protection,"22,342,535","8,525,026","13,817,509",38.2,356,0
+,,A,B,C=A-B,D=B/A*100,357,0
+Sports and arts programme,,"20,281,224","247,937","20,033,287",1.2,357,0
+504014110,Construction of sport Stadia,"14,282,668","247,937","14,034,731",1.7,357,0
+504044110,Stadia,"5,998,556",-,"5,998,556",0.0,357,0
+General Administration,,"861,645,451","541,270,420","320,375,031",62.8,357,0
+506014110,General Administration,"462,720,440","192,345,409","270,375,031",41.6,357,0
+506024110,"Turkana Education and Skill Development
+Fund","348,925,011","348,925,011",(0),100.0,357,0
+506044110,Turkana Higher Education Loans,"50,000,000",-,"50,000,000",0.0,357,0
+,Vocational Training,"43,376,413","11,305,354","32,071,059",26.1,357,0
+508014110,Youth Polytechnic Infrastructure,"17,903,732",-,"17,903,732",0.0,357,0
+508024110,Training and Development,"9,467,999","2,590,799","6,877,200",27.4,357,0
+508034110,Co-Cirricular Activities,"3,294,788","766,885","2,527,903",23.3,357,0
+508044110,Youth Polytechnics- Conditional,"12,709,894","7,947,670","4,762,224",62.5,357,0
+Public Relations,,"3,528,000",-,"3,528,000",0.0,357,0
+509014110,Publicity,"1,620,000",-,"1,620,000",0.0,357,0
+509024110,Research and Sensitization,"1,908,000",-,"1,908,000",0.0,357,0
+Early Childhood Education,,"429,362,417","9,273,793","420,088,624",2.2,357,0
+510014110,School Feeding,"116,620,000","3,464,238","113,155,762",3.0,357,0
+510024110,Quality Improvement,"7,008,595","2,813,803","4,194,792",40.1,357,0
+510034110,Infrastructure Development,"297,803,822","2,995,753","294,808,069",1.0,357,0
+510044110,Support to Pre-Primary Training,"7,930,000",-,"7,930,000",0.0,357,0
+"General Administration, Planning and Support Services",,"5,560,752,006","3,135,859,299","2,424,892,707",56.4,357,0
+701014110,General Administration Services,"570,245,357","85,000,825","485,244,532",14.9,357,0
+701094110,"General Administration - Economic plan-
+ning","118,444,157","10,006,190","108,437,967",8.4,357,0
+701154110,General Admin Planning & Support,"46,539,350","4,882,100","41,657,250",10.5,357,0
+701164110,"General Administration, Planning and Sup-
+port Services-Public Service","4,083,338,567","2,856,618,513","1,226,720,054",70.0,357,0
+701174110,"General Administration, Planning and Sup-
+port Services-Administrator","108,543,628","47,093,242","61,450,386",43.4,357,0
+701194110,"General Administration, Planning and Sup-
+port Services- Office of","349,622,773","90,239,200","259,383,573",25.8,357,0
+701204110,"General Administration, Planning and Sup-
+port Services- Liaison O","20,340,000","9,764,616","10,575,384",48.0,357,0
+701214110,General Admin Planning & Support,"26,994,000","10,755,205","16,238,795",39.8,357,0
+701224110,COVID-19 Emergency Response Fund,"236,684,174","21,499,409","215,184,765",9.1,357,0
+Governor’s Residence,,"11,781,879","2,129,925","9,651,954",18.1,357,0
+702014110,Construction of Governors residence,"2,268,591","675,726","1,592,865",29.8,357,0
+702024110,"Documentation, communication policy and
+strategy","3,024,789","624,532","2,400,257",20.6,357,0
+702034110,Civic Education and Public Sensitization,"4,663,182","829,666","3,833,516",17.8,357,0
+702044110,"Production of County Newspaper and
+Newsletter","1,825,317",-,"1,825,317",0.0,357,0
+Donor/ Investor engagement,,"14,400,000","6,386,722","8,013,278",44.4,357,0
+703014110,"Public-Private Partnership Initiatives
+(PPPs)","1,440,000","1,102,490","337,510",76.6,357,0
+703024110,"Political and Intergovernmental Advisory
+Services","1,440,000","57,122","1,382,878",4.0,357,0
+703034110,Legal Advisory Services,"1,440,000","675,339","764,661",46.9,357,0
+703044110,Security and cross border Advisory Services,"1,440,000","740,346","699,654",51.4,357,0
+703054110,Oil And Gas Advisory Service,"1,440,000","900,452","539,548",62.5,357,0
+703064110,Gender and Partnership Advisory Services,"1,440,000","900,452","539,548",62.5,357,0
+703074110,Special Interest groups,"1,440,000","238,432","1,201,568",16.6,357,0
+703084110,Climate Change advisory services,"1,440,000","450,226","989,774",31.3,357,0
+,,A,B,C=A-B,D=B/A*100,358,0
+703094110,Education and youth Advisory services,"1,440,000","864,809","575,191",60.1,358,0
+703104110,"Culture, Arts and Heritage advisory services","1,440,000","457,054","982,946",31.7,358,0
+Security and Peace Building,,"105,975,274","32,959,682","73,015,592",31.1,358,0
+704014110,Community Cohesion and Resettlement,"10,288,800","6,561,704","3,727,096",63.8,358,0
+704024110,"Operationalization of peace building struc-
+tures and institutions","24,660,986","8,899,039","15,761,947",36.1,358,0
+704034110,Resettlement Infrastructural Programme,"44,000,000",-,"44,000,000",0.0,358,0
+704044110,Cross Border peace dividends programme,"27,025,488","17,498,940","9,526,548",64.7,358,0
+Government Communication and Media relations,,"22,442,394","12,975,331","9,467,063",57.8,358,0
+705014110,"Acquiring & development of communica-
+tion systems/equipment","2,935,394","560,806","2,374,588",19.1,358,0
+705024110,Bills,"3,000,000",-,"3,000,000",0.0,358,0
+705034110,Policies,"12,370,240","11,466,549","903,691",92.7,358,0
+705044110,"Development and Implementation of ICT
+Policy and Regulations","2,136,760",-,"2,136,760",0.0,358,0
+705054110,"Acquisition of Information Systems and
+Equipment","2,000,000","947,975","1,052,025",47.4,358,0
+Revenue Collection Systems,,"31,374,307","13,930,293","17,444,014",44.4,358,0
+706014110,Automated Revenue Collection,"4,404,393","4,142,490","261,903",94.1,358,0
+706024110,Feasibility Study on Revenue Base,"2,192,833","2,157,220","35,613",98.4,358,0
+706034110,Awareness and Campaigns on Revenue.,"3,249,094","1,367,611","1,881,483",42.1,358,0
+706044110,Motorbikes for Revenue Officers 30 No.,"5,615,105",-,"5,615,105",0.0,358,0
+706054110,Strengthening Revenue Systems,"14,775,499","5,125,590","9,649,909",34.7,358,0
+706064110,"Revenue Forecast and Revenue Budget
+Preparation","1,137,383","1,137,383",0,100.0,358,0
+Accountability and Transparency,,"133,457,961","14,615,805","118,842,156",11.0,358,0
+707014110,Internal Audit,"6,455,340","4,148,023","2,307,317",64.3,358,0
+707024110,Procurement systems,"6,117,694","225,113","5,892,581",3.7,358,0
+707044110,IFMIS training,"6,993,681","3,185,473","3,808,208",45.5,358,0
+707054110,Consultancy Services,"4,896,808",-,"4,896,808",0.0,358,0
+707064110,"Financial Reporting/Research and Develop-
+ment","8,994,438","7,057,196","1,937,242",78.5,358,0
+707074110,"Modern Fencing, Gate and Parking Yards
+for County Treasury Office","100,000,000",-,"100,000,000",0.0,358,0
+Social and Financial Security,,"15,679,182","5,792,537","9,886,645",36.9,358,0
+708014110,Assurance and Insurance of Govt. Assets,"3,061,182","855,542","2,205,640",27.9,358,0
+708024110,Liability and Debt Management,"3,978,000","1,918,212","2,059,788",48.2,358,0
+708034110,Turkana SACCO Seed Capital,"8,640,000","3,018,783","5,621,217",34.9,358,0
+,Planning and Policy formulation,"129,603,680","16,087,869","113,515,811",12.4,358,0
+709014110,"Economic Policy formulation and Dissem-
+ination","11,564,183","6,082,513","5,481,670",52.6,358,0
+709024110,CIDP review and Dissemination,"3,644,246","1,916,586","1,727,660",52.6,358,0
+709034110,Budget preparation and Dissemination,"45,000,000",-,"45,000,000",0.0,358,0
+709054110,County Budget and Economic Forums,"54,000,000","2,908,459","51,091,541",5.4,358,0
+709064110,"Public Participation and Access to Informa-
+tion","8,196,591","2,884,259","5,312,332",35.2,358,0
+709074110,Waste Management,"3,569,500","1,067,836","2,501,664",29.9,358,0
+709104110,Sector Plans Devt,"3,629,160","1,228,216","2,400,944",33.8,358,0
+,Development coordination Programme,"4,638,340",-,"4,638,340",0.0,358,0
+710014110,Donor scan/Mapping,"1,775,487",-,"1,775,487",0.0,358,0
+710024110,Establishment of development committees,"1,141,022",-,"1,141,022",0.0,358,0
+710034110,Training of the development committees,"854,110",-,"854,110",0.0,358,0
+710044110,"Formulation and Development of TCPSB
+Boardroom ICT Infrastructure","867,721",-,"867,721",0.0,358,0
+,,A,B,C=A-B,D=B/A*100,359,0
+,Monitoring and Evaluation,"8,503,582","1,858,245","6,645,337",21.9,359,0
+711014110,"Soft wares( E-ProMIS, GIS e.t.c)","2,123,067","585,294","1,537,773",27.6,359,0
+711024110,"Field visits, data collection and Reporting","2,402,600","318,910","2,083,690",13.3,359,0
+711034110,Training and Knowledge management,"2,442,063","192,597","2,249,466",7.9,359,0
+711044110,"Devolved Monitoring and Evaluation Com-
+mittees","1,535,852","761,444","774,408",49.6,359,0
+,"Public Participation and Access to Infor-
+mation","36,336,526","19,691,208","16,645,318",54.2,359,0
+712014110,Construction of Citizen Resource Centre,"5,600,000","3,051,068","2,548,932",54.5,359,0
+712024110,Web site Development,"10,655,443","4,729,922","5,925,521",44.4,359,0
+712034110,"Social Budgeting and Generation of SIR Re-
+ports","3,024,000","306,404","2,717,596",10.1,359,0
+712044110,Intergovernmental Relation,"14,870,366","10,241,443","4,628,923",68.9,359,0
+712054110,"Strategy Development, Review, Support and
+Operationalization","2,186,717","1,362,371","824,346",62.3,359,0
+,County Statistical Unit,"37,154,747","16,541,165","20,613,582",44.5,359,0
+713014110,"Soft wares, databases and tools","24,521,794","11,245,472","13,276,322",45.9,359,0
+713024110,Capacity Development,"6,710,953","3,663,775","3,047,178",54.6,359,0
+713044110,Project Mgt Information System,"5,922,000","1,631,919","4,290,081",27.6,359,0
+,Service Delivery- ISO Certification,"11,662,651","4,495,042","7,167,609",38.5,359,0
+714014110,Service Charter,"2,232,000","256,529","1,975,471",11.5,359,0
+714024110,Development of County Filing Systems,"6,653,958","2,866,694","3,787,264",43.1,359,0
+714034110,Procedure Manual and Training,"2,776,693","1,371,819","1,404,874",49.4,359,0
+,County Internship Programme,"36,897,246","1,583,829","35,313,417",4.3,359,0
+715014110,County Internship Programme,"36,897,246","1,583,829","35,313,417",4.3,359,0
+,"Operationalization of Decentralized
+Units","88,659,324","12,622,935","76,036,389",14.2,359,0
+717014110,Operationalization of Decentralized Units,"10,890,000","3,152,177","7,737,823",28.9,359,0
+717024110,Decentralized County Policy,"33,912,000","7,396,217","26,515,783",21.8,359,0
+717034110,Coordinated development,"13,320,000","1,124,064","12,195,936",8.4,359,0
+717044110,Policy sensitization and dissemination,"8,190,000","950,477","7,239,523",11.6,359,0
+717084110,Completion of Kibish Sub County Office,"22,347,324",-,"22,347,324",0.0,359,0
+,"Mainstream Public Sector Integrity pro-
+gramme & Accountability","5,772,328","100,050","5,672,278",1.7,359,0
+718014110,"Mainstream Public Sector Integrity pro-
+gramme & Accountability","1,358,825",-,"1,358,825",0.0,359,0
+718024110,"Public Evaluation on County Public Service
+Board Performance","1,563,640",-,"1,563,640",0.0,359,0
+718034110,"Human Resource Conference & Sympo-
+sium","1,424,709","100,050","1,324,659",7.0,359,0
+718044110,Exit Meetings Per Department,"1,425,154",-,"1,425,154",0.0,359,0
+,Disaster Risk Reduction,"2,959,577","305,816","2,653,761",10.3,359,0
+719034110,"Assessment and stake holder capacity map-
+ping","1,420,059","305,816","1,114,243",21.5,359,0
+719044110,"Regular Assessments of Food, Flood and
+Conflict Security","1,539,518",-,"1,539,518",0.0,359,0
+,Human resource,"12,914,068",-,"12,914,068",0.0,359,0
+720014110,Scheme of service,"1,397,226",-,"1,397,226",0.0,359,0
+720024110,Performance Appraisal,"3,072,467",-,"3,072,467",0.0,359,0
+720034110,"Enhancing Leadership In County Public
+Service","1,285,407",-,"1,285,407",0.0,359,0
+720044110,Review and Development of HR Policies,"1,563,171",-,"1,563,171",0.0,359,0
+720054110,"Human Resource Development/Career Pro-
+gression","1,351,206",-,"1,351,206",0.0,359,0
+720064110,Performance Management Monitoring,"870,096",-,"870,096",0.0,359,0
+,,A,B,C=A-B,D=B/A*100,360,0
+720074110,Development of Database Filing System,"1,146,421",-,"1,146,421",0.0,360,0
+720084110,"County Public Service Pre-Retirement Sen-
+sitization","1,158,775",-,"1,158,775",0.0,360,0
+720094110,"Evaluation of Different Cadres of Employ-
+ees(Promotion,Re-Designat","1,069,299",-,"1,069,299",0.0,360,0
+,"Quality management system program-
+ming","3,278,395",-,"3,278,395",0.0,360,0
+723014110,"Quality Management Systems (QMS) De-
+velopment & Establishment","910,999",-,"910,999",0.0,360,0
+723024110,QMS Audit /Routine Inspection,"1,062,281",-,"1,062,281",0.0,360,0
+723034110,"Documentation/Record Management For
+QMS","1,305,115",-,"1,305,115",0.0,360,0
+,Budgetary Supply,"89,207,651","43,731,772","45,475,879",49.0,360,0
+724014110,"Budget Formulation, Co-ordination and
+Management","60,100,000","25,667,149","34,432,851",42.7,360,0
+724024110,Public Participation in Budgeting,"17,100,000","11,044,633","6,055,367",64.6,360,0
+724034110,County Budget and Economic Forum,"12,007,651","7,019,990","4,987,661",58.5,360,0
+,Resource Mobilization,"6,188,053","871,937","5,316,116",14.1,360,0
+725014110,Resource Mobilization,"6,188,053","871,937","5,316,116",14.1,360,0
+,Governors Press Service,"6,859,281","3,781,309","3,077,972",55.1,360,0
+727014110,Governors Press support,"6,859,281","3,781,309","3,077,972",55.1,360,0
+,Governance and Public participation,"12,150,000","2,216,112","9,933,888",18.2,360,0
+728014110,Civic education Programme,"1,440,000",-,"1,440,000",0.0,360,0
+728024110,"Public Participation and access to informa-
+tion","2,970,000",-,"2,970,000",0.0,360,0
+728034110,County Dialogue Forum,"1,440,000","666,584","773,416",46.3,360,0
+728044110,National & County Holidays,"5,130,000","1,549,527","3,580,473",30.2,360,0
+728054110,Policies Design,"1,170,000",-,"1,170,000",0.0,360,0
+,Disaster risk management,"337,095,184","39,352,953","297,742,231",11.7,360,0
+729014110,Disaster Preparedness Programmes,"2,160,000",-,"2,160,000",0.0,360,0
+729024110,Disaster Mitigation Programmes,"2,160,000","225,113","1,934,887",10.4,360,0
+729034110,"Stakeholders coordination and Support
+Programme","2,160,000",-,"2,160,000",0.0,360,0
+729044110,Humanitarian Relief Food Programme,"329,895,184","39,127,840","290,767,344",11.9,360,0
+729064110,Disaster Risk Mgt,"720,000",-,"720,000",0.0,360,0
+,Inspectorate services,"10,620,000","1,828,417","8,791,583",17.2,360,0
+730054110,Dispute Resolution,"720,000",-,"720,000",0.0,360,0
+730074110,Capacity Building,"3,600,000","1,828,417","1,771,583",50.8,360,0
+730084110,Inspectorate Services,"2,880,000",-,"2,880,000",0.0,360,0
+730094110,Inspectorate Services Equip,"3,420,000",-,"3,420,000",0.0,360,0
+,Human resource management,"20,862,000","4,711,388","16,150,612",22.6,360,0
+731014110,Payroll and record management,"1,440,000","675,339","764,661",46.9,360,0
+731024110,Human Resource Development,"4,410,000","112,556","4,297,444",2.6,360,0
+731034110,"GHRIS Leave & Performance Module Im-
+plementation","2,160,000","207,379","1,952,621",9.6,360,0
+731044110,"Digitization and Automation of Human Re-
+source Registry","3,960,000","2,069,788","1,890,212",52.3,360,0
+731054110,"Mainstreaming Public Sector Integrity Pro-
+gramme","3,600,000","586,644","3,013,356",16.3,360,0
+731074110,Public Service Week,"1,692,000",-,"1,692,000",0.0,360,0
+731094110,Records Mgt,"1,440,000",-,"1,440,000",0.0,360,0
+731104110,HRM,"2,160,000","1,059,682","1,100,318",49.1,360,0
+,,"10,524,741","4,584,775","5,939,966",43.6,360,0
+735014110,Govt Programming,"4,720,557","2,492,350","2,228,207",52.8,360,0
+,,A,B,C=A-B,D=B/A*100,361,0
+735024110,Community Engagement,"1,800,000","351,801","1,448,199",19.5,361,0
+735034110,Govt Stakeholder Engagement,"1,944,000","757,255","1,186,745",39.0,361,0
+735044110,Govt Transformation,"2,060,184","983,368","1,076,816",47.7,361,0
+,General Administration,"180,319,842","57,323,881","122,995,961",31.8,361,0
+901014110,"General Administration, Planning and Sup-
+port Services","180,319,842","57,323,881","122,995,961",31.8,361,0
+,"Tourism destination marketing and pro-
+motion","13,083,772","1,230,699","11,853,073",9.4,361,0
+902014110,"Tourism expos, incentives, conferences and
+exhibition program","4,724,203","342,734","4,381,469",7.3,361,0
+902024110,Community Based Tourism products,"1,953,284","342,472","1,610,812",17.5,361,0
+902054110,"Media Campaign and Promotion of Tour-
+ism Products and Programmes","6,406,285","545,492","5,860,793",8.5,361,0
+,Tourism development and Promotion,"58,509,221","92,296","58,416,925",0.2,361,0
+903014110,Completion and Furnishing of Eco-Lodges,"52,035,000",-,"52,035,000",0.0,361,0
+903024110,"Phase II of Renovation of Tourism Infra-
+structure","4,184,000",-,"4,184,000",0.0,361,0
+903034110,Tourism Products,"2,290,221","92,296","2,197,925",4.0,361,0
+,"Culture, arts, heritage development, pro-
+motion and preservation","133,321,943","1,211,238","132,110,705",0.9,361,0
+904014110,Ushanga Initiative,"20,100,000",-,"20,100,000",0.0,361,0
+904024110,Culture Promotion and Preservation,"83,186,000","140,320","83,045,680",0.2,361,0
+904034110,Arts and Creativity Development,"1,872,000",-,"1,872,000",0.0,361,0
+904044110,Heritage Promotion,"3,863,943","439,350","3,424,593",11.4,361,0
+904054110,Annual tourism and cultural festival,"24,300,000","631,567","23,668,433",2.6,361,0
+,"Culture development and preservation in-
+frastructure","10,400,000",-,"10,400,000",0.0,361,0
+905014110,"Equipment and Infrastructure Develop-
+ment at Ekalees Centre","10,400,000",-,"10,400,000",0.0,361,0
+,"Forestry and wildlife management devel-
+opment and management","27,442,352","1,914,023","25,528,329",7.0,361,0
+906014110,Forestry Management and Conservation,"3,773,952","1,625,128","2,148,824",43.1,361,0
+906024110,Community Wildlife Conservation,"3,956,400",-,"3,956,400",0.0,361,0
+906054110,Forestry Development Infrastructure,"15,032,000","288,895","14,743,105",1.9,361,0
+906084110,Forestry Protection,"2,250,000",-,"2,250,000",0.0,361,0
+906094110,Prosopis Mgt,"2,430,000",-,"2,430,000",0.0,361,0
+,Turkana Water Programme,"439,205,368","14,976,467","424,228,901",3.4,361,0
+1001014110,"General Administration, Planning and sup-
+port services","145,000,000",-,"145,000,000",0.0,361,0
+1001024110,"Construction and Desilting of Water Pans/
+Rock Catchment","45,605,050",-,"45,605,050",0.0,361,0
+1001034110,Rehabilitation of Water Infrastructure,"112,644,212","3,059,410","109,584,802",2.7,361,0
+1001044110,Drilling and Equipping of Boreholes,"118,409,736","9,319,129","109,090,607",7.9,361,0
+1001084110,Equipment of Quality Analysis Laboratory,"13,000,000",-,"13,000,000",0.0,361,0
+1001094110,Project Coordination and Management,"4,546,370","2,597,928","1,948,442",57.1,361,0
+,Joint planning with stakeholders,"3,600,000","1,231,180","2,368,820",34.2,361,0
+1002014110,Technical planning and design,"3,600,000","1,231,180","2,368,820",34.2,361,0
+,"IRRIGATION AND SCHEMES DEVEL-
+OPMENT PROGRAMME","12,940,000","2,384,258","10,555,742",18.4,361,0
+1003014110,"Feasibility studies for irrigation systems de-
+velopment","10,440,000","2,384,258","8,055,742",22.8,361,0
+1003024110,Construction of 2 new irrigation schemes,"2,500,000",-,"2,500,000",0.0,361,0
+,"TURKANA AGRICULTURE PRO-
+GRAMME","20,708,000","3,744,065","16,963,935",18.1,361,0
+1004014110,Farmers training,"5,850,000","3,744,065","2,105,935",64.0,361,0

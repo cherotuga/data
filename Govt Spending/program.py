@@ -29,7 +29,7 @@ COUNTIES = [
 # Debugging
 TARGET_COUNTY = ["nakuru"]  # Case-sensitive
 header_debug = False
-match_line_debug = True
+match_line_debug = False
 normalize_debug = False
 toc_debug = False
 
