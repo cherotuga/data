@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import re
 import argparse
+from file_dispatcher import dispatch_file
 
 def find_all_csv_files(root_dir, year=None, quarter=None):
     """
@@ -42,63 +43,46 @@ def find_all_csv_files(root_dir, year=None, quarter=None):
     print(f"Found {len(csv_files)} potential program CSV files.")
     return sorted(csv_files)
 
-def clean_numeric_value(value):
-    """
-    Cleans a string value to be a float.
-    - Removes commas
-    - Treats '-' as 0
-    """
-    if isinstance(value, str):
-        value = value.replace(',', '').strip()
-        if value == '-':
-            return None
-    try:
-        return float(value)
-    except (ValueError, TypeError):
-        return None
-
 def parse_health_data_from_csv(csv_path):
     """
     Parses a single CSV file to find and extract health-related program data.
+    Uses the dispatcher to ensure file structure is correct before processing.
     """
-    try:
-        df = pd.read_csv(csv_path)
-        # Standardize column names: remove leading/trailing spaces, newlines.
-        df.columns = [str(col).strip().replace('\n', ' ') for col in df.columns]
-    except Exception as e:
-        #print(f"  [!] Could not read or process {os.path.basename(csv_path)}: {e}")
+    # The dispatcher now handles file reading, validation, and basic cleaning.
+    df = dispatch_file(csv_path)
+    if df is None:
+        # The dispatcher handles logging issues, so we just exit.
         return None
 
     health_data = []
     current_programme = ''
     health_keywords = ['health', 'curative', 'preventive', 'medical', 'hospital']
 
-    # Heuristic: Check if any health keywords exist in the entire CSV first.
-    # This can help us skip clearly irrelevant files faster.
-    if not any(df.apply(lambda row: row.astype(str).str.contains('|'.join(health_keywords), case=False).any(), axis=1)):
+    # Heuristic: Check if any health keywords exist in the relevant columns first.
+    # This is a fast way to skip files that are clearly not about health.
+    if not (df['Programmes'].str.contains('|'.join(health_keywords), case=False, na=False).any() or
+            df['Sub- Programmes'].str.contains('|'.join(health_keywords), case=False, na=False).any()):
         return None
 
     for _, row in df.iterrows():
         # Handle hierarchical program structure: carry forward the last valid program name.
-        if 'Programmes' in row and pd.notna(row['Programmes']) and row['Programmes'].strip():
+        if pd.notna(row['Programmes']) and row['Programmes'].strip():
             current_programme = row['Programmes'].strip()
 
         # Identify health-related rows based on keywords in program or sub-program
         programme_text = current_programme.lower()
         sub_programme_text = str(row.get('Sub- Programmes', '')).lower()
 
-        is_health_related = False
-        if any(keyword in programme_text for keyword in health_keywords) or \
-           any(keyword in sub_programme_text for keyword in health_keywords):
-            is_health_related = True
+        is_health_related = any(keyword in programme_text for keyword in health_keywords) or \
+                           any(keyword in sub_programme_text for keyword in health_keywords)
 
-        # Skip rows that are not health-related or are summary rows
+        # Skip rows that are not health-related or are summary rows (e.g., 'Total')
         if not is_health_related or 'total' in sub_programme_text or 'total' in programme_text:
             continue
 
-        # Extract data from the row
-        budget = clean_numeric_value(row.get('Approved Budget (Kshs)'))
-        expenditure = clean_numeric_value(row.get('Actual Payments (Kshs)'))
+        # Extract data. Numeric conversion is now handled by the dispatcher.
+        budget = row.get('Approved Budget (Kshs)')
+        expenditure = row.get('Actual Payments (Kshs)')
 
         # Extract metadata from file path, handling potential errors
         try:
