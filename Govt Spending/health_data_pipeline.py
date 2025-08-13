@@ -51,11 +51,11 @@ def clean_numeric_value(value):
     if isinstance(value, str):
         value = value.replace(',', '').strip()
         if value == '-':
-            return 0.0
+            return None
     try:
         return float(value)
     except (ValueError, TypeError):
-        return 0.0
+        return None
 
 def parse_health_data_from_csv(csv_path):
     """
