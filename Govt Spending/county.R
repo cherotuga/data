@@ -192,8 +192,8 @@ clean_text <- function(text) {
 
 ## Function to rename and clean
 rename_and_clean <- function(data, department = 0) {
-  clean_df <- data %>%
-    rename(department = !!sym(as.character(department))) %>%
+  clean_df <- data |>
+    rename(department = !!sym(as.character(department))) |>
     mutate(across(
       -department,
       ~ as.numeric(str_remove_all(., "[,\\-]"))
@@ -223,6 +223,14 @@ names_department <- c(
   "exp_rec", "exp_dev", "exp_exch_rec", "exp_exch_dev", "abs_rec", "abs_dev")
 
 # TO DO: Make NAs Total 
+# 2024/2025 ----
+
+## Feb 2025 (1/2 of the year) ----
+
+# This is downloaded from: https://cob.go.ke/reports/consolidated-county-budget-implementation-review-reports/
+# It is the COUNTY GOVERNMENTS BUDGET IMPLEMENTATION REVIEW REPORT THE FIRST HALF OF FY 2024/25
+
+
 
 # January 2025 (1/4 of the year) ----
 

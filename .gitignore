@@ -6,6 +6,10 @@
 .Rproj
 .lintr
 .json
-.csv
-.xslx
-.RData
+county_jan25*
+county_sep24*
+2024-Statistical-Abstract*
+govt_spending/** 
+*/govt_spending/
+govt_spending/*
+*/govt_spending/*

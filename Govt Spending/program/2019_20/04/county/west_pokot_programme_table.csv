@@ -1,0 +1,92 @@
+Sub- Programme,col_1,"Approved Budget
+(Kshs)","Actual Payments
+(Kshs)",Variance (Kshs.),"Implementation
+Status (%)",page_number,table_index
+Department County Executive,,,,,,416,1
+,"SP 1 - (General Administration ,planning and
+Support Services)","415,505,293","411,925,589","3,579,704",99.1,416,1
+,SP 2 -(County Executive affairs),"31,941,399","31,773,173","168,226",99.5,416,1
+,SP 3 -(County Public service Board,"5,591,520","4,802,454","789,066",85.9,416,1
+,SP 4 -(Field Administration service),"12,237,682","12,198,330","39,352",99.7,416,1
+,SP 5-(Liaison and Intergovernmental service),"11,933,852","11,842,028","91,824",99.2,416,1
+,Sub total,"477,209,746","472,541,574","4,668,172",99.0,416,1
+Department Finance and Economic Planning,,,,,,416,1
+,"SP 1(General Administration ,planning and
+Support Services","205,842,706","201,382,599","4,460,107",97.8,416,1
+,SP 2-(Treasury Accounting Services),"2,773,440","2,771,287","2,153",99.9,416,1
+,SP 3-(Supply Chain Management services),"3,097,816","3,095,517","2,299",99.9,416,1
+,SP 4-(Resource Mobilization),"7,967,000","7,838,171","128,829",98.4,416,1
+,SP 5-(Internal Audit services),"4,033,600","4,031,034","2,566",99.9,416,1
+,SP 6-(Budget Formulation services),"15,932,480","15,930,352","2,128",100.0,416,1
+,SP 7-(Economic Planning),"64,001,728","34,504,862","29,496,866",53.9,416,1
+,SP 8-(Project Management,-,-,-,-,416,1
+,SP 9-(Monitoring and Evaluation ),"2,798,000","2,795,727","2,273",99.9,416,1
+,Sub total,"306,446,770","272,349,549","34,097,221",88.9,416,1
+"Department Public Works , Transport and Infrastructure",,,,,,416,1
+,"SP 1(General Administration ,planning and
+Support Services","68,664,580","67,017,457","1,647,123",97.6,416,1
+,SP 2(Road Transport),"190,034,388","135,322,219","54,712,169",71.2,416,1
+,SP 3(Public Works),"15,906,546","13,695,351","2,211,195",86.1,416,1
+,SP 4(Vehicle Maintenance Unit),-,-,-,-,416,1
+,SP 5-(Ward Specific Projects),"143,323,537","101,023,590","42,299,947",70.5,416,1
+,Sub total,"417,929,051","317,058,617","100,870,434",75.9,416,1
+"Department Health, Sanitation and Emergencies",,,,,,416,1
+,"SP 1(General Administration ,planning and
+Support Services","1,278,761,133","1,264,893,236","13,867,897",98.9,416,1
+,SP 2-(Preventive Health Services),"102,668,287","96,652,941","6,015,346",94.1,416,1
+,SP 3-(Kapenguria Referral Hospital),"171,762,694","138,634,476","33,128,218",80.7,416,1
+,SP 4-(Kacheliba Sub county hospital),"16,584,561","15,617,041","967,520",94.2,417,0
+,SP 5-(Sigor Sub county hospital),"16,204,696","14,803,478","1,401,218",91.4,417,0
+,SP 6-(Chepareria Sub county hospital),"20,188,527","19,494,530","693,997",96.6,417,0
+,SP 7(Sanitation),-,-,-,-,417,0
+,SP 8(Ward Specific),"142,807,368","53,344,096","89,463,272",37.4,417,0
+,Sub total,"1,748,977,266","1,603,439,798","145,537,468",91.7,417,0
+Department Education and Technical training,,,,,,417,0
+,"SP 1(General Administration ,planning and
+Support Services","349,755,124","312,548,380","37,206,744",89.4,417,0
+,SP 2 -(ECD Services),"25,192,510","14,768,578","10,423,932",58.6,417,0
+,SP 3-(Youth Vocational training),"40,775,680","38,067,778","2,707,902",93.4,417,0
+,SP 4-(Bursary Fund),"410,000,000","410,000,000",-,100.0,417,0
+,SP 5 - (Ward specific),"127,957,953","6,270,374","121,687,579",4.9,417,0
+,Sub total,"953,681,267","781,655,110","172,026,157",82.0,417,0
+Department Agriculture and Irrigation,,,,,,417,0
+,"SP 1-(General Administration, Planning and
+Support Services)","102,639,563","98,451,292","4,188,271",95.9,417,0
+,SP 2-(Crop Development and Management),"224,012,776","214,589,373","9,423,403",95.8,417,0
+,SP 3-(Cash Crop Production(Special Programs),"1,042,000","1,010,990","31,010",97.0,417,0
+,SP 4 -(Ward specific),"12,699,300","10,613,309","2,085,991",83.6,417,0
+,Sub total,"340,393,639","324,664,964","15,728,675",95.4,417,0
+Department Pastoral Economy,,,,,,417,0
+,"SP 1-(General Administration, Planning and
+Support Services)","95,674,727","93,936,110","1,738,617",98.2,417,0
+,"SP 2 - (Livestock production and Range Man-
+agement)","56,911,901","49,359,936","7,551,965",86.7,417,0
+,SP 3-(Livestock Disease management),"9,747,892","9,689,291","58,601",99.4,417,0
+,SP 4-(Fisheries Development),"1,477,600","1,471,000","6,600",99.6,417,0
+,SP 5-(Nasukuta Livestock Improvement Centre),"22,287,096","743,470","21,543,626",3.3,417,0
+,SP 6 -(Ward specific),"34,847,058","26,991,896","7,855,162",77.5,417,0
+,"SP 7 -(Dairy Development(Special Pro-
+grammes)","20,600,000","20,595,866","4,134",100.0,417,0
+,Sub total,"241,546,274","202,787,569","38,758,705",84.0,417,0
+"Department Trade, Industrialization, Investment and Cooperative Development",,,,,,417,0
+,"SP 1-(General Administration, Planning and
+Support Services)","57,155,155","55,817,355","1,337,800",97.7,417,0
+,SP 2-(Cooperative Development),"62,378,644","35,990,023","26,388,621",57.7,417,0
+,"SP 3 - (Trade, License and Market Develop-
+ment)","2,688,800","2,377,411","311,389",88.4,417,0
+,SP 5 - (Trade Licensing and Markets),"13,278,414","13,344,820","(66,406)",100.5,417,0
+,SP 4-(Ward specific),"21,660,089","7,495,705","14,164,384",34.6,417,0
+,Sub total,"157,161,102","115,025,314","42,135,788",73.2,417,0
+"Department Land, Housing ,Physical Planning and Urban Development",,,,,,417,0
+,"SP 1-(General Administration, Planning and
+Support Services)","57,994,670","57,246,797","747,873",98.7,417,0
+,SP 2 -(Land Policy and Physical Planning),"1,348,800","1,225,300","123,500",90.8,417,0
+,SP 3-(Housing Development),"912,000","879,150","32,850",96.4,417,0
+,SP 4-(Urban Development),"19,684,636","1,946,839","17,737,797",9.9,417,0
+,SP 5-(Kapenguria Municipality),"186,705,609","101,354,190","85,351,419",54.3,417,0
+,SP 6-(Ward specific),"5,908,751","3,107,649","2,801,102",52.6,417,0
+,Sub total,"272,554,466","165,759,925","106,794,541",60.8,417,0
+"Department Water development, Environment and Natural Resources",,,,,,417,0
+,"SP 1-(General Administration, Planning and
+Support Services)","52,035,428","50,329,564","1,705,864",96.7,417,0
+,SP 2 -(Water Supply Services),"122,262,800","50,735,090","71,527,710",41.5,417,0

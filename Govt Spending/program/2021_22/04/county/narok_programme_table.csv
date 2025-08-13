@@ -1,0 +1,191 @@
+Program,Sub Program,Description,"Approved Bud-
+get(Kshs.)","Actual Payments
+(Kshs.)","Variance
+(Kshs.)","Absorp-
+tion (%)",page_number,table_index
+4610,,Default - Non-Programmatic,-,-,-,0,363,1
+,0,Default - Non-Programmatic,-,-,-,0,363,1
+101000000,,Land Policy and Planning,-,-,-,0,363,1
+,101029999,"Land Information Manage-
+ment",-,-,-,0,363,1
+102000000,,"Housing Development and
+Human Settlement",-,-,-,0,363,1
+,102019999,Housing Development,-,-,-,0,363,1
+102004610,,"Crop Development and Man-
+agement","601,988,764","63,939,234","538,049,530",11,363,1
+,102024610,"Crop Productivity Improve-
+ment","601,988,764","63,939,234","538,049,530",11,363,1
+103004610,,"Livestock Resources manage-
+ment and development","132,347,982",-,"132,347,982",0,363,1
+,103014610,"Livestock Pests & Disease
+Management & Control","61,596,366",-,"61,596,366",0,363,1
+,103074610,"Livestock Information Man-
+agement","70,751,616",-,"70,751,616",0,363,1
+104004610,,"Fisheries development and
+Management","29,678,706",-,"29,678,706",0,363,1
+,104014610,Fish Products Production,"29,678,706",-,"29,678,706",0,363,1
+105000000,,"Urban and Metropolitan De-
+velopment",-,-,-,0,363,1
+105004610,,Land Policy and Planning,"173,262,143","165,000,000","8,262,143",95,364,0
+,105014610,"Development Planning and
+Land Reforms","173,262,143","165,000,000","8,262,143",95,364,0
+,105024610,,-,-,-,0,364,0
+106004610,,"Housing Development and
+Human Settlement","192,067,540",-,"192,067,540",0,364,0
+,106014610,Housing Development,"192,067,540",-,"192,067,540",0,364,0
+107004610,,"Urban Mobility and Trans-
+port","260,671,166","5,000,000","255,671,166",2,364,0
+,107014610,"Metropolitan Planning & In-
+frastructure Development","260,671,166","5,000,000","255,671,166",2,364,0
+108000000,,"Crop Development and Man-
+agement",-,-,-,0,364,0
+,108029999,Food Security Initiatives,-,-,-,0,364,0
+111000000,,"Fisheries Development and
+Management",-,-,-,0,364,0
+,111029999,"Aquaculture Development
+Marketing & Research",-,-,-,0,364,0
+112000000,,"Livestock Resources Manage-
+ment and Development",-,-,-,0,364,0
+,112029999,"Livestock Production and
+Management",-,-,-,0,364,0
+201004610,,"Roads Transport and Public
+Works","1,357,651,132","454,768,087","902,883,045",33,364,0
+,201014610,"General Administration, Plan-
+ning and Support Services","182,703,471","16,181","182,687,290",0,364,0
+,201024610,"Construction of Roads and
+Bridges","956,554,174","244,358,420","712,195,754",26,364,0
+,201034610,Maintenance of Roads,"218,393,487","210,393,486","8,000,001",96,364,0
+202000000,,Road Transport,-,-,-,0,364,0
+,202019999,"Construction of Roads and
+Bridges",-,-,-,0,364,0
+,202039999,Maintenance of Roads,-,-,-,0,364,0
+202004610,,ICT Services,"47,923,165","42,488,363","5,434,802",89,364,0
+,202014610,"ICT Infrastructure Develop-
+ment","47,923,165","42,488,363","5,434,802",89,364,0
+210000000,,"ICT Infrastructure Develop-
+ment",-,-,-,0,364,0
+,210019999,"ICT Infrastructure Connec-
+tivity",-,-,-,0,364,0
+301004610,,"General Administration and
+Support Services","179,962,356","167,373,581","12,588,775",93,364,0
+,301014610,Administrative Services,"7,588,775",-,"7,588,775",0,364,0
+,301024610,"Cooperative Development &
+Management","23,446,192","21,446,192","2,000,000",91,364,0
+,301034610,"Trade Development and Pro-
+motion","148,927,389","145,927,389","3,000,000",98,364,0
+302000000,,"Industrial Development and
+Investments",-,-,-,0,364,0
+,302019999,"Promotion of Industrial De-
+velopment and Investments",-,-,-,0,364,0
+303004610,,"Tourism Development and
+Promotion","443,107,293","433,107,293","10,000,000",98,364,0
+,303014610,"Tourism Promotion and Mar-
+keting","443,107,293","433,107,293","10,000,000",98,364,0
+306000000,,"Tourism Development and
+Promotion",-,-,-,0,365,0
+,306019999,"Tourism Promotion and Mar-
+keting",-,-,-,0,365,0
+401000000,,"Preventive & Promotive
+Health Services",-,-,-,0,365,0
+,401019999,Health Promotion,-,-,-,0,365,0
+401004610,,"Preventive &Promotive
+Health Services","1,689,000,000","1,675,000,000","14,000,000",99,365,0
+,401014610,Health Promotion,"1,689,000,000","1,675,000,000","14,000,000",99,365,0
+402004610,,Curative Health Services,"331,034,233","329,984,050","1,050,183",100,365,0
+,402014610,Referral Services,"331,034,233","329,984,050","1,050,183",100,365,0
+403004610,,"General Administration,
+Planning & Support Services","2,313,922,140","2,286,260,560","27,661,580",99,365,0
+,403014610,"Health Policy, Planning and
+Financing","2,313,922,140","2,286,260,560","27,661,580",99,365,0
+404000000,,"General Administration,
+Planning & Support Services",-,-,-,0,365,0
+,404019999,"Health Policy, Planning & Fi-
+nancing",-,-,-,0,365,0
+501000000,,Primary Education,-,-,-,0,365,0
+,501049999,"Early Child Development and
+Education",-,-,-,0,365,0
+502004610,,"Manpower Development,
+Employment and Productiv-
+ity Management","1,224,941,270","1,021,150,000","203,791,270",83,365,0
+,502014610,"Early Child Development and
+Education","1,224,941,270","1,021,150,000","203,791,270",83,365,0
+,502024610,"Infrastructure Development
+and Expansion",-,-,-,0,365,0
+701004610,,"General Administration,
+Planning and Support Ser-
+vices","1,671,738,425","1,443,653,789","228,084,636",86,365,0
+,701014610,Administrative Services,"769,697,099","551,708,655","217,988,444",72,365,0
+,701024610,"Information Communication
+Services",-,-,-,0,365,0
+,701044610,"Coordination and Administra-
+tive Services","323,846,234","321,460,000","2,386,234",99,365,0
+,701054610,"Public service and Field Ad-
+ministrative Services","413,589,984","410,589,984","3,000,000",99,365,0
+,701084610,Board Management Services,"164,605,108","159,895,150","4,709,958",97,365,0
+,701104610,Legal and Public Affairs,-,-,-,0,365,0
+702004610,,Public Finance Management,"335,677,978","321,984,149","13,693,829",96,365,0
+,702014610,Accounting services,"30,796,221","28,000,000","2,796,221",91,365,0
+,702024610,Resource Mobilisation,"145,522,112","142,178,000","3,344,112",98,365,0
+,702034610,"Budget Formulation, Coordi-
+nation and Management","35,932,873","34,932,873","1,000,000",97,365,0
+,702044610,"Supply Chain Management
+Services","69,038,396","65,484,900","3,553,496",95,365,0
+,702054610,Internal Audit Services,"54,388,376","51,388,376","3,000,000",94,365,0
+703004610,,"Economic Policy and County
+Planning","680,918,885","542,124,799","138,794,086",80,365,0
+,703014610,"Economic Planning Coordi-
+nation","656,360,296","522,915,199","133,445,097",80,365,0
+,703024610,"Monitoring and Evaluation
+Services","24,558,589","19,209,600","5,348,989",78,366,0
+704004610,,"Legislation and Representa-
+tion","840,204,000","840,204,000",-,100,366,0
+,704014610,Legislative Oversight,"492,522,712","492,522,712",-,100,366,0
+,704024610,"County Co-ordination Ser-
+vices","307,540,000","307,540,000",-,100,366,0
+,704034610,Research and Policy,"40,141,288","40,141,288",-,100,366,0
+706000000,,"Economic Policy and Nation-
+al Planning",-,-,-,0,366,0
+,706019999,"Economic Planning Coordina-
+tion services",-,-,-,0,366,0
+722000000,,Legislative Oversight,-,-,-,0,366,0
+,722019999,"Legislation and Representa-
+tion",-,-,-,0,366,0
+724000000,,"Inter-Governmental Revenue
+and Financial Matters",-,-,-,0,366,0
+,724029999,Research and Policy,-,-,-,0,366,0
+725000000,,"General Administration,
+Planning and Support Ser-
+vices",-,-,-,0,366,0
+,725019999,Administration,-,-,-,0,366,0
+,725029999,Board Management Service,-,-,-,0,366,0
+729000000,,Audit Services,-,-,-,0,366,0
+,729029999,County Governments Audit,-,-,-,0,366,0
+901000000,,Sports,-,-,-,0,366,0
+,901019999,"Sports Training and competi-
+tions",-,-,-,0,366,0
+901004610,,"Social Development and
+Children Services","445,789,292","430,789,292","15,000,000",97,366,0
+,901014610,"Gender and Youth Develop-
+ment","129,739,090","119,739,090","10,000,000",92,366,0
+,901024610,"Social Assistance to Vulnera-
+ble Groups","21,646,436","21,646,436",-,100,366,0
+,901034610,"Development and Promotion
+of culture","19,710,027","19,710,027",-,100,366,0
+,901044610,"Development and Manage-
+ment of sports facilities","148,900,562","143,900,562","5,000,000",97,366,0
+,901054610,Sports Services,-,-,-,0,366,0
+,901064610,Voluntary Training Services,"125,793,177","125,793,177",-,100,366,0
+907000000,,"Manpower Development,
+Employment and Productiv-
+ity Management",-,-,-,0,366,0
+,907019999,"Human Resource Planning &
+Development",-,-,-,0,366,0
+1001000000,,"General Administration,
+Planning and Support Ser-
+vices",-,-,-,0,366,0
+,1001019999,"Environmental Policy Man-
+agement",-,-,-,0,366,0
+1002004610,,"Environment Management
+and Protection","400,226,420","390,226,420","10,000,000",98,366,0
+,1002014610,"Forests Conservation and
+Management","400,226,420","390,226,420","10,000,000",98,366,0

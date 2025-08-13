@@ -1,0 +1,106 @@
+Program,Description,"Approved Budget
+Estimates
+(Kshs.)","Actual Expendi-
+ture (Kshs.)","Budget utilisa-
+tion difference
+(Kshs.)","Absorption
+Rate (%)",page_number,table_index
+101004810,Livestock development,"196,500,000","72,584,779","123,915,221",36.9,145,1
+,Dairy Development,"55,000,000","52,068,767","2,931,233",94.7,145,1
+,Poultry development,"5,000,000",-,"5,000,000",-,145,1
+,Livestock disease and pest prevention,"15,000,000","13,084,675","1,915,325",87.2,145,1
+,"Livestock Market Infrastructure Improve-
+ment","21,500,000","7,431,337","14,068,663",34.6,145,1
+102004810,Fish Farming Productivity Programme,"50,000,000","51,441,477","(1,441,477)",102.9,145,1
+,Promotion of Fish Farming,"50,000,000","51,441,477","(1,441,477)",102.9,145,1
+103004810,"Crop Production and Management Ser-
+vices","1,117,263,588","837,171,026","280,092,562",74.9,145,1
+,Cash crop development,"4,000,000","2,364,700","1,635,300",59.1,145,1
+,Food crop production,"702,889,731","668,863,927","34,025,804",95.2,145,1
+,Crop pest and disease management,"7,000,000","3,086,000","3,914,000",44.1,145,1
+,Agricultural Extension and Research,"403,373,857","162,856,399","240,517,458",40.4,145,1
+105004810,Agricultural Extension and Research,"10,000,000","9,849,038","150,962",98.5,145,1
+,Training and demonstration,"10,000,000","9,849,038","150,962",98.5,145,1
+106004810,Cooperative Development,"20,000,000","18,600,000","1,400,000",93.0,145,1
+,Marketing and value addition,"20,000,000","18,600,000","1,400,000",93.0,145,1
+107004810,Land Management Services,"90,300,000","68,672,515","21,627,485",76.0,145,1
+,Land use policy and planning,"70,000,000","55,204,859","14,795,141",78.9,145,1
+,Survey Services,"10,800,000","10,710,642","89,358",99.2,146,0
+108004810,Housing Management Services,"163,500,000","13,173,543","150,326,457",8.1,146,0
+,Housing Infrastructure development,"13,500,000","13,173,543","326,457",97.6,146,0
+,Slum Upgrading,"150,000,000",-,"150,000,000",-,146,0
+110004810,Urban Development Service,"439,723,425","338,379,520","101,343,905",77.0,146,0
+,Urban Infrastructure Services,"381,723,425","278,476,826","103,246,599",73.0,146,0
+,Social Amenities and Sanitary Services,"58,000,000","59,902,694","(1,902,694)",103.3,146,0
+201004810,Road Infrastructure Development,"1,352,106,752","950,187,492","401,919,260",70.3,146,0
+,Road Maintenance,"158,035,792","108,679,813","49,355,979",68.8,146,0
+,Bridges Culverts Construction,"34,070,960","51,040,711","(16,969,751)",149.8,146,0
+,Road construction,"1,160,000,000","790,466,968","369,533,032",68.1,146,0
+203004810,Energy Reticulation,"50,000,000","16,439,376","33,560,624",32.9,146,0
+,Electrification.,"20,000,000","14,871,665","5,128,335",74.4,146,0
+,Renewable Energy,"30,000,000","1,567,711","28,432,289",5.2,146,0
+307004810,Trade Development and Investment,"113,500,000","73,885,005","39,614,995",65.1,146,0
+,Modern Market infrastructure development,"113,500,000","73,885,005","39,614,995",65.1,146,0
+309004810,Industrial development and investment,"33,500,000","19,999,880","13,500,120",59.7,146,0
+,Industrial Development and Promotion,"33,500,000","19,999,880","13,500,120",59.7,146,0
+401004810,Preventive and promotive services,"84,000,000","50,000,000","34,000,000",59.5,146,0
+,Maternal and child healthcare promotion,"84,000,000","50,000,000","34,000,000",59.5,146,0
+402004810,Promotion of Curative health services,"772,724,270","597,059,220","175,665,050",77.3,146,0
+,Health Infrastructure Development,"653,724,270","509,217,770","144,506,500",77.9,146,0
+,Primary medical health services,"98,000,000","84,728,750","13,271,250",86.5,146,0
+,Blood Transfusion Services,"21,000,000","3,112,700","17,887,300",14.8,146,0
+503004810,"Vocational Education and Training devel-
+opment","79,551,307","37,978,472","41,572,835",47.7,146,0
+,Polytechnic Support and Development,"79,551,307","37,978,472","41,572,835",47.7,146,0
+,Training Promotion and Development,-,-,-,-,146,0
+504004810,"Early Childhood Development Education
+(ECDE)","226,100,000","147,071,274","79,028,726",65.0,146,0
+,ECD Infrastructure Development,"226,100,000","147,071,274","79,028,726",65.0,146,0
+,Childcare and development,-,-,-,-,146,0
+505004810,Education Support Programme,"8,000,000","4,528,319","3,471,681",56.6,146,0
+,Non-Tertiary Education Support,"8,000,000","4,528,319","3,471,681",56.6,146,0
+506004810,Polytechnic Improvement,-,-,-,-,146,0
+,Polytechnic Tuition Subsidy,-,-,-,-,146,0
+704004810,"Support, Coordination and Advisory Ser-
+vices",-,-,-,-,146,0
+,Legal Services,-,-,-,-,146,0
+705004810,Information and communication services,"124,280,640","74,991,267","49,289,373",60.3,146,0
+,Information and communication services,"124,280,640","74,991,267","49,289,373",60.3,146,0
+709004810,"Support, Coordination and Advisory ser-
+vices",-,-,-,-,146,0
+,Support and Advisory services,-,-,-,-,146,0
+,County Internal Audit services,-,-,-,-,146,0
+710004810,County Assembly Services,"40,000,000",-,-,-,146,0
+,Oversight services,"40,000,000",-,-,-,146,0
+712004810,"County Public service and Administrative
+services","182,128,447","160,741,386","21,387,061",88.3,146,0
+,County Administration,"146,528,447","136,469,195","10,059,252",93.1,146,0
+,Human Resource Management,"35,600,000","24,272,191","11,327,809",68.2,146,0
+718004810,Investment promotion,"19,000,000","8,720,000","10,280,000",45.9,147,0
+,Investment promotion,"19,000,000","8,720,000","10,280,000",45.9,147,0
+901004810,"Administration, Planning and Support ser-
+vices","7,140,370","4,800,979","2,339,391",67.2,147,0
+,Administrative Services,"7,140,370","4,800,979","2,339,391",67.2,147,0
+902004810,Culture and Arts Development,"11,600,000","6,593,593","5,006,407",56.8,147,0
+,Culture and Heritage Conservation,"11,600,000","6,593,593","5,006,407",56.8,147,0
+903004810,"Management And Development Of Sports
+And Sports Facilities","512,400,000","526,310,484","(13,910,484)",102.7,147,0
+,Development of Sports facilities,"507,180,000","506,452,468","727,532",99.9,147,0
+,"Promotion and Development of Sports and
+Talent","5,220,000","19,858,016","(14,638,016)",380.4,147,0
+904004810,"Youth & Gender Development And Promo-
+tion Services","11,000,000","24,969,295","(13,969,295)",227.0,147,0
+,"Youth, Disability and Gender Empowerment
+and mainstreaming","11,000,000","24,969,295","(13,969,295)",227.0,147,0
+906004810,Social Development And Promotions,"105,000,000","103,911,959","1,088,041",99.0,147,0
+,Social Development and Social Protection,"105,000,000","103,911,959","1,088,041",99.0,147,0
+1005004810,Natural Resource Management,"26,000,000","9,836,984","16,163,016",37.8,147,0
+,Afforestation and Re-afforestation,"10,000,000","7,736,984","2,263,016",77.4,147,0
+,"Protection of natural resources and environ-
+mental processes","16,000,000","2,100,000","13,900,000",13.1,147,0
+1006004810,Water and Sanitation Services,"385,707,538","311,360,671","74,346,867",80.7,147,0
+,Water Resource Supply and management,"385,707,538","311,360,671","74,346,867",80.7,147,0
+1007004810,Environmental conservation,"67,000,000","1,788,000","65,212,000",2.7,147,0
+,Environmental Protection,-,"1,788,000","(1,788,000)",-,147,0
+,Climate Change management,"67,000,000",-,"67,000,000",-,147,0
+,Grand Total,"6,304,026,337","4,550,517,234","1,753,509,103",72.2,147,0
