@@ -3,6 +3,9 @@ import pandas as pd
 import re
 import argparse
 from file_dispatcher import dispatch_file
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
 # Debugging
 
@@ -68,18 +71,50 @@ def parse_health_data_from_csv(csv_path):
     df['program'] = df['program'].astype(str)
     df['sub_program'] = df['sub_program'].astype(str)
 
-    # --- Keyword Filtering ---
-    health_keywords = ['health', 'curative', 'preventive', 'medical', 'hospital']
+    # --- Semantic Filtering with Scikit-learn ---
+    # Final refined list of health-related terms to be more specific
+    health_terms = [
+        'human healthcare', 'medical services', 'hospital services', 'curative care',
+        'preventive healthcare', 'pharmaceuticals', 'clinic operations', 'maternal healthcare',
+        'child healthcare', 'infant healthcare', 'nutrition services', 'vaccination program',
+        'primary health', 'mental health services', 'hospital construction',
+        'clinic renovation', 'healthcare financing', 'medical supplies',
+        'laboratory services', 'ambulance services', 'community health workers'
+    ]
 
-    # Create a boolean mask for rows containing any health keyword in program or sub_program
-    is_health_related = df['program'].str.contains('|'.join(health_keywords), case=False, na=False) | \
-                        df['sub_program'].str.contains('|'.join(health_keywords), case=False, na=False)
+    # Combine program and sub_program into a single text column for analysis
+    df['full_description'] = df['program'].fillna('') + ' ' + df['sub_program'].fillna('')
 
-    # Filter out rows that are not health-related
+    # Handle cases where the description might be empty
+    if df['full_description'].str.strip().eq('').all():
+        return None
+
+    # Vectorize the descriptions and health terms
+    vectorizer = TfidfVectorizer(stop_words='english')
+    all_text = list(df['full_description']) + health_terms
+    tfidf_matrix = vectorizer.fit_transform(all_text)
+
+    # Split the matrix back into descriptions and terms
+    description_vectors = tfidf_matrix[:len(df)]
+    term_vectors = tfidf_matrix[len(df):]
+
+    # Calculate cosine similarity between each description and all health terms
+    # We take the max similarity for each description against all health terms
+    cosine_similarities = cosine_similarity(description_vectors, term_vectors)
+    max_similarities = np.max(cosine_similarities, axis=1)
+
+    # Set a similarity threshold
+    similarity_threshold = 0.4
+
+    # Filter rows that meet the similarity threshold
+    is_health_related = max_similarities >= similarity_threshold
     health_df = df[is_health_related].copy()
 
     if health_df.empty:
         return None
+
+    # Add the similarity score to the dataframe for analysis (optional)
+    health_df['health_similarity_score'] = max_similarities[is_health_related]
 
     # --- Metadata Extraction ---
     try:
@@ -104,7 +139,7 @@ def parse_health_data_from_csv(csv_path):
     # Ensure all required columns are present
     final_columns = [
         'county', 'year', 'quarter', 'program', 'sub_program',
-        'approved_budget_kshs', 'actual_expenditure_kshs'
+        'approved_budget_kshs', 'actual_expenditure_kshs', 'health_similarity_score'
     ]
     for col in final_columns:
         if col not in health_df.columns:
