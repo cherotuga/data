@@ -14,39 +14,72 @@ import pandas as pd
 import os
 import re
 
-def _identify_header(csv_path):
+def is_likely_header(cell_content):
     """
-    Identifies and cleans the header of a CSV file.
-    Assumes the header is on the first row but cleans it effectively.
+    Determines if a cell's content is likely part of a header.
+    - Returns False if it's a number (int or float).
+    - Returns False if it's empty or NA.
+    - Returns True otherwise (likely text).
+    """
+    # Check for NaN, None, or empty strings
+    if pd.isna(cell_content) or cell_content is None or str(cell_content).strip() == "":
+        return False
+    # Try to convert to a number
+    try:
+        float(str(cell_content).replace(",", ""))
+        return False # It's a number
+    except (ValueError, TypeError):
+        return True # It's not a number
 
-    Args:
-        csv_path (str): The path to the CSV file.
-
-    Returns:
-        tuple: A tuple containing:
-            - list: The cleaned list of column names.
-            - int: The number of rows identified as the header (returns 1 if successful).
-                   Returns 0 on failure.
+def _identify_header(csv_path, max_rows_to_check=5):
+    """
+    Identifies and cleans the header of a CSV file, which may span multiple rows.
     """
     if not os.path.exists(csv_path):
         return None, 0
 
     try:
-        # We only need the column names, so reading 0 rows is efficient.
-        df = pd.read_csv(csv_path, nrows=0)
+        # Read the first few rows without assuming any header
+        df_peek = pd.read_csv(csv_path, header=None, nrows=max_rows_to_check, na_filter=False)
 
-        # Clean column names: replace newlines, carriage returns, and collapse whitespace.
+        header_rows_count = 0
+        for index, row in df_peek.iterrows():
+            non_empty_cells = [cell for cell in row if str(cell).strip() != ""]
+            if not non_empty_cells:
+                break  # Stop at an empty row
+
+            if all(is_likely_header(cell) for cell in non_empty_cells):
+                header_rows_count += 1
+            else:
+                break  # Stop at the first data row
+
+        if header_rows_count == 0:
+            # Fallback to single header if no header rows were identified
+            header_rows_count = 1
+
+        # Read just the header rows
+        header_df = pd.read_csv(csv_path, header=None, nrows=header_rows_count, na_filter=False)
+
+        # Combine header rows
+        if header_rows_count > 1:
+            # Transpose, fill forward, and then join
+            temp_header_df = header_df.T
+            temp_header_df.ffill(inplace=True)
+            combined_header = temp_header_df.apply(lambda x: ' '.join(x.dropna().astype(str)), axis=1)
+        else:
+            combined_header = header_df.iloc[0]
+
+        # Clean column names
         cleaned_columns = []
-        for col in df.columns:
-            # Replace any newline or carriage return characters with a space
+        for col in combined_header:
             clean_col = re.sub(r'[\n\r]+', ' ', str(col))
-            # Replace multiple whitespace characters with a single space and strip
             clean_col = re.sub(r'\s+', ' ', clean_col).strip()
             cleaned_columns.append(clean_col)
 
-        return cleaned_columns, 1
-    except Exception:
-        # If pandas can't even read the header, the file is likely problematic.
+        return cleaned_columns, header_rows_count
+
+    except Exception as e:
+        print(f"  [!] Error identifying header in {os.path.basename(csv_path)}: {e}")
         return None, 0
 
 # Ideal column structure for program budget reports
@@ -77,9 +110,9 @@ def dispatch_file(csv_path):
         # _identify_header failed, message would have been printed there.
         return None
 
-    # Normalize column names for a more robust comparison (case and space insensitive)
-    norm_actual = [col.lower().replace(' ', '') for col in actual_columns]
-    norm_ideal = [col.lower().replace(' ', '') for col in IDEAL_COLUMNS]
+    # Normalize column names for a more robust comparison (case, space, and underscore insensitive)
+    norm_actual = [col.lower().replace(' ', '').replace('_', '') for col in actual_columns]
+    norm_ideal = [col.lower().replace(' ', '').replace('_', '') for col in IDEAL_COLUMNS]
 
     if norm_actual != norm_ideal:
         # This is a critical validation step. If columns don't match, we can't process the file reliably.
