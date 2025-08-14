@@ -4,8 +4,23 @@ import re
 import argparse
 from file_dispatcher import dispatch_file
 
-# Debugging
+# --- New Imports for Semantic Search ---
+# Note: You will need to install the sentence-transformers library.
+# Run: pip install sentence-transformers
+from sentence_transformers import SentenceTransformer, util
 
+# --- Global Model Initialization ---
+# Load the pre-trained model once to be reused across all function calls.
+# This is more efficient than loading it inside the function every time.
+# The model will be downloaded from the internet on its first run.
+print("Loading semantic search model...")
+try:
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+    print("Model loaded successfully.")
+except Exception as e:
+    print(f"Error loading model: {e}")
+    print("Please ensure you have an internet connection and the required libraries are installed.")
+    model = None
 
 def find_all_csv_files(root_dir, year=None, quarter=None):
     """
@@ -19,19 +34,16 @@ def find_all_csv_files(root_dir, year=None, quarter=None):
 
     year_str = None
     if year:
-        # Format year to match '2019_20'
         year_str = f"{year}_{str(year + 1)[-2:]}"
 
     quarter_str = None
     if quarter:
-        # Format quarter to match '01'
         quarter_str = f"{quarter:02d}"
 
     for subdir, _, files in os.walk(root_dir):
         for file in files:
             if file.endswith('_programme_table.csv'):
                 path_parts = subdir.replace('\\', '/').split('/')
-                # path_parts for program/2019_20/01/county is ['program', '2019_20', '01', 'county']
                 if len(path_parts) >= 3:
                     file_year = path_parts[1]
                     file_quarter = path_parts[2]
@@ -40,7 +52,6 @@ def find_all_csv_files(root_dir, year=None, quarter=None):
                        (quarter is None or file_quarter == quarter_str):
                         csv_files.append(os.path.join(subdir, file))
                 elif year is None and quarter is None:
-                    # Include files in root of 'program' only when no filters are applied
                     csv_files.append(os.path.join(subdir, file))
 
     print(f"Found {len(csv_files)} potential program CSV files.")
@@ -49,33 +60,57 @@ def find_all_csv_files(root_dir, year=None, quarter=None):
 def parse_health_data_from_csv(csv_path):
     """
     Parses a single CSV file to find and extract health-related program data.
-    Uses the dispatcher, which now returns a DataFrame with standardized column names.
+    This version uses a semantic search model to identify health-related spending.
     """
+    if model is None:
+        print("  [!] Semantic search model not loaded. Skipping file.")
+        return None
+
     df = dispatch_file(csv_path)
     if df is None:
         return None
 
     # --- Data Cleaning and Standardization ---
-    # Convert budget and expenditure columns to numeric, coercing errors to NaN
     for col in ['budget', 'expenditure']:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors='coerce')
 
-    # Forward-fill program names to handle hierarchical structures
-    df['program'] = df['program'].ffill()
+    df['program'] = df['program'].ffill().astype(str)
+    df['sub_program'] = df['sub_program'].fillna('').astype(str)
 
-    # Ensure program and sub_program are strings for searching
-    df['program'] = df['program'].astype(str)
-    df['sub_program'] = df['sub_program'].astype(str)
+    # --- Semantic Search Filtering ---
+    # Define a set of reference sentences that capture the essence of "health spending".
+    health_references = [
+        "expenditure on public health services",
+        "curative and rehabilitative healthcare",
+        "medical supplies and hospital equipment",
+        "preventive health programs and initiatives",
+        "maternal and child health services",
+        "ambulance and emergency medical services",
+        "funding for county hospitals and clinics"
+    ]
 
-    # --- Keyword Filtering ---
-    health_keywords = ['health', 'curative', 'preventive', 'medical', 'hospital']
+    # Create embeddings for the reference sentences. This is done once per run of the function.
+    health_embeddings = model.encode(health_references, convert_to_tensor=True)
 
-    # Create a boolean mask for rows containing any health keyword in program or sub_program
-    is_health_related = df['program'].str.contains('|'.join(health_keywords), case=False, na=False) | \
-                        df['sub_program'].str.contains('|'.join(health_keywords), case=False, na=False)
+    # Combine program and sub_program columns to create a single descriptive text for each row.
+    df['full_description'] = df['program'] + ' ' + df['sub_program']
 
-    # Filter out rows that are not health-related
+    # Generate embeddings for all program/sub-program descriptions in the DataFrame.
+    description_embeddings = model.encode(df['full_description'].tolist(), convert_to_tensor=True)
+
+    # Calculate cosine similarity between each description and all health references.
+    cosine_scores = util.cos_sim(description_embeddings, health_embeddings)
+
+    # Find the maximum similarity score for each description against the set of health references.
+    max_scores = cosine_scores.max(axis=1).values
+
+    # Define a confidence threshold.
+    similarity_threshold = 0.5
+
+    # Create a boolean mask for rows that meet the similarity threshold.
+    is_health_related = max_scores > similarity_threshold
+
     health_df = df[is_health_related].copy()
 
     if health_df.empty:
@@ -95,20 +130,18 @@ def parse_health_data_from_csv(csv_path):
     health_df['quarter'] = quarter
 
     # --- Final Column Selection and Renaming ---
-    # Select and rename columns to the final desired output format
     health_df = health_df.rename(columns={
         'budget': 'approved_budget_kshs',
         'expenditure': 'actual_expenditure_kshs'
     })
 
-    # Ensure all required columns are present
     final_columns = [
         'county', 'year', 'quarter', 'program', 'sub_program',
         'approved_budget_kshs', 'actual_expenditure_kshs'
     ]
     for col in final_columns:
         if col not in health_df.columns:
-            health_df[col] = None # Add missing columns and fill with None
+            health_df[col] = None
 
     return health_df[final_columns]
 
@@ -120,7 +153,6 @@ def main(year=None, quarter=None, all_available=False):
     program_data_dir = 'program'
     print(f"--- Starting Health Data Aggregation from: '{program_data_dir}' ---")
 
-    # Determine which files to process based on arguments
     if all_available:
         year, quarter = None, None
         print("Processing all available years and quarters.")
@@ -133,27 +165,27 @@ def main(year=None, quarter=None, all_available=False):
         print(f"Processing all years for quarter {quarter}.")
         year = None
     else:
-        # Default behavior if no arguments are provided
         print("No specific year or quarter specified. Processing all available data.")
         year, quarter = None, None
 
-    # Step 1: Find all relevant CSV files
     all_csvs = find_all_csv_files(program_data_dir, year, quarter)
 
-    # Step 2 & 3: Parse health data and aggregate
     aggregated_data = []
+    processed_files = 0
     for csv_file in all_csvs:
+        processed_files += 1
+        print(f"Processing file {processed_files}/{len(all_csvs)}: {os.path.basename(csv_file)}")
         health_df = parse_health_data_from_csv(csv_file)
         if health_df is not None and not health_df.empty:
-            # Extract year and quarter from the dataframe for the printout
             file_year = health_df['year'].iloc[0]
             file_quarter = health_df['quarter'].iloc[0]
             print(f"  [+] Extracted {len(health_df)} health record(s) from {os.path.basename(csv_file)} (Year: {file_year}, Quarter: {file_quarter})")
             aggregated_data.append(health_df)
         else:
-            print(f"  [-] No health data extracted from {os.path.basename(csv_file)} (Year: {file_year}, Quarter: {file_quarter})")
+            # This is very common, so we can reduce the verbosity.
+            # print(f"  [-] No health data extracted from {os.path.basename(csv_file)}")
+            pass
 
-    # Step 4: Save the final aggregated data
     if aggregated_data:
         final_df = pd.concat(aggregated_data, ignore_index=True)
         output_csv = "health_spending_summary.csv"
@@ -167,7 +199,6 @@ def main(year=None, quarter=None, all_available=False):
 
 
 if __name__ == "__main__":
-    # Ensure the script runs from its own directory context
     script_dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(script_dir)
 
@@ -178,7 +209,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # If --all is used, or if no arguments are given at all, process everything.
     process_all = args.all or (args.year is None and args.quarter is None)
 
     main(year=args.year, quarter=args.quarter, all_available=process_all)
