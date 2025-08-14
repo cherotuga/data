@@ -151,7 +151,7 @@ def main(year=None, quarter=None, all_available=False):
             print(f"  [+] Extracted {len(health_df)} health record(s) from {os.path.basename(csv_file)} (Year: {file_year}, Quarter: {file_quarter})")
             aggregated_data.append(health_df)
         else:
-            print(f"  [-] No health data extracted from {os.path.basename(csv_file)}")
+            print(f"  [-] No health data extracted from {os.path.basename(csv_file)} (Year: {file_year}, Quarter: {file_quarter})")
 
     # Step 4: Save the final aggregated data
     if aggregated_data:
