@@ -49,67 +49,68 @@ def find_all_csv_files(root_dir, year=None, quarter=None):
 def parse_health_data_from_csv(csv_path):
     """
     Parses a single CSV file to find and extract health-related program data.
-    Uses the dispatcher to ensure file structure is correct before processing.
+    Uses the dispatcher, which now returns a DataFrame with standardized column names.
     """
-    # The dispatcher now handles file reading, validation, and basic cleaning.
     df = dispatch_file(csv_path)
     if df is None:
-        # The dispatcher handles logging issues, so we just exit.
         return None
 
-    health_data = []
-    current_programme = ''
+    # --- Data Cleaning and Standardization ---
+    # Convert budget and expenditure columns to numeric, coercing errors to NaN
+    for col in ['budget', 'expenditure']:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+
+    # Forward-fill program names to handle hierarchical structures
+    df['program'] = df['program'].ffill()
+
+    # Ensure program and sub_program are strings for searching
+    df['program'] = df['program'].astype(str)
+    df['sub_program'] = df['sub_program'].astype(str)
+
+    # --- Keyword Filtering ---
     health_keywords = ['health', 'curative', 'preventive', 'medical', 'hospital']
 
-    # Heuristic: Check if any health keywords exist in the relevant columns first.
-    # This is a fast way to skip files that are clearly not about health.
-    if not (df['Programmes'].str.contains('|'.join(health_keywords), case=False, na=False).any() or
-            df['Sub- Programmes'].str.contains('|'.join(health_keywords), case=False, na=False).any()):
+    # Create a boolean mask for rows containing any health keyword in program or sub_program
+    is_health_related = df['program'].str.contains('|'.join(health_keywords), case=False, na=False) | \
+                        df['sub_program'].str.contains('|'.join(health_keywords), case=False, na=False)
+
+    # Filter out rows that are not health-related
+    health_df = df[is_health_related].copy()
+
+    if health_df.empty:
         return None
 
-    for _, row in df.iterrows():
-        # Handle hierarchical program structure: carry forward the last valid program name.
-        if pd.notna(row['Programmes']) and row['Programmes'].strip():
-            current_programme = row['Programmes'].strip()
+    # --- Metadata Extraction ---
+    try:
+        path_parts = csv_path.replace('\\', '/').split('/')
+        year = path_parts[-4]
+        quarter = path_parts[-3]
+        county = os.path.basename(path_parts[-1]).split('_')[0]
+    except IndexError:
+        year, quarter, county = 'unknown', 'unknown', 'unknown'
 
-        # Identify health-related rows based on keywords in program or sub-program
-        programme_text = current_programme.lower()
-        sub_programme_text = str(row.get('Sub- Programmes', '')).lower()
+    health_df['county'] = county
+    health_df['year'] = year
+    health_df['quarter'] = quarter
 
-        is_health_related = any(keyword in programme_text for keyword in health_keywords) or \
-                           any(keyword in sub_programme_text for keyword in health_keywords)
+    # --- Final Column Selection and Renaming ---
+    # Select and rename columns to the final desired output format
+    health_df = health_df.rename(columns={
+        'budget': 'approved_budget_kshs',
+        'expenditure': 'actual_expenditure_kshs'
+    })
 
-        # Skip rows that are not health-related or are summary rows (e.g., 'Total')
-        if not is_health_related or 'total' in sub_programme_text or 'total' in programme_text:
-            continue
+    # Ensure all required columns are present
+    final_columns = [
+        'county', 'year', 'quarter', 'program', 'sub_program',
+        'approved_budget_kshs', 'actual_expenditure_kshs'
+    ]
+    for col in final_columns:
+        if col not in health_df.columns:
+            health_df[col] = None # Add missing columns and fill with None
 
-        # Extract data. Numeric conversion is now handled by the dispatcher.
-        budget = row.get('Approved Budget (Kshs)')
-        expenditure = row.get('Actual Payments (Kshs)')
-
-        # Extract metadata from file path, handling potential errors
-        try:
-            path_parts = csv_path.replace('\\', '/').split('/')
-            year = path_parts[-4]
-            quarter = path_parts[-3]
-            county = os.path.basename(path_parts[-1]).split('_')[0]
-        except IndexError:
-            year, quarter, county = 'unknown', 'unknown', 'unknown'
-
-        health_data.append({
-            'county': county,
-            'year': year,
-            'quarter': quarter,
-            'program': current_programme,
-            'sub_program': row.get('Sub- Programmes'),
-            'approved_budget_kshs': budget,
-            'actual_expenditure_kshs': expenditure,
-        })
-
-    if not health_data:
-        return None
-
-    return pd.DataFrame(health_data)
+    return health_df[final_columns]
 
 
 def main(year=None, quarter=None, all_available=False):
