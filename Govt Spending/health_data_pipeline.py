@@ -109,7 +109,7 @@ def parse_health_data_from_csv(csv_path):
     similarity_threshold = 0.5
 
     # Create a boolean mask for rows that meet the similarity threshold.
-    is_health_related = max_scores > similarity_threshold
+    is_health_related = (max_scores > similarity_threshold).cpu().numpy()
 
     health_df = df[is_health_related].copy()
 
