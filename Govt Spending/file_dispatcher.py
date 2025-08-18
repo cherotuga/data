@@ -20,7 +20,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Defines the ideal columns and keywords to search for.
 # Using a list of keywords for each target is more effective for TF-IDF.
 TARGET_SCHEMA = {
-    "program": ["program", "programme", "programmes", "vote head", "department"],
+    "department": ["department", "ministry", "vote head"],
+    "program": ["program", "programme", "programmes"],
     "sub_program": ["sub-program", "sub programme", "sub-programmes", "item", "description"],
     "budget": ["budget", "approved", "estimates", "submitted"],
     "expenditure": ["expenditure", "actual", "payments", "total payments"]
@@ -141,6 +142,7 @@ def map_columns_semantic(column_list, confidence_threshold=0.2):
                 used_indices.add(best_match_index)
 
         required_columns = ["program", "budget", "expenditure"]
+        # Department is optional, so we don't check for it here
         missing_columns = [col for col in required_columns if col not in mapping]
 
         if missing_columns:

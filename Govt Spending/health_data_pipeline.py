@@ -3,6 +3,8 @@ import pandas as pd
 import re
 import argparse
 from file_dispatcher import dispatch_file
+from hierarchical_data_extractor import process_hierarchical_data
+from sentence_transformers import SentenceTransformer
 
 # Debugging
 
@@ -46,7 +48,7 @@ def find_all_csv_files(root_dir, year=None, quarter=None):
     print(f"Found {len(csv_files)} potential program CSV files.")
     return sorted(csv_files)
 
-def parse_health_data_from_csv(csv_path):
+def parse_health_data_from_csv(csv_path, model):
     """
     Parses a single CSV file to find and extract health-related program data.
     Uses the dispatcher, which now returns a DataFrame with standardized column names.
@@ -117,6 +119,8 @@ def main(year=None, quarter=None, all_available=False):
     """
     Main pipeline to process pre-extracted CSVs and aggregate health data.
     """
+    # Load the model once
+    model = SentenceTransformer('all-MiniLM-L6-v2')
     program_data_dir = 'program'
     print(f"--- Starting Health Data Aggregation from: '{program_data_dir}' ---")
 
@@ -133,37 +137,56 @@ def main(year=None, quarter=None, all_available=False):
         print(f"Processing all years for quarter {quarter}.")
         year = None
     else:
-        # Default behavior if no arguments are provided
         print("No specific year or quarter specified. Processing all available data.")
         year, quarter = None, None
 
-    # Step 1: Find all relevant CSV files
     all_csvs = find_all_csv_files(program_data_dir, year, quarter)
 
-    # Step 2 & 3: Parse health data and aggregate
-    aggregated_data = []
+    # Initialize lists to hold data for each hierarchical level
+    all_details = []
+    all_department_totals = []
+    all_program_totals = []
+    all_sub_program_totals = []
+
     for csv_file in all_csvs:
-        health_df = parse_health_data_from_csv(csv_file)
+        health_df = parse_health_data_from_csv(csv_file, model)
         if health_df is not None and not health_df.empty:
-            # Extract year and quarter from the dataframe for the printout
             file_year = health_df['year'].iloc[0]
             file_quarter = health_df['quarter'].iloc[0]
-            print(f"  [+] Extracted {len(health_df)} health record(s) from {os.path.basename(csv_file)} (Year: {file_year}, Quarter: {file_quarter})")
-            aggregated_data.append(health_df)
-        else:
-            print(f"  [-] No health data extracted from {os.path.basename(csv_file)} (Year: {file_year}, Quarter: {file_quarter})")
+            print(f"  [+] Processing {os.path.basename(csv_file)} (Year: {file_year}, Quarter: {file_quarter})")
 
-    # Step 4: Save the final aggregated data
-    if aggregated_data:
-        final_df = pd.concat(aggregated_data, ignore_index=True)
-        output_csv = "health_spending_summary.csv"
-        final_df.to_csv(output_csv, index=False)
-        print(f"\n--- Pipeline Finished: Successfully saved aggregated data to '{output_csv}' ---")
-        print(f"Final DataFrame shape: {final_df.shape}")
-        print("Sample of final data:")
-        print(final_df.head())
-    else:
-        print("\n--- Pipeline Finished: No health data was found in any of the scanned files for the specified criteria. ---")
+            # Extract hierarchical data
+            hierarchical_data = process_hierarchical_data(health_df, model)
+
+            all_details.append(hierarchical_data['details'])
+            all_department_totals.append(hierarchical_data['department'])
+            all_program_totals.append(hierarchical_data['program'])
+            all_sub_program_totals.append(hierarchical_data['sub_program'])
+        else:
+            print(f"  [-] No health data extracted from {os.path.basename(csv_file)}")
+
+    # Save aggregated data for each level
+    if all_details:
+        final_details_df = pd.concat(all_details, ignore_index=True)
+        final_details_df.to_csv("health_spending_summary.csv", index=False)
+        print("\n[+] Saved detailed health spending summary.")
+
+    if all_department_totals:
+        final_dept_df = pd.concat(all_department_totals, ignore_index=True)
+        final_dept_df.to_csv("health_department_total.csv", index=False)
+        print("[+] Saved health department totals.")
+
+    if all_program_totals:
+        final_prog_df = pd.concat(all_program_totals, ignore_index=True)
+        final_prog_df.to_csv("health_program_total.csv", index=False)
+        print("[+] Saved health program totals.")
+
+    if all_sub_program_totals:
+        final_sub_prog_df = pd.concat(all_sub_program_totals, ignore_index=True)
+        final_sub_prog_df.to_csv("health_sub_program_total.csv", index=False)
+        print("[+] Saved health sub-program totals.")
+
+    print("\n--- Pipeline Finished ---")
 
 
 if __name__ == "__main__":
