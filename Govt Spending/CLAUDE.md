@@ -267,16 +267,41 @@ self.debug_check_health_context_ahead = True
 **Solution**: Added "sub programme" to sub_programme_keywords list to handle both space and hyphen formats: `["sub-programme", "sub-program", "sub programme", "description"]`
 **Result**: ✅ Elgeyo Marakwet now extracts 129 rows of programme data including health spending ✅ Compatible with other counties using space format
 
+# ISSUE 9: KERICHO HYPHENATED LINE BREAK HEADERS - RESOLVED ✅
+**Problem**: Kericho 2019_20 Q1 failing extraction due to "Actual Pay-\nments" header (hyphenated line break)
+**Root Cause**: Header normalized to "actual pay-ments" but payment_keywords looked for "payments" without hyphen
+**Solution**: Enhanced header normalization to handle hyphenated line breaks with regex: `header_no_hyphens = re.sub(r'(\w)-\s*(\w)', r'\1\2', header_normalized)`
+**Result**: ✅ "Actual Pay-\nments" → "actual payments" matches keywords ✅ Handles all hyphenated word breaks systematically
+
+# ISSUE 10: HEADERLESS TABLE CONTINUATION - RESOLVED ✅
+**Problem**: Programme tables spanning multiple pages with headerless continuations (e.g., Kericho pages 117-120) were missed, only capturing ~27 rows from page 116
+**Root Cause**: `is_program_table()` required headers with keywords, failing on continuation tables that only contained data rows
+**Solution**: Added headerless continuation detection layer:
+- `is_programme_table_continuation()` - detects content patterns (programme codes, budget amounts, service descriptions)
+- `looks_like_revenue_table()` & `looks_like_department_table()` - negative filters to prevent false positives
+- `validate_programme_content_patterns()` - content-based validation using regex patterns
+- Zero disruption: `elif` branch only triggers when header-based detection fails
+**Result**: ✅ Kericho 2019_20 Q1: 27 → 112 rows (4x improvement) ✅ Captures pages 116-120 programme data ✅ Maintains 100% backward compatibility
+
+# ISSUE 11: FALSE COUNTY DETECTION POSITIVES - RESOLVED ✅
+**Problem**: Baringo 2019_20 Q4 showing wrong data from page 128 instead of pages 36-38
+**Root Cause**: Fuzzy county matching caused false positives - text fragments like `'opment'`, `'ing'`, `'Farming'` matched county names (`bomet`, `baringo`), creating spurious county sections that overwrote correct data
+**Solution**: Implemented exact county name matching:
+- Added `exact_match_county()` function for strict name matching
+- Enhanced `fuzzy_match_county()` with `require_exact=True` parameter
+- Applied exact matching to all county detection patterns while preserving flexible document structure matching
+**Result**: ✅ False positives eliminated ✅ Baringo Q4 shows correct pages 36-38 data ✅ All legitimate county headings preserved ✅ Backwards compatible
+
 ---
 
 # SYSTEM STATUS ✅ PRODUCTION READY
 
 **Current Status**: All major implementation phases completed (2025-09-02)  
-**Latest Enhancement**: Space-separated sub-programme header support - fixed Elgeyo Marakwet and other counties using "Sub Programme" format
-**Key Fix**: Extended sub_programme_keywords to handle both "Sub-Programme" (hyphen) and "Sub Programme" (space) variations
-**Baringo 2019_20 Results**: Q1 (4 perfect matches), Q4 (25 perfect matches)  
-**Elgeyo Marakwet 2019_20 Q1**: Now extracts 129 rows including health spending data from pages 67-69
-**Major Issues Resolved**: ✅ Cross-county data contamination ✅ Q2 2023_24 extraction ✅ Isiolo health data recovery (1.2B Kshs) ✅ Universal header compatibility ✅ Space-separated header formats
-**Ready for**: Complete multi-county health spending analysis with robust 4-category programme table detection supporting all header format variations
+**Latest Enhancement**: Exact county name matching - eliminates false positive county detections
+**Key Feature**: Strict county name matching while preserving flexible document structure patterns
+**Baringo 2019_20 Results**: Q4 extraction fixed - now shows correct pages 36-38 data (not page 128)
+**Implementation**: `exact_match_county()` + `require_exact=True` parameter prevents fuzzy fragment matches
+**Major Issues Resolved**: ✅ Cross-county data contamination ✅ Q2 2023_24 extraction ✅ Isiolo health data recovery (1.2B Kshs) ✅ Universal header compatibility ✅ Space-separated header formats ✅ Headerless continuation tables ✅ False county detection positives
+**Ready for**: Complete multi-county health spending analysis with robust programme table detection and accurate county boundary detection
 
 ---

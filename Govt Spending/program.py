@@ -29,12 +29,12 @@ COUNTIES = [
 ]
 
 # Debugging
-TARGET_COUNTY = ["kericho"]  # Case-sensitive
+TARGET_COUNTY = []  # Case-sensitive
 toc_debug = False
 normalize_debug = False
 match_line_debug = False
-header_debug = True
-fallback_debug = True 
+header_debug = False
+fallback_debug = False
 
 def normalize_county_name(name):
     """
@@ -62,7 +62,7 @@ def normalize_county_name(name):
 
 NORMALIZED_COUNTY_MAP = {normalize_county_name(c): c for c in COUNTIES}
 
-def fuzzy_match_county(name, counties, threshold=70):
+def fuzzy_match_county(name, counties, threshold=70, require_exact=False):
     """
     Match a county name against the NORMALIZED_COUNTY_MAP list using fuzzy matching.
     
@@ -70,10 +70,21 @@ def fuzzy_match_county(name, counties, threshold=70):
         name (str): Raw county name.
         counties (list): List of valid county names.
         threshold (int): Minimum similarity score for a match.
+        require_exact (bool): If True, require exact match to prevent false positives.
     
     Returns:
         str or None: Matched county name or None if no match.
     """
+    if require_exact:
+        # Try exact match first
+        exact_match = exact_match_county(name, counties)
+        if exact_match:
+            return exact_match
+        # No exact match found, don't fall back to fuzzy for strict mode
+        logging.warning("No exact match for county name: %s (normalized: %s)", name, normalize_county_name(name))
+        return None
+    
+    # Original fuzzy matching logic
     normalized = normalize_county_name(name)
     match = process.extractOne(normalized, counties, score_cutoff=threshold)
 
@@ -81,6 +92,25 @@ def fuzzy_match_county(name, counties, threshold=70):
         logging.warning("No match for county name: %s (normalized: %s)", name, normalized)
         return None
     return match[0]
+
+def exact_match_county(name, counties):
+    """
+    Match a county name exactly against the county list (case-insensitive).
+    This prevents false positives from partial word matches.
+    
+    Args:
+        name (str): Raw county name.
+        counties (list): List of valid county names.
+    
+    Returns:
+        str or None: Matched county name or None if no exact match.
+    """
+    normalized = normalize_county_name(name)
+    # Check for exact matches first
+    for county in counties:
+        if normalized == county:
+            return county
+    return None
 
 def parse_toc(pdf):
     """
@@ -696,7 +726,7 @@ def extract_programme_tables(pdf_path):
                                 break
                         elif new_county_match and is_heading:
                             county_raw = new_county_match.group(1).strip()
-                            county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
+                            county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP, require_exact=True)
                             if county:
                                 finalize_buffer(current_county, table_buffer, county_tables)
                                 current_county = county
@@ -708,7 +738,7 @@ def extract_programme_tables(pdf_path):
                                 break
                         elif program_match and is_heading:
                             county_raw = program_match.group(1).strip()
-                            county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
+                            county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP, require_exact=True)
                             if county:
                                 finalize_buffer(current_county, table_buffer, county_tables)
                                 current_county = county
@@ -762,7 +792,7 @@ def extract_programme_tables(pdf_path):
                     if new_county_match and is_heading:
                         county_raw = new_county_match.group(1).strip()
                         county_raw_clean = re.sub(r"County\s+Government\s+of\s+", "", county_raw, flags=re.IGNORECASE)
-                        county = fuzzy_match_county(county_raw_clean, NORMALIZED_COUNTY_MAP)
+                        county = fuzzy_match_county(county_raw_clean, NORMALIZED_COUNTY_MAP, require_exact=True)
                         if county:
                             finalize_buffer(current_county, table_buffer, county_tables)
                             current_county = county
@@ -786,7 +816,7 @@ def extract_programme_tables(pdf_path):
                             county_raw = q2_match.groups()[-1].strip()  # Get last group (county name)
                             # Clean up any remaining "of" prefix
                             county_raw = re.sub(r"^of\s+", "", county_raw, flags=re.IGNORECASE)
-                            county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
+                            county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP, require_exact=True)
                             if county:
                                 finalize_buffer(current_county, table_buffer, county_tables)
                                 current_county = county
@@ -810,7 +840,7 @@ def extract_programme_tables(pdf_path):
                     
                     if program_match and is_heading:
                         county_raw = program_match.group(1).strip()
-                        county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
+                        county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP, require_exact=True)
                         if county:
                             if current_county != county:
                                 finalize_buffer(current_county, table_buffer, county_tables)
@@ -1202,7 +1232,7 @@ def extract_programme_tables_sequential(pdf_path):
                             if new_county_match and is_heading:
                                 county_raw = new_county_match.group(1).strip()
                                 county_raw_clean = re.sub(r"County\s+Government\s+of\s+", "", county_raw, flags=re.IGNORECASE)
-                                new_county = fuzzy_match_county(county_raw_clean, NORMALIZED_COUNTY_MAP)
+                                new_county = fuzzy_match_county(county_raw_clean, NORMALIZED_COUNTY_MAP, require_exact=True)
                                 county_detected = True
                         
                         # Q2 patterns
@@ -1212,7 +1242,7 @@ def extract_programme_tables_sequential(pdf_path):
                                 if q2_match and is_heading:
                                     county_raw = q2_match.groups()[-1].strip()
                                     county_raw = re.sub(r"^of\s+", "", county_raw, flags=re.IGNORECASE)
-                                    new_county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
+                                    new_county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP, require_exact=True)
                                     county_detected = True
                                     break
                         
@@ -1221,7 +1251,7 @@ def extract_programme_tables_sequential(pdf_path):
                             program_match = re.search(program_heading_pattern, line, re.IGNORECASE)
                             if program_match and is_heading:
                                 county_raw = program_match.group(1).strip()
-                                new_county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP)
+                                new_county = fuzzy_match_county(county_raw, NORMALIZED_COUNTY_MAP, require_exact=True)
                                 county_detected = True
                         
                         # Handle county section START
@@ -1235,7 +1265,7 @@ def extract_programme_tables_sequential(pdf_path):
                             prev_headers = None
                             
                             if current_county in TARGET_COUNTY:
-                                logging.info("Page %d: Started county section %s", page_num, current_county)
+                                logging.info("Page %d: Started county section %s (triggered by: '%s')", page_num, current_county, line.strip())
                             continue
                         
                         # County section END detection
