@@ -4,26 +4,34 @@ Programme",Description,"Approved Budget
 (Ksh)",Variance,"Absorption
 (%)",page_number,table_index
 106000000,,"General Administration Planning and
-Support Services","794,639,387","77,879,534","716,759,853",9.8,74,1
+Support Services","794,639,387","77,879,534","716,759,853",9.8,74,0
 ,106019999,"Administration, Planning & Support
-Services","794,639,387","77,879,534","716,759,853",9.8,74,1
+Services","794,639,387","77,879,534","716,759,853",9.8,74,0
 201000000,,"General Administration, Planning and
-Support Services","719,667,527","35,329,038","684,338,489",4.9,74,1
+Support Services","719,667,527","35,329,038","684,338,489",4.9,74,0
 ,201019999,"General Administration, Planning and
-Support Services","719,667,527","35,329,038","684,338,489",4.9,74,1
+Support Services","719,667,527","35,329,038","684,338,489",4.9,74,0
 301000000,,"General Administration Planning and
-Support Services","111,225,944","4,478,498","106,747,446",4.0,74,1
+Support Services","111,225,944","4,478,498","106,747,446",4.0,74,0
 ,301019999,"General Administration Planning and
-Support Services","111,225,944","4,478,498","106,747,446",4.0,74,1
+Support Services","111,225,944","4,478,498","106,747,446",4.0,74,0
 404000000,,"General Administration, Planning &
-Support Services","1,362,618,697","519,882,134","842,736,563",38.2,74,1
-,404019999,"Health Policy, Planning & Financing","1,362,618,697","519,882,134","842,736,563",38.2,74,1
+Support Services","1,362,618,697","519,882,134","842,736,563",38.2,74,0
+,404019999,"Health Policy, Planning & Financing","1,362,618,697","519,882,134","842,736,563",38.2,74,0
 508000000,,"General Administration, Planning and
-Support Services","526,205,530","1,191,650","525,013,880",0.2,74,1
-,508019999,Headquarters Administrative Services,"526,205,530","1,191,650","525,013,880",0.2,74,1
+Support Services","526,205,530","1,191,650","525,013,880",0.2,74,0
+,508019999,Headquarters Administrative Services,"526,205,530","1,191,650","525,013,880",0.2,74,0
 701000000,,"General Administration Planning and
-Support Services","900,051,204","348,879,709","551,171,495",38.8,74,1
+Support Services","900,051,204","348,879,709","551,171,495",38.8,74,0
 ,701019999,"General Administration Planning and
-Support Services","900,051,204","348,879,709","551,171,495",38.8,74,1
-711000000,,Gender & Youth Empowerment,"120,726,822",-,"120,726,822",-,74,1
-,711069999,Gender & Socio-economic empowerment,"120,726,822",-,"120,726,822",-,74,1
+Support Services","900,051,204","348,879,709","551,171,495",38.8,74,0
+711000000,,Gender & Youth Empowerment,"120,726,822",-,"120,726,822",-,74,0
+,711069999,Gender & Socio-economic empowerment,"120,726,822",-,"120,726,822",-,74,0
+905000000,,"General Administration, Planning and
+Support Services","19,327,475","118,540","19,208,935",0.6,75,0
+,905019999,"General Administration, Planning and
+Support Services","19,327,475","118,540","19,208,935",0.6,75,0
+1.004E+09,,Water Resources Management,"124,100,000",-,"124,100,000",-,75,0
+,1.004E+09,"Water Resources conservation and
+Protection","124,100,000",-,"124,100,000",-,75,0
+Grand Total,,,"4,678,562,585","987,759,103","3,690,803,483",21.1,75,0

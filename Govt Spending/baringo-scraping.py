@@ -15,8 +15,8 @@ import warnings
 warnings.filterwarnings('ignore')
 
 class HealthBudgetAnalyzer:
-    def __init__(self, csv_path = None):
-        """Initialize the analyzer with the CSV file path"""
+    def __init__(self, csv_path=None, model=None, health_embeddings=None):
+        """Initialize the analyzer with the CSV file path and optional shared model"""
         self.csv_path = csv_path
         self.data = None
         self.health_data = None
@@ -24,9 +24,12 @@ class HealthBudgetAnalyzer:
         self.subtotal_validations = []
         self.programme_structure = []
         
-        # Initialize semantic model
-        print("Loading semantic similarity model...")
-        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        # Use provided model or load new one
+        if model is not None:
+            self.model = model
+        else:
+            print("Loading semantic similarity model...")
+            self.model = SentenceTransformer('all-MiniLM-L6-v2')
         
         # Health reference texts for semantic similarity
         self.health_references = [
@@ -39,9 +42,12 @@ class HealthBudgetAnalyzer:
             "health administration medical staff"
         ]
         
-        # Create embeddings for health references
-        print("Creating health reference embeddings...")
-        self.health_embeddings = self.model.encode(self.health_references)
+        # Use provided embeddings or create new ones
+        if health_embeddings is not None:
+            self.health_embeddings = health_embeddings
+        else:
+            print("Creating health reference embeddings...")
+            self.health_embeddings = self.model.encode(self.health_references)
         
         # Keywords for quick screening
         self.obvious_health_keywords = [
@@ -75,8 +81,28 @@ class HealthBudgetAnalyzer:
         """Load CSV and perform initial cleaning"""
         print("Loading and cleaning data...")
         
-        # Load the CSV
-        self.data = pd.read_csv(self.csv_path)
+        # Check if file is empty or invalid
+        try:
+            # Check file size first
+            import os
+            if os.path.getsize(self.csv_path) == 0:
+                print(f"Warning: Empty file {self.csv_path}, skipping...")
+                self.data = pd.DataFrame()
+                return None
+                
+            # Load the CSV
+            self.data = pd.read_csv(self.csv_path)
+            
+            # Check if DataFrame is empty after loading
+            if self.data.empty or len(self.data.columns) == 0:
+                print(f"Warning: No data found in {self.csv_path}, skipping...")
+                self.data = pd.DataFrame()
+                return None
+                
+        except (pd.errors.EmptyDataError, FileNotFoundError) as e:
+            print(f"Warning: Could not read {self.csv_path}: {e}, skipping...")
+            self.data = pd.DataFrame()
+            return None
         
         print(f"Original columns: {list(self.data.columns)}")
         
@@ -86,8 +112,8 @@ class HealthBudgetAnalyzer:
         print(f"Cleaned columns: {list(self.data.columns)}")
         
         # Find the correct column names using partial matching
-        self.programme_col = self._find_column_name(['programmes', 'program'])
-        self.subprogramme_col = self._find_column_name(['sub- programme', 'sub- programmes', 'sub programme', 'sub programmes', 'subprogramme', 'subprogrammes'])
+        self.programme_col = self._find_column_name(['programme', 'programmes', 'programs', 'program'])
+        self.subprogramme_col = self._find_column_name(['sub-programs', 'sub programs', 'sub- programme', 'sub- programmes', 'sub programme', 'sub programmes', 'subprogramme', 'subprogrammes'])
         self.approved_budget_col = self._find_column_name(['approved budget', 'approved'])
         self.actual_payments_col = self._find_column_name(['actual payments', 'actual'])
         
@@ -119,10 +145,22 @@ class HealthBudgetAnalyzer:
         return self.data
     
     def _find_column_name(self, possible_names):
-        """Find the correct column name from a list of possibilities"""        
+        """Find the correct column name from a list of possibilities using exact word matching first, then substring fallback"""
+        
+        # First pass: Try exact word matching after normalization
         for possible_name in possible_names:
+            normalized_possible = self._normalize_programme_text(possible_name).replace('-', '').replace(' ', '')
             for col in self.data.columns:
-                if possible_name.lower() in col.lower():
+                normalized_col = self._normalize_programme_text(col).replace('-', '').replace(' ', '')
+                if normalized_possible == normalized_col:  # Exact match
+                    return col
+        
+        # Second pass: Fallback to substring matching  
+        for possible_name in possible_names:
+            normalized_possible = self._normalize_programme_text(possible_name).replace('-', '').replace(' ', '')
+            for col in self.data.columns:
+                normalized_col = self._normalize_programme_text(col).replace('-', '').replace(' ', '')
+                if normalized_possible in normalized_col:  # Substring match
                     return col
         
         # If no match found, show available columns for debugging
@@ -141,8 +179,8 @@ class HealthBudgetAnalyzer:
             return np.nan
 
     def _is_subtotal_row(self, subprogramme_text):
-        """Check if row is a subtotal (now simplified after normalization)"""
-        return str(subprogramme_text).strip() == "Sub Total"
+        """Check if row is a subtotal (case-insensitive)"""
+        return str(subprogramme_text).strip().lower() == "sub total"
     
     def _is_programme_level_subtotal(self, idx):
         """Check if a row is a programme-level subtotal (programme name + empty sub-programme)"""
@@ -178,48 +216,54 @@ class HealthBudgetAnalyzer:
     def _has_programme_details_after(self, idx, programme):
         """Check if there are detail rows for the programme after this index"""
         search_end = min(idx + 20, len(self.data))  # Look ahead max 20 rows
+        found_detail_rows = False
         
         for check_idx in range(idx + 1, search_end):
             check_row = self.data.iloc[check_idx]
             check_programme = check_row[self.programme_col]
             check_subprogramme = check_row[self.subprogramme_col]
             
-            # Found detail row for same programme (empty programme + actual sub-programme)
-            if ((pd.isna(check_programme) or str(check_programme).strip() == '') and
-                pd.notna(check_subprogramme) and 
-                str(check_subprogramme).strip() != '' and 
-                str(check_subprogramme).strip() != 'Sub Total'):
-                return True
-                
-            # Hit a new programme, stop searching
+            # Same programme name (case insensitive comparison)
+            if (pd.notna(check_programme) and 
+                str(check_programme).strip().lower() == str(programme).strip().lower()):
+                # Found detail row: same programme but not a subtotal
+                if (pd.notna(check_subprogramme) and 
+                    str(check_subprogramme).strip().lower() != 'sub total'):
+                    found_detail_rows = True
+                    # Continue looking to see if we have multiple detail rows
+                    
+            # Hit a different programme, stop searching
             elif (pd.notna(check_programme) and str(check_programme).strip() != '' and
-                  str(check_programme).strip() != programme):
+                  str(check_programme).strip().lower() != str(programme).strip().lower()):
                 break
                 
-        return False
+        return found_detail_rows
     
     def _has_programme_details_before(self, idx, programme):
         """Check if there are detail rows for the programme before this index"""
         search_start = max(0, idx - 20)  # Look back max 20 rows
+        found_detail_rows = False
         
         for check_idx in range(idx - 1, search_start - 1, -1):
             check_row = self.data.iloc[check_idx]
             check_programme = check_row[self.programme_col]
             check_subprogramme = check_row[self.subprogramme_col]
             
-            # Found detail row for same programme (empty programme + actual sub-programme)
-            if ((pd.isna(check_programme) or str(check_programme).strip() == '') and
-                pd.notna(check_subprogramme) and 
-                str(check_subprogramme).strip() != '' and 
-                str(check_subprogramme).strip() != 'Sub Total'):
-                return True
-                
+            # Same programme name (case insensitive comparison)
+            if (pd.notna(check_programme) and 
+                str(check_programme).strip().lower() == str(programme).strip().lower()):
+                # Found detail row: same programme but not a subtotal
+                if (pd.notna(check_subprogramme) and 
+                    str(check_subprogramme).strip().lower() != 'sub total'):
+                    found_detail_rows = True
+                    # Continue looking to see if we have multiple detail rows
+                    
             # Hit a different programme, stop searching
             elif (pd.notna(check_programme) and str(check_programme).strip() != '' and
-                  str(check_programme).strip() != programme):
+                  str(check_programme).strip().lower() != str(programme).strip().lower()):
                 break
                 
-        return False
+        return found_detail_rows
     
     def _detect_subtotal_position(self, idx):
         """Determine if subtotal is at programme START or END"""
@@ -229,7 +273,7 @@ class HealthBudgetAnalyzer:
         row = self.data.iloc[idx]
         subprogramme = str(row[self.subprogramme_col]).strip()
         
-        if subprogramme != "Sub Total":
+        if subprogramme.lower() != "sub total":  # Case insensitive
             return "NOT_SUBTOTAL"
         
         programme = str(row[self.programme_col]).strip() if pd.notna(row[self.programme_col]) else ""
@@ -279,19 +323,20 @@ class HealthBudgetAnalyzer:
             check_programme = check_row[self.programme_col]
             check_subprogramme = check_row[self.subprogramme_col]
             
-            # Stop if we hit a new programme
+            # Stop if we hit a different programme (case insensitive)
             if (pd.notna(check_programme) and str(check_programme).strip() != '' and
-                str(check_programme).strip() != programme):
+                str(check_programme).strip().lower() != str(programme).strip().lower()):
                 break
                 
-            # Stop if we hit another subtotal
-            if str(check_subprogramme).strip() == 'Sub Total':
+            # Stop if we hit another subtotal (case insensitive)
+            if str(check_subprogramme).strip().lower() == 'sub total':
                 break
                 
-            # Collect detail rows (empty programme + actual sub-programme)
-            if ((pd.isna(check_programme) or str(check_programme).strip() == '') and
+            # Collect detail rows - same programme name, not a subtotal
+            if (pd.notna(check_programme) and 
+                str(check_programme).strip().lower() == str(programme).strip().lower() and
                 pd.notna(check_subprogramme) and 
-                str(check_subprogramme).strip() != ''):
+                str(check_subprogramme).strip().lower() != 'sub total'):
                 detail_indices.append(check_idx)
                 
         return detail_indices
@@ -306,19 +351,20 @@ class HealthBudgetAnalyzer:
             check_programme = check_row[self.programme_col]
             check_subprogramme = check_row[self.subprogramme_col]
             
-            # Stop if we hit a different programme
+            # Stop if we hit a different programme (case insensitive)
             if (pd.notna(check_programme) and str(check_programme).strip() != '' and
-                str(check_programme).strip() != programme):
+                str(check_programme).strip().lower() != str(programme).strip().lower()):
                 break
                 
-            # Stop if we hit another subtotal
-            if str(check_subprogramme).strip() == 'Sub Total':
+            # Stop if we hit another subtotal (case insensitive)
+            if str(check_subprogramme).strip().lower() == 'sub total':
                 break
                 
-            # Collect detail rows
-            if ((pd.isna(check_programme) or str(check_programme).strip() == '') and
+            # Collect detail rows - same programme name, not a subtotal
+            if (pd.notna(check_programme) and 
+                str(check_programme).strip().lower() == str(programme).strip().lower() and
                 pd.notna(check_subprogramme) and 
-                str(check_subprogramme).strip() != ''):
+                str(check_subprogramme).strip().lower() != 'sub total'):
                 detail_indices.append(check_idx)
                 
         return list(reversed(detail_indices))  # Return in chronological order
@@ -563,6 +609,46 @@ class HealthBudgetAnalyzer:
                 'overall_validation_status': self._get_overall_status(approved_validation['status'], actual_validation['status'])
             }
             
+            validations.append(validation_result)
+        
+        # Add validation entries for health admin programmes that don't have subtotals
+        health_admin_programmes = set()
+        for classification in self.classification_log:
+            if classification['method'] == 'LARGE_HEALTH_ADMIN':
+                idx = classification['index']
+                programme = self.data.loc[idx, self.programme_col]
+                if pd.notna(programme):
+                    health_admin_programmes.add(programme)
+        
+        # Check which health admin programmes are missing from validations
+        existing_programmes = {v['programme'] for v in validations}
+        missing_health_admin = health_admin_programmes - existing_programmes
+        
+        for programme in missing_health_admin:
+            # Create a validation entry for programmes without subtotals
+            validation_result = {
+                'group_id': f'health_admin_{programme}',
+                'programme': programme,
+                'detail_rows_count': 1,  # Assume single line item
+                'has_explicit_subtotal': False,
+                'subtotal_position': 'NONE',
+                
+                # No subtotal validation possible
+                'calculated_approved': np.nan,
+                'calculated_actual': np.nan,
+                'reported_approved_subtotal': np.nan,
+                'reported_actual_subtotal': np.nan,
+                
+                # Validation results
+                'approved_difference': np.nan,
+                'approved_difference_pct': np.nan,
+                'approved_validation_status': 'NO_SUBTOTAL',
+                'actual_difference': np.nan,
+                'actual_difference_pct': np.nan,
+                'actual_validation_status': 'NO_SUBTOTAL',
+                
+                'overall_validation_status': 'NO_SUBTOTAL_AVAILABLE'
+            }
             validations.append(validation_result)
         
         self.subtotal_validations = validations
@@ -1087,18 +1173,62 @@ class HealthBudgetAnalyzer:
             validation_df['Has_Discrepancy'] = validation_df['overall_validation_status'].str.contains('DISCREPANCY')
             validation_df['Needs_Review'] = validation_df['overall_validation_status'].isin(['MAJOR_DISCREPANCY', 'MIXED_STATUS'])
             
-            # Add health programme flag
+            # Get health programmes (including health admin)
             health_programmes = set()
             for classification in self.classification_log:
                 if classification['classification'] in ['HEALTH', 'HEALTH_SUBTOTAL']:
-                    # Find programme for this record
+                    # Standard health programmes
                     idx = classification['index']
+                    if idx < len(self.data):
+                        programme = self.data.loc[idx, self.programme_col]
+                        if pd.notna(programme):
+                            health_programmes.add(programme)
+                            
+                # Include programmes with health admin
+                if classification['method'] == 'LARGE_HEALTH_ADMIN':
+                    idx = classification['index'] 
                     if idx < len(self.data):
                         programme = self.data.loc[idx, self.programme_col]
                         if pd.notna(programme):
                             health_programmes.add(programme)
             
             validation_df['Is_Health_Programme'] = validation_df['programme'].isin(health_programmes)
+            
+            # FILTER TO HEALTH PROGRAMMES ONLY
+            validation_df = validation_df[validation_df['Is_Health_Programme'] == True]
+            
+            # ENSURE ALL PROGRAMMES FROM PROGRAMME_TOTALS ARE INCLUDED
+            # Get programmes that appear in programme totals but missing from validation
+            programme_totals = self.create_programme_totals()
+            all_health_programmes = set(programme_totals['Programme'].tolist())
+            existing_validation_programmes = set(validation_df['programme'].tolist())
+            missing_programmes = all_health_programmes - existing_validation_programmes
+            
+            # Add missing programmes with NO_SUBTOTAL_AVAILABLE status
+            for programme in missing_programmes:
+                missing_validation = {
+                    'group_id': f'no_subtotal_{programme}',
+                    'programme': programme,
+                    'detail_rows_count': 1,
+                    'has_explicit_subtotal': False,
+                    'subtotal_position': 'NONE',
+                    'calculated_approved': np.nan,
+                    'calculated_actual': np.nan,
+                    'reported_approved_subtotal': np.nan,
+                    'reported_actual_subtotal': np.nan,
+                    'approved_difference': np.nan,
+                    'approved_difference_pct': np.nan,
+                    'approved_validation_status': 'NO_SUBTOTAL',
+                    'actual_difference': np.nan,
+                    'actual_difference_pct': np.nan,
+                    'actual_validation_status': 'NO_SUBTOTAL',
+                    'overall_validation_status': 'NO_SUBTOTAL_AVAILABLE',
+                    'Perfect_Match': False,
+                    'Has_Discrepancy': False,
+                    'Needs_Review': False,
+                    'Is_Health_Programme': True
+                }
+                validation_df = pd.concat([validation_df, pd.DataFrame([missing_validation])], ignore_index=True)
         
         return validation_df
     
@@ -1373,6 +1503,23 @@ class HealthBudgetAnalyzer:
         """
         file_paths = self.generate_file_paths(years, quarters, counties)
 
+        # Load model and create embeddings once for all files
+        print("Loading semantic similarity model...")
+        shared_model = SentenceTransformer('all-MiniLM-L6-v2')
+        
+        # Create health reference embeddings once
+        health_references = [
+            "healthcare services medical treatment",
+            "hospital administration clinical services", 
+            "preventive health public health programs",
+            "curative medical care rehabilitation",
+            "health infrastructure medical facilities",
+            "primary healthcare community health",
+            "health administration medical staff"
+        ]
+        print("Creating health reference embeddings...")
+        shared_embeddings = shared_model.encode(health_references)
+
         all_health_data = []
         all_programme_totals = []
         all_dept_summaries = []
@@ -1381,8 +1528,8 @@ class HealthBudgetAnalyzer:
         methodology_notes = None
 
         for fp in file_paths:
-            # Instantiate analyzer for this file
-            analyzer = HealthBudgetAnalyzer(fp)
+            # Instantiate analyzer for this file with shared model
+            analyzer = HealthBudgetAnalyzer(fp, model=shared_model, health_embeddings=shared_embeddings)
 
             # Run per-file pipeline (NO export inside)
             df = analyzer.run_full_analysis()
@@ -1513,7 +1660,9 @@ class HealthBudgetAnalyzer:
         print()
         
         # Step 1: Load and clean data
-        self.load_and_clean_data()
+        if self.load_and_clean_data() is None:
+            print("Skipping analysis for empty/invalid file")
+            return pd.DataFrame()  # Return empty DataFrame for empty files
         
         # Step 2: Parse programme structure and validate subtotals BEFORE classification
         self.parse_programme_structure()

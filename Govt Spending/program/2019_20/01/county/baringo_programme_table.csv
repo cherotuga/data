@@ -3,25 +3,25 @@ Programmes,Sub- Programmes,"Approved Budget
 (Kshs)",Variance,"Absorption
 (%)",page_number,table_index
 General Administration,"General Administration, Planning
-& Support Services","344,211,616","44,356,572","299,855,044",12.9,38,1
+& Support Services","344,211,616","44,356,572","299,855,044",12.9,38,0
 Land Administration,"Land Adjudication and
-Demarcation","27,700,000",-,"27,700,000",-,38,1
+Demarcation","27,700,000",-,"27,700,000",-,38,0
 "Urban Development-Eldama
-Ravine",Support Service,"40,000,000",-,"40,000,000",-,38,1
+Ravine",Support Service,"40,000,000",-,"40,000,000",-,38,0
 "Livestock Development and
 Management","General Administration, Planning
-& Support Services","12,800,000",-,"12,800,000",-,38,1
-,Support Service,"443,134,299",-,"443,134,299",-,38,1
+& Support Services","12,800,000",-,"12,800,000",-,38,0
+,Support Service,"443,134,299",-,"443,134,299",-,38,0
 ,"Livestock Improvement, Pasture
-and Fodder Development","6,000,000",-,"6,000,000",-,38,1
-,Apiculture Development,"5,000,000",-,"5,000,000",-,38,1
-,Sub Total,"466,934,299",-,"466,934,299",-,38,1
+and Fodder Development","6,000,000",-,"6,000,000",-,38,0
+,Apiculture Development,"5,000,000",-,"5,000,000",-,38,0
+,Sub Total,"466,934,299",-,"466,934,299",-,38,0
 Agricultural Development,"General Administration , Planning
-& Support Services","1,000,000",-,"1,000,000",-,38,1
+& Support Services","1,000,000",-,"1,000,000",-,38,0
 Agricultural Training Services,"General Administration ,Planning
-& Support Services","1,300,000",-,"1,300,000",-,38,1
+& Support Services","1,300,000",-,"1,300,000",-,38,0
 "Other Urban Infrastructure
-Development and Management",Kusp Programme,"52,360,500",-,"52,360,500",-,38,1
+Development and Management",Kusp Programme,"52,360,500",-,"52,360,500",-,38,0
 Crop Production and Management,"Agribusiness Infrastructure
 Development","11,400,000",-,"11,400,000",-,39,0
 "Fisheries Development and
@@ -127,3 +127,40 @@ Services","48,230,907","623,670","47,607,237",1.3,40,0
 ,"Eldama Ravine Sub County
 Administration Services","17,224,229","7,287,783","9,936,446",42.3,40,0
 ,Sub -Total,"470,856,907","76,721,889","394,135,018",16.3,40,0
+,"Legislative Representation and
+Oversight Services","339,037,766","55,338,660","283,699,106",16.3,41,0
+,General Administrative Services,-,-,-,-,41,0
+,ICT Development,"24,000,000",-,"24,000,000",-,41,0
+,Infrastructure Development,"34,558,240",-,"34,558,240",-,41,0
+,Sub -Total,"58,558,240",-,"58,558,240",-,41,0
+,"General Administration, Planning
+& Support Services","26,432,472","5,653,355","20,779,117",21.4,41,0
+,"General Administration ,Planning
+& Support Services","10,700,000",-,"10,700,000",-,41,0
+,Support Service,"7,300,000",-,"7,300,000",-,41,0
+,Gender Mainstreaming,"1,000,000",-,"1,000,000",-,41,0
+,Sub -Total,"19,000,000",-,"19,000,000",-,41,0
+Sport Development,"General Administration ,Planning
+& Support Services","84,292,570","37,580","84,254,990",-,41,0
+,Support Service,"1,500,000",-,"1,500,000",-,41,0
+,Sub -Total,"85,792,570","37,580","85,754,990",-,41,0
+,Conservation Of Cultural Heritage,"1,000,000",-,"1,000,000",-,41,0
+,"General Administration ,Planning
+& Support Services","121,251,196","9,681,365","111,569,831",8.0,41,0
+,"General Administration ,Planning
+& Support Services",-,-,-,-,41,0
+,Support Service,"370,321,000",-,"370,321,000",-,41,0
+,"Water Harvesting Storage and
+Flood Control","680,408,787",-,"680,408,787",-,41,0
+,Sub -Total,"1,050,729,787",-,"1,050,729,787",-,41,0
+,"General Administration, Planning
+& Support Services","33,627,305",-,"33,627,305",-,41,0
+,"General Administration ,Planning
+& Support Services",-,-,-,,41,0
+,Support Service,"6,000,000",-,"6,000,000",-,41,0
+,Sub -Total,"6,000,000",-,"6,000,000",-,41,0
+,General Administrative Services,"37,048,339","3,463,755","33,584,584",9.3,41,0
+,Protection Of Rivers and Streams,"1,000,000",-,"1,000,000",-,41,0
+,"County Forest Conservation and
+Management","6,000,000",-,"6,000,000",-,41,0
+Grand Total,,"8,681,521,001","957,706,600","7,723,814,401",11.0,41,0

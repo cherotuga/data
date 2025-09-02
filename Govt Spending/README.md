@@ -26,7 +26,7 @@ The goal is to systematically scrape financial data tables from OCOB PDF reports
 │   │   └── ... (02, 03, 04)
 │   └── ... (other financial years)
 ├── scraped_data/       # Other extracted data
-├── program_extract.py  # Main extraction script (working)
+├── program.py  # Main extraction script (working)
 ├── department_extract.py # Departmental data extraction (WIP)
 ├── county.R           # Failed R implementation
 ├── national.R         # Failed R implementation
@@ -69,15 +69,35 @@ The PDFs follow a systematic naming convention:
 
 ## Current Implementation Status
 
-### ✅ **Working Scripts**
+### ✅ **Production-Ready Scripts**
 
-#### `program_extract.py`
-- **Status**: Fully functional
-- **Purpose**: Extracts programme budget tables from county reports
+#### `program.py` (Sequential Processing Architecture)
+- **Status**: Production-ready with sequential processing (2025-09-02)
+- **Purpose**: Extracts programme budget tables from county reports using document-order processing
+- **Architecture**: Title-bounded county sections with multi-page table continuity
+- **Key Features**:
+  - **Sequential Processing**: Processes PDF elements in document order for accurate county boundaries
+  - **Cross-County Integrity**: Prevents table misattribution between counties
+  - **Multi-page Support**: Handles programme tables spanning multiple pages within county sections
+  - **Fuzzy County Matching**: Normalizes county names against official 47 counties list
+  - **Cross-Quarter Compatibility**: Handles different PDF formats (Q2 2023_24 patterns, etc.)
 - **Output**: Individual CSV files for each of the 47 counties
 - **Output Structure**: `program/{financial_year}/{quarter}/county/{county_name}_programme_table.csv`
 - **Example**: `program/2019_20/01/county/baringo_programme_table.csv`
-- **Coverage**: FY 2019-20 onwards, all quarters
+- **Coverage**: FY 2019-20 onwards, all quarters (42/47 counties typically successful)
+
+#### `baringo-scraping.py` (Health Budget Analysis)
+- **Status**: Production-ready multi-year health spending analysis
+- **Purpose**: Semantic classification and validation of health-related government spending
+- **Architecture**: Hybrid classification with subtotal validation
+- **Key Features**:
+  - **Multi-year Processing**: Handles 2019_20 through 2024_25 (6 years)
+  - **Semantic Classification**: Uses sentence-transformers for health spending identification
+  - **Subtotal Validation**: Cross-references calculated vs reported totals for data integrity
+  - **Health Context Analysis**: Contextual understanding (e.g., "LAN installation at hospital")
+  - **Excel Reporting**: Multi-sheet output with health programmes, totals, and validation
+- **Output**: Excel files with health spending analysis and validation reports
+- **Test Results**: Successfully processed Baringo 2019_20 with 4-25 perfect subtotal matches per quarter
 
 ### 🚧 **In Progress**
 
@@ -110,6 +130,52 @@ The project aims to extract the following table categories separately:
 - **Geographic Coverage**: All 47 Kenyan counties
 - **Temporal Coverage**: Multiple financial years and quarters
 - **Organization**: Hierarchical by year/quarter/scope/county
+
+## Usage
+
+### Extract Programme Data from PDFs
+```bash
+# Process specific year and quarter
+python program.py --year 2022 --quarter 4
+
+# Process all available PDFs (recommended)
+python program.py --all
+
+# Process a range of years/quarters
+python program.py --year 2020 --quarter 2 --end-year 2021 --end-quarter 3
+```
+
+### Analyze Health Spending Data
+```bash
+# Process all available health data (primary command)
+python baringo-scraping.py
+
+# Process specific years/quarters/counties
+python baringo-scraping.py --years 2019_20 2020_21 --quarters 01 02 --counties baringo nakuru
+
+# Specify custom output file
+python baringo-scraping.py --output "custom_health_analysis.xlsx"
+```
+
+### Test Sequential Processing
+```bash
+# Test the new sequential processing on 2019_20 Q1
+python test_sequential_processing.py
+```
+
+## Architecture Highlights
+
+### Sequential PDF Processing
+- **Document Order Processing**: Elements processed as encountered in PDF (top to bottom)
+- **Title-Bounded Sections**: County headings and "Recommendations" provide clear boundaries
+- **No Spatial Validation**: Eliminates Y-coordinate geometry dependencies
+- **Multi-page Continuity**: Preserves table spans within county sections using header matching
+
+### Health Classification Pipeline
+- **Keyword Screening**: Quick identification of obvious health/non-health terms
+- **Semantic Similarity**: sentence-transformers model for contextual health classification
+- **Subtotal Validation**: Cross-references calculated vs reported totals for data integrity
+- **Excel Reporting**: Multi-sheet output with programmes, totals, and validation
 
 ## Future Plans
 

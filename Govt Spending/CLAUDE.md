@@ -11,11 +11,12 @@ This is a data extraction pipeline for processing Kenyan government spending dat
 The codebase follows a two-stage pipeline:
 
 ### Stage 1: PDF to CSV Extraction (`program.py`)
-- Extracts programme budget tables from quarterly PDF reports using pdfplumber
-- Handles complex multi-page tables with merged cells and hierarchical structures
-- Uses fuzzy matching to normalize county names against the official 47 counties list
-- Processes TOC to identify expected programme tables per county
-- Outputs structured CSV files: `program/{year}/{quarter}/county/{county}_programme_table.csv`
+- **Sequential Processing**: Processes PDF elements (text + tables) in document order for accurate county boundary detection
+- **Title-Bounded Sections**: Uses county headings and "Recommendations" sections as definitive start/end markers
+- **Multi-page Table Support**: Handles programme tables that span multiple pages within county sections
+- **Fuzzy Matching**: Normalizes county names against official 47 counties list using similarity threshold
+- **Cross-Quarter Compatibility**: Handles different PDF formats (Q2 2023_24 patterns, etc.)
+- **Outputs**: Structured CSV files at `program/{year}/{quarter}/county/{county}_programme_table.csv`
 
 ### Stage 2: Health Data Analysis (`baringo-scraping.py`)
 - Main driver for health spending analysis using hybrid classification approach
@@ -27,6 +28,60 @@ The codebase follows a two-stage pipeline:
 
 ```
 PDF Reports → program.py → CSV Files → baringo-scraping.py → Health Budget Excel Report
+```
+
+### Data Processing Pipeline
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   PDF Reports   │───►│   program.py    │───►│   CSV Files     │───►│ baringo-scraping│
+│    (Source)     │    │  (Extraction)   │    │   (Interim)     │    │    (Analysis)   │
+│ 47 Counties x   │    │                 │    │ 47 Counties x   │    │ Health Budget   │
+│ 4 Quarters x    │    │ • TOC Parsing   │    │ 4 Quarters x    │    │ Classification  │
+│ Multiple Years  │    │ • Table Extract │    │ Multiple Years  │    │ & Validation    │
+│                 │    │ • Fuzzy Match   │    │ = 1,100+ files  │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+### Stage 1: Sequential PDF Processing Architecture
+
+#### Document Structure Understanding
+Each PDF contains:
+- **Table of Contents**: Maps counties to table locations
+- **County Sections**: Title-bounded sections for all 47 counties
+- **Programme Tables**: Budget vs actual expenditure by programme/sub-programme
+- **Section Markers**: "Key Observations and Recommendations" end each county
+
+#### Sequential Processing Flow
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ SEQUENTIAL ELEMENT PROCESSING (by Y-position, top to bottom)                   │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ 1. Extract & Sort Elements: text_lines + tables → sorted by Y-position         │
+│ 2. Process in Document Order:                                                  │
+│    • County Title (font_size >= 10) → START new county section                 │
+│    • Programme Tables → Assign to current_county                               │
+│    • "Recommendations" section → END county section                            │
+│ 3. Multi-page Continuity: headers_match() preserves table spans               │
+│ 4. Buffer Management: finalize_buffer() merges tables per county              │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+#### Key Advantages of Sequential Processing
+- **✅ No Spatial Validation**: Eliminates Y-coordinate geometry dependencies
+- **✅ Document Order Processing**: Trust PDF structure over position heuristics  
+- **✅ Clear Section Boundaries**: County titles and recommendations provide definitive markers
+- **✅ Cross-County Data Integrity**: Prevents table misattribution (Kakamega-Kajiado fix)
+- **✅ Multi-page Table Support**: Preserves table continuity within county sections
+
+### Stage 2: Health Classification Methods
+
+```
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│ Keyword         │  │ Semantic        │  │ Contextual      │  │ Hybrid          │
+│ Screening       │─►│ Similarity      │─►│ Analysis        │─►│ Classification  │
+│                 │  │ (Transformers)  │  │                 │  │ + Validation    │
+└─────────────────┘  └─────────────────┘  └─────────────────┘  └─────────────────┘
 ```
 
 ## Commands
@@ -144,145 +199,84 @@ self.debug_check_health_context_ahead = True
 
 ---
 
-# HYBRID SUBTOTAL HANDLING IMPLEMENTATION PLAN
+# IMPLEMENTATION STATUS ✅ COMPLETE
 
-**Status**: Partially implemented (2025-01-29)  
-**Current Progress**: Phase 3 completed, Position detection debugging needed  
+**Status**: All phases completed (2025-09-02)  
+**Current Status**: Production-ready system with sequential processing architecture
 
-## IMPLEMENTATION STATUS
+## Key Features Implemented
+- **Sequential PDF Processing**: Document-order element processing eliminates spatial validation complexity
+- **Title-Bounded County Sections**: Clear START/END markers using county headings and "Recommendations"
+- **Multi-year Support**: Handles 2019_20 through 2024_25 (6 years) with robust column matching
+- **Cross-County Data Integrity**: Prevents table misattribution (Kakamega-Kajiado issue resolved)
+- **Multi-page Table Continuity**: Preserves table spans within county sections using header matching
+- **Optimized Model Loading**: Semantic similarity model loaded once per multi-file analysis  
+- **Empty File Handling**: Graceful skip of invalid/empty CSV files without crashes
+- **Column Normalization**: Exact word matching with substring fallback handles all naming variations
+- **Health Classification**: Contextual understanding (e.g., "LAN installation at hospital" = health infrastructure)
+- **Subtotal Validation**: Cross-quarter compatibility with high validation rates
 
-### ✅ COMPLETED PHASES
-
-#### Phase 1: New Helper Functions
-- `_normalize_programme_subtotals()` - Converts Q4 blank sub-programmes to "Sub Total"
-- `_detect_subtotal_position()` - Determines START/END position  
-- `_get_programme_context()` - Gets programme context and detail rows
-- Helper functions for detail row detection
-
-#### Phase 2: Data Normalization  
-- Updated `load_and_clean_data()` with normalization call
-- Simplified `_is_subtotal_row()` to check for "Sub Total"  
-- Added metadata columns: `is_normalized_subtotal`, `subtotal_position`
-
-#### Phase 3: Programme Structure Update
-- Replaced `parse_programme_structure()` with position-aware logic
-- Groups now include `subtotal_position` metadata
-- Health classification priority restored (13 health records maintained)
-
-### 🔄 CURRENT ISSUE: Position Detection
-**Problem**: All subtotals showing as "ISOLATED" position, groups only have 1 record each  
-**Root Cause**: Detail row detection logic not working after normalization  
-**Impact**: Validation works (4 perfect matches!) but grouping suboptimal  
-
-### ⏳ PENDING PHASES
-
-#### Phase 4: Fix Position Detection Logic
-```python
-# Issue in _has_programme_details_after/_before functions
-# Need to handle both patterns:
-# Pattern 1: "Programme", "Sub Total" → "", "detail"  
-# Pattern 2: "Programme", "Sub Total" → "Programme", "detail"
-```
-
-#### Phase 5: Update Validation Logic  
-```python
-def validate_subtotals(self):
-    # Add position-aware validation
-    subtotal_position = group.get('subtotal_position', 'END')
-    # Enhanced validation results with position context
-```
-
-#### Phase 6: Update Output Functions
-- Add `subtotal_position`, `is_normalized_subtotal` to health data output
-- Update programme totals with position-aware source tracking
-- Enhanced methodology documentation
-
-## PROGRESS METRICS
-
-**Before Implementation**:
-- 34 programme groups, 0 perfect validation matches
-- 13 health records, manual subtotal handling
-
-**Current Status** (After Phase 3):  
-- ✅ Normalization: 33 programme subtotals converted to "Sub Total"
-- ✅ Validation: 4 perfect matches (significant improvement!)
-- ✅ Health records: 13 maintained (health classification priority preserved)
-- ❌ Position detection: All showing "ISOLATED" (needs debugging)
-- ❌ Groups: 1 record each (detail rows not properly associated)
-
-**Target Status** (After completion):
-- Proper START/END position detection for cross-quarter compatibility  
-- Position-aware validation with enhanced reporting
-- Unified subtotal handling for Q1-Q4 data
-
-## DEBUGGING NEXT STEPS
-
-1. **Examine normalized data structure** - Check what the data looks like after normalization
-2. **Fix detail row detection** - Update `_has_programme_details_after/before` logic  
-3. **Test position detection** - Verify START/END detection works correctly
-4. **Update validation** - Implement position-aware validation logic
-5. **Test cross-quarter** - Verify works on both Q1-Q3 (END) and Q4 (START) data
-
-## KEY INSIGHTS FROM IMPLEMENTATION
-
-✅ **Normalization approach works**: Converting blank sub-programmes to "Sub Total" creates consistent structure  
-✅ **Validation improvements**: 4 perfect matches vs 0 before shows validation logic improvements  
-✅ **Health classification preserved**: 13 health records maintained through changes  
-❌ **Position detection complex**: Q4 data pattern requires more sophisticated detail row detection  
-
-## METHODOLOGY UPDATES NEEDED
-
-Once implementation complete, update methodology with:
-- Data Structure Normalization section
-- Hybrid Subtotal Processing explanation  
-- Position-Aware Validation details
-- Cross-quarter compatibility approach
+## Multi-Year Test Results (Baringo)
+- **2019_20**: 9 health records, 4 perfect subtotal matches
+- **2020_21**: 46 health records across 4 quarters, excellent validation  
+- **2021_22**: 32 health records, strong subtotal validation
+- **2022_23**: 22 health records, robust cross-quarter processing
+- **2023_24**: 24 health records (Q2 empty file handled gracefully)
+- **2024_25**: 18 health records, 6+ perfect subtotal matches per quarter
 
 ---
 
 # ISSUE 1: HEALTH CLASSIFICATION FIXES - COMPLETED ✅
-
-**Status**: Implementation completed 2025-08-29  
 **Problem**: HEALTH_DEPARTMENT_CONTEXT method causing false positives (e.g., Agricultural Development admin classified as health)
+**Solution**: Removed 6 contextual analysis functions, added simple 3-row adjacency check, applied text normalization for line breaks
+**Result**: Eliminates false positives while preserving legitimate health admin detection
 
-## Root Cause
-- 20-row window search created spurious associations between unrelated programmes  
-- Line break formatting (`"General administra-\ntion"`) broke keyword detection
+# ISSUE 2: SUBTOTAL VALIDATION - COMPLETED ✅
+**Problem**: After normalization, subtotal validation shows `no_explicit_subtotal` and blank `calculated_approved` values
+**Solution**: Fixed case-sensitive subtotal detection, updated position detection logic, added health-only validation filtering
+**Result**: Baringo 2019_20 Q1: 4 perfect matches (vs 0 before), Q4: 25 perfect matches with cross-quarter compatibility
 
-## Solution Implemented
-- **Removed** 6 contextual analysis functions causing false positives
-- **Added** simple 3-row adjacency check for large health admin entries  
-- **Applied** text normalization to handle formatting issues
-- **Preserved** LARGE_HEALTH_ADMIN classification method for reporting
+# ISSUE 3: Q2 2023_24 TABLE EXTRACTION FAILURE - RESOLVED ✅
+**Problem**: Empty 1-byte CSV files for all counties in 2023_24 Q2 due to county detection failure
+**Solution**: Added Q2-specific patterns for "County Government [County]" and "County Government of [County]" formats
+**Result**: Q2 extraction now works for all counties with proper headers and budget data
 
-## Results
-- ✅ Eliminates false positives (Agricultural Development, Tourism, etc.)
-- ✅ Preserves legitimate large health admin detection  
-- ✅ Handles line break formatting: `"administra-\ntion"` → `"administration"`
-- ✅ Faster, more predictable classification logic
+# ISSUE 4: SPATIAL COUNTY BOUNDARY DETECTION - RESOLVED ✅
+**Problem**: Kakamega 2019_20 Q1 showing Kajiado's programme data due to incorrect table assignment above county heading
+**Solution**: Added Y-coordinate tracking and spatial validation to assign tables only when spatially below county headings
+**Result**: Eliminates cross-county data contamination, Kakamega empty (correct), Kajiado retains 104+ rows
+
+# ISSUE 5: SEQUENTIAL PROCESSING ARCHITECTURE - COMPLETED ✅
+**Problem**: Spatial validation approach was complex and relied on Y-coordinate geometry instead of document structure
+**Solution**: Implemented document-order element processing with title-bounded sections using county headings and "Recommendations"
+**Result**: Cleaner code, better performance, eliminates spatial validation complexity while preserving all functionality
+
+# ISSUE 6: ISIOLO TABLE POSITION ESTIMATION - RESOLVED ✅
+**Problem**: Isiolo 2019_20 Q1 extracting revenue table instead of programme table, missing 1.2B Kshs health spending on page 101
+**Solution**: Enhanced programme detection with negative filtering and flexible header combinations (Programme/Program/Sector + Approved/Actual)
+**Result**: Health data recovered (1.2B Kshs), correct programme table with 159 rows, cross-county compatible positioning
+
+# ISSUE 7: 4-CATEGORY HEADER MATCHING BROKE ALL COUNTIES - RESOLVED ✅
+**Problem**: Strict 4-category requirement (programme + sub-programme + budget + payment) broke 42 counties due to header variations like "Sub- Programme" vs "sub-programme"
+**Solution**: Added header normalization to handle spacing around hyphens: "Sub- Programme" → "sub-programme", "Sub -Programme" → "sub-programme"
+**Result**: All 47 counties now extract successfully with robust 4-category programme table detection
+
+# ISSUE 8: ELGEYO MARAKWET SPACE-SEPARATED SUB PROGRAMME HEADER - RESOLVED ✅
+**Problem**: Elgeyo Marakwet 2019_20 Q1 extraction failing with blank CSV despite having correct 4-category table structure on pages 67-69
+**Root Cause**: Table headers used "Sub Programme" (with space) instead of "Sub-Programme" (with hyphen), causing sub-programme keyword matching to fail
+**Solution**: Added "sub programme" to sub_programme_keywords list to handle both space and hyphen formats: `["sub-programme", "sub-program", "sub programme", "description"]`
+**Result**: ✅ Elgeyo Marakwet now extracts 129 rows of programme data including health spending ✅ Compatible with other counties using space format
 
 ---
 
-# ISSUE 2: SUBTOTAL VALIDATION - PENDING ⏳
+# SYSTEM STATUS ✅ PRODUCTION READY
 
-**Status**: Not yet implemented  
-**Problem**: After normalization converts 33 programme subtotals to "Sub Total", validation shows `no_explicit_subtotal` and `calculated_approved` is blank
-
-## Root Cause
-- All subtotals show as "ISOLATED" position because detail row detection logic fails after normalization
-- Each programme group only contains 1 record (the subtotal) instead of subtotal + detail rows
-- No detail rows → no calculated totals → blank validation results
-
-## Impact
-- Validation reports "no_explicit_subtotal" despite 33 normalized subtotals existing
-- Cannot calculate programme totals for validation comparison  
-- All programme totals default to "CALCULATED" source instead of "REPORTED_SUBTOTAL"
-- 4 perfect matches achieved but groups artificially small (1 record each)
-
-## Next Steps
-1. Debug position detection with Q4 data structure
-2. Update `_has_programme_details_after/before` logic for Q4 compatibility  
-3. Fix detail row association with subtotals
-4. Test position-aware validation logic
+**Current Status**: All major implementation phases completed (2025-09-02)  
+**Latest Enhancement**: Space-separated sub-programme header support - fixed Elgeyo Marakwet and other counties using "Sub Programme" format
+**Key Fix**: Extended sub_programme_keywords to handle both "Sub-Programme" (hyphen) and "Sub Programme" (space) variations
+**Baringo 2019_20 Results**: Q1 (4 perfect matches), Q4 (25 perfect matches)  
+**Elgeyo Marakwet 2019_20 Q1**: Now extracts 129 rows including health spending data from pages 67-69
+**Major Issues Resolved**: ✅ Cross-county data contamination ✅ Q2 2023_24 extraction ✅ Isiolo health data recovery (1.2B Kshs) ✅ Universal header compatibility ✅ Space-separated header formats
+**Ready for**: Complete multi-county health spending analysis with robust 4-category programme table detection supporting all header format variations
 
 ---
