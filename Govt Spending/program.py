@@ -12,6 +12,24 @@ import datetime
 import argparse
 from statistics import mode
 
+def str_squish(text):
+    """
+    Python equivalent of R's str_squish():
+    - Removes leading and trailing whitespace
+    - Collapses multiple consecutive whitespace characters into single spaces
+    
+    Args:
+        text: String to normalize
+        
+    Returns:
+        String with normalized whitespace
+    """
+    if not text:
+        return ""
+    
+    # Convert to string, remove leading/trailing whitespace, collapse internal whitespace
+    return re.sub(r'\s+', ' ', str(text).strip())
+
 # Set up logging to track progress and debug issues
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -212,8 +230,15 @@ def is_program_table(table, headers, county_name=None):
         logging.info("Headers: %s", headers)
         logging.info("First 3 rows: %s", table[:3])
     
-    # Check for exclusion indicators first
-    header_text = " ".join(str(h).lower() for h in headers if h)
+    # Check for exclusion indicators first - use proper whitespace normalization
+    header_parts = []
+    for h in headers:
+        if h:
+            normalized = str(h).lower().replace('\n', ' ').replace('-', ' ')
+            header_parts.append(str_squish(normalized))
+    header_text = " ".join(header_parts)
+    header_text = str_squish(header_text)
+    
     if any(exclude_word in header_text for exclude_word in exclude_keywords):
         if county_name in TARGET_COUNTY and header_debug == True:
             logging.info("✗ Excluded due to header indicators: revenue/grant table")
@@ -227,17 +252,15 @@ def is_program_table(table, headers, county_name=None):
     
     for header in headers:
         if header:
-            # Normalize header: lowercase, handle hyphenated line breaks, remove extra whitespace
-            header_normalized = str(header).lower().strip()
-            header_normalized = ' '.join(header_normalized.split())  # Remove extra whitespace (converts newlines to spaces)
+            # Normalize header: lowercase, handle newlines/hyphens, apply str_squish
+            header_normalized = str(header).lower().replace('\n', ' ').replace('-', ' ')
+            header_normalized = str_squish(header_normalized)
             
             # Handle hyphenated line breaks more generally
             # Use regex to join hyphenated words: "pay- ments" or "pay-ments" -> "payments"
             import re
-            header_no_hyphens = re.sub(r'(\w)-\s*(\w)', r'\1\2', header_normalized)
-            
-            # Normalize remaining hyphens with spaces  
-            header_normalized = header_normalized.replace(' - ', '-').replace('- ', '-').replace(' -', '-')
+            header_no_hyphens = re.sub(r'(\w)-\s*(\w)', r'\1\2', str(header).lower())
+            header_no_hyphens = str_squish(header_no_hyphens)
             
             # Check keywords in both normalized versions (with and without hyphens)
             if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in programme_keywords):
@@ -1124,50 +1147,61 @@ def extract_page_elements_by_position(page, page_num):
             "min_words_horizontal": 1
         })
         
-        # Estimate table positions based on text lines
+        # Extract tables with proper Y-position detection
         for table_idx, table in enumerate(tables):
             if table and len(table) >= 2 and len(table[0]) >= 2:
-                # Estimate table Y-position by looking for programme table header combinations
+                # Method 1: Try to get table bounding box from pdfplumber
                 estimated_y = None
                 
-                def matches_programme_table_header(line_text):
-                    """Check if line matches programme table header using flexible combinations"""
-                    line_lower = line_text.lower()
-                    
-                    # Define header pattern combinations based on actual extracted data
-                    header_combinations = {
-                        'programme_type': ['programme', 'program', 'sector'],
-                        'sub_programme': ['sub-programme', 'sub-program', 'description'],  
-                        'budget_type': ['approved budget', 'approved estimates', 'estimated budget', 'approved'],
-                        'payment_type': ['actual payments', 'actual pay', 'actual']
-                    }
-                    
-                    # Must match at least 2 categories to be a programme table
-                    matches = 0
-                    
-                    # Check programme type (programme/program/sector)
-                    if any(pattern in line_lower for pattern in header_combinations['programme_type']):
-                        matches += 1
-                    
-                    # Check budget type (approved budget/estimates/etc)
-                    if any(pattern in line_lower for pattern in header_combinations['budget_type']):
-                        matches += 1
-                        
-                    # Check payment type (actual payments/pay/etc)  
-                    if any(pattern in line_lower for pattern in header_combinations['payment_type']):
-                        matches += 1
-                        
-                    return matches >= 2
+                # Get table objects with coordinates if available
+                try:
+                    table_objects = page.find_tables()
+                    if table_objects and table_idx < len(table_objects):
+                        table_obj = table_objects[table_idx]
+                        if hasattr(table_obj, 'bbox') and table_obj.bbox:
+                            # Use the top of the table bounding box
+                            estimated_y = table_obj.bbox[3]  # bbox is (x0, y0, x1, y1), y1 is top in pdfplumber
+                except:
+                    pass
                 
-                for line_text, font_size, line_y in text_lines:
-                    if matches_programme_table_header(line_text):
-                        estimated_y = line_y
-                        break
+                # Method 2: Look for table headers in text lines (improved logic)
+                if estimated_y is None:
+                    # Look for lines that contain actual table header elements 
+                    header_text_combined = ' '.join(str(h) for h in table[0] if h).lower()
+                    
+                    # Find text lines that match parts of the actual table headers
+                    best_match_y = None
+                    best_match_score = 0
+                    
+                    for line_text, font_size, line_y in text_lines:
+                        line_lower = line_text.lower()
+                        
+                        # Count how many actual header words appear in this line
+                        score = 0
+                        if 'programme' in line_lower and 'programme' in header_text_combined:
+                            score += 2
+                        if 'approved' in line_lower and 'approved' in header_text_combined:
+                            score += 2  
+                        if 'actual' in line_lower and 'actual' in header_text_combined:
+                            score += 2
+                        if 'variance' in line_lower and 'variance' in header_text_combined:
+                            score += 1
+                        if 'absorption' in line_lower and 'absorption' in header_text_combined:
+                            score += 1
+                        
+                        # Prioritize lines in the upper part of the page (Y > 700)
+                        if score > best_match_score and line_y > 700:
+                            best_match_score = score
+                            best_match_y = line_y
+                    
+                    if best_match_y is not None:
+                        estimated_y = best_match_y
                 
-                # If we can't find programme headers, use a heuristic based on table index
+                # Method 3: Fallback heuristic (improved to place tables at top)
                 if estimated_y is None and text_lines:
                     max_y = max(line_y for _, _, line_y in text_lines if line_y)
-                    estimated_y = max_y - (table_idx * 100)  # Rough estimate
+                    # Place tables near the top of the page instead of using table_idx offset
+                    estimated_y = max_y - (table_idx * 10)  # Much smaller offset
                 
                 if estimated_y is not None:
                     elements.append(PageElement('table', table, estimated_y, page_num))

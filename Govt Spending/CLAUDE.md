@@ -292,6 +292,16 @@ self.debug_check_health_context_ahead = True
 - Applied exact matching to all county detection patterns while preserving flexible document structure matching
 **Result**: ✅ False positives eliminated ✅ Baringo Q4 shows correct pages 36-38 data ✅ All legitimate county headings preserved ✅ Backwards compatible
 
+# ISSUE 12: MISSING PAGE 38 PROGRAMME TABLE - RESOLVED ✅
+**Problem**: Baringo 2021_22 Q1 missing final programme table on page 38 with Grand Total (9.9B Kshs)
+**Root Cause**: Table Y-position estimation placed table after "Key Observations and Recommendations" section end marker due to faulty header matching finding wrong text line
+**Solution**: Fixed table positioning with 3-tier approach:
+- Added `str_squish()` function for proper header whitespace normalization
+- Implemented pdfplumber bounding box coordinates (Method 1)
+- Enhanced header matching with actual table content + Y > 700 filter (Method 2)
+- Improved fallback heuristic to place tables near page top (Method 3)
+**Result**: ✅ Page 38 table captured (34 additional rows) ✅ Grand Total included ✅ Correct processing order ✅ No regressions
+
 ---
 
 # SYSTEM STATUS ✅ PRODUCTION READY
