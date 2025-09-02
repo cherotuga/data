@@ -13,7 +13,7 @@ import argparse
 from statistics import mode
 
 # Set up logging to track progress and debug issues
-logging.basicConfig(level=logging.CRITICAL, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Suppress pdfplumber warnings to keep output clean
 warnings.filterwarnings("ignore", module="pdfplumber.*")
@@ -29,12 +29,12 @@ COUNTIES = [
 ]
 
 # Debugging
-TARGET_COUNTY = []  # Case-sensitive
+TARGET_COUNTY = ["kericho"]  # Case-sensitive
 toc_debug = False
 normalize_debug = False
 match_line_debug = False
-header_debug = False
-fallback_debug = False 
+header_debug = True
+fallback_debug = True 
 
 def normalize_county_name(name):
     """
@@ -167,7 +167,7 @@ def is_program_table(table, headers, county_name=None):
         bool: True if the table is a program table.
     """
     # Strong positive indicators for programme budget tables - need all 4 categories
-    programme_keywords = ["programme", "programs", "sector"]
+    programme_keywords = ["programme", "programs", "sector", "program"]
     sub_programme_keywords = ["sub-programme", "sub-program", "sub programme", "description"]
     budget_keywords = ["approved budget", "budget allocation", "revised budget", "estimates", "submitted estimates"]
     payment_keywords = ["actual payments", "payments", "expenditure"]
@@ -197,30 +197,38 @@ def is_program_table(table, headers, county_name=None):
     
     for header in headers:
         if header:
-            # Normalize header: lowercase, remove spaces around hyphens, remove extra whitespace
+            # Normalize header: lowercase, handle hyphenated line breaks, remove extra whitespace
             header_normalized = str(header).lower().strip()
-            header_normalized = ' '.join(header_normalized.split())  # Remove extra whitespace
-            header_normalized = header_normalized.replace(' - ', '-').replace('- ', '-').replace(' -', '-')  # Normalize hyphens
+            header_normalized = ' '.join(header_normalized.split())  # Remove extra whitespace (converts newlines to spaces)
             
-            if any(keyword.lower() in header_normalized for keyword in programme_keywords):
+            # Handle hyphenated line breaks more generally
+            # Use regex to join hyphenated words: "pay- ments" or "pay-ments" -> "payments"
+            import re
+            header_no_hyphens = re.sub(r'(\w)-\s*(\w)', r'\1\2', header_normalized)
+            
+            # Normalize remaining hyphens with spaces  
+            header_normalized = header_normalized.replace(' - ', '-').replace('- ', '-').replace(' -', '-')
+            
+            # Check keywords in both normalized versions (with and without hyphens)
+            if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in programme_keywords):
                 programme_header_match = True
                 if county_name in TARGET_COUNTY and header_debug == True:
-                    logging.info("✓ Programme header match found: %s (normalized: %s)", header, header_normalized)
+                    logging.info("✓ Programme header match found: %s (normalized: %s, no-hyphens: %s)", header, header_normalized, header_no_hyphens)
                     
-            if any(keyword.lower() in header_normalized for keyword in sub_programme_keywords):
+            if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in sub_programme_keywords):
                 sub_programme_header_match = True
                 if county_name in TARGET_COUNTY and header_debug == True:
-                    logging.info("✓ Sub-programme header match found: %s (normalized: %s)", header, header_normalized)
+                    logging.info("✓ Sub-programme header match found: %s (normalized: %s, no-hyphens: %s)", header, header_normalized, header_no_hyphens)
                     
-            if any(keyword.lower() in header_normalized for keyword in budget_keywords):
+            if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in budget_keywords):
                 budget_header_match = True
                 if county_name in TARGET_COUNTY and header_debug == True:
-                    logging.info("✓ Budget header match found: %s (normalized: %s)", header, header_normalized)
+                    logging.info("✓ Budget header match found: %s (normalized: %s, no-hyphens: %s)", header, header_normalized, header_no_hyphens)
                     
-            if any(keyword.lower() in header_normalized for keyword in payment_keywords):
+            if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in payment_keywords):
                 payment_header_match = True
                 if county_name in TARGET_COUNTY and header_debug == True:
-                    logging.info("✓ Payment header match found: %s (normalized: %s)", header, header_normalized)
+                    logging.info("✓ Payment header match found: %s (normalized: %s, no-hyphens: %s)", header, header_normalized, header_no_hyphens)
     
     # No longer doing content matching - header-only approach
     
@@ -397,6 +405,179 @@ def extract_text_table(page):
         elif current_row and not line.strip():  # End of table
             break
     return table_data if table_data else []
+
+def looks_like_revenue_table(table):
+    """
+    Detects if table appears to be a revenue table (to avoid false positives).
+    
+    Args:
+        table: Table data to check
+        
+    Returns:
+        bool: True if this looks like a revenue/financial summary table
+    """
+    if not table or len(table) < 2:
+        return False
+    
+    # Check first few rows for revenue table indicators
+    revenue_indicators = [
+        'revenue', 'equitable share', 'conditional grants', 'cara', 
+        'allocation', 'receipts', 'own source', 'grants', 'financing'
+    ]
+    
+    # Look at first column and headers for revenue patterns
+    first_column_text = ' '.join(str(cell).lower() for row in table[:3] for cell in row[:2] if cell)
+    
+    return any(indicator in first_column_text for indicator in revenue_indicators)
+
+def looks_like_department_table(table):
+    """
+    Detects if table appears to be a departmental summary table.
+    
+    Args:
+        table: Table data to check
+        
+    Returns:
+        bool: True if this looks like a department performance table
+    """
+    if not table or len(table) < 2:
+        return False
+    
+    # Check for department table indicators
+    department_indicators = [
+        'department', 'budget allocation', 'exchequer issues', 'absorption rate',
+        'expenditure to exchequer', 'rec', 'dev'  # Common department table column headers
+    ]
+    
+    # Look at headers and first row for department patterns
+    header_text = ' '.join(str(cell).lower() for cell in table[0] if cell)
+    
+    return any(indicator in header_text for indicator in department_indicators)
+
+def validate_programme_content_patterns(table, county_name=None):
+    """
+    Validates that table content matches programme table data patterns.
+    
+    Args:
+        table: Table data to validate
+        county_name: County name for debugging (optional)
+        
+    Returns:
+        bool: True if content looks like programme data
+    """
+    if not table or len(table) < 2:
+        return False
+    
+    # Programme table content patterns
+    programme_code_pattern = r'^\d{9,12}$'  # Programme codes like 1001015260
+    budget_amount_pattern = r'^\d{1,3}(?:,\d{3})*(?:\.\d{2})?$'  # Currency format
+    service_description_pattern = r'[A-Za-z\s&,-]+(services?|development|administration|support|management|planning)'
+    zero_value_pattern = r'^-$'  # Dash for zero/empty values
+    
+    programme_indicators = 0
+    
+    # Check first few rows for programme-like content
+    for row_idx, row in enumerate(table[:5]):  # Check first 5 rows
+        if not row:
+            continue
+            
+        for cell_idx, cell in enumerate(row):
+            if not cell:
+                continue
+                
+            cell_str = str(cell).strip()
+            if not cell_str:
+                continue
+            
+            # Check for programme codes (usually in first few columns)
+            if re.match(programme_code_pattern, cell_str):
+                programme_indicators += 1
+                if county_name in TARGET_COUNTY and header_debug:
+                    logging.info("Found programme code pattern: %s at row %d, col %d", 
+                               cell_str, row_idx, cell_idx)
+            
+            # Check for budget amounts (usually in later columns)  
+            elif re.match(budget_amount_pattern, cell_str):
+                programme_indicators += 1
+                if county_name in TARGET_COUNTY and header_debug:
+                    logging.info("Found budget amount pattern: %s at row %d, col %d", 
+                               cell_str, row_idx, cell_idx)
+            
+            # Check for service descriptions
+            elif re.search(service_description_pattern, cell_str.lower()):
+                programme_indicators += 1
+                if county_name in TARGET_COUNTY and header_debug:
+                    logging.info("Found service description pattern: %s at row %d, col %d", 
+                               cell_str, row_idx, cell_idx)
+            
+            # Check for zero value indicators
+            elif re.match(zero_value_pattern, cell_str):
+                programme_indicators += 1
+                if county_name in TARGET_COUNTY and header_debug:
+                    logging.info("Found zero value pattern: %s at row %d, col %d", 
+                               cell_str, row_idx, cell_idx)
+    
+    # Require at least 3 programme indicators to be confident
+    is_programme_content = programme_indicators >= 3
+    
+    if county_name in TARGET_COUNTY and header_debug:
+        logging.info("Programme content validation: %d indicators found, result=%s", 
+                   programme_indicators, is_programme_content)
+    
+    return is_programme_content
+
+def is_programme_table_continuation(table, reference_headers, county_name):
+    """
+    Determines if a headerless table is a continuation of a previously validated programme table.
+    
+    Args:
+        table: Current table data from pdfplumber
+        reference_headers: Headers from the last valid programme table
+        county_name: Current county for debugging
+        
+    Returns:
+        bool: True if this table continues the programme table
+    """
+    # Safety check 1: Must have reference headers
+    if not reference_headers:
+        if county_name in TARGET_COUNTY and header_debug:
+            logging.info("Continuation check failed: no reference headers")
+        return False
+    
+    # Safety check 2: Must be in same county section  
+    if not county_name:
+        if county_name in TARGET_COUNTY and header_debug:
+            logging.info("Continuation check failed: no county context")
+        return False
+        
+    # Safety check 3: Column count must match exactly
+    if not table or len(table[0]) != len(reference_headers):
+        if county_name in TARGET_COUNTY and header_debug:
+            logging.info("Continuation check failed: column count mismatch (table=%d, ref=%d)", 
+                       len(table[0]) if table else 0, len(reference_headers))
+        return False
+    
+    # Safety check 4: Must not look like a different table type
+    if looks_like_revenue_table(table):
+        if county_name in TARGET_COUNTY and header_debug:
+            logging.info("Continuation check failed: looks like revenue table")
+        return False
+        
+    if looks_like_department_table(table):
+        if county_name in TARGET_COUNTY and header_debug:
+            logging.info("Continuation check failed: looks like department table")
+        return False
+        
+    # Safety check 5: Content must match programme patterns
+    if not validate_programme_content_patterns(table, county_name):
+        if county_name in TARGET_COUNTY and header_debug:
+            logging.info("Continuation check failed: content doesn't match programme patterns")
+        return False
+    
+    if county_name in TARGET_COUNTY and header_debug:
+        logging.info("✅ Continuation check passed: table appears to be programme continuation")
+    
+    return True
 
 def headers_match(prev_headers, current_headers, county_name, threshold=0.5):
     """
@@ -1122,6 +1303,22 @@ def extract_programme_tables_sequential(pdf_path):
                             except Exception as e:
                                 errors.append(f"Page {page_num}: Error processing table for {current_county}: {e}")
                                 logging.error("Page %d: Failed to process table for %s: %s", page_num, current_county, e)
+                        
+                        # NEW: Check for headerless continuation table
+                        elif prev_headers and is_programme_table_continuation(table, prev_headers, current_county):
+                            # Process as continuation using previous headers
+                            try:
+                                df = pd.DataFrame(table, columns=prev_headers)
+                                df['page_number'] = page_num
+                                df['table_index'] = 0
+                                table_buffer.append(df)
+                                
+                                if current_county in TARGET_COUNTY:
+                                    logging.info("Page %d: Added headerless programme table continuation for %s (buffer size: %d)", 
+                                               page_num, current_county, len(table_buffer))
+                            except Exception as e:
+                                errors.append(f"Page {page_num}: Error processing continuation table for {current_county}: {e}")
+                                logging.error("Page %d: Failed to process continuation table for %s: %s", page_num, current_county, e)
             
             # Finalize any remaining tables
             finalize_buffer(current_county, table_buffer, county_tables)
