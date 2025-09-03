@@ -1,0 +1,10 @@
+# Pre-commit hooks for data-scraping project
+repos:
+  - repo: local
+    hooks:
+      - id: test-program-extraction
+        name: Test program.py CSV extraction
+        entry: python test_program.py
+        language: system
+        files: ^(program\.py|test_program\.py)$
+        pass_filenames: false

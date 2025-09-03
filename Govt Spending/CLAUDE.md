@@ -171,6 +171,36 @@ Enhanced schema in health analysis:
 - Classification details: `method`, `confidence`, `validation_status`
 - Data quality flags: completeness indicators and validation results
 
+## Testing Framework
+
+Regression testing ensures code changes don't break existing functionality.
+
+### Test program.py CSV Extraction
+```bash
+# Run tests
+python test_program.py
+
+# Add verified baseline line counts
+python add_baseline.py --year 2019_20 --quarter 01 --county baringo --lines 134
+
+# Discover existing CSV line counts
+python add_baseline.py --discover
+```
+
+### Pre-commit Hooks
+```bash
+# Install pre-commit (optional)
+pip install pre-commit
+pre-commit install
+
+# Tests run automatically on git commit when program.py changes
+```
+
+### Test Structure
+- **`test_program.py`**: Validates CSV line counts match expected baselines
+- **`add_baseline.py`**: Helper to add verified line counts after manual PDF verification  
+- **`.pre-commit-config.yaml`**: Runs tests automatically on code changes
+
 ## Testing/Debugging
 
 Configure debug flags in `program.py`:
