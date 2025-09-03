@@ -46,13 +46,19 @@ COUNTIES = [
     "tharaka nithi", "trans nzoia", "turkana", "uasin gishu", "vihiga", "wajir", "west pokot"
 ]
 
+# Header keywords for programme table detection (centralized)
+PROGRAMME_KEYWORDS = ["programme", "programs", "sector", "program"]
+SUB_PROGRAMME_KEYWORDS = ["sub-programme", "sub-program", "sub programme", "description"]
+BUDGET_KEYWORDS = ["approved budget", "budget allocation", "revised budget", "estimates", "submitted estimates"]
+PAYMENT_KEYWORDS = ["actual payments", "payments", "expenditure"]
+
 # Debugging
-TARGET_COUNTY = []  # Case-sensitive
-toc_debug = False
-normalize_debug = False
-match_line_debug = False
-header_debug = False
-fallback_debug = False
+TARGET_COUNTY = ["baringo"]  # Case-sensitive
+toc_debug = True
+normalize_debug = True
+match_line_debug = True
+header_debug = True
+fallback_debug = True
 
 def normalize_county_name(name):
     """
@@ -214,11 +220,11 @@ def is_program_table(table, headers, county_name=None):
     Returns:
         bool: True if the table is a program table.
     """
-    # Strong positive indicators for programme budget tables - need all 4 categories
-    programme_keywords = ["programme", "programs", "sector", "program"]
-    sub_programme_keywords = ["sub-programme", "sub-program", "sub programme", "description"]
-    budget_keywords = ["approved budget", "budget allocation", "revised budget", "estimates", "submitted estimates"]
-    payment_keywords = ["actual payments", "payments", "expenditure"]
+    # Use centralized header keywords
+    programme_keywords = PROGRAMME_KEYWORDS
+    sub_programme_keywords = SUB_PROGRAMME_KEYWORDS
+    budget_keywords = BUDGET_KEYWORDS
+    payment_keywords = PAYMENT_KEYWORDS
     
     # Exclude tables with these indicators (revenue, grants, etc.)
     exclude_keywords = ["revenue", "allocation (in kshs)", "receipts", "financing", "grant", 
@@ -234,7 +240,7 @@ def is_program_table(table, headers, county_name=None):
     header_parts = []
     for h in headers:
         if h:
-            normalized = str(h).lower().replace('\n', ' ').replace('-', ' ')
+            normalized = str(h).lower().replace('\n', ' ')
             header_parts.append(str_squish(normalized))
     header_text = " ".join(header_parts)
     header_text = str_squish(header_text)
@@ -252,15 +258,17 @@ def is_program_table(table, headers, county_name=None):
     
     for header in headers:
         if header:
-            # Normalize header: lowercase, handle newlines/hyphens, apply str_squish
-            header_normalized = str(header).lower().replace('\n', ' ').replace('-', ' ')
-            header_normalized = str_squish(header_normalized)
+            # Normalize header: lowercase, handle hyphenated line breaks, remove extra whitespace
+            header_normalized = str(header).lower().strip()
+            header_normalized = ' '.join(header_normalized.split())  # Remove extra whitespace (converts newlines to spaces)
             
             # Handle hyphenated line breaks more generally
             # Use regex to join hyphenated words: "pay- ments" or "pay-ments" -> "payments"
             import re
-            header_no_hyphens = re.sub(r'(\w)-\s*(\w)', r'\1\2', str(header).lower())
-            header_no_hyphens = str_squish(header_no_hyphens)
+            header_no_hyphens = re.sub(r'(\w)-\s*(\w)', r'\1\2', header_normalized)
+            
+            # Normalize remaining hyphens with spaces  
+            header_normalized = header_normalized.replace(' - ', '-').replace('- ', '-').replace(' -', '-')
             
             # Check keywords in both normalized versions (with and without hyphens)
             if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in programme_keywords):
@@ -823,14 +831,14 @@ def extract_programme_tables(pdf_path):
                             prev_headers = None
                             county_heading_y = line_y  # Record Y-position of county heading
                             if county in TARGET_COUNTY:
-                                logging.info("Ⓜ️ Matched new county heading: line='%s', font_size=%.1f, county=%s, y=%.1f", 
-                                         line, font_size or 0, county, line_y or 0)
+                                logging.info("🏁 SET current_county=%s from new county heading: line='%s', font_size=%.1f, y=%.1f", 
+                                         county, line, font_size or 0, line_y or 0)
                             continue
                     
                     # Additional Q2 patterns: Handle both "County Government [County]" and "County Government of [County]"
                     q2_patterns = [
-                        r"(\d+\.\d+\.?\s*)?County\s+Government\s+([A-Za-z\s'''-]+?)(?:\s*$)",  # "3.1. County Government Baringo"
-                        r"(\d+\.\d+\.?\s*)?County\s+Government\s+of\s+([A-Za-z\s'''-]+?)(?:\s*$)"  # "3.2. County Government of Bomet"
+                        r"(\d+\.\d+\.?\s*)?County\s+Government\s+([A-Za-z\s''-]+?)(?:\s*$)",  # "3.1. County Government Baringo"
+                        r"(\d+\.\d+\.?\s*)?County\s+Government\s+of\s+([A-Za-z\s''-]+?)(?:\s*$)"  # "3.2. County Government of Bomet"
                     ]
                     
                     for q2_pattern in q2_patterns:
@@ -890,7 +898,7 @@ def extract_programme_tables(pdf_path):
                 
                 # Log county status before table processing
                 if current_county in TARGET_COUNTY:
-                    logging.info("Processing tables on page %d, current_county=%s", page_num, current_county)
+                    logging.info("📄 Processing tables on page %d, current_county=%s", page_num, current_county)
                 
                 # Extract tables
                 try:
@@ -1153,49 +1161,90 @@ def extract_page_elements_by_position(page, page_num):
                 # Method 1: Try to get table bounding box from pdfplumber
                 estimated_y = None
                 
-                # Get table objects with coordinates if available
+                # Method 1: Get table bounding box from pdfplumber (can be unreliable)
+                bbox_y = None
                 try:
                     table_objects = page.find_tables()
                     if table_objects and table_idx < len(table_objects):
                         table_obj = table_objects[table_idx]
                         if hasattr(table_obj, 'bbox') and table_obj.bbox:
                             # Use the top of the table bounding box
-                            estimated_y = table_obj.bbox[3]  # bbox is (x0, y0, x1, y1), y1 is top in pdfplumber
+                            bbox_y = table_obj.bbox[3]  # bbox is (x0, y0, x1, y1), y1 is top in pdfplumber
                 except:
                     pass
                 
-                # Method 2: Look for table headers in text lines (improved logic)
-                if estimated_y is None:
-                    # Look for lines that contain actual table header elements 
-                    header_text_combined = ' '.join(str(h) for h in table[0] if h).lower()
-                    
-                    # Find text lines that match parts of the actual table headers
-                    best_match_y = None
-                    best_match_score = 0
-                    
-                    for line_text, font_size, line_y in text_lines:
-                        line_lower = line_text.lower()
+                # Method 2: Look for table headers in text lines (always run for validation)
+                header_y = None
+                header_score = 0
+                
+                # Look for lines that contain actual table header elements 
+                header_text_combined = ' '.join(str(h) for h in table[0] if h).lower()
+                
+                # Accumulate scores across nearby lines in the header region
+                header_regions = []  # [(y_position, cumulative_score)]
+                
+                for line_text, font_size, line_y in text_lines:
+                    if line_y <= 700:  # Only consider upper part of page
+                        continue
                         
-                        # Count how many actual header words appear in this line
-                        score = 0
-                        if 'programme' in line_lower and 'programme' in header_text_combined:
-                            score += 2
-                        if 'approved' in line_lower and 'approved' in header_text_combined:
-                            score += 2  
-                        if 'actual' in line_lower and 'actual' in header_text_combined:
-                            score += 2
-                        if 'variance' in line_lower and 'variance' in header_text_combined:
-                            score += 1
-                        if 'absorption' in line_lower and 'absorption' in header_text_combined:
-                            score += 1
-                        
-                        # Prioritize lines in the upper part of the page (Y > 700)
-                        if score > best_match_score and line_y > 700:
-                            best_match_score = score
-                            best_match_y = line_y
+                    # Normalize the line text (same as is_programme_table logic)
+                    header_normalized = re.sub(r'\s+', ' ', line_text.strip().lower())
+                    header_no_hyphens = re.sub(r'(\w)-\s*(\w)', r'\1\2', header_normalized)
                     
-                    if best_match_y is not None:
-                        estimated_y = best_match_y
+                    # Count header category matches using centralized keywords
+                    line_score = 0
+                    if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in PROGRAMME_KEYWORDS):
+                        line_score += 2
+                    if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in SUB_PROGRAMME_KEYWORDS):
+                        line_score += 2  
+                    if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in BUDGET_KEYWORDS):
+                        line_score += 2
+                    if any(keyword.lower() in header_normalized or keyword.lower() in header_no_hyphens for keyword in PAYMENT_KEYWORDS):
+                        line_score += 2
+                    
+                    if line_score > 0:
+                        # Find nearby header region (within 20 pixels Y-distance)
+                        merged = False
+                        for i, (region_y, region_score) in enumerate(header_regions):
+                            if abs(line_y - region_y) <= 20:  # Lines within 20 pixels are part of same header
+                                # Merge into existing region, use higher Y position (closer to top)
+                                new_y = max(line_y, region_y)
+                                new_score = region_score + line_score
+                                header_regions[i] = (new_y, new_score)
+                                merged = True
+                                break
+                        
+                        if not merged:
+                            # Create new header region
+                            header_regions.append((line_y, line_score))
+                
+                # Find the best header region by score
+                if header_regions:
+                    best_region = max(header_regions, key=lambda x: x[1])  # Best by cumulative score
+                    header_y = best_region[0]
+                    header_score = best_region[1]
+                
+                # Method Comparison: Use Method 2 if it has high confidence and large position difference
+                estimated_y = None
+                if bbox_y is not None and header_y is not None:
+                    position_diff = abs(bbox_y - header_y)
+                    high_confidence = header_score >= 4  # Requires multiple header matches
+                    large_difference = position_diff > 200  # More than 200 pixels difference
+                    
+                    if high_confidence and large_difference:
+                        # Method 2 override: bounding box seems wrong, trust header detection
+                        estimated_y = header_y
+                        logging.info("Page %d: Table position override - bbox_y=%.1f vs header_y=%.1f (diff=%.1f, score=%d), using header position", 
+                                   page_num, bbox_y, header_y, position_diff, header_score)
+                    else:
+                        # Normal case: trust bounding box
+                        estimated_y = bbox_y
+                elif bbox_y is not None:
+                    # Only Method 1 succeeded
+                    estimated_y = bbox_y
+                elif header_y is not None:
+                    # Only Method 2 succeeded  
+                    estimated_y = header_y
                 
                 # Method 3: Fallback heuristic (improved to place tables at top)
                 if estimated_y is None and text_lines:
@@ -1222,20 +1271,22 @@ def extract_programme_tables_sequential(pdf_path):
     errors = []
     
     # Regex patterns (reuse existing ones)
-    program_heading_pattern = r"Table\s+(\d+\.\d+(?:\.\d+)?)[\s]*(?:[:-‑])\s*(?:(?:[A-Za-z\s'''-]+?)\s*County\s*[,;]?\s*)?(Budget\s+Execution\s+by\s+(?:Programmes|Programs)\s+and\s+(?:Sub-Programmes|Sub-Programs)[^0-9]*?)(?:\s*\.*\s*\d+)?(?=\n|$)"
-    new_county_pattern = r"^(?:\d+\.\d+\s*)?(?:County\s+Government\s+of\s+)?([A-Za-z\s'''-]+?)(?:\s*County)?(?:\s*\.*\s*\d+)?$"
+    program_heading_pattern = r"Table\s+(\d+\.\d+(?:\.\d+)?)[\s]*(?:[:-‑])\s*(?:(?:[A-Za-z\s''-]+?)\s*County\s*[,;]?\s*)?(Budget\s+Execution\s+by\s+(?:Programmes|Programs)\s+and\s+(?:Sub-Programmes|Sub-Programs)[^0-9]*?)(?:\s*\.*\s*\d+)?(?=\n|$)"
+    new_county_pattern = r"^(?:\d+\.\d+\s*)?(?:County\s+Government\s+of\s+)?([A-Za-z\s''-]+?)(?:\s*County)?(?:\s*\.*\s*\d+)?$"
     nairobi_pattern = r"(?:\d+\.\d+\.\s*)?Nairobi\s+City\s+County(?:\s+Government)?(?:\s*\.*\s*\d+)?(?=\n|$)"
     end_section_pattern = r"(Accounts\s+Operated\s+(?:by\s+)?Commercial\s+Banks|Key\s+Observations\s+and\s+Recommendations)"
     
     # Q2-specific patterns
     q2_patterns = [
-        r"(\d+\.\d+\.?\s*)?County\s+Government\s+([A-Za-z\s'''-]+?)(?:\s*$)",
-        r"(\d+\.\d+\.?\s*)?County\s+Government\s+of\s+([A-Za-z\s'''-]+?)(?:\s*$)"
+        r"(\d+\.\d+\.?\s*)?County\s+Government\s+([A-Za-z\s''-]+?)(?:\s*$)",
+        r"(\d+\.\d+\.?\s*)?County\s+Government\s+of\s+([A-Za-z\s''-]+?)(?:\s*$)"
     ]
     
     try:
         with pdfplumber.open(pdf_path) as pdf:
+            logging.info("🔍 Starting sequential processing, total pages: %d", len(pdf.pages))
             toc_map = parse_toc(pdf)
+            logging.info("🔍 TOC parsed, starting page processing...")
             
             current_county = None
             table_buffer = []
@@ -1243,6 +1294,7 @@ def extract_programme_tables_sequential(pdf_path):
             
             for page_num, page in enumerate(pdf.pages, 1):
                 elements = extract_page_elements_by_position(page, page_num)
+                
                 
                 for element in elements:
                     if element.is_text():
@@ -1368,17 +1420,20 @@ def extract_programme_tables_sequential(pdf_path):
                                 errors.append(f"Page {page_num}: Error processing table for {current_county}: {e}")
                                 logging.error("Page %d: Failed to process table for %s: %s", page_num, current_county, e)
                         
-                        # NEW: Check for headerless continuation table
-                        elif prev_headers and is_programme_table_continuation(table, prev_headers, current_county):
-                            # Process as continuation using previous headers
+                        elif is_programme_table_continuation(table, prev_headers, current_county):
+                            # Headerless continuation of previous programme table
+                            if current_county in TARGET_COUNTY:
+                                logging.info("Page %d: Found headerless continuation for %s", page_num, current_county)
+                            
                             try:
-                                df = pd.DataFrame(table, columns=prev_headers)
+                                # Use previous headers for continuation
+                                df = pd.DataFrame(table[data_start:], columns=prev_headers)
                                 df['page_number'] = page_num
                                 df['table_index'] = 0
                                 table_buffer.append(df)
                                 
                                 if current_county in TARGET_COUNTY:
-                                    logging.info("Page %d: Added headerless programme table continuation for %s (buffer size: %d)", 
+                                    logging.info("Page %d: Added headerless continuation to buffer for %s (buffer size: %d)", 
                                                page_num, current_county, len(table_buffer))
                             except Exception as e:
                                 errors.append(f"Page {page_num}: Error processing continuation table for {current_county}: {e}")

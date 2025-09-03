@@ -332,6 +332,16 @@ self.debug_check_health_context_ahead = True
 - Improved fallback heuristic to place tables near page top (Method 3)
 **Result**: ✅ Page 38 table captured (34 additional rows) ✅ Grand Total included ✅ Correct processing order ✅ No regressions
 
+# ISSUE 13: BARINGO 2019_20 Q2 PAGE 35 TABLE POSITIONING - RESOLVED ✅
+**Problem**: Baringo 2019_20 Q2 missing final 8 lines from page 35 programme table (test expecting 174 lines, got 166)
+**Root Cause**: pdfplumber bounding box detection placed table at Y=190.6 (wrong position) while actual table content was at Y=787-653 (correct position). Method 1 (bbox) overrode Method 2 (header matching) which had low confidence score due to single-line scoring
+**Solution**: Enhanced table position detection with multi-line header scoring:
+- Centralized header keywords to module-level constants to eliminate duplication
+- Implemented multi-line scoring that accumulates scores across nearby header lines (within 20 pixels)
+- Method 2 override when high confidence (score ≥ 4) and large position difference (> 200 pixels)
+- Uses existing proven keyword lists from `is_programme_table()` function
+**Result**: ✅ Page 35 table captured (8 additional rows) ✅ Grand Total with 8.7B Kshs included ✅ Test passes ✅ Maintains centralized keyword management
+
 ---
 
 # SYSTEM STATUS ✅ PRODUCTION READY

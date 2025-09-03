@@ -15,9 +15,11 @@ from pathlib import Path
 EXPECTED_LINE_COUNTS = {
     # Format: 'year_quarter_county': expected_lines
     # Example entries - replace with actual verified counts
-    # '2019_20_01_baringo': 134,
+    '2019_20_01_baringo': 166,
     # '2019_20_01_bomet': 89,
     # '2019_20_01_busia': 156,
+
+    '2019_20_02_baringo': 174,
 }
 
 def get_csv_line_count(file_path):
