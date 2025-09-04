@@ -1,20 +1,20 @@
 Programmes,Sub-Programmes,"Approved Budget
 (Kshs)","Actual Payments
 (Kshs)",Variance (Kshs),Absorption (%),page_number,table_index
-,Default Value ( Non- Departmental),-,"6,337,778","-6,337,778",-,39,1
-,,-,"6,337,778","-6,337,778",-,39,1
-County Assembly,County Assembly,"347,866,198","87,838,205","260,027,993",25.3,39,1
-,P1 OFFICE OF THE CLERK,-,"-3,210,933","3,210,933",-,39,1
+,Default Value ( Non- Departmental),-,"6,337,778","-6,337,778",-,39,0
+,,-,"6,337,778","-6,337,778",-,39,0
+County Assembly,County Assembly,"347,866,198","87,838,205","260,027,993",25.3,39,0
+,P1 OFFICE OF THE CLERK,-,"-3,210,933","3,210,933",-,39,0
 ,"General Administration, Planning
-and Support Services","347,866,198","91,049,138","256,817,060",26.2,39,1
-,General administration,-,-,-,-,39,1
-Office of the Speaker,Office of the Speaker,"378,486,898","160,643,531","217,843,367",42.4,39,1
-,,"378,486,898","160,643,531","217,843,367",42.4,39,1
+and Support Services","347,866,198","91,049,138","256,817,060",26.2,39,0
+,General administration,-,-,-,-,39,0
+Office of the Speaker,Office of the Speaker,"378,486,898","160,643,531","217,843,367",42.4,39,0
+,,"378,486,898","160,643,531","217,843,367",42.4,39,0
 ,"General Administration, Planning
-and Support Services",,,,,39,1
+and Support Services",,,,,39,0
 "County Assembly Adminis-
-tration",County Assembly Administration,"10,023,968","3,431,239","6,592,729",34.2,39,1
-,,"10,023,968","3,431,239","6,592,729",34.2,39,1
+tration",County Assembly Administration,"10,023,968","3,431,239","6,592,729",34.2,39,0
+,,"10,023,968","3,431,239","6,592,729",34.2,39,0
 "Office of the Governor and
 Deputy Governor","Office of the Governor and Deputy
 Governor","97,134,246","29,096,108","68,038,138",30.0,40,0
@@ -145,3 +145,36 @@ ment and management",-,-,-,-,41,0
 ,"Inter and intra -governmental Rela-
 tions services",-,-,-,-,41,0
 Agricultural Services,,"953,995,403","135,627,225","818,368,178",14.2,41,0
+,"Fisheries Development and Manage-
+ment",-,-,-,-,42,0
+,General administration,"238,767,192","61,818,561","176,948,631",25.9,42,0
+,Crop Production and Management,"715,228,211","73,808,664","641,419,547",10.3,42,0
+,"Livestock Development and Manage-
+ment",-,-,-,-,42,0
+,Agricultural training services,-,-,-,-,42,0
+,Agricultural Development,-,-,-,-,42,0
+Culture Services,,"37,502,586","6,442,875","31,059,711",17.2,42,0
+,Sports Development,-,-,-,-,42,0
+,,"37,502,586","6,442,875","31,059,711",17.2,42,0
+"Sports Development & Man-
+agement Services",,"109,752,138",-,"109,752,138",-,42,0
+,Sports Development,-,-,-,-,42,0
+,General administration,-,-,-,-,42,0
+,,"109,752,138",-,"109,752,138",-,42,0
+Water Management Services,Water Management Services,"978,436,098","35,880,306","942,555,792",3.7,42,0
+,,"860,510,383",-,"860,510,383",-,42,0
+,,"117,925,715","35,880,306","82,045,409",30.4,42,0
+"Environment Administration
+and planning",,"38,761,709","13,881,264","24,880,445",35.8,42,0
+,,"38,761,709","13,881,264","24,880,445",35.8,42,0
+"Environmental and Natural
+Resource Protection Manage-
+ment","Environmental and Natural resource
+protection Management","38,534,871",-,"38,534,871",-,42,0
+,,"38,534,871",-,"38,534,871",-,42,0
+Headquarters,,-,-,-,-,42,0
+,"Inter and intra -governmental Rela-
+tions services",-,-,-,-,42,0
+Headquarters,,"44,429,627","11,105,758","33,323,869",25.0,42,0
+,,"44,429,627","11,105,758","33,323,869",25.0,42,0
+,Grand Total,"8,930,443,117","2,067,055,600","6,863,387,516",23.1,42,0
