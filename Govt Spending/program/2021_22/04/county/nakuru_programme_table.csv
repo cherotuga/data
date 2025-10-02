@@ -2,37 +2,37 @@ Programme,Sub- Programme,"Approved Budget
 (Kshs)","Actual Payments
 (Kshs)","Variance
 (Kshs.)",Absorption (%),page_number,table_index
-Department of Finance and Economic Planning,,,,,,342,1
+Department of Finance and Economic Planning,,,,,,342,0
 "Programme 1:
 Administration,
 Planning and Support
 Services","SP 1.1: Administration Ser-
-vices","401,194,096","386,797,200","14,396,896",96.4,342,1
-,Sp 1.2: Personnel Services,"552,772,189","511,654,148","41,118,041",92.6,342,1
-Sub Total,,"953,966,285","898,451,348","55,514,937",94.2,342,1
+vices","401,194,096","386,797,200","14,396,896",96.4,342,0
+,Sp 1.2: Personnel Services,"552,772,189","511,654,148","41,118,041",92.6,342,0
+Sub Total,,"953,966,285","898,451,348","55,514,937",94.2,342,0
 "Programme 2: Public
 Finance Management","SP 2.1: Budget Formulation
 Coordination and Manage-
-ment","68,407,062","67,437,481","969,581",98.6,342,1
-,SP 2.2: Resource Mobilisation,"83,630,120","79,009,672","4,620,448",94.5,342,1
-,SP 2.3: Internal Audit,"34,644,521","32,546,554","2,097,967",93.9,342,1
-,SP 2.4: Procurement,"18,120,293","17,175,127","945,166",94.8,342,1
+ment","68,407,062","67,437,481","969,581",98.6,342,0
+,SP 2.2: Resource Mobilisation,"83,630,120","79,009,672","4,620,448",94.5,342,0
+,SP 2.3: Internal Audit,"34,644,521","32,546,554","2,097,967",93.9,342,0
+,SP 2.4: Procurement,"18,120,293","17,175,127","945,166",94.8,342,0
 ,"SP 2.5: Public Finance and
-Accounting","26,536,381","24,562,317","1,974,064",92.6,342,1
-,SP 2.6: Debt Management,"246,236,208","216,550,694","29,685,514",87.9,342,1
+Accounting","26,536,381","24,562,317","1,974,064",92.6,342,0
+,SP 2.6: Debt Management,"246,236,208","216,550,694","29,685,514",87.9,342,0
 ,"SP 2.7: External Resource
-Mobilization","11,923,988","11,732,692","191,296",98.,342,1
-Sub Total,,"489,498,573","449,014,537","40,484,036",91.7%,342,1
+Mobilization","11,923,988","11,732,692","191,296",98.,342,0
+Sub Total,,"489,498,573","449,014,537","40,484,036",91.7%,342,0
 "Programme 3: Eco-
 nomic and Financial
 Policy Formulation
-and Management",SP 3.1: Fiscal Planning,"29,960,301","27,310,033","2,650,268",91.2,342,1
+and Management",SP 3.1: Fiscal Planning,"29,960,301","27,310,033","2,650,268",91.2,342,0
 ,"SP 3.2: Monitoring & Evalua-
 tion / Statistical Data Manage-
-ment","9,626,747","8,571,196","1,055,551",89.0,342,1
-,SP 3.3: KDSP Programme,"232,715,207","111,558,895","121,156,312",47.9,342,1
-Sub Total,,"272,302,255","147,440,124","124,862,131",54.1,342,1
-Department of Public Service Training and Devolution,,,,,,342,1
+ment","9,626,747","8,571,196","1,055,551",89.0,342,0
+,SP 3.3: KDSP Programme,"232,715,207","111,558,895","121,156,312",47.9,342,0
+Sub Total,,"272,302,255","147,440,124","124,862,131",54.1,342,0
+Department of Public Service Training and Devolution,,,,,,342,0
 "Programme 1
 Administration,
 Planning and Support
@@ -437,3 +437,6 @@ County Assembly,,,,,,349,0
 "Procedures and Com-
 mittee Services","Procedures and Committee
 Services","782,537,383","781,540,526","996,857",99.9,349,0
+,Administration,"419,674,821","417,803,435","1,871,386",99.6,350,0
+Sub Total,,"1,202,212,204","1,199,343,960","2,868,244",99.8,350,0
+Grand Total,,"23,513,986,580","15,562,355,779","7,951,630,801",66.2,350,0

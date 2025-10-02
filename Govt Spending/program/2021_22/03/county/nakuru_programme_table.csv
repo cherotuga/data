@@ -3,26 +3,26 @@ Programme,Sub- Programme,"Approved Budget
 (Kshs)","Variance
 (Kshs.)","Absorp-
 tion (%)",page_number,table_index
-Department of Finance and Economic Planning,,,,,,315,1
+Department of Finance and Economic Planning,,,,,,315,0
 "Programme 1: Admin-
 istration, Planning and
 Support Services","SP 1.1: Administration Ser-
-vices","381,694,096","259,429,714","122,264,382",68.0,315,1
-,Sp 1.2: Personnel Services,"552,772,189","2,850,022","549,922,167",0.5,315,1
-Sub Total,,"934,466,285","262,279,736","672,186,549",28.1,315,1
+vices","381,694,096","259,429,714","122,264,382",68.0,315,0
+,Sp 1.2: Personnel Services,"552,772,189","2,850,022","549,922,167",0.5,315,0
+Sub Total,,"934,466,285","262,279,736","672,186,549",28.1,315,0
 "Programme 2: Public
 Finance Management","SP 2.1: Budget Formulation
 Coordination and Manage-
-ment","64,407,062","34,973,728","29,433,334",54.3,315,1
-,SP 2.2: Resource Mobilization,"82,630,120","29,621,872","53,008,248",35.8,315,1
-,SP 2.3: Internal Audit,"34,644,521","16,226,902","18,417,619",46.8,315,1
-,SP 2.4: Procurement,"18,120,293","3,998,002","14,122,291",22.1,315,1
+ment","64,407,062","34,973,728","29,433,334",54.3,315,0
+,SP 2.2: Resource Mobilization,"82,630,120","29,621,872","53,008,248",35.8,315,0
+,SP 2.3: Internal Audit,"34,644,521","16,226,902","18,417,619",46.8,315,0
+,SP 2.4: Procurement,"18,120,293","3,998,002","14,122,291",22.1,315,0
 ,"SP 2.5: Public Finance and Ac-
-counting","26,536,381","8,316,866","18,219,515",31.3,315,1
-,SP 2.6: Debt Management,"97,542,906","26,844,864","70,698,042",27.5,315,1
+counting","26,536,381","8,316,866","18,219,515",31.3,315,0
+,SP 2.6: Debt Management,"97,542,906","26,844,864","70,698,042",27.5,315,0
 ,"SP 2.7: External Resource Mo-
-bilization","11,923,988","3,442,190","8,481,798",28.9,315,1
-Sub Total,,"335,805,271","123,424,424","212,380,847",36.8,315,1
+bilization","11,923,988","3,442,190","8,481,798",28.9,315,0
+Sub Total,,"335,805,271","123,424,424","212,380,847",36.8,315,0
 "Programme 3: Eco-
 nomic and Financial
 Policy Formulation and
@@ -418,3 +418,8 @@ vices","400,000",-,"400,000",0.0,322,0
 and Trade","1,000,000",-,"1,000,000",0.0,322,0
 Sub Total,,"476,915,032","74,855,509","402,059,523",15.7,322,0
 County Assembly,,,,,,322,0
+"Procedures and Com-
+mittee Services","Procedures and Committee
+Services","1,586,607,406","838,363,223","748,244,183",52.8,323,0
+Sub Total,,"1,586,607,406","838,363,223","748,244,183",52.8,323,0
+Grand Total,,"23,513,986,580","8,791,698,326","14,722,288,254",37.4,323,0

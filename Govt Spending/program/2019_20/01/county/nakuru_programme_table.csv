@@ -1,23 +1,23 @@
 Program,Sub Program,Approved Budget (Kshs),Actual Payments (Kshs),Variance (Kshs),page_number,table_index
 "Livestock Resource
 Management and
-Development",,"154,369,747","36,921,020","117,448,727",248,1
+Development",,"154,369,747","36,921,020","117,448,727",248,0
 ,"Promotion of Dairy Production,
-Breeding and Disease Control","154,369,747","36,921,020","117,448,727",248,1
-Fisheries Development,,"44,662,021","61,800","44,600,221",248,1
-,Aquaculture development,"38,117,621","61,800","38,055,821",248,1
+Breeding and Disease Control","154,369,747","36,921,020","117,448,727",248,0
+Fisheries Development,,"44,662,021","61,800","44,600,221",248,0
+,Aquaculture development,"38,117,621","61,800","38,055,821",248,0
 ,"Fish quality assurance, value
-addition and marketing","6,544,400",-,"6,544,400",248,1
+addition and marketing","6,544,400",-,"6,544,400",248,0
 "Crop Development and
-Management",,"509,039,542","191,256","508,848,286",248,1
-,Crop Production and Food Security,"509,039,542","191,256","508,848,286",248,1
+Management",,"509,039,542","191,256","508,848,286",248,0
+,Crop Production and Food Security,"509,039,542","191,256","508,848,286",248,0
 "Administration, Planning
-and Support Services",,"3,183,483,467","123,783,283","3,059,700,184",248,1
-,Administration Services,"606,928,663","121,233,283","485,695,380",248,1
-,Infrastructure for Land,"2,576,554,804","2,550,000","2,574,004,804",248,1
+and Support Services",,"3,183,483,467","123,783,283","3,059,700,184",248,0
+,Administration Services,"606,928,663","121,233,283","485,695,380",248,0
+,Infrastructure for Land,"2,576,554,804","2,550,000","2,574,004,804",248,0
 "Land Use Planning and
-policies",,"38,191,060","1,335,890","36,855,170",248,1
-,Develop County Spatial Plan,"7,950,000","762,535","7,187,465",248,1
+policies",,"38,191,060","1,335,890","36,855,170",248,0
+,Develop County Spatial Plan,"7,950,000","762,535","7,187,465",248,0
 ,GIS Data Base creation,-,-,-,249,0
 ,Survey and Mapping,"30,241,060","573,355","29,667,705",249,0
 "Infrastructure, Roads
@@ -120,3 +120,40 @@ Services",,"623,908,377","53,143,407","570,764,969",250,0
 Affairs",,"363,035,779","35,500,829","327,534,950",250,0
 ,"Administration and Coordination of
 County Affairs","363,035,779","35,500,829","327,534,950",250,0
+"Coordination and
+Supervisory Services",,"38,522,400","2,063,615","36,458,785",251,0
+,Organization of County Business,"38,522,400","2,063,615","36,458,785",251,0
+"Public Sector Advisory
+Services",,"77,476,716","26,180,000","51,296,716",251,0
+,"Economic, Social and Political
+Advisory Services","77,476,716","26,180,000","51,296,716",251,0
+"Administration Planning &
+Support Services",,"220,515,423","47,902,357","172,613,065",251,0
+,Administration,"220,515,423","47,902,357","172,613,065",251,0
+Environmental Management,,"110,291,371","13,864,360","96,427,011",251,0
+,Pollution Control & Monitoring,"110,291,371","13,864,360","96,427,011",251,0
+"Conservation &
+Management of Natural
+Eco-System",,"6,700,000","21,100","6,678,900",251,0
+,"Forest Resources Management &
+Climate Change","6,700,000","21,100","6,678,900",251,0
+"Water Provision &
+Management",,"1,334,196,412","167,659","1,334,028,753",251,0
+,"Water Provision & Drilling of
+Boreholes","1,334,196,412","167,659","1,334,028,753",251,0
+"Housing Development and
+Management",,"39,207,442","693,530","38,513,912",251,0
+,Rehabilitation of Council Houses,"33,207,442","693,530","32,513,912",251,0
+,Housing Technology Transfer,"6,000,000",-,"6,000,000",251,0
+"Socio-Cultural and Arts
+Empowerment",,"198,382,476","5,009,943","193,372,533",251,0
+,"Promotion of Culture, Arts and
+Talents","48,585,925","345,308","48,240,617",251,0
+,Social Development Programs,"48,000,000","210,700","47,789,300",251,0
+,"Rehabilitation of Social Halls,
+Libraries, Parks and Academies","101,796,551","4,453,935","97,342,616",251,0
+,"Strategic Project Monitoring and
+intervention(Ending Drought
+Emergencies)","39,500,000",-,"39,500,000",251,0
+,Electric Fence Installation Initiative,"4,000,000",-,"4,000,000",251,0
+Grand Total,,"21,132,288,576","1,613,367,771","19,518,920,805",251,0

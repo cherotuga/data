@@ -1,37 +1,37 @@
 Program,Sub Program,Description,Approved Budget,Actual Payments,Variance,Absorption,page_number,table_index
-101003000,,,"86,792,994","70,420,115","16,372,879",81.1,273,1
+101003000,,,"86,792,994","70,420,115","16,372,879",81.1,273,0
 ,101014560,"Promotion of Dairy Production,
-Breeding and Disease Control","78,792,994","70,420,115","8,372,879",89.4,273,1
+Breeding and Disease Control","78,792,994","70,420,115","8,372,879",89.4,273,0
 ,101024560,"Promotion of Value Addition of Live-
-stock and Livestock Products","8,000,000",-,"8,000,000",-,273,1
+stock and Livestock Products","8,000,000",-,"8,000,000",-,273,0
 ,101034560,"Promotion of Non-ruminants and
-Emerging livestock Enterprises",-,-,-,,273,1
-,101044560,Promotion of Apiculture,-,-,-,,273,1
-102003000,,,"4,343,115","354,590","3,988,525",8.2,273,1
-,102014560,Aquaculture development,"4,343,115","354,590","3,988,525",8.2,273,1
+Emerging livestock Enterprises",-,-,-,,273,0
+,101044560,Promotion of Apiculture,-,-,-,,273,0
+102003000,,,"4,343,115","354,590","3,988,525",8.2,273,0
+,102014560,Aquaculture development,"4,343,115","354,590","3,988,525",8.2,273,0
 ,102024560,"Development of capture fisheries re-
-sources",-,-,-,,273,1
+sources",-,-,-,,273,0
 ,102034560,"Fish quality assurance, value addition
-and marketing",-,-,-,,273,1
-103003000,,,"479,778,843","159,059,186","320,719,657",33.2,273,1
-,103014560,"Extension, Research and Training",-,-,-,,273,1
-,103024560,Crop Production and Food Security,"479,778,843","159,059,186","320,719,657",33.2,273,1
+and marketing",-,-,-,,273,0
+103003000,,,"479,778,843","159,059,186","320,719,657",33.2,273,0
+,103014560,"Extension, Research and Training",-,-,-,,273,0
+,103024560,Crop Production and Food Security,"479,778,843","159,059,186","320,719,657",33.2,273,0
 ,103034560,"Farm land utilization, Conservation
-and Mechanization",-,-,-,,273,1
+and Mechanization",-,-,-,,273,0
 ,103044560,"Agribusiness Development and Mar-
-keting",-,-,-,,273,1
-104003000,,,"1,699,878,933","284,152,661","1,415,726,272",16.7,273,1
-,104014560,Administration Services,"557,686,294","249,281,320","308,404,974",44.7,273,1
-,104054560,Infrastructure for Land,"1,142,192,639","34,871,341","1,107,321,298",3.1,273,1
-105003000,,,"12,440,000","1,357,634","11,082,366",10.9,273,1
-,105014560,Develop County Spatial Plan,"7,050,000","894,369","6,155,631",12.7,273,1
-,105024560,GIS Data Base creation,-,-,-,,273,1
-,105034560,Survey and Mapping,"5,390,000","463,265","4,926,735",8.6,273,1
-201003000,,,"2,299,393,628","243,584,553","2,055,809,075",10.6,273,1
+keting",-,-,-,,273,0
+104003000,,,"1,699,878,933","284,152,661","1,415,726,272",16.7,273,0
+,104014560,Administration Services,"557,686,294","249,281,320","308,404,974",44.7,273,0
+,104054560,Infrastructure for Land,"1,142,192,639","34,871,341","1,107,321,298",3.1,273,0
+105003000,,,"12,440,000","1,357,634","11,082,366",10.9,273,0
+,105014560,Develop County Spatial Plan,"7,050,000","894,369","6,155,631",12.7,273,0
+,105024560,GIS Data Base creation,-,-,-,,273,0
+,105034560,Survey and Mapping,"5,390,000","463,265","4,926,735",8.6,273,0
+201003000,,,"2,299,393,628","243,584,553","2,055,809,075",10.6,273,0
 ,201014560,"Rehabilitation of Roads, Drainage and
-Bridges","2,291,793,628","243,101,658","2,048,691,970",10.6,273,1
+Bridges","2,291,793,628","243,101,658","2,048,691,970",10.6,273,0
 ,201024560,"Rehabilitation and construction of
-Transport terminals","100,000",-,"100,000",0.0,273,1
+Transport terminals","100,000",-,"100,000",0.0,273,0
 ,201034560,"Design, Supervision and Rehabilita-
 tion of County Buildings","2,750,000",-,"2,750,000",0.0,274,0
 ,201044560,Firefighting and Emergency Services,"4,750,000","482,895","4,267,105",10.2,274,0
@@ -163,3 +163,18 @@ holes","1,123,805,502","195,005,740","928,799,762",17.4,275,0
 ,905014560,Rehabilitation of Council Houses,"15,561,890","616,765","14,945,125",4.0,275,0
 ,905024560,Housing Technology Transfer,"10,000,000",-,"10,000,000",-,275,0
 906003000,,,"77,940,000","4,204,922","73,735,078",5.4,275,0
+,906014560,Cultural Development Services,-,-,-,,276,0
+,906024560,"Promotion of Culture, Arts and Tal-
+ents","11,180,000","2,153,795","9,026,205",19.3,276,0
+,906034560,Social Development Programs,"33,880,000","817,764","33,062,236",2.4,276,0
+,906054560,"Rehabilitation of Social Halls, Librar-
+ies, Parks and Academies","32,880,000","1,233,363","31,646,637",3.8,276,0
+907003000,,,,,,,276,0
+,907014560,Rehabilitation of Stadia,-,-,-,,276,0
+1003003000,,,"10,000,000",-,"10,000,000",-,276,0
+,1003034560,"Strategic Project Monitoring and in-
+tervention(Ending Drought Emer-
+gency","10,000,000",-,"10,000,000",-,276,0
+1004003000,,,-,-,-,,276,0
+,1004014560,Electric Fence Installation Initiative,-,-,-,,276,0
+Grand Total,,,"20,004,481,264","4,452,802,238","15,551,679,026",22.3,276,0
