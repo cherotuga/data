@@ -48,17 +48,19 @@ COUNTIES = [
 
 # Header keywords for programme table detection (centralized)
 PROGRAMME_KEYWORDS = ["programme", "programs", "sector", "program"]
-SUB_PROGRAMME_KEYWORDS = ["sub-programme", "sub-program", "sub programme", "description"]
-BUDGET_KEYWORDS = ["approved budget", "budget allocation", "revised budget", "estimates", "submitted estimates"]
+SUB_PROGRAMME_KEYWORDS = ["sub-programme", "sub-program", "sub programme", "sub program", "description"]
+BUDGET_KEYWORDS = ["approved budget", "budget allocation", "revised budget", "estimates", "submitted estimates", "budget"]
 PAYMENT_KEYWORDS = ["actual payments", "payments", "expenditure"]
 
 # Debugging
-TARGET_COUNTY = ["baringo"]  # Case-sensitive
-toc_debug = True
-normalize_debug = True
-match_line_debug = True
-header_debug = True
+TARGET_COUNTY = ["nakuru"]  # Case-sensitive
+toc_debug = False
+normalize_debug = False
+match_line_debug = False
+header_debug = False
+validation_debug = True  # New category for 4-category validation logic
 fallback_debug = True
+hierarchical_debug = False  # Debug hierarchical format conversion
 
 def normalize_county_name(name):
     """
@@ -234,7 +236,11 @@ def is_program_table(table, headers, county_name=None):
     if county_name in TARGET_COUNTY and header_debug == True:
         logging.info("=== DEBUGGING %s TABLE ===", county_name)
         logging.info("Headers: %s", headers)
-        logging.info("First 3 rows: %s", table[:3])
+        logging.info("Number of columns detected: %d", len(headers))
+        logging.info("First 8 rows: %s", table[:8])
+        if len(table) > 0:
+            logging.info("First row length: %d", len(table[0]) if table[0] else 0)
+            logging.info("First row content: %s", table[0] if table[0] else "Empty")
     
     # Check for exclusion indicators first - use proper whitespace normalization
     header_parts = []
@@ -293,17 +299,63 @@ def is_program_table(table, headers, county_name=None):
     
     # No longer doing content matching - header-only approach
     
-    # A table is a program table if it has ALL 4 required categories
-    result = programme_header_match and sub_programme_header_match and budget_header_match and payment_header_match
+    # SPECIAL CASE: Hierarchical format detection
+    # Check if this is a hierarchical programme table (like Nakuru 2020 Q1)
+    if programme_header_match and budget_header_match and payment_header_match and not sub_programme_header_match:
+        # Look for hierarchical structure in data
+        has_department_headers = False
+        has_programme_codes = False
+
+        for row in table[1:10]:  # Check rows after headers (start from row 1 to catch department headers in first row)
+            if not row or len(row) < 4:
+                continue
+
+            first_col = str(row[0]).strip() if row[0] else ""
+            second_col = str(row[1]).strip() if row[1] else ""
+
+            # Department header pattern: "Department of..." in first column
+            if "department of" in first_col.lower():
+                has_department_headers = True
+                if county_name in TARGET_COUNTY and header_debug:
+                    logging.info("✓ Found department header: %s", first_col)
+
+            # Programme code pattern: 5+ digit code in first column + description in second
+            elif first_col and first_col.isdigit() and len(first_col) >= 5 and second_col and len(second_col) > 10:
+                has_programme_codes = True
+                if county_name in TARGET_COUNTY and header_debug:
+                    logging.info("✓ Found programme code: %s -> %s", first_col, second_col[:50])
+
+        if has_department_headers and has_programme_codes:
+            if county_name in TARGET_COUNTY and header_debug:
+                logging.info("🔄 HIERARCHICAL FORMAT DETECTED: Converting to standard format")
+            result = True  # Accept this as a valid programme table
+        else:
+            result = False
+    else:
+        # Standard validation: A table is a program table if it has ALL 4 required categories
+        result = programme_header_match and sub_programme_header_match and budget_header_match and payment_header_match
     
-    if county_name in TARGET_COUNTY and header_debug == True:
+    if county_name in TARGET_COUNTY and (header_debug == True or validation_debug == True):
         logging.info("Header analysis:")
         logging.info("  All headers: %s", headers)
         logging.info("  Programme match (%s): %s", programme_header_match, programme_keywords)
-        logging.info("  Sub-programme match (%s): %s", sub_programme_header_match, sub_programme_keywords) 
+        logging.info("  Sub-programme match (%s): %s", sub_programme_header_match, sub_programme_keywords)
         logging.info("  Budget match (%s): %s", budget_header_match, budget_keywords)
         logging.info("  Payment match (%s): %s", payment_header_match, payment_keywords)
-        logging.info("Final result: %s (programme=%s, sub_programme=%s, budget=%s, payment=%s)", 
+
+    if county_name in TARGET_COUNTY and validation_debug == True:
+        logging.info("🔍 4-CATEGORY VALIDATION:")
+        logging.info("  ✅ Programme category: %s", programme_header_match)
+        logging.info("  ✅ Sub-programme category: %s", sub_programme_header_match)
+        logging.info("  ✅ Budget category: %s", budget_header_match)
+        logging.info("  ✅ Payment category: %s", payment_header_match)
+        categories_found = sum([programme_header_match, sub_programme_header_match, budget_header_match, payment_header_match])
+        logging.info("  📊 Total categories found: %d/4", categories_found)
+        logging.info("  📋 Validation formula: %s AND %s AND %s AND %s = %s",
+                    programme_header_match, sub_programme_header_match, budget_header_match, payment_header_match, result)
+
+    if county_name in TARGET_COUNTY and header_debug == True:
+        logging.info("Final result: %s (programme=%s, sub_programme=%s, budget=%s, payment=%s)",
                     result, programme_header_match, sub_programme_header_match, budget_header_match, payment_header_match)
         logging.info("=== END DEBUG ===")
     
@@ -1111,36 +1163,40 @@ class PageElement:
 def extract_page_elements_by_position(page, page_num):
     """Extract both text lines and tables from a page, sorted by Y-position"""
     elements = []
-    
-    # Extract text lines with position
+
+    # Extract text lines with position - ADD ERROR HANDLING
     text_lines = []
-    if hasattr(page, 'chars'):
-        current_line = []
-        font_sizes = []
-        prev_y = None
-        line_y = None
-        for char in page.chars:
-            y = char['y0']
-            font_size = char.get('size', 10)
-            if prev_y is not None and abs(y - prev_y) > 5:
-                if current_line:
-                    line_text = ''.join(current_line)
-                    line_font_size = mode([fs for fs in font_sizes if fs > 0]) if any(fs > 0 for fs in font_sizes) else max(font_sizes, default=10)
-                    text_lines.append((line_text, line_font_size, line_y))
-                current_line = [char['text']]
-                font_sizes = [font_size]
-                line_y = y
-            else:
-                current_line.append(char['text'])
-                font_sizes.append(font_size)
-                if line_y is None:
+    try:
+        if hasattr(page, 'chars'):
+            current_line = []
+            font_sizes = []
+            prev_y = None
+            line_y = None
+            for char in page.chars:
+                y = char['y0']
+                font_size = char.get('size', 10)
+                if prev_y is not None and abs(y - prev_y) > 5:
+                    if current_line:
+                        line_text = ''.join(current_line)
+                        line_font_size = mode([fs for fs in font_sizes if fs > 0]) if any(fs > 0 for fs in font_sizes) else max(font_sizes, default=10)
+                        text_lines.append((line_text, line_font_size, line_y))
+                    current_line = [char['text']]
+                    font_sizes = [font_size]
                     line_y = y
-            prev_y = y
-        if current_line:
-            line_text = ''.join(current_line)
-            line_font_size = mode([fs for fs in font_sizes if fs > 0]) if any(fs > 0 for fs in font_sizes) else max(font_sizes, default=10)
-            text_lines.append((line_text, line_font_size, line_y))
-    
+                else:
+                    current_line.append(char['text'])
+                    font_sizes.append(font_size)
+                    if line_y is None:
+                        line_y = y
+                prev_y = y
+            if current_line:
+                line_text = ''.join(current_line)
+                line_font_size = mode([fs for fs in font_sizes if fs > 0]) if any(fs > 0 for fs in font_sizes) else max(font_sizes, default=10)
+                text_lines.append((line_text, line_font_size, line_y))
+    except Exception as e:
+        logging.warning("Page %d: Failed to extract text due to corruption: %s", page_num, e)
+        # Continue processing - don't fail the entire page
+
     # Add text elements
     for line_text, font_size, line_y in text_lines:
         elements.append(PageElement('text', (line_text, font_size, line_y), line_y, page_num))
@@ -1293,9 +1349,13 @@ def extract_programme_tables_sequential(pdf_path):
             prev_headers = None
             
             for page_num, page in enumerate(pdf.pages, 1):
-                elements = extract_page_elements_by_position(page, page_num)
-                
-                
+                try:
+                    elements = extract_page_elements_by_position(page, page_num)
+                except Exception as e:
+                    logging.warning("Page %d: Failed to process due to PDF corruption: %s", page_num, e)
+                    errors.append(f"Page {page_num}: PDF corruption - {e}")
+                    continue  # Skip this page and continue with the next one
+
                 for element in elements:
                     if element.is_text():
                         line, font_size, line_y = element.data
@@ -1453,6 +1513,129 @@ def extract_programme_tables_sequential(pdf_path):
     
     return county_tables, errors
 
+def convert_hierarchical_to_standard_format(df):
+    """
+    Convert hierarchical programme table format to standard 4-column structure.
+
+    Purpose: Some PDFs have hierarchical format where:
+    - col_0 contains numeric programme codes (e.g., "101014560")
+    - Program column contains both department headers ("Department of...") and programme descriptions
+    - No explicit Sub-Programme column exists
+
+    This function transforms it to standard format:
+    - Programme column: Department names (cascaded down from headers)
+    - Sub-Programme column: Actual programme descriptions
+    - Preserves all budget/payment columns for baringo_scraping.py compatibility
+
+    Args:
+        df: DataFrame with potentially hierarchical structure
+
+    Returns:
+        DataFrame with standard 4-column structure (Programme, Sub-Programme, Budget, Payment)
+    """
+    if df.empty:
+        return df
+
+    # Check if this is hierarchical format
+    has_col_0 = 'col_0' in df.columns
+    has_program = 'Program' in df.columns or 'Programme' in df.columns
+    program_col = 'Program' if 'Program' in df.columns else 'Programme'
+
+    # Skip if not hierarchical format
+    if not (has_col_0 and has_program):
+        return df
+
+    # Check if col_0 contains numeric programme codes (9+ digit numbers)
+    numeric_codes = df['col_0'].astype(str).str.match(r'^\d{9,}$', na=False)
+    has_numeric_codes = numeric_codes.any()
+
+    # Check for structural pattern: col_0 has content while Program column is empty
+    col_0_not_empty = ~df['col_0'].isna() & (df['col_0'].astype(str) != 'nan')
+    program_is_empty = df[program_col].isna() | (df[program_col].astype(str) == 'nan')
+    has_department_headers = (col_0_not_empty & program_is_empty).any()
+
+    # Determine if this county needs debug output for detection phase
+    county_for_debug = None
+    for county in NORMALIZED_COUNTY_MAP:
+        if county in TARGET_COUNTY:
+            county_for_debug = county
+            break
+
+    if county_for_debug and hierarchical_debug:
+        logging.info("HIERARCHICAL DETECTION: has_col_0=%s, has_program=%s, has_numeric_codes=%s, has_department_headers=%s",
+                    has_col_0, has_program, has_numeric_codes, has_department_headers)
+
+        # Show examples of detected patterns
+        if has_numeric_codes:
+            numeric_examples = df.loc[numeric_codes, 'col_0'].head(3).tolist()
+            logging.info("  Numeric code examples: %s", numeric_examples)
+
+        if has_department_headers:
+            dept_examples = df.loc[col_0_not_empty & program_is_empty, 'col_0'].head(3).tolist()
+            logging.info("  Department header examples: %s", dept_examples)
+
+    if not (has_numeric_codes and has_department_headers):
+        if county_for_debug and hierarchical_debug:
+            logging.info("  → SKIPPING: Detection criteria not met")
+        return df
+
+    logging.info("Converting hierarchical format: col_0 → Programme, %s → Sub-Programme", program_col)
+
+    # Create copy for transformation
+    converted_df = df.copy()
+
+    # Track current department name
+    current_department = None
+    programme_values = []
+
+    for idx, row in converted_df.iterrows():
+        program_text = str(row[program_col])
+        col_0_text = str(row['col_0'])
+
+        if county_for_debug and hierarchical_debug:
+            logging.info("Row %d: col_0='%s', program='%s', current_dept='%s'",
+                        idx, col_0_text, program_text, current_department)
+
+        # Check if this row is a department header (col_0 has content, Program is empty)
+        if col_0_text not in ['nan', 'None', ''] and program_text in ['nan', 'None', '']:
+            current_department = col_0_text.strip()
+            programme_values.append(current_department)
+            if county_for_debug and hierarchical_debug:
+                logging.info("  → DEPARTMENT HEADER: Set current_department='%s'", current_department)
+
+        # Check if this row has a numeric programme code
+        elif re.match(r'^\d{9,}$', col_0_text):
+            # Use current department as programme name
+            result_programme = current_department if current_department else col_0_text
+            programme_values.append(result_programme)
+            if county_for_debug and hierarchical_debug:
+                logging.info("  → NUMERIC CODE: Using programme='%s' (current_dept=%s)",
+                           result_programme, current_department)
+
+        # Default case (subtotals, etc.)
+        else:
+            result_programme = current_department if current_department else col_0_text
+            programme_values.append(result_programme)
+            if county_for_debug and hierarchical_debug:
+                logging.info("  → DEFAULT: Using programme='%s' (current_dept=%s)",
+                           result_programme, current_department)
+
+    # Apply transformations
+    converted_df['Programme'] = programme_values
+    converted_df['Sub-Programme'] = converted_df[program_col]
+
+    # Remove original col_0 and Program columns
+    columns_to_drop = ['col_0', program_col]
+    converted_df = converted_df.drop(columns=[col for col in columns_to_drop if col in converted_df.columns])
+
+    # Reorder columns: Programme, Sub-Programme, then budget columns
+    budget_cols = [col for col in converted_df.columns if col not in ['Programme', 'Sub-Programme']]
+    column_order = ['Programme', 'Sub-Programme'] + budget_cols
+    converted_df = converted_df[column_order]
+
+    logging.info("Hierarchical conversion complete: %d rows processed", len(converted_df))
+    return converted_df
+
 def process_pdf(pdf_path):
     """
     Process a single PDF file: extract tables, save to CSVs, log errors.
@@ -1467,6 +1650,10 @@ def process_pdf(pdf_path):
 
         for county in NORMALIZED_COUNTY_MAP:
             df = county_tables.get(county, pd.DataFrame())
+
+            # Convert hierarchical format to standard 4-column structure if needed
+            df = convert_hierarchical_to_standard_format(df)
+
             output_path = output_dir / f"{county.replace(' ', '_').replace('\'', '')}_programme_table.csv"
             df.to_csv(output_path, index=False)
             if not df.empty:
