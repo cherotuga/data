@@ -3,31 +3,31 @@ Program,Description,"Approved Budget
 Payments (Kshs.)",Variance (Kshs.),"Absorption
 Rate (%)",page_number,table_index
 ,"Office of the Governor and
-County Administration","759,846,382","175,587,292","584,259,09",1 76.9,190,1
-0206005060,Mining Efficiency,"76,950,000","486,500","76,463,50",0 99.4,190,1
-0307005060,Industrial Development,"605,384","72,000","533,38",4 88.1,190,1
-0205005060,Energy Production,"72,222,514","3,543,271","68,679,24",3 95.1,190,1
-0306005060,Enterprise Development,"100,910,000","217,322","100,692,67",8 99.8,190,1
+County Administration","759,846,382","175,587,292","584,259,09",1 76.9,190,0
+0206005060,Mining Efficiency,"76,950,000","486,500","76,463,50",0 99.4,190,0
+0307005060,Industrial Development,"605,384","72,000","533,38",4 88.1,190,0
+0205005060,Energy Production,"72,222,514","3,543,271","68,679,24",3 95.1,190,0
+0306005060,Enterprise Development,"100,910,000","217,322","100,692,67",8 99.8,190,0
 0305005060,"Co-Operative Development
 and
-Management","12,780,000","6,071,875","6,708,12",5 52.5,190,1
-0508005060,Alcoholic Drinks,"1,600,000","301,600","1,298,40",0 81.2,190,1
+Management","12,780,000","6,071,875","6,708,12",5 52.5,190,0
+0508005060,Alcoholic Drinks,"1,600,000","301,600","1,298,40",0 81.2,190,0
 0302005060,"Regulation and Verification
 of
-Weights","7,795,000","92,040","7,702,96",0 98.8,190,1
+Weights","7,795,000","92,040","7,702,96",0 98.8,190,0
 0301005060,"General Administration and
 Policy
-making Services","68,150,000","6,111,309","62,038,69",1 91.0,190,1
-0504005060,Gender and Social Dev.,"1,620,000","146,000","1,474,00",0 91.0,190,1
-0704005060,County Public Service Board,"112,270,532","68,680,522","43,590,01",0 38.8,190,1
-0704005060,County Public Service Board,"210,303,000","59,549,160","150,753,84",0 71.7,190,1
-0206005060,Mining Efficiency,"23,500,000","18,458,816","5,041,18",4 21.5,190,1
+making Services","68,150,000","6,111,309","62,038,69",1 91.0,190,0
+0504005060,Gender and Social Dev.,"1,620,000","146,000","1,474,00",0 91.0,190,0
+0704005060,County Public Service Board,"112,270,532","68,680,522","43,590,01",0 38.8,190,0
+0704005060,County Public Service Board,"210,303,000","59,549,160","150,753,84",0 71.7,190,0
+0206005060,Mining Efficiency,"23,500,000","18,458,816","5,041,18",4 21.5,190,0
 0702005060,"Management of County af-
 fairs and
-Special Programmes","8,100,000","1,193,041","6,906,95",9 85.3,190,1
+Special Programmes","8,100,000","1,193,041","6,906,95",9 85.3,190,0
 0701005060,"General Administration and
 Planning
-services","28,360,000","4,080,331","24,279,66",9 85.6,190,1
+services","28,360,000","4,080,331","24,279,66",9 85.6,190,0
 0101005060,"General Administration and
 Planning
 Services","300,000","7,000","293,000",97.7,191,0
@@ -191,3 +191,20 @@ ment","245,103,929","41,664,316","203,439,613",83.0,193,0
 0305005060,"Co-Operative Development
 and
 Management","10,000,000","6,022,000","3,978,000",39.8,193,0
+0706005060,"County Planning and Devel-
+opment
+Coordination Services","46,236,649","14,475,064","31,761,585",68.7,194,0
+,"Trade, Energy and Industry","452,262,627","134,177,906","318,084,721",70.3,194,0
+0711005060,"County Planning and Devel-
+opment
+Coordination Services","7,450,000","1,650,000","5,800,000",77.9,194,0
+0704005060,County Public Service Board,"143,661,891","18,018,146","125,643,745",87.5,194,0
+0515005060,"Pre-Primary Policy and Leg-
+islation","25,160,000","6,127,200","19,032,800",75.6,194,0
+0709005060,"Representation services &
+public
+participation","7,500,000","570,970","6,929,030",92.4,194,0
+0701005060,"General Administration and
+Planning
+services","268,490,736","107,811,590","160,679,146",59.8,194,0
+,Grand Total,"12,146,176,297","5,303,189,505","6,842,986,792",56.3,194,0

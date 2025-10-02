@@ -2,25 +2,25 @@ Programme,Sub- Programme,"Approved Budget
 (Kshs.)","Actual Payments
 (Kshs.)",Variance,Absorption (%),page_number,table_index
 "General administration
-and planning services",Planning and coordination services,"166,605,634","68,493,271","98,112,363",41.1,144,1
+and planning services",Planning and coordination services,"166,605,634","68,493,271","98,112,363",41.1,144,0
 ,"Management of human and capital
-resources","77,265,936","98,000","77,167,936",0.1,144,1
-,Planning and administration,"234,615,153","108,286,781","126,328,372",46.2,144,1
-,Sub total,"477,486,723","176,878,053","300,608,670",37.0,144,1
+resources","77,265,936","98,000","77,167,936",0.1,144,0
+,Planning and administration,"234,615,153","108,286,781","126,328,372",46.2,144,0
+,Sub total,"477,486,723","176,878,053","300,608,670",37.0,144,0
 "Agriculture productivity and
 output management","Management of agriculture advisory
-services","9,951,726","808,276","9,143,450",8.1,144,1
-,Promotion of crop and value chain,"50,118,069","1,079,950","49,038,119",2.2,144,1
-,Promotion of farm forestry,"332,500",0,"332,500",0.0,144,1
+services","9,951,726","808,276","9,143,450",8.1,144,0
+,Promotion of crop and value chain,"50,118,069","1,079,950","49,038,119",2.2,144,0
+,Promotion of farm forestry,"332,500",0,"332,500",0.0,144,0
 ,"Development of product quality
-assurance","1,078,700","204,560","874,140",19.0,144,1
+assurance","1,078,700","204,560","874,140",19.0,144,0
 ,"Agriculture sector planning and
-management","1,884,300","891,400","992,900",47.3,144,1
-,Sub total,"63,365,295","2,984,186","60,381,109",4.7,144,1
+management","1,884,300","891,400","992,900",47.3,144,0
+,Sub total,"63,365,295","2,984,186","60,381,109",4.7,144,0
 "Physical planning and
-housing",Physical planning services,"80,400,000","212,400","80,187,600",0.3,144,1
-,County housing management,"2,100,000","516,896","1,583,104",24.6,144,1
-,Sub total,"82, 500, 000","729,296","81,770,704",0.9,144,1
+housing",Physical planning services,"80,400,000","212,400","80,187,600",0.3,144,0
+,County housing management,"2,100,000","516,896","1,583,104",24.6,144,0
+,Sub total,"82, 500, 000","729,296","81,770,704",0.9,144,0
 "Promotion of sustainable
 land use","Promotion of soil and water manage-
 ment.","46,794,484","146,400","46,648,084",0.3,145,0
@@ -183,3 +183,32 @@ board",County assembly service board,"35,432,855","8,487,266","26,945,589",24.0,
 ,Committee services,"289,015,200","96,816,594","192,198,606",33.5,146,0
 ,Representation & public participation,"80,031,000","35,493,225","44,537,775",44.3,146,0
 ,Sub total,"404,479,055","140,797,085","263,681,970",34.8,146,0
+"Legislation and oversight
+services",Legislation and oversight services,"136,437,991","64,696,722","71,741,269",47.4,147,0
+,Sub total,"136,437,991","64,696,722","71,741,269",47.4,147,0
+"County planning & develop-
+ment coordination services","County planning and development
+coordination","8,850,630","1,550,900","7,299,730",17.5,147,0
+,Sub total,"8,850,630","1,550,900","7,299,730",17.5,147,0
+"General administration and
+planning services",Policy planning and administration,"9,085,940",0,"9.085,940",0,147,0
+,Sub total,"9,085,940",0,"9,085,940",0,147,0
+"Conservation and manage-
+ment of ecosystems",Water resources & sewerage services,"245,065,329","19,217,551","225,847,778",7.8,147,0
+,Sub total,"245,065,329","19,217,551","225,847,778",7.8,147,0
+"General administration and
+planning services",Policy planning and administration,"31,983,002","13,422,938","18,470,064",42.1,147,0
+,Sub total,"31,983,002","13,422,938","18,470,064",42.1,147,0
+"Environment planning and
+management",Environmental quality protection,"1,044,840","94,300","950,540",9.0,147,0
+,"Environmental conservation of natural
+resources","79,714,910",0,"79,714,910",0,147,0
+,Solid waste management,"1,184,663","151,800","1,032,863",12.8,147,0
+,Sub total,"81, 944, 413","246,100","81,698,313",0.3,147,0
+Sports and cultural services,Cultural promotion services,"138,098,332","63,130,995","74,967,337",45.7,147,0
+,Sub total,"138,098,332","63,130,995","74,967,337",45.7,147,0
+"Culture and arts develop-
+ment",Culture and heritage development,"5,630,700","410,820","5,219,880",6.1,147,0
+,Artistic talent development,"5,575,700","339,326","5,236,374",7.3,147,0
+,Sub total,"11,206,400","750,146","10,456,254",6.7,147,0
+Grand Total,,"11,806,524,842","3,397,020,026","8,409,504,816",28.9,147,0

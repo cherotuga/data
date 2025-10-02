@@ -2,20 +2,20 @@ Programme,Sub-Programmes,"Approved Budget
 (Kshs.)","Actual Payments
 (Kshs.)",Variance (Kshs.),"Absorption
 Rate (%)",page_number,table_index
-,Office of the Governor and,"759,846,382","175,587,292","584,259,091",76.9,187,1
-,County Administration,,,,,187,1
-206005060,Mining Efficiency,"76,950,000","486,500","76,463,500",99.4,187,1
-307005060,Industrial Development,"605,384","72,000","533,384",88.1,187,1
-205005060,Energy Production,"72,222,514","3,543,271","68,679,243",95.1,187,1
-306005060,Enterprise Development,"100,910,000","217,322","100,692,678",99.8,187,1
-305005060,Co-Operative Development and,"12,780,000","6,071,875","6,708,125",52.5,187,1
-,Management,,,,,187,1
-508005060,Alcoholic Drinks,"1,600,000","301,600","1,298,400",81.2,187,1
-302005060,Regulation and Verification of,"7,795,000","92,040","7,702,960",98.8,187,1
-,Weights,,,,,187,1
-301005060,General Administration and Policy,"68,150,000","6,111,309","62,038,691",91,187,1
-,making Services,,,,,187,1
-504005060,Gender and Social Dev.,"1,620,000","146,000","1,474,000",91,187,1
+,Office of the Governor and,"759,846,382","175,587,292","584,259,091",76.9,187,0
+,County Administration,,,,,187,0
+206005060,Mining Efficiency,"76,950,000","486,500","76,463,500",99.4,187,0
+307005060,Industrial Development,"605,384","72,000","533,384",88.1,187,0
+205005060,Energy Production,"72,222,514","3,543,271","68,679,243",95.1,187,0
+306005060,Enterprise Development,"100,910,000","217,322","100,692,678",99.8,187,0
+305005060,Co-Operative Development and,"12,780,000","6,071,875","6,708,125",52.5,187,0
+,Management,,,,,187,0
+508005060,Alcoholic Drinks,"1,600,000","301,600","1,298,400",81.2,187,0
+302005060,Regulation and Verification of,"7,795,000","92,040","7,702,960",98.8,187,0
+,Weights,,,,,187,0
+301005060,General Administration and Policy,"68,150,000","6,111,309","62,038,691",91,187,0
+,making Services,,,,,187,0
+504005060,Gender and Social Dev.,"1,620,000","146,000","1,474,000",91,187,0
 704005060,County Public Service Board,"112,270,532","68,680,522","43,590,010",38.8,188,0
 704005060,County Public Service Board,"210,303,000","59,549,160","150,753,840",71.7,188,0
 206005060,Mining Efficiency,"23,500,000","18,458,816","5,041,184",21.5,188,0
@@ -133,3 +133,17 @@ Rate (%)",page_number,table_index
 705005060,Public Financial Management,"245,103,929","41,664,316","203,439,613",83,189,0
 305005060,Co-Operative Development and,"10,000,000","6,022,000","3,978,000",39.8,189,0
 ,Management,,,,,189,0
+201005060,County Roads and Public Works,"208,294,000","60,904,282","147,389,718",70.8,190,0
+,Management,,,,,190,0
+706005060,County Planning and Development,"46,236,649","14,475,064","31,761,585",68.7,190,0
+,Coordination Services,,,,,190,0
+,"Trade, Energy and Industry","452,262,627","134,177,906","318,084,721",70.3,190,0
+711005060,County Planning and Development,"7,450,000","1,650,000","5,800,000",77.9,190,0
+,Co-ordination Services,,,,,190,0
+704005060,County Public Service Board,"143,661,891","18,018,146","125,643,745",87.5,190,0
+515005060,Pre-Primary Policy and Legislation,"25,160,000","6,127,200","19,032,800",75.6,190,0
+709005060,Representation services & public,"7,500,000","570,970","6,929,030",92.4,190,0
+,participation,,,,,190,0
+701005060,General Administration and Planning,"268,490,736","107,811,590","160,679,146",59.8,190,0
+,services,,,,,190,0
+Grand Total,,"12,146,176,297","5,303,189,505","6,842,986,792",56.3,190,0
