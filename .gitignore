@@ -13,3 +13,5 @@ govt_spending/**
 */govt_spending/
 govt_spending/*
 */govt_spending/*
+.continue/assistants/new-assistant.yaml
+data-scraping.Rproj
