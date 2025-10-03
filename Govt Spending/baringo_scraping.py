@@ -413,7 +413,14 @@ class HealthBudgetAnalyzer:
 
         # Find basic columns first
         self.programme_col = self._find_column_name(['programme', 'programmes', 'programs', 'program'])
-        self.subprogramme_col = self._find_subprogramme_column_name(['sub-programs', 'sub programs', 'sub program', 'sub- programme', 'sub- programmes', 'sub programme', 'sub programmes', 'subprogramme', 'subprogrammes', 'description', 'descriptions'])
+
+        # Try to find Sub-Programme column - make it optional for Programme-only formats
+        try:
+            self.subprogramme_col = self._find_subprogramme_column_name(['sub-programs', 'sub programs', 'sub program', 'sub- programme', 'sub- programmes', 'sub programme', 'sub programmes', 'subprogramme', 'subprogrammes', 'description', 'descriptions'])
+        except ValueError:
+            # No Sub-Programme column found - use Programme column for both (valid for 2023_24 Q1 format)
+            print("  No Sub-Programme column found - using Programme-only format")
+            self.subprogramme_col = self.programme_col
 
         # For Rec/Dev format, identify column positions
         # Expected: Programme, Sub-Programme, Approved_Rec, Approved_Dev, Actual_Rec, Actual_Dev, ...
@@ -506,7 +513,15 @@ class HealthBudgetAnalyzer:
         """Setup column mappings for simple format (backward compatibility)"""
         # Find the correct column names using partial matching
         self.programme_col = self._find_column_name(['programme', 'programmes', 'programs', 'program'])
-        self.subprogramme_col = self._find_subprogramme_column_name(['sub-programs', 'sub programs', 'sub program', 'sub- programme', 'sub- programmes', 'sub programme', 'sub programmes', 'subprogramme', 'subprogrammes', 'description', 'descriptions'])
+
+        # Try to find Sub-Programme column - make it optional for Programme-only formats
+        try:
+            self.subprogramme_col = self._find_subprogramme_column_name(['sub-programs', 'sub programs', 'sub program', 'sub- programme', 'sub- programmes', 'sub programme', 'sub programmes', 'subprogramme', 'subprogrammes', 'description', 'descriptions'])
+        except ValueError:
+            # No Sub-Programme column found - use Programme column for both (valid for 2023_24 Q1 format)
+            print("  No Sub-Programme column found - using Programme-only format")
+            self.subprogramme_col = self.programme_col
+
         self.approved_budget_col = self._find_column_name(['approved budget', 'approved', 'submitted estimates', 'submitted', 'budget'])
         self.actual_payments_col = self._find_column_name(['actual payments', 'actual', 'expenditure'])
 

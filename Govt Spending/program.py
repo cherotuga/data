@@ -299,8 +299,8 @@ def is_program_table(table, headers, county_name=None):
     
     # No longer doing content matching - header-only approach
     
-    # SPECIAL CASE: Hierarchical format detection
-    # Check if this is a hierarchical programme table (like Nakuru 2020 Q1)
+    # SPECIAL CASE: Tables without Sub-Programme column
+    # Check if this is a programme table without sub-programmes (like 2023_24 Q1)
     if programme_header_match and budget_header_match and payment_header_match and not sub_programme_header_match:
         # Look for hierarchical structure in data
         has_department_headers = False
@@ -330,7 +330,10 @@ def is_program_table(table, headers, county_name=None):
                 logging.info("🔄 HIERARCHICAL FORMAT DETECTED: Converting to standard format")
             result = True  # Accept this as a valid programme table
         else:
-            result = False
+            # Accept programme-only tables (no sub-programme column) - valid for some quarters like 2023_24 Q1
+            if county_name in TARGET_COUNTY and header_debug:
+                logging.info("✓ PROGRAMME-ONLY FORMAT DETECTED: Accepting table without sub-programme column")
+            result = True  # Accept tables with Programme + Budget + Payment (sub-programme optional)
     else:
         # Standard validation: A table is a program table if it has ALL 4 required categories
         result = programme_header_match and sub_programme_header_match and budget_header_match and payment_header_match
