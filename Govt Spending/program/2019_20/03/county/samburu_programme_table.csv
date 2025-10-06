@@ -5,10 +5,14 @@ Kshs.)","Absorption
 (%)",page_number,table_index,"Actual Payments
 (Kshs)","Variance
 (Kshs.)"
-COUNTY EXECUTIVE,,,,,,306,2,,
+COUNTY EXECUTIVE,,,,,,306,0,,
 "0701004210 P1 Manage-
 ment of County Affairs","0701014210 SP1 General Administration and Support
-Services (Governor, Deputy Governor)","218,324,512","134,249,212","84,075,300",61.5,306,2,,
+Services (Governor, Deputy Governor)","218,324,512","134,249,212","84,075,300",61.5,306,0,,
+7,Drilling and Equipping of 7 boreholes at Samburu Central,Samburu Central,"6,125,954","6,125,954",100.0,306,0,,
+8,Improvement of UNCL Road Lesirikan-Keleswa,Samburu North,"5,808,500","5,808,500",100.0,306,0,,
+9,Supply of ECD learning materials,Samburu Central,"4,926,450","4,926,450",100.0,306,0,,
+10,Construction of dumpsite and perimeter wall,Waso Ward,"3,617,310","3,617,310",100.0,306,0,,
 ,"0704014210 SP2 Administration of Human Resources in
 County Public Service","66,354,595",,,55.2,307,0,"36,609,198","29,745,397"
 ,0701034210 SP3 Sub County Administration,"170,868,388",,,76.1,307,0,"129,989,113","40,879,275"
@@ -195,3 +199,28 @@ and social Services devel-
 opment",0902014210 SP1 Conservation of Heritage,"2,403,600",,,62.6,309,0,"1,503,680","899,920"
 ,0902024210 SP2 Development and Promotion of Culture,"32,659,858",,,16.8,309,0,"5,489,030","27,170,828"
 ,0902034210 SP3 Social Welfare and Gender,"46,227,500",,,38.2,309,0,"17,653,420","28,574,080"
+,"0902044210 SP4 Community Mobilization and develop-
+ment","9,507,810",,,27,310,0,"2,567,467","6,940,343"
+,Sub total,"90,798,768",,,30,310,0,"27,213,597","63,585,171"
+"0903004210 P3 Promo-
+tion of other sports ac-
+tivities","0903014210 SP1 Development and Management of
+Sports Facilities","37,572,000",,,3.2,310,0,"1,211,950","36,360,050"
+,Sub total,"37,572,000",,,3.2,310,0,"1,211,950","36,360,050"
+"0503004210 P3 Sports
+Development","0503034210 SP3 Sports Development, Training and
+Competition","36,928,844",,,40,310,0,"14,758,676","22,170,168"
+,Sub total,"36,928,844",,,40,310,0,"14,758,676","22,170,168"
+"0904014210 P1 General
+Administration Planning
+and Support Services","0904004210 SP1 General Administration Planning and
+Support Services","16,186,002",,,38.6,310,0,"6,242,100","9,943,902"
+,Sub total,"16,186,002",,,38.6,310,0,"6,242,100","9,943,902"
+COUNTY ASSEMBLY,,,,,,310,0,,
+"0707004210 P1 County
+Assembly Administra-
+tion",0707014210 SP1 Legislative and Oversight,"54,761,166",,,56.6,310,0,"30,969,256","23,791,910"
+,0707024210 SP2 County Assembly Administration,"296,730,088",,,48.6,310,0,"144,293,725","152,436,363"
+,0707034210 SP3 Representation,"218,805,780",,,71.8,310,0,"157,160,641","61,645,139"
+,Sub total,"570,297,034",,,58.3,310,0,"332,423,622","237,873,412"
+Grand Total,,"6,936,271,323",,,37.8,310,0,"2,619,300,360","4,316,970,963"

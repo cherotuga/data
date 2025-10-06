@@ -139,7 +139,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2019_20_01_kitui': 165,
 
-    '2019_20_01_kwale': 0,
+    '2019_20_01_kwale': 134,
 
     '2019_20_01_laikipia': 133,
 
@@ -173,7 +173,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2019_20_01_nyeri': 57,
 
-    '2019_20_01_samburu': 0,
+    '2019_20_01_samburu': 217,
 
     '2019_20_01_siaya': 185,
 
@@ -183,11 +183,11 @@ EXPECTED_LINE_COUNTS = {
 
     '2019_20_01_tharaka_nithi': 0,
 
-    '2019_20_01_trans_nzoia': 78,
+    '2019_20_01_trans_nzoia': 82,
 
     '2019_20_01_turkana': 708,
 
-    '2019_20_01_uasin_gishu': 0,
+    '2019_20_01_uasin_gishu': 86,
 
     '2019_20_01_vihiga': 158,
 
@@ -557,7 +557,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2020_21_01_west_pokot': 126,
 
-    '2020_21_02_bomet': 0,
+    '2020_21_02_bomet': 10,
 
     '2020_21_02_bungoma': 324,
 
@@ -591,7 +591,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2020_21_02_kitui': 141,
 
-    '2020_21_02_kwale': 0,
+    '2020_21_02_kwale': 143,
 
     '2020_21_02_laikipia': 136,
 
@@ -613,11 +613,11 @@ EXPECTED_LINE_COUNTS = {
 
     '2020_21_02_muranga': 0,
 
-    '2020_21_02_nairobi_city': 0,
+    '2020_21_02_nairobi_city': 180,
 
     '2020_21_02_nandi': 129,
 
-    '2020_21_02_narok': 0,
+    '2020_21_02_narok': 121,
 
     '2020_21_02_nyamira': 183,
 
@@ -637,7 +637,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2020_21_02_trans_nzoia': 85,
 
-    '2020_21_02_turkana': 0,
+    '2020_21_02_turkana': 482,
 
     '2020_21_02_uasin_gishu': 218,
 
@@ -1549,7 +1549,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2023_24_01_bomet': 128,
 
-    '2023_24_01_bungoma': 0,
+    '2023_24_01_bungoma': 708,
 
     '2023_24_01_busia': 225,
 
@@ -1567,7 +1567,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2023_24_01_kakamega': 0,
 
-    '2023_24_01_kericho': 0,
+    '2023_24_01_kericho': 218,
 
     '2023_24_01_kiambu': 206,
 
@@ -1575,17 +1575,17 @@ EXPECTED_LINE_COUNTS = {
 
     '2023_24_01_kirinyaga': 225,
 
-    '2023_24_01_kisii': 0,
+    '2023_24_01_kisii': 224,
 
     '2023_24_01_kisumu': 382,
 
     '2023_24_01_kitui': 404,
 
-    '2023_24_01_kwale': 0,
+    '2023_24_01_kwale': 286,
 
     '2023_24_01_laikipia': 351,
 
-    '2023_24_01_lamu': 0,
+    '2023_24_01_lamu': 243,
 
     '2023_24_01_machakos': 237,
 
@@ -1609,7 +1609,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2023_24_01_narok': 114,
 
-    '2023_24_01_nyamira': 0,
+    '2023_24_01_nyamira': 38,
 
     '2023_24_01_nyandarua': 218,
 
@@ -1819,7 +1819,7 @@ EXPECTED_LINE_COUNTS = {
 
     '2023_24_04_bomet': 197,
 
-    '2023_24_04_bungoma': 0,
+    '2023_24_04_bungoma': 651,
 
     '2023_24_04_busia': 356,
 
@@ -1897,15 +1897,15 @@ EXPECTED_LINE_COUNTS = {
 
     '2023_24_04_trans_nzoia': 188,
 
-    '2023_24_04_turkana': 0,
+    '2023_24_04_turkana': 438,
 
     '2023_24_04_uasin_gishu': 0,
 
-    '2023_24_04_vihiga': 0,
+    '2023_24_04_vihiga': 248,
 
-    '2023_24_04_wajir': 0,
+    '2023_24_04_wajir': 166,
 
-    '2023_24_04_west_pokot': 0,
+    '2023_24_04_west_pokot': 173,
 
     '2024_25_01_bomet': 160,
 

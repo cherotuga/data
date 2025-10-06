@@ -2,20 +2,20 @@ Programme,Sub- Programme,"Approved Budget
 (Kshs)","Actual Payments
 (Kshs)",Variance (Kshs.),"Absorption Rate
 (%)",page_number,table_index
-"MEDICAL SERVICES, PUBLIC HEALTH & SANITATION",,,,,,292,1
+"MEDICAL SERVICES, PUBLIC HEALTH & SANITATION",,,,,,292,0
 "Preventive and
 Promotive Health
-Services",Environmental & Health promotion,"74,608,471.50","31,502,258","43,106,213.50",42,292,1
-,Nutrition,"14,144,518","123,231","14,021,287",1,292,1
-,Communicable Disease Control,"83,111,734","40,254,375","42,857,359",48,292,1
+Services",Environmental & Health promotion,"74,608,471.50","31,502,258","43,106,213.50",42,292,0
+,Nutrition,"14,144,518","123,231","14,021,287",1,292,0
+,Communicable Disease Control,"83,111,734","40,254,375","42,857,359",48,292,0
 ,"Non-communicable Disease Preven-
-tion & Control","35,870,935.63","12,351,646","23,519,289.63",34,292,1
+tion & Control","35,870,935.63","12,351,646","23,519,289.63",34,292,0
 ,"Reproductive, Maternal, Neonatal,
-child and Adolescent Health","61,112,750.25","17,515,106","43,597,644.25",29,292,1
-,Sub total,"268,848,409.38","101,746,616","167,101,793.38",38,292,1
-Curative Health,Hospital and Referral Services,"344,950,857.98","121,023,476","223,927,381.98",35,292,1
-,Free Primary Health Services,"136,200,280.25","8,103,200","128,097,080.25",6,292,1
-,Sub total,"481,151,138.23","129,126,676","352,024,462.23",27,292,1
+child and Adolescent Health","61,112,750.25","17,515,106","43,597,644.25",29,292,0
+,Sub total,"268,848,409.38","101,746,616","167,101,793.38",38,292,0
+Curative Health,Hospital and Referral Services,"344,950,857.98","121,023,476","223,927,381.98",35,292,0
+,Free Primary Health Services,"136,200,280.25","8,103,200","128,097,080.25",6,292,0
+,Sub total,"481,151,138.23","129,126,676","352,024,462.23",27,292,0
 "General Administra-
 tion Planning and
 Support Services",Health Infrastructure development,"9,049,174","17,800","9,031,374",-,293,0
@@ -214,3 +214,4 @@ Oversight","50,026,696","11,645,794","38,380,902",23,295,0
 Administration","178,510,303","34,868,430","143,641,873",20,295,0
 ,0707034210 SP3 Representation,"221,358,346","23,986,485","197,371,861",11,295,0
 ,Sub total,"449,895,345","70,500,709","379,394,636",16,295,0
+Grand Total,,"3,872,842,115.85","773,793,634","3,099,048,481.85",20,296,0

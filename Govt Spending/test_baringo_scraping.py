@@ -95,6 +95,62 @@ EXPECTED_HEALTH_RECORDS = {
     '2024_25_02_nakuru': 16,
 
     '2024_25_03_nakuru': 18,
+
+    '2019_20_01_bomet': 5,
+
+    '2019_20_01_bungoma': 2,
+
+    '2019_20_01_busia': 11,
+
+    '2019_20_01_elgeyo_marakwet': 8,
+
+    '2019_20_01_embu': 1,
+
+    '2019_20_01_garissa': 7,
+
+    '2019_20_01_homa_bay': 8,
+
+    '2019_20_01_isiolo': 0,
+
+    '2019_20_01_kajiado': 8,
+
+    '2019_20_01_kakamega': 0,
+
+    '2019_20_01_kericho': 0,
+
+    '2019_20_01_kiambu': 7,
+
+    '2019_20_01_kilifi': 4,
+
+    '2019_20_01_kirinyaga': 1,
+
+    '2019_20_01_kisii': 5,
+
+    '2019_20_01_kisumu': 0,
+
+    '2019_20_01_kitui': 5,
+
+    '2019_20_01_kwale': 11,
+
+    '2019_20_01_laikipia': 5,
+
+    '2019_20_01_lamu': 3,
+
+    '2019_20_01_machakos': 5,
+
+    '2019_20_01_makueni': 4,
+
+    '2019_20_01_mandera': 0,
+
+    '2019_20_01_marsabit': 3,
+
+    '2019_20_01_meru': 8,
+
+    '2019_20_01_migori': 16,
+
+    '2019_20_01_mombasa': 4,
+
+    '2019_20_01_samburu': 13,
 }
 
 def get_health_records_count(csv_path):

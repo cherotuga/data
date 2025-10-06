@@ -53,14 +53,15 @@ BUDGET_KEYWORDS = ["approved budget", "budget allocation", "revised budget", "es
 PAYMENT_KEYWORDS = ["actual payments", "payments", "expenditure"]
 
 # Debugging
-TARGET_COUNTY = ["nakuru"]  # Case-sensitive
+TARGET_COUNTY = []  # Case-sensitive
 toc_debug = False
 normalize_debug = False
 match_line_debug = False
 header_debug = False
-validation_debug = True  # New category for 4-category validation logic
-fallback_debug = True
+validation_debug = False  # New category for 4-category validation logic
+fallback_debug = False
 hierarchical_debug = False  # Debug hierarchical format conversion
+county_detection_debug = False  # Debug county title detection
 
 def normalize_county_name(name):
     """
@@ -142,20 +143,20 @@ def parse_toc(pdf):
     """
     Extract the table of contents from the PDF, starting at "TABLE OF CONTENT" and stopping at "ACRONYMS".
     It captures county names and table types, ignoring page numbers.
-    
+
     Args:
         pdf: pdfplumber PDF object.
-    
+
     Returns:
         dict: Mapping of county to [(table_number, description), ...].
     """
 
     # Updated TOC pattern to handle en-dashes, varied spacing, and simpler county formats
-    toc_pattern = r"Table\s+(\d+\.\d+(?:\.\d+)?)[\s]*(?:[:-‑])\s*([A-Za-z\s’'’‑-]+?)(?:\s*County)?(?:\s*,\s*(.*?))?(?:\s*\.*\s*\d+)?$"
+    toc_pattern = r"Table\s+(\d+\.\d+(?:\.\d+)?)[\s]*(?:[:-‑])\s*([A-Za-z\s'''‑-]+?)(?:\s*County)?(?:\s*,\s*(.*?))?(?:\s*\.*\s*\d+)?$"
     toc_map = {}
     in_toc = False
     seen_names = set()
-    
+
     # Iterate through pages to find TOC
     for page in pdf.pages:
         text = page.extract_text() or ""
@@ -807,7 +808,7 @@ def extract_programme_tables(pdf_path):
                                 table_buffer = []
                                 prev_headers = None
                                 if county in TARGET_COUNTY:
-                                    logging.info("Page %d: Set county to %s from previous page Nairobi heading (font_size=%.1f): %s", 
+                                    logging.info("Page %d: Set county to %s from previous page Nairobi heading (font_size=%.1f): %s",
                                              page_num, county, font_size or 0, line.strip())
                                 break
                         elif new_county_match and is_heading:
@@ -819,7 +820,7 @@ def extract_programme_tables(pdf_path):
                                 table_buffer = []
                                 prev_headers = None
                                 if county in TARGET_COUNTY:
-                                    logging.info("Page %d: Set county to %s from previous page county heading (font_size=%.1f): %s", 
+                                    logging.info("Page %d: Set county to %s from previous page county heading (font_size=%.1f): %s",
                                              page_num, county, font_size or 0, line.strip())
                                 break
                         elif program_match and is_heading:
@@ -831,21 +832,21 @@ def extract_programme_tables(pdf_path):
                                 table_buffer = []
                                 prev_headers = None
                                 if county in TARGET_COUNTY:
-                                    logging.info("Page %d: Set county to %s from previous page program heading (font_size=%.1f): %s", 
+                                    logging.info("Page %d: Set county to %s from previous page program heading (font_size=%.1f): %s",
                                              page_num, county, font_size or 0, line.strip())
                                 break
                 
                 for line, font_size, line_y in text_lines:
                     normalized_line = normalize_county_name(line)
                     log_county = any(c in normalized_line for c in TARGET_COUNTY)
-                    
+
                     nairobi_match = re.search(nairobi_pattern, line, re.IGNORECASE)
                     new_county_match = re.search(new_county_pattern, line, re.IGNORECASE)
                     program_match = re.search(program_heading_pattern, line, re.IGNORECASE)
 
                     overview_match = re.search(overview_pattern, line, re.IGNORECASE)
                     end_match = re.search(end_section_pattern, line, re.IGNORECASE)
-                    
+
                     is_heading = font_size is not None and (font_size >= 10 or font_size == 0.0)
                     
                     if log_county and match_line_debug:
@@ -1364,7 +1365,11 @@ def extract_programme_tables_sequential(pdf_path):
                         line, font_size, line_y = element.data
                         normalized_line = normalize_county_name(line)
                         is_heading = font_size is not None and (font_size >= 10 or font_size == 0.0)
-                        
+
+                        # Debug specific lines
+                        if county_detection_debug and any(target in normalized_line for target in TARGET_COUNTY):
+                            logging.info("Page %d: Processing line with target county: '%s' (font=%s, is_heading=%s)", page_num, line.strip()[:80], font_size, is_heading)
+
                         # County section START detection
                         county_detected = False
                         new_county = None
@@ -1381,8 +1386,12 @@ def extract_programme_tables_sequential(pdf_path):
                             if new_county_match and is_heading:
                                 county_raw = new_county_match.group(1).strip()
                                 county_raw_clean = re.sub(r"County\s+Government\s+of\s+", "", county_raw, flags=re.IGNORECASE)
+                                # Also strip trailing "County" word
+                                county_raw_clean = re.sub(r"\s+County$", "", county_raw_clean, flags=re.IGNORECASE)
                                 new_county = fuzzy_match_county(county_raw_clean, NORMALIZED_COUNTY_MAP, require_exact=True)
                                 county_detected = True
+                                if county_detection_debug and county_raw_clean.lower() in [t.lower() for t in TARGET_COUNTY]:
+                                    logging.info("Page %d: new_county_pattern matched: county_raw='%s', new_county='%s', current_county='%s'", page_num, county_raw_clean, new_county, current_county)
                         
                         # Q2 patterns
                         if not county_detected:

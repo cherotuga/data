@@ -2,21 +2,21 @@ Programme,Sub- Programme,"Approved Budget
 (Kshs.)","Actual Payments
 (Kshs.)",Variance (Kshs.),"Absorption Rate
 (%)",page_number,table_index
-County Executive,,,,,,399,1
+County Executive,,,,,,399,0
 ,"0701014210 SP1
 General Admin-
 istration and
 Support Services
 (Governor, Deputy
-Governor)","238,115,344","214,724,008","23,391,336",90.2,399,1
+Governor)","238,115,344","214,724,008","23,391,336",90.2,399,0
 ,"0704014210 SP2
 Administration of
 Human Resources
 in County Public
-Service","68,987,568","65,153,671","3,833,897",94.4,399,1
+Service","68,987,568","65,153,671","3,833,897",94.4,399,0
 ,"0701034210 SP3
 Sub County Ad-
-ministration","174,947,707","166,034,558","8,913,149",94.9,399,1
+ministration","174,947,707","166,034,558","8,913,149",94.9,399,0
 ,"0701044210 SP4
 Coordination,
 Supervision and
@@ -359,3 +359,13 @@ and Support
 Services","17,336,372","9,231,516","8,104,856",53.2,405,0
 ,Subtotal,"17,336,372","9,231,516","8,104,856",53.2,405,0
 The County Assembly,,,,,,405,0
+County Assembly,"0707014210 SP1
+Legislative and
+Oversight","71,513,212","71,413,212","100,000",99.9,406,0
+,"0707024210 SP2
+County Assembly
+Administration","376,328,872","375,701,582","627,290",99.8,406,0
+,"0707034210 SP3
+Representation","225,331,946","225,155,380","176,566",99.9,406,0
+,Subtotal,"673,174,030","672,270,174","903,856",99.9,406,0
+Grand Total,,"7,377,540,024","5,889,035,454","1,488,504,570",79.8,406,0
