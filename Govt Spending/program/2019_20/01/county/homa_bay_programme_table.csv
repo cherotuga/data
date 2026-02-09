@@ -2,7 +2,7 @@ Programme,Sub- Programme,"Approved Budget
 (Kshs)","Actual
 Payments
 (Kshs)",Variance,Absorption (%),page_number,table_index
-"Department of Agriculture, Livestock, Fisheries and Food Security",,,,,,86,1
+"Department of Agriculture, Livestock, Fisheries and Food Security",,,,,,86,0
 "Policy Planning, General Administration
 and Support Services",Policy and Planning Services,"4,000,000",-,"4,000,000",-,87,0
 ,"General Administration and
@@ -270,3 +270,11 @@ Support Services,Financial management Services,"145,698,720",4928200,"140,770,52
 development Services","122,283,799",-,"122,283,799",-,92,0
 ,Sub total,"502,508,435","68,757,245","433,751,190",13.7,92,0
 Homa Bay Municipal Board,,,,,,92,0
+"Policy, Planning, General Administration
+and Support Services",Policy and Planning Services,"5,000,000",-,"5,000,000",-,93,0
+,"Administration and Support
+Services","13,150,000",-,"13,150,000",-,93,0
+,Sub total,"18,150,000",-,"18,150,000",-,93,0
+Urban development services,Project coordination services,"4,250,000",-,"4,250,000",-,93,0
+,Sub total,"4,250,000",0,"4,250,000",-,93,0
+Grand Total,,"8,337,742,696","799,597,499","7,538,145,197",9.6,93,0

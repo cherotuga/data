@@ -1,52 +1,45 @@
 "Depart-
-ment",Programme,Sub-Programme,"Approved Esti- A
-mates (Kshs.) t","ctual Expendi-
-ure (Kshs.)",Variance (Kshs.),Absorption Rate (%,page_number,table_index,"Approved Esti-
+ment",Programme,Sub-Programme,"Approved Esti-
 mates (Kshs.)","Actual Expendi-
-ture (Kshs.)"
-Health,Programme 1: Administration and Planning,,,,,,300,1,,
-,,"SP 1.1: Health In-
-formation System","111,970,436","467,765","111,502,671",-,300,1,,
-,,"SP 1.2: Governance
-and Leadership","425,760,541","99,354,119","326,406,422",23,300,1,,
+ture (Kshs.)",Variance (Kshs.),Absorption Rate (%,page_number,table_index
 ,,"SP 1.3: Human
 Resource Manage-
-ment",,,"167,792,853",14,301,0,"194,729,016","26,936,163"
+ment","194,729,016","26,936,163","167,792,853",14,301,0
 ,,"SP 1.4: Research
-and Development",,,"2,500,000",-,301,0,"2,500,000",
+and Development","2,500,000",,"2,500,000",-,301,0
 ,,"SP 1.5: Health
 Infrastructure and
-Development",,,"29,247,960",1,301,0,"29,400,000","152,040"
-,Programme 2: Health Preventive and Promotive Services,,,,,,301,0,,
+Development","29,400,000","152,040","29,247,960",1,301,0
+,Programme 2: Health Preventive and Promotive Services,,,,,,301,0
 ,,"SP 2:1: Primary
-Health Care",,,"422,254,241",12%,301,0,"477,563,074","55,308,833"
+Health Care","477,563,074","55,308,833","422,254,241",12%,301,0
 ,,"SP 2.2: Environ-
 mental Health and
-Sanitation",,,"3,150,000",0%,301,0,"3,150,000",
+Sanitation","3,150,000",,"3,150,000",0%,301,0
 ,,"SP 2:3: Human
-Resource",,,"1,510,739,524",0%,301,0,"1,510,739,524",
+Resource","1,510,739,524",,"1,510,739,524",0%,301,0
 ,,"SP 2.4: Disease Sur-
 veillance and Emer-
-gency Response",,,"1,997,550",0%,301,0,"1,997,550",
+gency Response","1,997,550",,"1,997,550",0%,301,0
 ,,"SP 2.5: Health
-Promotive",,,"1,740,000",0%,301,0,"1,740,000",
+Promotive","1,740,000",,"1,740,000",0%,301,0
 ,,"SP 2:6: HIV Pro-
-gramme",,,"2,300,000",0%,301,0,"2,300,000",
-,,SP 2:7: Nutrition,,,"20,000,000",0%,301,0,"20,000,000",
+gramme","2,300,000",,"2,300,000",0%,301,0
+,,SP 2:7: Nutrition,"20,000,000",,"20,000,000",0%,301,0
 ,,"SP 2:8 Reproduc-
-tive Health",,,"1,750,000",0%,301,0,"1,750,000",
+tive Health","1,750,000",,"1,750,000",0%,301,0
 ,,"SP 2:9 Immuniza-
-tion",,,"2,500,000",0%,301,0,"2,500,000",
-,Programme 3: Health Curative and Rehabilitative Services,,,,,,301,0,,
+tion","2,500,000",,"2,500,000",0%,301,0
+,Programme 3: Health Curative and Rehabilitative Services,,,,,,301,0
 ,,"SP 3:1: Provision
 of Essential Health
-Services in all levels",,,"1,751,719,518",21%,301,0,"2,222,537,135","470,817,617"
+Services in all levels","2,222,537,135","470,817,617","1,751,719,518",21%,301,0
 ,,"SP 3.2: Elimination
 of communicable
 and non-communi-
-cable diseases",,,"2,200,000",0%,301,0,"2,200,000",
+cable diseases","2,200,000",,"2,200,000",0%,301,0
 ,,"SP 3:3: Human
-Resource",,,"2,440,882,482",5%,301,0,"2,573,622,163","132,739,681"
+Resource","2,573,622,163","132,739,681","2,440,882,482",5%,301,0
 "Infra-
 structure","PROGRAM 1.
 Administra-
@@ -55,323 +48,323 @@ and Support
 Services.","PROGRAM 1.
 Administration,
 Planning and Sup-
-port Services.",,,,,301,0,,
+port Services.",,,,,301,0
 ,,"SP 1.1.Administra-
-tive services.",,,"41,357,528",19%,301,0,"50,976,207","9,618,679"
+tive services.","50,976,207","9,618,679","41,357,528",19%,301,0
 ,,"SP 1.2: Personnel
-services.",,,"152,168,717",5%,301,0,"159,342,630","7,173,913"
+services.","159,342,630","7,173,913","152,168,717",5%,301,0
 ,,"SP 1.3: Financial
-Services.",,,,,301,0,-,
+Services.",-,,,,301,0
 ,"PROGRAM 2.
 Infrastructure,
 Development &
 Maintenance.","PROGRAM 2.
 Infrastructure,
 Development &
-Maintenance.",,,,,301,0,,
+Maintenance.",,,,,301,0
 ,,"S.P 2.1-Construc-
 tion rehabilitation
 & maintenance of
 Roads, Drainage &
-Bridges.",,,"708,515,001",34%,301,0,"1,066,312,898","357,797,897"
+Bridges.","1,066,312,898","357,797,897","708,515,001",34%,301,0
 ,,"S.P 2.2-Rehabili-
 tation & Mainte-
 nance of Transport
-Terminus.",,,"3,160,000",0%,301,0,"3,160,000",-
+Terminus.","3,160,000",-,"3,160,000",0%,301,0
 ,,"S.P 2.3-Construc-
 tion & Maintenance
 of non-residential
-County Buildings.",,,"11,260,000",15%,302,0,"13,260,000","2,000,000"
+County Buildings.","13,260,000","2,000,000","11,260,000",15%,302,0
 ,,"S.P 2.4-Installation,
 Rehabilitation &
 Maintenance of
-Lighting facilities.",,,"53,330,400",49%,302,0,"103,610,000","50,279,600"
+Lighting facilities.","103,610,000","50,279,600","53,330,400",49%,302,0
 ,"PROGRAM 3.
 Firefighting &
 Disaster Man-
 agement.","PROGRAM 3. Fire-
 fighting & Disaster
-Management.",,,,,302,0,,
+Management.",,,,,302,0
 ,,"S.P 3.1 Firefighting
 And Emergency
-Services",,,"5,960,000",22%,302,0,"7,660,000","1,700,000"
+Services","7,660,000","1,700,000","5,960,000",22%,302,0
 "Educa-
 tion, Vo-
 cational
 Training,
 ICT &
 E-Gov-
-ernment",,,,,,,302,0,,
+ernment",,,,,,,302,0
 ,"Programme 1:
 Administration,
 Planning and
-Support Services",,,,,,302,0,,
+Support Services",,,,,,302,0
 ,,"S.P. 1:1 Personnel
-services",,,"323,186,443",23%,302,0,"422,041,593","98,855,150"
+services","422,041,593","98,855,150","323,186,443",23%,302,0
 ,,"S.P. 1:2 Adminis-
 tration and Support
-Services",,,"568,590,166",5%,302,0,"601,113,503","32,523,337"
+Services","601,113,503","32,523,337","568,590,166",5%,302,0
 ,,"S.P. 1.3: Financial
-services",,,,,302,0,,
+services",,,,,302,0
 ,"Programme 2: Promotion of Early
 Childhood Education and Develop-
-ment",,,,-,,302,0,,
+ment",,,,-,,302,0
 ,,"S.P. 2.1: Promotion
-of early childhood",,,"32,328,016",2%,302,0,"32,889,846","561,830"
-,,S.P. 2.2: Bursaries,,,"123,825,145",49%,302,0,"243,492,567","119,667,422"
+of early childhood","32,889,846","561,830","32,328,016",2%,302,0
+,,S.P. 2.2: Bursaries,"243,492,567","119,667,422","123,825,145",49%,302,0
 ,,"S.P. 2.3: Education
-development",,,"19,311,176",0%,302,0,"19,311,176",-
-,Programme 3: Vocational Training,,,,-,,302,0,,
+development","19,311,176",-,"19,311,176",0%,302,0
+,Programme 3: Vocational Training,,,,-,,302,0
 ,,"S.P. 3.1: Vocational
-training",,,"75,721,800",1%,302,0,"76,690,400","968,600"
+training","76,690,400","968,600","75,721,800",1%,302,0
 ,,"S.P. 3.2: Revitalisa-
 tion of the youth
-programme",,,"77,049,914",0%,302,0,"77,049,914",-
+programme","77,049,914",-,"77,049,914",0%,302,0
 ,"Programme 4: Information and Com-
-munication Service",,,,-,,302,0,,
+munication Service",,,,-,,302,0
 ,,"S.P. 4.1: Public
 Communication
-and Media Services",,,"12,565,633",18%,302,0,"15,291,437","2,725,804"
+and Media Services","15,291,437","2,725,804","12,565,633",18%,302,0
 ,"Programme 5: ICT Infrastructure
 Development and e-Government
-Services",,,,-,,302,0,,
+Services",,,,-,,302,0
 ,,"S.P. 5.1: Network
-Infrastructure",,,"6,800,000",0%,302,0,"6,800,000",-
+Infrastructure","6,800,000",-,"6,800,000",0%,302,0
 ,,"S.P. 5.2: Hardware
 and Software plat-
-forms",,,"5,000,000",0%,302,0,"5,000,000",-
+forms","5,000,000",-,"5,000,000",0%,302,0
 ,,"S.P. 5.3: e-Govern-
-ment Services",,,"15,352,000",0%,302,0,"15,352,000",-
+ment Services","15,352,000",-,"15,352,000",0%,302,0
 "Agri-
 culture
 Livestock
 & Fish-
-eries",,,,,,,303,0,,
+eries",,,,,,,303,0
 ,"Programme 1: Administration, Plan-
-ning and Support Services",,,,,,303,0,,
+ning and Support Services",,,,,,303,0
 ,,"SP 1.1: Human Re-
-sources Services",,,"336,085,782",0%,303,0,"336,085,782",
+sources Services","336,085,782",,"336,085,782",0%,303,0
 ,,"SP 1.2: Administra-
 tion, Planning and
-Support Services",,,"347,360,511",8%,303,0,"378,075,953","30,715,442"
+Support Services","378,075,953","30,715,442","347,360,511",8%,303,0
 ,"Programme 2: Livestock Resource
-Management and Development",,,,,,303,0,,
+Management and Development",,,,,,303,0
 ,,"SP 2.1: Livestock
 Production and
-Management",,,"151,070,682",0%,303,0,"151,346,882","276,200"
+Management","151,346,882","276,200","151,070,682",0%,303,0
 ,,"SP 2.2: Promotion
 of Value Addition
 of Livestock and
-Livestock Products",,,"29,203,118",0%,303,0,"29,203,118",
+Livestock Products","29,203,118",,"29,203,118",0%,303,0
 ,,"SP 2.3: Livestock
 Extension Service
-Delivery",,,"29,230,295",0%,303,0,"29,230,295",
+Delivery","29,230,295",,"29,230,295",0%,303,0
 ,,"SP 2.4: Food Safety
 and Livestock
 Products Develop-
-ment",,,"9,050,000",0%,303,0,"9,050,000",
+ment","9,050,000",,"9,050,000",0%,303,0
 ,,"SP 2.5: Livestock
 Disease Manage-
-ment and Control",,,"17,883,763",65%,303,0,"50,383,413","32,499,650"
-,Programme 3: Fisheries Development,,,,,,303,0,,
+ment and Control","50,383,413","32,499,650","17,883,763",65%,303,0
+,Programme 3: Fisheries Development,,,,,,303,0
 ,,"SP 3.1: Aquaculture
-development",,,"8,442,330",20%,303,0,"10,500,000","2,057,670"
+development","10,500,000","2,057,670","8,442,330",20%,303,0
 ,,"SP 3.2: Develop-
 ment of capture
-fisheries resources",,,"3,871,070",0%,303,0,"3,871,070",
+fisheries resources","3,871,070",,"3,871,070",0%,303,0
 ,,"SP 3.3: Fish quality
 assurance, value
 addition and mar-
-keting",,,"2,562,140",0%,303,0,"2,562,140",
+keting","2,562,140",,"2,562,140",0%,303,0
 ,"Programme 4: Crop Development and
-Management",,,,,,303,0,,
+Management",,,,,,303,0
 ,,"SP 4.1: Extension,
 Research and
-Training",,,"6,308,006",0%,303,0,"6,308,006",
+Training","6,308,006",,"6,308,006",0%,303,0
 ,,"SP 4.2: Crop Pro-
 duction and Food
-Security",,,"381,452,719",1%,303,0,"383,601,617","2,148,898"
+Security","383,601,617","2,148,898","381,452,719",1%,303,0
 ,,"SP 4.3: Farm
 land utilization,
 Conservation and
-Mechanization",,,"387,760,725",0%,303,0,"5,775,287",
+Mechanization","5,775,287",,"387,760,725",0%,303,0
 ,,"SP 4.4: Agribusi-
 ness Development
-and Marketing",,,"4,020,230",0%,303,0,"4,020,230",
+and Marketing","4,020,230",,"4,020,230",0%,303,0
 ,,"SP 4.5: Agri-nutri-
-tion",,,"755,057",0%,303,0,"755,057",
+tion","755,057",,"755,057",0%,303,0
 "Finance
 & and
 Eco-
 nomic
-Planning",,,,,,,303,0,,
+Planning",,,,,,,303,0
 ,,"PROGRAMME 1:
 ADMINISTRA-
 TION, PLANNING
 AND SUPPORT
-SERVICES",,,,,303,0,,
+SERVICES",,,,,303,0
 ,,"SP 1.1: Administra-
-tion Services",,,"259,811,389",32%,303,0,"381,694,096","121,882,707"
+tion Services","381,694,096","121,882,707","259,811,389",32%,303,0
 ,,"SP 1.2: Personnel
-Services",,,"551,289,585",0%,304,0,"552,772,189","1,482,604"
+Services","552,772,189","1,482,604","551,289,585",0%,304,0
 ,,"SP 1.3: Financial
-Services",,,-,,304,0,-,-
+Services",-,-,-,,304,0
 ,,"PROGRAMME 2:
 PUBLIC FINANCE
-MANAGEMENT",,,-,,304,0,,
+MANAGEMENT",,,-,,304,0
 ,,"SP 2.1: Budget
 Formulation
 Coordination And
-Management",,,"54,042,083",16%,304,0,"64,407,062","10,364,979"
+Management","64,407,062","10,364,979","54,042,083",16%,304,0
 ,,"SP 2.2: Resource
-Mobilization",,,"68,777,404",17%,304,0,"82,630,120","13,852,716"
+Mobilization","82,630,120","13,852,716","68,777,404",17%,304,0
 ,,"SP 2.3: Internal
-Audit",,,"31,405,931",9%,304,0,"34,644,521","3,238,590"
+Audit","34,644,521","3,238,590","31,405,931",9%,304,0
 ,,"SP 2.4: Procure-
-ment",,,"16,385,593",10%,304,0,"18,120,293","1,734,700"
+ment","18,120,293","1,734,700","16,385,593",10%,304,0
 ,,"SP 2.5: Public
 Finance And Ac-
-counting",,,"25,231,311",5%,304,0,"26,536,381","1,305,070"
+counting","26,536,381","1,305,070","25,231,311",5%,304,0
 ,,"SP 2.6: Debt Man-
-agement",,,"74,409,015",24%,304,0,"97,542,906","23,133,891"
+agement","97,542,906","23,133,891","74,409,015",24%,304,0
 ,,"SP 2.7: External
 Resource Mobili-
-zation",,,"10,566,888",11%,304,0,"11,923,988","1,357,100"
+zation","11,923,988","1,357,100","10,566,888",11%,304,0
 ,,"PROGRAMME
 3: ECONOMIC
 AND FINANCIAL
 POLICY FORMU-
 LATION AND
-MANAGEMENT",,,-,,304,0,,
+MANAGEMENT",,,-,,304,0
 ,,"SP 3.1: Fiscal Plan-
-ning",,,"23,808,832",15%,304,0,"27,960,301","4,151,469"
+ning","27,960,301","4,151,469","23,808,832",15%,304,0
 ,,"SP 3.2: Monitor-
 ing & Evaluation
 / Statistical Data
-Management",,,"7,928,224",18%,304,0,"9,626,747","1,698,523"
+Management","9,626,747","1,698,523","7,928,224",18%,304,0
 ,,"SP 3.3: KDSP Pro-
-gramme",,,"232,715,207",0%,304,0,"232,715,207",
+gramme","232,715,207",,"232,715,207",0%,304,0
 "Office
 of the
 Gover-
 nor and
 Deputy
 Gover-
-nor",,,,,,,304,0,,
+nor",,,,,,,304,0
 ,"ADMINIS-
 TRATION,
 PLANNING &
 SUPPORT","ADMINISTRA-
 TION & PLAN-
-NING",,,"218,140,007",16%,304,0,"259,804,704","41,664,697"
+NING","259,804,704","41,664,697","218,140,007",16%,304,0
 ,,"PERSONNEL
-SERVICES",,,"91,972,223",3%,304,0,"94,514,968","2,542,745"
+SERVICES","94,514,968","2,542,745","91,972,223",3%,304,0
 ,"MANAGE-
 MENT OF
 COUNTY
 AFFAIRS","COUNTY EXECU-
-TIVE SERVICES",,,"14,352,112",0%,304,0,"14,352,112",-
+TIVE SERVICES","14,352,112",-,"14,352,112",0%,304,0
 ,,"POLICY DIREC-
 TION & COORDI-
-NATION",,,"82,176,056",0%,304,0,"82,176,056",-
+NATION","82,176,056",-,"82,176,056",0%,304,0
 ,,"COUNTY POLIC-
-ING SERVICES",,,"4,305,633",0%,304,0,"4,305,633",-
+ING SERVICES","4,305,633",-,"4,305,633",0%,304,0
 ,,"LEADERSHIP &
-GOVERNANCE",,,"485,992",83%,304,0,"2,870,422","2,384,430"
+GOVERNANCE","2,870,422","2,384,430","485,992",83%,304,0
 ,"COORDI-
 NATION &
 SUPERVISORY
 SERVICES","ORGANIZATION
 OF COUNTY
-BUSINESS",,,"20,601,667",4%,304,0,"21,528,167","926,500"
+BUSINESS","21,528,167","926,500","20,601,667",4%,304,0
 ,,"SPECIAL PRO-
-GRAMMES",,,"7,176,056",0%,305,0,"7,176,056",-
+GRAMMES","7,176,056",-,"7,176,056",0%,305,0
 "Naivasha
 Munici-
-pality",,,,,,,305,0,,
+pality",,,,,,,305,0
 ,"PROGRAMME 1: ADMINISTRA-
 TION PLANNING AND SUPPORT
-SERVICES",,,,,,305,0,,
+SERVICES",,,,,,305,0
 ,,"SP 1.1 Administra-
-tion and planning",,,"25,711,622",0%,305,0,"25,711,622",
+tion and planning","25,711,622",,"25,711,622",0%,305,0
 ,,"SP 1.2 Personnel
-Services",,,"6,984,460",17%,305,0,"8,447,760","1,463,300"
+Services","8,447,760","1,463,300","6,984,460",17%,305,0
 ,,"SP 1.3 Financial
-Services",,,"600,000",0%,305,0,"600,000",-
+Services","600,000",-,"600,000",0%,305,0
 ,"PROGRAMME
 2: NAIVASHA
 MUNICIPAL
 SERVICES","S.P 2.1: Planning
-and Infrastructure",,,"428,254,587",10%,305,0,"474,615,032","46,360,445"
+and Infrastructure","474,615,032","46,360,445","428,254,587",10%,305,0
 ,,"S.P 2.2: Environ-
 mental Manage-
 ment and Sanita-
-tion",,,"900,000",0%,305,0,"900,000",-
+tion","900,000",-,"900,000",0%,305,0
 ,,"S.P 2.3: Naivasha
-Social Services",,,"400,000",0%,305,0,"400,000",-
+Social Services","400,000",-,"400,000",0%,305,0
 ,,"S.P 2.4: Tourism,
 Investment and
-Trade",,,"1,000,000",0%,305,0,"1,000,000",-
+Trade","1,000,000",-,"1,000,000",0%,305,0
 "Lands
 Hous-
 ing and
 Physical
-Planning",,,,,,,305,0,,
+Planning",,,,,,,305,0
 ,"Programme 1:
 Administration,
 Planning, Man-
 agement and
 Support Services","SP 1.1 Administra-
 tion and financial
-service",,,"116,986,053",3%,305,0,"120,086,278","3,100,225"
+service","120,086,278","3,100,225","116,986,053",3%,305,0
 ,"Programme 2:
 Land Use Plan-
 ning and Survey","SP 2.1 Nakuru
 County Land use
-plan",,,"60,887,076",36%,305,0,"95,780,964","34,893,888"
+plan","95,780,964","34,893,888","60,887,076",36%,305,0
 ,,"SP 2.2 Land Infor-
 mation Manage-
-ment System (LIM)",,,"500,000",0%,305,0,"500,000",
+ment System (LIM)","500,000",,"500,000",0%,305,0
 ,,"SP 2.3 Surveying
 and Mapping of
-county",,,"33,735,888",0%,305,0,"33,735,888",
+county","33,735,888",,"33,735,888",0%,305,0
 ,,"SP 2.4 Urban Plan
-and Development",,,"1,301,615",0%,305,0,"1,301,615",
+and Development","1,301,615",,"1,301,615",0%,305,0
 ,,"SP 2.5 Surveying of
-Urban Centres",,,"1,000,000",0%,305,0,"1,000,000",
+Urban Centres","1,000,000",,"1,000,000",0%,305,0
 ,,"SP 2.6 Surveying of
 County Estate and
 facilitation of Lease
-processing",,,"1,500,000",0%,305,0,"1,500,000",
+processing","1,500,000",,"1,500,000",0%,305,0
 ,,"SP 2.7 Establish-
 ment of a survey
 Centre and Map-
-ping Centre’s",,,"1,058,385",0%,305,0,"1,058,385",
+ping Centre’s","1,058,385",,"1,058,385",0%,305,0
 ,"Programme 3:
 Housing De-
 velopment and
 Management","SP 3.1 Maintenance
-of County Houses",,,"3,500,000",0%,305,0,"3,500,000",
+of County Houses","3,500,000",,"3,500,000",0%,305,0
 ,,"SP 3.2 Hous-
 ing Technology
 Establishment of
 five Constituency
 Building Technolo-
-gy Centres",,,"12,797,454",2%,306,0,"13,097,454","300,000"
+gy Centres","13,097,454","300,000","12,797,454",2%,306,0
 ,,"SP 3.3 Develop-
 ment of Housing
-Infrastructure",,,"39,478,226",0%,306,0,"39,478,226",
+Infrastructure","39,478,226",,"39,478,226",0%,306,0
 "Nakuru
 Munici-
-pality",,,,,,,306,0,,
+pality",,,,,,,306,0
 ,"SP 1.1 Admin-
 istration and
 Planning","SP 1.1 Administra-
-tion and Planning",,,"18,019,868",23%,306,0,"23,381,482","5,361,614"
+tion and Planning","23,381,482","5,361,614","18,019,868",23%,306,0
 ,,"SP 1.2 Personnel
-Services",,,"16,468,432",1%,306,0,"16,668,432","200,000"
+Services","16,668,432","200,000","16,468,432",1%,306,0
 ,,"SP 1.3 Financial
-Services",,,"520,000",13%,306,0,"600,000","80,000"
+Services","600,000","80,000","520,000",13%,306,0
 ,"Programme 2:
 Nakuru Munic-
 ipality Urban
@@ -379,57 +372,57 @@ Planning and
 Development","Programme 2:
 Nakuru Municipal-
 ity Urban Planning
-and Development",,,,,306,0,,
+and Development",,,,,306,0
 ,,"SP 2.1 Infrastruc-
 ture Development
 and Urban Plan-
-ning",,,,0%,306,0,"841,805,592",-
+ning","841,805,592",-,,0%,306,0
 ,,"SP 2.2 Nakuru
 Municipality
 Environmental
-Management",,,,0%,306,0,"1,500,000",-
+Management","1,500,000",-,,0%,306,0
 ,,"SP 2.3 Trade Mar-
 kets and Invest-
-ments",,,,0%,306,0,"2,000,000",-
+ments","2,000,000",-,,0%,306,0
 ,,"SP 2.4 Nakuru
 Municipality Social
-Services",,,,0%,306,0,"3,688,664",-
+Services","3,688,664",-,,0%,306,0
 "Public
 Service
 Train-
 ing and
 Devolu-
-tion",,,,,,,306,0,,
+tion",,,,,,,306,0
 ,"Programme 1:
 Administration,
 Planning and
 Support Service","SP 1.1 Administra-
-tion Services",,,"161,755,129",20%,306,0,"202,357,877","40,602,749"
+tion Services","202,357,877","40,602,749","161,755,129",20%,306,0
 ,,"SP 1.2. Personnel
-Services",,,"297,358,615",45%,306,0,"543,295,896","245,937,281"
+Services","543,295,896","245,937,281","297,358,615",45%,306,0
 ,,"SP 1.3. Financial
-Services",,,"500,000",0%,306,0,"500,000",-
+Services","500,000",-,"500,000",0%,306,0
 ,,"SP 1.4. Co-Ordina-
 tion Of Public And
 Special Community
-Programmes",,,"3,550,000",0%,306,0,"3,550,000",-
+Programmes","3,550,000",-,"3,550,000",0%,306,0
 ,,"SP 1.5. Workplace
 HIV Mainstream-
 ing In All Minis-
-tries",,,"695,240",65%,306,0,"2,000,000","1,304,760"
+tries","2,000,000","1,304,760","695,240",65%,306,0
 ,,"SP 1.6. Con-
 struction And
 Rehabilitation Of
 Sub-County And
-Ward Offices",,,"70,335,722",17%,306,0,"85,119,295","14,783,573"
+Ward Offices","85,119,295","14,783,573","70,335,722",17%,306,0
 ,"Programme 2:
 Legal Services","SP 2.1. Legal Ser-
 vices And Policies
-Formulation",,,"10,575,000",0%,306,0,"10,575,000",-
+Formulation","10,575,000",-,"10,575,000",0%,306,0
 ,,"SP 2..2. Co-Ordi-
 nation Of County
 Compliance & En-
-forcement Agents",,,"5,625,000",0%,307,0,"5,625,000",-
+forcement Agents","5,625,000",-,"5,625,000",0%,307,0
 ,"Programme
 3: Human
 Resource Man-
@@ -437,173 +430,173 @@ agement and
 Development","SP 3.1 Staff Devel-
 opment Through
 Capacity Building
-& Training",,,"70,603,631",0%,307,0,"70,603,631",-
+& Training","70,603,631",-,"70,603,631",0%,307,0
 ,"Programme 4:
 Performance
 Management","SP 4.1 Performance
-Contracting",,,"5,000,000",0%,307,0,"5,000,000",-
+Contracting","5,000,000",-,"5,000,000",0%,307,0
 ,,"SP 4.2 Performance
-Appraisal System",,,"5,000,000",0%,307,0,"5,000,000",-
+Appraisal System","5,000,000",-,"5,000,000",0%,307,0
 "Trade,
 Coop-
 eratives,
 Industri-
 alisation
 and
-Tourism",,,,,,,307,0,,
+Tourism",,,,,,,307,0
 ,"PROGRAMME
 1: ADMIN-
 ISTRATION,
 PLANNING
 AND SUPPORT
-SERVICES",,,,,,307,0,,
+SERVICES",,,,,,307,0
 ,,"SP 1.1: Administra-
 tion, Planning and
-Support Services",,,"36,071,934",17%,307,0,"43,252,574","7,180,640"
+Support Services","43,252,574","7,180,640","36,071,934",17%,307,0
 ,,"SP 1.2: Personnel
-Services",,,"68,897,419",24%,307,0,"90,703,348","21,805,929"
+Services","90,703,348","21,805,929","68,897,419",24%,307,0
 ,,"SP 1.3: Financial
-Services",,,-,,307,0,-,-
+Services",-,-,-,,307,0
 "Programme 2: Cooperative Development and
-Management",,,,,,,307,0,,
+Management",,,,,,,307,0
 ,,"SP 2.1: Enhance
 Marketing Cooper-
-atives",,,"24,700,000",0%,307,0,"24,700,000",
+atives","24,700,000",,"24,700,000",0%,307,0
 ,,"SP 2.2: Sacco Mem-
-ber Empowerment",,,"5,454,367",3%,307,0,"5,646,036","191,669"
+ber Empowerment","5,646,036","191,669","5,454,367",3%,307,0
 ,,"SP 2.3: Enforce-
 ment of Compli-
 ance in Coopera-
-tives",,,"1,863,964",0%,307,0,"1,863,964",
+tives","1,863,964",,"1,863,964",0%,307,0
 ,,"SP 2.4: Extension
-Services",,,"2,600,000",0%,307,0,"2,600,000",
-Programme 3: Commerce and Enterprise,,,,,,,307,0,,
+Services","2,600,000",,"2,600,000",0%,307,0
+Programme 3: Commerce and Enterprise,,,,,,,307,0
 ,,"SP.3:1 Business De-
 velopment Services
-for SME's",,,"12,000,000",0%,307,0,"12,000,000",
+for SME's","12,000,000",,"12,000,000",0%,307,0
 ,,"SP 3.2: Facilitating
 Producer Business
-Groups (PBGs)",,,"3,287,756",14%,307,0,"3,840,000","552,244"
+Groups (PBGs)","3,840,000","552,244","3,287,756",14%,307,0
 ,,"SP 3.3: SME Fund-
-ing",,,"52,000,000",0%,307,0,"52,000,000",
+ing","52,000,000",,"52,000,000",0%,307,0
 ,,"SP 3.4: Trade Li-
-censing",,,"2,800,000",0%,307,0,"2,800,000",
+censing","2,800,000",,"2,800,000",0%,307,0
 ,,"SP 3.5: Consumer
-Protection",,,"4,333,000",3%,307,0,"4,455,000","122,000"
+Protection","4,455,000","122,000","4,333,000",3%,307,0
 "Programme 4: Market Rehabilitation and Devel-
-opment",,,,,,,307,0,,
+opment",,,,,,,307,0
 ,,"SP 4.1: Rehabilita-
 tion and Renova-
 tion of Existing
-Markets",,,"263,834,334",6%,307,0,"280,434,558","16,600,224"
+Markets","280,434,558","16,600,224","263,834,334",6%,307,0
 ,,"SP 4.2: Develop-
 ment of Retail and
 Wholesale Markets
-in Nakuru",,,"10,500,000",0%,308,0,"10,500,000",
+in Nakuru","10,500,000",,"10,500,000",0%,308,0
 ,,"SP 4.3: Market
 Users Delivery
-Services",,,"19,623,592",32%,308,0,"28,950,000","9,326,408"
+Services","28,950,000","9,326,408","19,623,592",32%,308,0
 "Programme 5: Promotion Of Tourism And
-Markets",,,,,,,308,0,,
+Markets",,,,,,,308,0
 ,,"SP 5.1: Promotion
-of Local Tourism",,,"4,248,000",11%,308,0,"4,750,000","502,000"
+of Local Tourism","4,750,000","502,000","4,248,000",11%,308,0
 ,,"SP 5.2: Establish-
 ment and Manage-
 ment of County
 Tourism Informa-
-tion Centre",,,"12,000,000",0%,308,0,"12,000,000",
-Programme 6: Alcoholics Drinks Control,,,,,,,308,0,,
+tion Centre","12,000,000",,"12,000,000",0%,308,0
+Programme 6: Alcoholics Drinks Control,,,,,,,308,0
 "Programme 1: Administration Planning And
-Support Services",,,,,,,308,0,,
+Support Services",,,,,,,308,0
 ,,"SP 1.2 Adminis-
-tration",,,"107,462,925",24%,308,0,"141,734,295","34,271,370"
+tration","141,734,295","34,271,370","107,462,925",24%,308,0
 ,,"SP 1.3 Personnel
-services",,,"113,413,267",1%,308,0,"114,639,196","1,225,929"
+services","114,639,196","1,225,929","113,413,267",1%,308,0
 ,,"SP 1.4 Financial
-services",,,"2,100,000",0%,308,0,"2,100,000",
+services","2,100,000",,"2,100,000",0%,308,0
 "Programme 2: Development of Socio-Cultural
 Diversity, Economic Empowerment and Respon-
-sible Gaming",,,,,,,308,0,,
+sible Gaming",,,,,,,308,0
 ,,"SP 2.2 Cultural de-
-velopment activities",,,"15,810,782",12%,308,0,"17,900,000","2,089,218"
+velopment activities","17,900,000","2,089,218","15,810,782",12%,308,0
 ,,"SP 2.3 Gender de-
-velopment activities",,,"3,661,000",44%,308,0,"6,500,000","2,839,000"
+velopment activities","6,500,000","2,839,000","3,661,000",44%,308,0
 ,,"SP 2.4 Promotion
 of responsible
-gaming.",,,"1,600,000",11%,308,0,"1,800,000","200,000"
+gaming.","1,800,000","200,000","1,600,000",11%,308,0
 ,,"SP 2.5 Social Devel-
-opment activities",,,"11,166,776",18%,308,0,"13,557,866","2,391,090"
+opment activities","13,557,866","2,391,090","11,166,776",18%,308,0
 ,,"SP 2.6 Social-Cul-
-tural Development",,,"14,640,737",0%,308,0,"14,640,737",-
+tural Development","14,640,737",-,"14,640,737",0%,308,0
 "Programme 3: Management and Development of
-Sports, Recreation and Sports Facilities",,,,,,,308,0,,
+Sports, Recreation and Sports Facilities",,,,,,,308,0
 ,,"SP 3.2 Develop-
 ment of Sports
-Infrastructure",,,"93,000,000",0%,308,0,"93,000,000",-
+Infrastructure","93,000,000",-,"93,000,000",0%,308,0
 ,,"SP 3.3 Sporting
-Tournament",,,"5,233,376",54%,308,0,"11,485,866","6,252,490"
+Tournament","11,485,866","6,252,490","5,233,376",54%,308,0
 ,,"SP 3.4 Sports
-Funding.",,,"47,820,886",10%,308,0,"53,034,886","5,214,000"
+Funding.","53,034,886","5,214,000","47,820,886",10%,308,0
 "Programme 4: Youth Empowerment and Partic-
-ipation",,,,,,,308,0,,
+ipation",,,,,,,308,0
 ,,"SP 4.2 Youth
 empowerment and
-participation",,,"175,068,912",2%,308,0,"177,868,962","2,800,050"
+participation","177,868,962","2,800,050","175,068,912",2%,308,0
 "Water
 Environ-
 ment En-
 ergy and
 Natural
 Resourc-
-es",,,,,,,308,0,,
+es",,,,,,,308,0
 ,"PROGRAMME
 1:Administra-
 tion","S.P 1.1:Administra-
-tive services",,,,,308,0,,
+tive services",,,,,308,0
 ,,"Current Expendi-
-ture:",,,,,308,0,,
+ture:",,,,,308,0
 ,,"Compensation Of
-Employees",,,-,,308,0,,
+Employees",,,-,,308,0
 ,,"Use Of Goods And
-Services",,,"29,115,799",12%,309,0,"33,035,288","3,919,489"
+Services","33,035,288","3,919,489","29,115,799",12%,309,0
 ,,"Compensation Of
-Employees",,,"139,351,513",41%,309,0,"236,363,541","97,012,029"
+Employees","236,363,541","97,012,029","139,351,513",41%,309,0
 ,"PROGRAMME
 2:Water and
 Sewerage man-
 agement","SP 2.1 Provision of
-Water",,,,,309,0,,
+Water",,,,,309,0
 ,,"Use Of Goods And
-Services",,,"7,975,000",9%,309,0,"8,750,000","775,000"
+Services","8,750,000","775,000","7,975,000",9%,309,0
 ,,"Acquisition Of
 Non-Financial
-Assets",,,"946,874,312",11%,309,0,"1,062,991,665","116,117,353"
+Assets","1,062,991,665","116,117,353","946,874,312",11%,309,0
 ,,"S.P 2.2 Provision of
-sewerage",,,-,,309,0,,
+sewerage",,,-,,309,0
 ,"PROGRAMME
 3:Environmental
 Management","S.P 3:1 Pollution
-control",,,-,,309,0,,
+control",,,-,,309,0
 ,,"Compensation Of
-Employees",,,"35,500,000",0%,309,0,"35,500,000",
+Employees","35,500,000",,"35,500,000",0%,309,0
 ,,"Use Of Goods And
-Services",,,"36,528,965",14%,309,0,"42,391,276","5,862,311"
+Services","42,391,276","5,862,311","36,528,965",14%,309,0
 ,,"Acquisition Of
 Non-Financial
-Assets",,,"17,000,000",0%,309,0,"17,000,000",
+Assets","17,000,000",,"17,000,000",0%,309,0
 ,,"S.P 3:3 Greening
-and Beautification",,,-,,309,0,,
+and Beautification",,,-,,309,0
 ,,"Use Of Goods And
-Services",,,"7,565,935",9%,309,0,"8,300,000","734,065"
+Services","8,300,000","734,065","7,565,935",9%,309,0
 ,,"Acquisition Of
 Non-Financial
-Assets",,,"32,240,723",0%,309,0,"32,240,723",
-,,SUBTOTAL,,,"39,806,658",2%,309,0,"40,540,723","734,065"
+Assets","32,240,723",,"32,240,723",0%,309,0
+,,SUBTOTAL,"40,540,723","734,065","39,806,658",2%,309,0
 ,,"TOTAL PRO-
-GRAMME 3",,,"135,431,999",0%,309,0,"135,431,999",
+GRAMME 3","135,431,999",,"135,431,999",0%,309,0
 "Programme 4: County Energy, Planning, Regu-
-late, Operation & Development",,,,,,,309,0,,
+late, Operation & Development",,,,,,,309,0
 ,,"Acquisition of
 Non-Financial
-Assets",,,"2,000,000",0%,309,0,"2,000,000",
-,Total,,,,"16,286,946,838",20%,309,0,"20,356,939,928","4,069,993,090"
+Assets","2,000,000",,"2,000,000",0%,309,0
+,Total,,"20,356,939,928","4,069,993,090","16,286,946,838",20%,309,0

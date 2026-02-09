@@ -1,11 +1,11 @@
 Programme,Sub Programme,"Approved Estimates (Kshs.)
 Recurrent Development",col_3,Expenditure (Kshs.),col_5,Absorption Rate (%),col_7,page_number,table_index,Approved Estimates (Kshs.)
-,,,Development,Recurrent,Developmen,t Rec,Dev,429,1,
-"DEPARTMENT OF AGRICULTURE, LIVESTOCK AND FISHERIES",,,,,,,,429,1,
+,,,Development,Recurrent,Developmen,t Rec,Dev,429,0,
+"DEPARTMENT OF AGRICULTURE, LIVESTOCK AND FISHERIES",,,,,,,,429,0,
 "Programme 1; Administration,
 planning and support services","SP 1.1: Administration
-planning and support services","54,889,365","198,094,201","44,349,257","117,146,47",9 80.8,59.1,429,1,
-,SP 1.2: Human Resource,"373,268,452",-,"316,465,176",,- 84.8,-,429,1,
+planning and support services","54,889,365","198,094,201","44,349,257","117,146,47",9 80.8,59.1,429,0,
+,SP 1.2: Human Resource,"373,268,452",-,"316,465,176",,- 84.8,-,429,0,
 ,,,Development,Recurrent,Development,Rec,Dev,430,0,Recurrent
 "Programme 2: Livestock
 resource management and
@@ -388,3 +388,15 @@ Management",,-,-,-,-,-,435,0,"223,200"
 ,S.P 2.4: Social Services,,-,-,-,-,-,435,0,"210,950"
 ,Sub-Total,,-,"1,873,888",-,37.5,-,435,0,"5,000,000"
 COUNTY ASSEMBLY,,,,,,,,435,0,
+,,,Development,Recurrent,Development,Rec,Dev,436,0,Recurrent
+Programme 1: Administration,Compensation of Employees,,-,"157,558,534",-,100.0,-,436,0,"157,573,013"
+,Use of Goods and services,,-,"242,622,992",-,100.0,-,436,0,"242,627,425"
+,"Transfer to Other Government
+entities",,-,"1,931,500",-,-,-,436,0,-
+,Acquisition of Assets,,"139,459,318","3,032,580","81,852,998",100,59.6,436,0,"3,032,980"
+"Programme 2: Legislative
+Services",Compensation of Employees,,-,"302,270,739",-,100.0,-,436,0,"302,272,682"
+,Use of goods and services,,-,"373,450,290",-,96.9,-,436,0,"385,481,732"
+,Acquisition of Assets,,"3,185,600",-,"3,185,600",-,100,436,0,-
+,Sub-Total,,"142,644,918","1,080,866,635","85,038,598",94.5,59.6,436,0,"1,090,987,832"
+Grand Total,,,"9,681,626,831","11,982,046,296","4,449,307,915",87.9,46.0,436,0,"13,628,904,682"

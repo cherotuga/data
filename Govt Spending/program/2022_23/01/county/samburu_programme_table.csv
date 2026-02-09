@@ -2,23 +2,23 @@ Programme,Sub-Programme,"Approved Estimates
 FY 2022/23 (Kshs.)","Actual Expenditure Q1
 FY 2022/23 (Kshs.)",Variance (Kshs.),"Absorption Rate
 (%)",page_number,table_index
-,,A,B,C=A-B,D=B/A*100,400,1
-DEPARTMENT: COUNTY EXECUTIVE,,,,,,400,1
+,,A,B,C=A-B,D=B/A*100,400,0
+DEPARTMENT: COUNTY EXECUTIVE,,,,,,400,0
 701004212,"Administration and Coordination
-of County Affairs","194,413,129","21,820,942","172,592,187",11.22%,400,1
-701004212,Sub County Administration,"174,120,791","26,703,811","147,416,980",15.34%,400,1
+of County Affairs","194,413,129","21,820,942","172,592,187",11.22%,400,0
+701004212,Sub County Administration,"174,120,791","26,703,811","147,416,980",15.34%,400,0
 701004212,"Coordination, Supervision and Hu-
-man Resource Services","46,458,344","8,864,823","37,593,521",19.08%,400,1
+man Resource Services","46,458,344","8,864,823","37,593,521",19.08%,400,0
 704004212,"Administration of Human Resourc-
-es in County Public Service","63,026,580","8,312,917","54,713,663",13.19%,400,1
-,,"478,018,844","65,702,493","412,316,351",13.74%,400,1
-DEPARTMENT: FINANCE AND ECONOMIC PLANNING,,,,,,400,1
-705004213,Administration Services,"290,245,529","35,656,009","254,589,520",12.28%,400,1
-705004213,System Security,"23,747,570","1,479,060","22,268,510",6.23%,400,1
+es in County Public Service","63,026,580","8,312,917","54,713,663",13.19%,400,0
+,,"478,018,844","65,702,493","412,316,351",13.74%,400,0
+DEPARTMENT: FINANCE AND ECONOMIC PLANNING,,,,,,400,0
+705004213,Administration Services,"290,245,529","35,656,009","254,589,520",12.28%,400,0
+705004213,System Security,"23,747,570","1,479,060","22,268,510",6.23%,400,0
 706004213,"Budget Formulation Coordination
-and management","13,480,976","4,545,643","8,935,333",33.72%,400,1
-706004213,Resource Mobilization,"98,350,561","39,109,554","59,241,007",39.77%,400,1
-706004213,Internal Audit,"25,959,518","8,778,470","17,181,048",33.82%,400,1
+and management","13,480,976","4,545,643","8,935,333",33.72%,400,0
+706004213,Resource Mobilization,"98,350,561","39,109,554","59,241,007",39.77%,400,0
+706004213,Internal Audit,"25,959,518","8,778,470","17,181,048",33.82%,400,0
 706004213,Procurement,"24,849,026","12,246,886","12,602,140",49.29%,401,0
 706004213,Public finance and Accounting,"40,019,310","17,495,278","22,524,032",43.72%,401,0
 706004213,Fiscal Planning,"49,494,381","10,515,227","38,979,154",21.25%,401,0
@@ -123,3 +123,14 @@ and Support Services","38,329,410","3,282,389","35,047,022",8.56%,403,0
 902004221,"Development and Promotion of
 Culture","8,036,086","15,000","8,021,086",0.19%,403,0
 902004221,Social Welfare and Gender,"25,070,000","6,717,150","18,352,850",26.79%,403,0
+902004221,"Community Mobilization and De-
+velopment","6,261,580",-,"6,261,580",0.00%,404,0
+903004221,"Development and management for
+sports facilities","4,540,000","87,200","4,452,800",1.92%,404,0
+904004221,"General Administration Planning
+and Support Services (Sports)","16,473,194","2,243,408","14,229,786",13.62%,404,0
+,,"197,040,270","12,994,147","184,046,123",6.59%,404,0
+DEPARTMENT: COUNTY ASSEMBLY,,,,,,404,0
+904004221,Legislative and Oversight,"666,331,727","101,021,934.00","565,309,793",15.16%,404,0
+,,"666,331,727","101,021,934.00","565,309,793",15.16%,404,0
+Grand Total,,"6,212,869,358","695,874,689","5,516,994,669",11.2%,404,0

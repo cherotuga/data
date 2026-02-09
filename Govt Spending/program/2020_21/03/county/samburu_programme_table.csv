@@ -2,34 +2,34 @@ Programme,Sub- Programme,"Approved Budget
 (Kshs)","Actual Payments
 (Kshs)",Variance (Kshs.),"Absorption Rate
 (%)",page_number,table_index
-County Assembly,,,,,,309,1
+County Assembly,,,,,,309,0
 "0707004210 P1 Coun-
 ty Assembly Adminis-
-tration",0707014210 SP1 Legislative and Oversight,"52,497,492","38,154,687","14,342,805",72.7,309,1
+tration",0707014210 SP1 Legislative and Oversight,"52,497,492","38,154,687","14,342,805",72.7,309,0
 ,"0707024210 SP2 County Assembly Admin-
-istration","341,308,595","161,404,244","179,904,351",47.3,309,1
-,0707034210 SP3 Representation,"236,490,947","150,946,387","85,544,560",63.8,309,1
-,Sub total,"630,297,034","350,505,318","279,791,716",55.6,309,1
-County Executive,,,,,,309,1
+istration","341,308,595","161,404,244","179,904,351",47.3,309,0
+,0707034210 SP3 Representation,"236,490,947","150,946,387","85,544,560",63.8,309,0
+,Sub total,"630,297,034","350,505,318","279,791,716",55.6,309,0
+County Executive,,,,,,309,0
 "0701004210 P1 Man-
 agement of County
 Affairs","0701014210 SP1 General Administration
 and Support Services (Governor, Deputy
-Governor)","230,253,958","131,694,852","98,559,106",57.2,309,1
+Governor)","230,253,958","131,694,852","98,559,106",57.2,309,0
 ,"0704014210 SP2 Administration of Human
-Resources in County Public Service","58,446,626","34,259,991","24,186,635",58.6,309,1
+Resources in County Public Service","58,446,626","34,259,991","24,186,635",58.6,309,0
 ,"0701034210 SP3 Sub County Administra-
-tion","176,902,094","147,982,080","28,920,014",83.7,309,1
+tion","176,902,094","147,982,080","28,920,014",83.7,309,0
 ,"0701044210 SP4 Coordination, Supervision
-and Human Resource services (C S)","38,294,586","21,041,323","17,253,263",54.9,309,1
-,Sub total,"503,897,264","334,978,246","168,919,018",66.5,309,1
-"Finance, Economic Planning & ICT",,,,,,309,1
+and Human Resource services (C S)","38,294,586","21,041,323","17,253,263",54.9,309,0
+,Sub total,"503,897,264","334,978,246","168,919,018",66.5,309,0
+"Finance, Economic Planning & ICT",,,,,,309,0
 "0705004210 P1 Gen-
 eral Administration
 Planning and Support
-Services",0705014210 SP1 Administration Services,"496,540,749","174,186,199","322,354,550",35.1,309,1
-,0705024210 SP2 ICT Services,"46,150,316","7,841,714","38,308,602",17.0,309,1
-,Sub total,"542,691,065","182,027,913","360,663,152",33.5,309,1
+Services",0705014210 SP1 Administration Services,"496,540,749","174,186,199","322,354,550",35.1,309,0
+,0705024210 SP2 ICT Services,"46,150,316","7,841,714","38,308,602",17.0,309,0
+,Sub total,"542,691,065","182,027,913","360,663,152",33.5,309,0
 "0706004210 P2 Public
 Finance Management",0706054210 SP5 Accounting Services,"31,154,458","21,716,747","9,437,711",69.7,310,0
 ,0706024210 SP2 Resource Mobilization,"85,062,231","53,095,705","31,966,526",62.4,310,0
@@ -213,3 +213,41 @@ Marketing","312,144,112","75,726,357","236,417,755",24.3,311,0
 ,Sub total,"312,144,112","75,726,357","236,417,755",24.3,311,0
 ,"0305014210 SP1 Domestic Trade Develop-
 ment","42,662,396","4,865,308","37,797,088",11.4,311,0
+"0306004210 P5 P1
+General Administra-
+tion Planning and
+Support Services","0306014210 SP6 SP1 General Administra-
+tion Planning and Support Services","21,781,110","9,595,746","12,185,364",44.1,312,0
+,Sub total,"21,781,110","9,595,746","12,185,364",44.1,312,0
+"Culture, Social Services, Gender, Sports & Youth Affairs",,,,,,312,0
+"0901004210 P1 Gen-
+eral Administration
+Planning and Support
+Services","0901014210 SP1 General Administration
+Planning and Support Services","26,520,592","15,815,797","10,704,795",59.6,312,0
+,Sub total,"26,520,592","15,815,797","10,704,795",59.6,312,0
+"0902004210 P2 Cul-
+ture and social Ser-
+vices development",0902014210 SP1 Conservation of Heritage,"978,000","414,640","563,360",42.4,312,0
+,"0902024210 SP2 Development and Promo-
+tion of Culture","36,279,932","2,881,600","33,398,332",7.9,312,0
+,0902034210 SP3 Social Welfare and Gender,"27,438,000","6,326,725","21,111,275",23.1,312,0
+,"0902044210 SP4 Community Mobilization
+and Development","6,106,692","2,959,600","3,147,092",48.5,312,0
+,Sub total,"70,802,624","12,582,565","58,220,059",17.8,312,0
+"0903004210 P3 Pro-
+motion of other
+sports activities","0903014210 SP1 Development and Man-
+agement of Sports Facilities","35,612,581","665,630","34,946,951",1.9,312,0
+,Sub total,"35,612,581","665,630","34,946,951",1.9,312,0
+"0503004210 P4 Sports
+Development","0503034210 SP1 Sports Development,
+Training and Competition","27,873,600","17,155,106","10,718,494",61.5,312,0
+,Sub total,"27,873,600","17,155,106","10,718,494",61.5,312,0
+"0904014210 P5 Gen-
+eral Administration
+Planning and Support
+Services","0904004210 SP1 General Administration
+Planning and Support Services","15,546,383","7,521,680","8,024,703",48.4,312,0
+,Sub total,"15,546,383","7,521,680","8,024,703",48.4,312,0
+Grand Total,,"6,880,657,924","3,085,609,304","3,795,048,620",44.8,312,0

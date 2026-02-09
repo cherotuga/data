@@ -1,126 +1,60 @@
-col_0,"A
-Programmes
-(","pproved Budget
-Kshs)","Actual Payments
+col_0,Programmes,"Approved Budget
+(Kshs)","Actual Payments
 (Kshs)",Variance (Kshs.),"Implementation
-Status (%)",page_number,table_index,Programmes,"Approved Budget
-(Kshs)"
-Department of Office of The Governor and County Administration,,,,,,155,1,,
-051500,Pre-primary policy and legislation,"30, 885, 316","14, 728, 960","16, 156, 35",6 47.7,155,1,,
-071100,"County planning & development coordination ser-
-vices","8, 050, 630","3, 360, 970","4, 689, 66",0 41.7,155,1,,
-010100,,,0,"2, 287, 500",0,156,0,General administration & planning services,"2, 287, 500"
-020300,,,"14, 923, 966","39, 435, 553",27.5,156,0,Administration planning and support services,"54, 359, 519"
-020600,,,"15, 448, 134","53, 285, 079",22.5,156,0,Mining efficiency,"68, 733, 213"
-070300,,,"2, 809, 438","8, 956, 257",23.9,156,0,"Inter-governmental relations, communication & pro-
-tocol","11, 765, 695"
-070200,,,"7, 746, 291","4, 105, 907",65.4,156,0,Management of county affairs & special programmes,"11, 852, 198"
-070100,,,"33, 436, 504","28, 806, 681",53.7,156,0,General administration and planning services,"62, 243, 185"
-,,,"354, 943, 676","241, 418, 518",59.5,156,0,Sub total,"596, 362, 195"
-Department of Health Services,,,,,,156,0,,
-040500,,,"232, 940","267, 060",46.6,156,0,Health Sector Support Program [DANIDA],"500, 000"
-040800,,,"26, 574, 850",0,100,156,0,Kisumu County Referal hospital,"26, 574, 850"
-040600,,,"5, 446, 547","38, 856, 452",12.3,156,0,Health curative services,"44, 303, 000"
-040100,,,"13, 430, 047","30, 509, 953",30.6,156,0,Preventive & promotive health services,"43, 940, 000"
-040700,,,"100, 000, 000",0,100,156,0,Jaramogi Oginga Odinga Teaching & Referal Hospital,"100, 000, 000"
-040300,,,"2, 426, 249, 885","403, 100, 204",85.6,156,0,"General administration, operational research and
-planning","2, 829, 350, 089"
-040900,,,"27, 690, 615","155, 612, 272",15.1,156,0,Medical and Bio – Medical services,"183, 302, 887"
-040700,,,"196, 524, 398","69, 577, 778",73.9,156,0,"Jaramogi Oginga Odinga Teaching and Referal Hos-
-pital","266, 102, 176"
-,,,"2, 796, 149, 283","697, 923, 719",80.0,156,0,Sub total,"3, 494, 073, 002"
-"Department of Tourism, Trade and Heritage",,,,,,156,0,,
-070700,,,"2, 864, 344","2, 020, 475",58.6,156,0,County communication & ICT Services,"4, 884, 819"
-030300,,,"7, 344, 090","10, 397, 938",41.4,156,0,Tourism development and management,"17, 742, 028"
-010100,,,"5, 395, 029","1, 470, 031",78.6,156,0,General administration and planning services,"6, 865, 060"
-050600,,,"2, 601, 272","3, 892, 920",40.1,156,0,Sports management and development,"6, 494, 192"
-020900,,,"1, 252, 270","938, 673",57.2,156,0,Communication services,"2, 190, 943"
-070100,,,"18, 228, 716","87, 352, 108",17.3,156,0,General administration and planning services,"105, 580, 824"
-090700,,,"2, 352, 584","2, 378, 89",49.7,156,0,,"4, 731, 481"
-,,,"40, 038, 305","108, 451, 042",27.0,156,0,Sub total,"148, 489, 347"
-Department of Transport and Infrastructure,,,,,,156,0,,
-030400,,,"68, 729, 494","47, 721, 520",59.0,156,0,Administration and planning support,"116, 451, 014"
-020100,,,"4, 022, 250","279, 352, 640",1.4,156,0,County roads and public works management,"283, 374, 890"
-020700,,,0,"202, 555, 750",0,156,0,Roads general administration and planning,"202, 555, 750"
-020700,,,"1, 903, 290","25, 276, 823",7.0,156,0,Roads general administration and planning services,"27, 180, 113"
-,,,"74, 655, 034","554, 906, 733",11.9,156,0,Sub total,"629, 561, 767"
-"Department of Lands, Housing and Physical Planning",,,,,,156,0,,
-010300,,,"13, 566, 546","41, 433, 454",24.7,156,0,Physical planning and housing,"55, 000, 000"
-020100,,,"23, 439, 149","53, 369, 736",30.5,156,0,County roads and public works management,"76, 808, 885"
-,,,"37, 005, 695","94, 803, 190",28.1,156,0,Sub total,"131, 808, 885"
-"Department of Agriculture, Livestock and Fisheries",,,,,,156,0,,
-090400,,,"(1, 110, 000)","10, 362, 000",(12.0),156,0,Environment planning and management,"9, 252, 000"
-010700,,,"255, 600","8, 814, 850",2.8,156,0,Promotion of market access and product development,"9, 070, 450"
-090100,,,"(21, 634, 110)","26, 690, 850",(427.8),156,0,General administration and planning services,"5, 056, 740"
-010100,,,"216, 262, 013","128, 840, 822",62.7,156,0,General and planning services,"345, 102, 835"
-010500,,,"4, 307, 611","24, 327, 487",15.0,156,0,Agriculture productivity improvement,"28, 635, 098"
-010400,,,"995, 400","26, 485, 182",3.5,156,0,Promotion of sustainable land use,"27, 480, 582"
-010600,,,"303, 600","11, 663, 408",2.5,156,0,Agriculture productivity improvement,"11, 967, 008"
-,,,"199, 380, 114","237, 184, 599",45.7,156,0,Sub total,"436, 564, 713"
-"Department of Education, Gender, Culture and Sports",,,,,,156,0,,
-070400,,,"3, 833, 386","138, 130, 614",2.7,156,0,County public serve board,"141, 964, 000"
-051700,,,"815, 962","12, 713, 240",6.0,156,0,Youth training and legislation,"13, 529, 202"
-050500,,,"692, 677","2, 014, 523",25.6,156,0,Early childhood education management,"2, 707, 200"
-010100,,,"60, 243, 332","77, 850, 181",43.6,156,0,General administration and planning services,"138, 093, 513"
-070100,,,"124, 250, 262","109, 156, 946",53.2,156,0,General administration and planning services,"233, 407, 208"
-050200,,,0,"7, 000, 000",0,156,0,Youth training and development,"7, 000, 000"
-020800,,,"1, 771, 725","662, 875",72.8,156,0,ICT services,"2, 434, 600"
-050200,,,"1, 758, 429","1, 951, 571",47.4,156,0,Youth training and development,"3, 710, 000"
-010100,,,"16, 977, 932","41, 698, 668",28.9,156,0,General administration and planning services,"58, 676, 600"
-050400,,,"58, 000","1, 240, 000",4.5,156,0,Gender and social development,"1, 298, 000"
-090500,,,"22, 869, 208","2, 130, 792",91.5,157,0,Sports and cultural services,"25, 000, 000"
-,,,"233, 270, 913","394, 549, 410",37.2,157,0,Sub total,"627, 820, 323"
-"Department of Water, Environment and Natural Resources",,,,,,157,0,,
-020600,,,"30, 000","570, 000",5.0,157,0,Mining efficiency,"600, 000"
-090200,,,"19, 886, 391","200, 565, 938",9.0,157,0,Conservation and management of natural ecosystem,"220, 452, 329"
-070400,,,"30, 000","540, 000",5.3,157,0,County public service board,"570, 000"
-070400,,,"299, 420","251, 860",54.3,157,0,County public service board,"551, 280"
-070100,,,"150, 437","20, 563",41.8,157,0,General administration and planning services,"360, 000"
-030300,,,"63, 697","409, 903",13.4,157,0,Tourism development and management,"473, 600"
-090300,,,"13, 697, 799","18, 145, 203",43.0,157,0,General administration and planning services,"31, 843, 002"
-010100,,,"1, 368, 415","663, 346",67.4,157,0,General administration and planning services,"2, 031, 761"
-010500,,,0,"604, 000",0,157,0,Agriculture productivity improvement,"604, 000"
-090400,,,"782, 150","64, 575, 263",1.2,157,0,Environment planning and management,"65, 357, 413"
-,,,"36, 308, 309","287, 535, 076",11.2,157,0,Sub total,"323, 843, 385"
-Department of City of Kisumu,,,,,,157,0,,
-040100,,,"155, 596, 500","47, 682, 822",76.5,157,0,Preventive and Promotive health services,"203, 279, 322"
-010800,,,"145, 559, 050","876, 892, 043",14.2,157,0,Revenue generation and management,"1, 022, 451, 093"
-070400,,,"48, 933, 661","6, 298, 853",88.6,157,0,County public service board,"55, 232, 514"
-010900,,,"67, 465, 274","13, 950, 450",82.9,157,0,Urban planning and development control,"81, 415, 724"
-050100,,,"95, 968, 412","17, 988, 275",84.2,157,0,Early childhood development,"113, 956, 687"
-,,,"513, 522, 897","962, 812, 443",34.8,157,0,Sub total,"1, 476, 335, 340"
-Department of County Assembly,,,,,,157,0,,
-070500,,,"7, 925, 648","8, 077, 272",49.5,157,0,Public finance management,"16, 002, 920"
-070800,,,"107, 570, 914","32, 336, 535",76.9,157,0,Legislation and oversight services,"139, 907, 449"
-071000,,,"224, 090, 885","181, 038, 170",55.3,157,0,County assembly service board,"405, 129, 055"
-070100,,,"67, 493, 406","58, 667, 370",53.5,157,0,General administration and planning services,"126, 160, 776"
-090500,,,"55, 322, 822","11, 230, 160",83.1,157,0,Sports and cultural services,"66, 552, 982"
-020300,,,"31, 120, 583","7, 047, 729",81.5,157,0,"Administration, planning and support services","38, 168, 312"
-,,,"493, 524, 257","298, 397, 237",62.3,157,0,Sub total,"791, 921, 494"
-Department of County Public Service Board,,,,,,157,0,,
-070400,,,"21, 889, 017","26, 856, 487",44.9,157,0,County public service board,"48, 745, 505"
-,,,"21, 889, 017","26, 856, 457",44.9,157,0,Sub total,"48, 745, 505"
-Department of Finance and Economic Planning,,,,,,157,0,,
-020300,,,"807, 082, 627","220, 668, 432",78.5,157,0,"Administration, planning and support services","1, 027, 751, 059"
-070100,,,"659, 055, 039","1, 055, 607, 463",38.4,157,0,General administration and planning services,"1, 714, 662, 502"
-010100,,,0,"20, 000, 000",0,157,0,General administration and planning services,"20, 000, 000"
-070300,,,"7, 534, 014","2, 542, 705",74.8,157,0,"Intergovernmental relations, communication and
-protocol","10, 076, 719"
-070500,,,"64, 630, 943","138, 923, 436",31.8,157,0,Public financial management,"203, 554, 379"
-070600,,,"10, 814, 961","32, 377, 117",25.0,157,0,"County planning & development coordination ser-
-vices","43, 192, 078"
-,,,"1, 549, 117, 585","1, 470, 118, 152",51.3,157,0,Sub total,"3, 019, 236, 737"
-"Department of Business, Co – operatives and Marketing",,,,,,157,0,,
-030500,,,"292, 900","47, 273, 460",0.6,157,0,Co-operative development and management,"47, 566, 360"
-070400,,,"11, 078, 653","12, 999, 264",46.0,157,0,County public service board,"24, 077, 917"
-030100,,,"1, 131, 050","65, 499, 894",1.7,157,0,General administration and policy making services,"66, 630, 944"
-030200,,,"897, 375","8, 800, 500",9.3,157,0,Regulation and verification of weights,"9, 697, 875"
-050400,,,"727, 760","3, 376, 440",17.7,157,0,Gender and social development,"4, 104, 200"
-030700,,,"668, 640","49, 123, 560",1.3,157,0,Industrial development,"49, 792, 200"
-050800,,,"635, 600","6, 664, 400",8.7,157,0,Alcoholic drinks,"7, 300, 000"
-,,,"15, 431, 978","193, 737, 518",7.4,157,0,Sub total,"209, 169, 496"
-Department Energy and Industry,,,,,,157,0,,
-020300,,,"1, 579, 081","14, 151, 832",10.0,157,0,"Administration, planning and support services","15, 730, 913"
-020500,,,"479, 976","40, 170, 024",1.2,157,0,Energy production,"40, 650, 000"
-070400,,,"16, 185, 603","27, 000, 663",37.5,157,0,County public service board,"43, 186, 266"
-030700,,,"96, 970","22, 372, 030",0.4,157,0,Industrial development,"22, 469, 000"
+Status (%)",page_number,table_index
+090500,Sports and cultural services,"25, 000, 000","22, 869, 208","2, 130, 792",91.5,157,0
+,Sub total,"627, 820, 323","233, 270, 913","394, 549, 410",37.2,157,0
+"Department of Water, Environment and Natural Resources",,,,,,157,0
+020600,Mining efficiency,"600, 000","30, 000","570, 000",5.0,157,0
+090200,Conservation and management of natural ecosystem,"220, 452, 329","19, 886, 391","200, 565, 938",9.0,157,0
+070400,County public service board,"570, 000","30, 000","540, 000",5.3,157,0
+070400,County public service board,"551, 280","299, 420","251, 860",54.3,157,0
+070100,General administration and planning services,"360, 000","150, 437","20, 563",41.8,157,0
+030300,Tourism development and management,"473, 600","63, 697","409, 903",13.4,157,0
+090300,General administration and planning services,"31, 843, 002","13, 697, 799","18, 145, 203",43.0,157,0
+010100,General administration and planning services,"2, 031, 761","1, 368, 415","663, 346",67.4,157,0
+010500,Agriculture productivity improvement,"604, 000",0,"604, 000",0,157,0
+090400,Environment planning and management,"65, 357, 413","782, 150","64, 575, 263",1.2,157,0
+,Sub total,"323, 843, 385","36, 308, 309","287, 535, 076",11.2,157,0
+Department of City of Kisumu,,,,,,157,0
+040100,Preventive and Promotive health services,"203, 279, 322","155, 596, 500","47, 682, 822",76.5,157,0
+010800,Revenue generation and management,"1, 022, 451, 093","145, 559, 050","876, 892, 043",14.2,157,0
+070400,County public service board,"55, 232, 514","48, 933, 661","6, 298, 853",88.6,157,0
+010900,Urban planning and development control,"81, 415, 724","67, 465, 274","13, 950, 450",82.9,157,0
+050100,Early childhood development,"113, 956, 687","95, 968, 412","17, 988, 275",84.2,157,0
+,Sub total,"1, 476, 335, 340","513, 522, 897","962, 812, 443",34.8,157,0
+Department of County Assembly,,,,,,157,0
+070500,Public finance management,"16, 002, 920","7, 925, 648","8, 077, 272",49.5,157,0
+070800,Legislation and oversight services,"139, 907, 449","107, 570, 914","32, 336, 535",76.9,157,0
+071000,County assembly service board,"405, 129, 055","224, 090, 885","181, 038, 170",55.3,157,0
+070100,General administration and planning services,"126, 160, 776","67, 493, 406","58, 667, 370",53.5,157,0
+090500,Sports and cultural services,"66, 552, 982","55, 322, 822","11, 230, 160",83.1,157,0
+020300,"Administration, planning and support services","38, 168, 312","31, 120, 583","7, 047, 729",81.5,157,0
+,Sub total,"791, 921, 494","493, 524, 257","298, 397, 237",62.3,157,0
+Department of County Public Service Board,,,,,,157,0
+070400,County public service board,"48, 745, 505","21, 889, 017","26, 856, 487",44.9,157,0
+,Sub total,"48, 745, 505","21, 889, 017","26, 856, 457",44.9,157,0
+Department of Finance and Economic Planning,,,,,,157,0
+020300,"Administration, planning and support services","1, 027, 751, 059","807, 082, 627","220, 668, 432",78.5,157,0
+070100,General administration and planning services,"1, 714, 662, 502","659, 055, 039","1, 055, 607, 463",38.4,157,0
+010100,General administration and planning services,"20, 000, 000",0,"20, 000, 000",0,157,0
+070300,"Intergovernmental relations, communication and
+protocol","10, 076, 719","7, 534, 014","2, 542, 705",74.8,157,0
+070500,Public financial management,"203, 554, 379","64, 630, 943","138, 923, 436",31.8,157,0
+070600,"County planning & development coordination ser-
+vices","43, 192, 078","10, 814, 961","32, 377, 117",25.0,157,0
+,Sub total,"3, 019, 236, 737","1, 549, 117, 585","1, 470, 118, 152",51.3,157,0
+"Department of Business, Co – operatives and Marketing",,,,,,157,0
+030500,Co-operative development and management,"47, 566, 360","292, 900","47, 273, 460",0.6,157,0
+070400,County public service board,"24, 077, 917","11, 078, 653","12, 999, 264",46.0,157,0
+030100,General administration and policy making services,"66, 630, 944","1, 131, 050","65, 499, 894",1.7,157,0
+030200,Regulation and verification of weights,"9, 697, 875","897, 375","8, 800, 500",9.3,157,0
+050400,Gender and social development,"4, 104, 200","727, 760","3, 376, 440",17.7,157,0
+030700,Industrial development,"49, 792, 200","668, 640","49, 123, 560",1.3,157,0
+050800,Alcoholic drinks,"7, 300, 000","635, 600","6, 664, 400",8.7,157,0
+,Sub total,"209, 169, 496","15, 431, 978","193, 737, 518",7.4,157,0
+Department Energy and Industry,,,,,,157,0
+020300,"Administration, planning and support services","15, 730, 913","1, 579, 081","14, 151, 832",10.0,157,0
+020500,Energy production,"40, 650, 000","479, 976","40, 170, 024",1.2,157,0
+070400,County public service board,"43, 186, 266","16, 185, 603","27, 000, 663",37.5,157,0
+030700,Industrial development,"22, 469, 000","96, 970","22, 372, 030",0.4,157,0

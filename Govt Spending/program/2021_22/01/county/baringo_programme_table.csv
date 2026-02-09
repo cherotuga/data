@@ -3,14 +3,14 @@ get (Kshs.)","Actual Pay-
 ments (Kshs.)",Variance (Kshs.),"Absorption
 (%)",page_number,table_index
 "Default - Non-Programmat-
-ic",,-,"20,080,707","- 20,080,707",-,33,1
-,Default - Non-Programmatic,-,"20,080,707","- 20,080,707",-,33,1
-General Administration,-,"82,311,478","5,550,113","76,761,365",6.7,33,1
+ic",,-,"20,080,707","- 20,080,707",-,33,0
+,Default - Non-Programmatic,-,"20,080,707","- 20,080,707",-,33,0
+General Administration,-,"82,311,478","5,550,113","76,761,365",6.7,33,0
 ,"General Administration, Plan-
-ning & Support Services","82,311,478","5,550,113","76,761,365",6.7,33,1
-Land Administration,-,"36,073,200",-,"36,073,200",-,33,1
+ning & Support Services","82,311,478","5,550,113","76,761,365",6.7,33,0
+Land Administration,-,"36,073,200",-,"36,073,200",-,33,0
 ,"Land Adjudication and Demar-
-cation","34,036,850",-,"34,036,850",-,33,1
+cation","34,036,850",-,"34,036,850",-,33,0
 ,Support Service,"2,036,350",-,"2,036,350",-,34,0
 "Urban Development-Eldama
 Ravine",-,,,,,34,0
@@ -255,3 +255,37 @@ Sports Development,-,"7,175,571",-,"7,175,571",-,37,0
 ning & Support Services","7,175,571",-,"7,175,571",-,37,0
 ,Support Service,-,-,-,-,37,0
 -,,"3,500,000",-,"3,500,000",-,37,0
+,"Conservation of Cultural Heri-
+tage","3,500,000",-,"3,500,000",-,38,0
+-,,"59,916,879","10,015,523","49,901,356",16.7,38,0
+,"General Administration, Plan-
+ning & Support Services","59,916,879","10,015,523","49,901,356",16.7,38,0
+-,,"881,213,390",-,"881,213,390",-,38,0
+,"General Administration, Plan-
+ning & Support Services","871,213,390",-,"871,213,390",-,38,0
+,Support Service,-,-,-,-,38,0
+,"Water Harvesting Storage &
+Flood Control","10,000,000",-,"10,000,000",-,38,0
+-,,"37,658,442",-,"37,658,442",-,38,0
+,"General Administration, Plan-
+ning & Support Services","37,658,442",-,"37,658,442",-,38,0
+-,,"43,946,822",-,"43,946,822",-,38,0
+,"General Administration ,Plan-
+ning & Support Services","5,000,000",-,"5,000,000",-,38,0
+,Support Service,"38,946,822",-,"38,946,822",-,38,0
+-,,"5,175,000",-,"5,175,000",-,38,0
+,"Pipeline Extensions & Rehabilita-
+tion, Drilling & Equipping Bore-
+hole","5,175,000",-,"5,175,000",-,38,0
+-,,"2,800,000",-,"2,800,000",-,38,0
+,"Protection of Wildlife Within
+Their Habitat","2,800,000",-,"2,800,000",-,38,0
+-,,"23,934,809","2,003,190","21,931,619",8.4,38,0
+,General Administrative Services,"23,934,809","2,003,190","21,931,619",8.4,38,0
+-,,"1,677,500",-,"1,677,500",-,38,0
+,Protection of Rivers & Streams,"500,000",-,"500,000",-,38,0
+,Soil & Water Conservation,"1,177,500",-,"1,177,500",-,38,0
+-,,-,-,-,-,38,0
+,"County Forest Conservation &
+Management",-,-,-,-,38,0
+,Grand Total,"9,947,339,707","1,002,390,653","8,944,949,054",10.1,38,0

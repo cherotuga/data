@@ -1,37 +1,37 @@
 Sub- Programme,Approved Budget (Kshs),Actual Payments (Kshs),Variance,Absorption (%),page_number,table_index
-Land Policy and Physical Planning Plans,"8,000,000",-,"8,000,000",-,79,1
-Physical and spatial plans,"8,000,000",-,"8,000,000",-,79,1
-Administrative and support services,"385,581,104",-,"385,581,104",-,79,1
-Administrative and Support Services,"385,581,104",-,"385,581,104",-,79,1
-Livestock production services,"93,645,730",-,"93,645,730",-,79,1
-Veterinary support services,"18,350,000",-,"18,350,000",-,79,1
-Administration and Support Services,"69,745,730",-,"69,745,730",-,79,1
-Livestock Production,"5,550,000",-,"5,550,000",-,79,1
-0 Fisheries production services,"200,000",-,"200,000",-,79,1
-Fishery Services,"200,000",-,"200,000",-,79,1
-Crop Production and Irrigation services,"6,200,000",-,"6,200,000",-,79,1
-Extension Support Services and exhibition,"1,200,000",-,"1,200,000",-,79,1
-Irrigation Development,"5,000,000",-,"5,000,000",-,79,1
-Roads network and Transport services,"2,417,200",-,"2,417,200",-,79,1
-Transport services,"2,417,200",-,"2,417,200",-,79,1
+Land Policy and Physical Planning Plans,"8,000,000",-,"8,000,000",-,79,0
+Physical and spatial plans,"8,000,000",-,"8,000,000",-,79,0
+Administrative and support services,"385,581,104",-,"385,581,104",-,79,0
+Administrative and Support Services,"385,581,104",-,"385,581,104",-,79,0
+Livestock production services,"93,645,730",-,"93,645,730",-,79,0
+Veterinary support services,"18,350,000",-,"18,350,000",-,79,0
+Administration and Support Services,"69,745,730",-,"69,745,730",-,79,0
+Livestock Production,"5,550,000",-,"5,550,000",-,79,0
+0 Fisheries production services,"200,000",-,"200,000",-,79,0
+Fishery Services,"200,000",-,"200,000",-,79,0
+Crop Production and Irrigation services,"6,200,000",-,"6,200,000",-,79,0
+Extension Support Services and exhibition,"1,200,000",-,"1,200,000",-,79,0
+Irrigation Development,"5,000,000",-,"5,000,000",-,79,0
+Roads network and Transport services,"2,417,200",-,"2,417,200",-,79,0
+Transport services,"2,417,200",-,"2,417,200",-,79,0
 "General Administration and Support
-Services","37,906,400",-,"37,906,400",-,79,1
+Services","37,906,400",-,"37,906,400",-,79,0
 "Administration, personnel and operation of
-activities.","37,906,400",-,"37,906,400",-,79,1
-Roads Development Program,"522,154,546",-,"522,154,546",-,79,1
-Maintenance of Roads and Bridges,"522,154,546",-,"522,154,546",-,79,1
-Public Works and Housing Program,"133,616,390",-,"133,616,390",-,79,1
-Housing Development,"133,616,390",-,"133,616,390",-,79,1
-Lands And Physical Planning Program,"244,506,000",-,"244,506,000",-,79,1
-Planning and survey,"244,506,000",-,"244,506,000",-,79,1
-Administrative and support Services,"119,250,255",-,"119,250,255",-,79,1
-Administration and policy formulation,"119,250,255",-,"119,250,255",-,79,1
-Departmental service programme,"1,350,000",-,"1,350,000",-,79,1
-Weight and Measures services,"1,350,000",-,"1,350,000",-,79,1
+activities.","37,906,400",-,"37,906,400",-,79,0
+Roads Development Program,"522,154,546",-,"522,154,546",-,79,0
+Maintenance of Roads and Bridges,"522,154,546",-,"522,154,546",-,79,0
+Public Works and Housing Program,"133,616,390",-,"133,616,390",-,79,0
+Housing Development,"133,616,390",-,"133,616,390",-,79,0
+Lands And Physical Planning Program,"244,506,000",-,"244,506,000",-,79,0
+Planning and survey,"244,506,000",-,"244,506,000",-,79,0
+Administrative and support Services,"119,250,255",-,"119,250,255",-,79,0
+Administration and policy formulation,"119,250,255",-,"119,250,255",-,79,0
+Departmental service programme,"1,350,000",-,"1,350,000",-,79,0
+Weight and Measures services,"1,350,000",-,"1,350,000",-,79,0
 "Trade And Co-operative Development
-Program","2,400,000",-,"2,400,000",-,79,1
-Trade Development and Weigh & Measures,"2,400,000",-,"2,400,000",-,79,1
-Curative Services,"854,234,894",-,"854,234,894",-,79,1
+Program","2,400,000",-,"2,400,000",-,79,0
+Trade Development and Weigh & Measures,"2,400,000",-,"2,400,000",-,79,0
+Curative Services,"854,234,894",-,"854,234,894",-,79,0
 "Medical Products, Appliances and Equip-
 ment","454,000,000",-,"454,000,000",-,80,0
 Development of Health Services,"331,914,894",-,"331,914,894",-,80,0
@@ -89,3 +89,11 @@ Natural Resource Management,"1,600,000",-,"1,600,000",-,80,0
 "Forest, Wildlife and Tourism","151,100,000",-,"151,100,000",-,80,0
 Wildlife and Forest Conservation,"1,100,000",-,"1,100,000",-,80,0
 Tourist Development,"150,000,000",-,"150,000,000",-,80,0
+Energy and Mining,"1,205,000",-,"1,205,000",-,81,0
+Electrification of Rural and Other,"1,205,000",-,"1,205,000",-,81,0
+Administration and Support Services,"119,243,025",-,"119,243,025",-,81,0
+Administration and Operations,"119,243,025",-,"119,243,025",-,81,0
+Water Services,"2,196,556,361",-,"2,196,556,361",-,81,0
+Administration and Support Services,"646,556,361",-,"646,556,361",-,81,0
+Water Infrastructure Development,"1,550,000,000",-,"1,550,000,000",-,81,0
+Total,"10,616,156,277","1,304,369,335","9,311,786,942",12.3,81,0

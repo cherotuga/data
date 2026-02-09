@@ -1,22 +1,22 @@
 Programme,Sub- Programme,Approved Budget (Kshs),"Actual Payments
 (Kshs)",Variance,Absorption (%),page_number,table_index
-County Executive,,,,,,296,1
+County Executive,,,,,,296,0
 "0701004210 P1
 Management of
 County Affairs","0701014210 SP1 General Adminis-
 tration and Support Services (Gov-
-ernor, Deputy Governor)","220,830,697","65,651,206","155,179,491",29.7,296,1
+ernor, Deputy Governor)","220,830,697","65,651,206","155,179,491",29.7,296,0
 ,"0704014210 SP2 Administration of
 Human Resources in County Pub-
-lic Service","66,404,595","17,938,676","48,465,919",27,296,1
+lic Service","66,404,595","17,938,676","48,465,919",27,296,0
 ,"0701034210 SP3 Sub County Ad-
-ministration","165,018,388","61,076,770","103,941,618",37,296,1
+ministration","165,018,388","61,076,770","103,941,618",37,296,0
 ,"0701044210 SP4 Coordination,
 Supervision and Human Resource
-services (C S)","37,821,177","15,365,830","22,455,347",40.6,296,1
-,Sub total,"490,074,857","160,032,482","330,042,375",32.7,296,1
-,,,,,,296,1
-"Finance, Economic Planning & ICT",,,,,,296,1
+services (C S)","37,821,177","15,365,830","22,455,347",40.6,296,0
+,Sub total,"490,074,857","160,032,482","330,042,375",32.7,296,0
+,,,,,,296,0
+"Finance, Economic Planning & ICT",,,,,,296,0
 "0705004210 P1
 General Admin-
 istration Planning
@@ -267,3 +267,53 @@ Services","15,575,656","6,436,331","9,139,325",41.3,299,0
 ,Sub total,"15,575,656","6,436,331","9,139,325",41.3,299,0
 ,,,,,,299,0
 "Culture, Social Services, Gender, Sports & Youth Affairs",,,,,,299,0
+"0901004210 P1
+General Admin-
+istration Planning
+and Support Ser-
+vices","0901014210 SP1 General Admin-
+istration Planning and Support
+Services","41,315,472","15,962,265","25,353,207",38.6,300,0
+,Sub total,"41,315,472","15,962,265","25,353,207",38.6,300,0
+"0902004210 P2
+Culture and social
+Services develop-
+ment","0902014210 SP1 Conservation of
+Heritage","28,403,600",-,"28,403,600",-,300,0
+,"0902024210 SP2 Development and
+Promotion of Culture","11,759,858","2,160,867","9,598,991",18.4,300,0
+,"0902034210 SP3 Social Welfare and
+Gender","75,127,500","15,540,130","59,587,370",20.7,300,0
+,"0902044210 SP4 Community Mo-
+bilization and Development","10,007,810",-,"10,007,810",-,300,0
+,Sub total,"125,298,768","17,700,997","107,597,771",14.1,300,0
+"0903004210 P3
+Promotion of other
+sports activities","0903014210 SP1 Development and
+Management of Sports Facilities","30,622,000",-,"30,622,000",-,300,0
+,Sub total,"30,622,000",-,"30,622,000",-,300,0
+"0503004210 P3
+Sports Develop-
+ment","0503034210 SP3 Sports Develop-
+ment, Training and Competition","37,778,844","7,903,660","29,875,184",20.9,300,0
+,Sub total,"37,778,844","7,903,660","29,875,184",20.9,300,0
+"0904014210 P1
+General Admin-
+istration Planning
+and Support Ser-
+vices","0904004210 SP1 General Admin-
+istration Planning and Support
+Services","16,786,002","5,719,822","11,066,180",34.1,300,0
+,Sub total,"16,786,002","5,719,822","11,066,180",34.1,300,0
+,,,,,,300,0
+County Assembly,,,,,,300,0
+"0707004210 P1
+County Assembly
+Administration","0707014210 SP1 Legislative and
+Oversight","90,428,385","22,431,420","67,996,965",24.8,300,0
+,"0707024210 SP2 County Assembly
+Administration","258,510,303","97,257,188","161,253,115",37.6,300,0
+,0707034210 SP3 Representation,"221,358,346","104,735,725","116,622,621",47.3,300,0
+,Sub total,"570,297,034","224,424,333","345,872,701",39.4,300,0
+,,,,,,300,0
+Grand Total,,"6,802,165,441","1,408,949,119","5,393,216,322",20.7,300,0

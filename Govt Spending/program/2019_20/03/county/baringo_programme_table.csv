@@ -2,37 +2,37 @@ Programmes,Sub- Programmes,"Approved Budget
 (Kshs)","Actual Payments
 (Kshs)",Variance (Kshs.),"Absorption
 (%)",page_number,table_index
-Default,Default - Non Programmatic,-,"269,600","(269,600)",-,32,1
+Default,Default - Non Programmatic,-,"269,600","(269,600)",-,32,0
 General administration,"General Administration, Planning & Support
-Services","344,211,616","175,061,544","169,150,072",50.9,32,1
-Land Administration,Land Adjudication and Demarcation,"27,700,000","192,200","27,507,800",0.7,32,1
+Services","344,211,616","175,061,544","169,150,072",50.9,32,0
+Land Administration,Land Adjudication and Demarcation,"27,700,000","192,200","27,507,800",0.7,32,0
 "Urban Development-Eldama
-ravine",Support Service,"40,000,000",-,"40,000,000",-,32,1
+ravine",Support Service,"40,000,000",-,"40,000,000",-,32,0
 "Livestock Development and
 Management","General Administration, Planning & Support
-Services","12,800,000","1,020,134","11,779,866",8.0,32,1
-,Support service,"443,134,299","206,946,721","236,187,578",46.7,32,1
+Services","12,800,000","1,020,134","11,779,866",8.0,32,0
+,Support service,"443,134,299","206,946,721","236,187,578",46.7,32,0
 ,"Livestock Improvement, Pasture & Fodder
-Development","6,000,000",-,"6,000,000",-,32,1
-,Apiculture Development,"5,000,000","895,000","4,105,000",17.9,32,1
-,Sub total,"466,934,299","208,861,855","258,072,444",44.7,32,1
-Agricultural Development,"Administration, Planning & Support Services","1,000,000","1,000,000",-,100,32,1
-Agricultural Training Services,"Administration, Planning & Support Services","1,300,000","1,300,000",-,100,32,1
+Development","6,000,000",-,"6,000,000",-,32,0
+,Apiculture Development,"5,000,000","895,000","4,105,000",17.9,32,0
+,Sub total,"466,934,299","208,861,855","258,072,444",44.7,32,0
+Agricultural Development,"Administration, Planning & Support Services","1,000,000","1,000,000",-,100,32,0
+Agricultural Training Services,"Administration, Planning & Support Services","1,300,000","1,300,000",-,100,32,0
 "Other Urban Infrastructure
-development and management",KUSP Programme,"52,360,500",-,"52,360,500",-,32,1
+development and management",KUSP Programme,"52,360,500",-,"52,360,500",-,32,0
 "Crop Production and Man-
-agement",Agribusiness Infrastructure Development,"11,400,000","3,612,150","7,787,850",31.7,32,1
+agement",Agribusiness Infrastructure Development,"11,400,000","3,612,150","7,787,850",31.7,32,0
 "Fisheries Development and
-Management",Aquaculture Development,"3,000,000","110,000","2,890,000",3.7,32,1
-Urban Development-Kabarnet,"Administration, Planning & Support Services","134,702,716","18,794,629","115,908,087",14.0,32,1
-Land Use Planning,Land Planning and Development,"16,600,000",-,"16,600,000",0.0,32,1
-General administration,"Administration, Planning & Support Services","62,894,893","57,556,573","5,338,320",91.5,32,1
+Management",Aquaculture Development,"3,000,000","110,000","2,890,000",3.7,32,0
+Urban Development-Kabarnet,"Administration, Planning & Support Services","134,702,716","18,794,629","115,908,087",14.0,32,0
+Land Use Planning,Land Planning and Development,"16,600,000",-,"16,600,000",0.0,32,0
+General administration,"Administration, Planning & Support Services","62,894,893","57,556,573","5,338,320",91.5,32,0
 "Rural Infrastructure Devel-
-opment",Rural road development and management,-,-,-,-,32,1
+opment",Rural road development and management,-,-,-,-,32,0
 "Development and Rehabil-
 itation of rural roads and
-structures",Roads opening and rehabilitation,"831,582,296","273,346,826","558,235,470",32.9,32,1
-General administration,"Administration, Planning & Support Services","74,853,448","67,118,459","7,734,989",89.7,32,1
+structures",Roads opening and rehabilitation,"831,582,296","273,346,826","558,235,470",32.9,32,0
+General administration,"Administration, Planning & Support Services","74,853,448","67,118,459","7,734,989",89.7,32,0
 "Tourism Development &
 Marketing","Administration, Planning & Support Services",-,-,-,-,33,0
 Trade Development,Trade Development,"5,752,776","4,679,922","1,072,854",81.4,33,0
@@ -157,3 +157,9 @@ Services","33,627,305","7,117,500","26,509,805",21.2,34,0
 ,"General Administration, planning & Support
 Services",-,"2,095,100","(2,095,100)",-,34,0
 ,Support service,"6,000,000",-,"6,000,000",0.0,34,0
+,Sub -Total,"6,000,000","2,095,100","3,904,900",34.9,35,0
+,"General Administration, planning & Support
+Services","37,048,339","16,783,814","20,264,525",45.3,35,0
+,Protection of rivers and streams,"1,000,000","496,200","503,800",49.6,35,0
+,County Forest conservation and management,"6,000,000","2,495,110","3,504,890",41.6,35,0
+Grand Total,,"8,681,521,001","3,646,649,540","5,034,871,461",42.0,35,0

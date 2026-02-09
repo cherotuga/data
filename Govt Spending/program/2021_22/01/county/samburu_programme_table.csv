@@ -3,22 +3,22 @@ Programme,Sub- Programme,"Approved Budget
 (Kshs)","Variance
 (Kshs.)","Absorption
 Rate (%)",page_number,table_index
-The County Assembly,,,,,,297,1
+The County Assembly,,,,,,297,0
 ,"0707014210 SP1 Legislative and
-Oversight","75,997,492","13,559,037","62,438,455",17.8,297,1
+Oversight","75,997,492","13,559,037","62,438,455",17.8,297,0
 ,"0707024210 SP2 County Assembly
-Administration","403,575,595","14,446,271","389,129,324",3.6,297,1
-,0707034210 SP3 Representation,"223,723,947","43,541,091","180,182,856",19.5,297,1
-,Subtotal,"703,297,034","71,546,399","631,750,635",10.2,297,1
-The County Executive,,,,,,297,1
+Administration","403,575,595","14,446,271","389,129,324",3.6,297,0
+,0707034210 SP3 Representation,"223,723,947","43,541,091","180,182,856",19.5,297,0
+,Subtotal,"703,297,034","71,546,399","631,750,635",10.2,297,0
+The County Executive,,,,,,297,0
 "0701004210 P1
 Management of
 County Affairs","0701014210 SP1 General Admin-
 istration and Support Services
-(Governor, Deputy Governor)","209,757,844","41,301,130","168,456,714",19.7,297,1
+(Governor, Deputy Governor)","209,757,844","41,301,130","168,456,714",19.7,297,0
 ,"0704014210 SP2 Administration
 of Human Resources in County
-Public Service","62,775,309","10,942,083","51,833,226",17.4,297,1
+Public Service","62,775,309","10,942,083","51,833,226",17.4,297,0
 ,"0701034210 SP3 Sub County Ad-
 ministration","174,747,707","44,569,285","130,178,422",25.5,298,0
 ,"0701044210 SP4 Coordination,
@@ -247,3 +247,70 @@ Support Services","0301014210 SP1 General Admin-
 istration Planning and Support
 Services","23,122,923","803,184","22,319,739",3.5,300,0
 ,Subtotal,"23,122,923","803,184","22,319,739",3.5,300,0
+"0302004210 P2
+Cooperatives
+Development
+and Management","0302014210 SP1 Governance and
+Accountability","36,048,406","24,800","36,023,606",0.1,301,0
+,Subtotal,"36,048,406","24,800","36,023,606",0.1,301,0
+"0304004210 P4
+Tourism De-
+velopment and
+Promotion","0304014210 SP1 Tourism Promo-
+tion and Marketing","299,480,616","12,565,283","286,915,333",4.2,301,0
+,Subtotal,"299,480,616","12,565,283","286,915,333",4.2,301,0
+"0305004210 P5
+Trade Devel-
+opment and
+Promotion","0305014210 SP1 Domestic Trade
+Development","36,920,775","148,800","36,771,975",0.4,301,0
+,Subtotal,"36,920,775","148,800","36,771,975",0.4,301,0
+"0306004210
+P6 P1 General
+Administration
+Planning and
+Support Services","0306014210 SP1 General Admin-
+istration Planning and Support
+Services","21,385,426","151,200","21,234,226",0.7,301,0
+,Subtotal,"21,385,426","151,200","21,234,226",0.7,301,0
+"Department Culture, Social Services, Gender, Sports and Youth Affairs",,,,,,301,0
+"0901004210
+P1 General
+Administration
+Planning and
+Support Services","0901014210 SP1 General Admin-
+istration Planning and Support
+Services","53,914,480","3,216,381","50,698,100",6.0,301,0
+,Subtotal,"53,914,480","3,216,381","50,698,100",6.0,301,0
+"0902004210
+P2 Culture and
+Social Services
+Development","0902014210 SP1 Conservation of
+Heritage","978,000",,"978,000",0.0,301,0
+,"0902024210 SP2 Development and
+Promotion of Culture","6,932,448","4,599","6,927,849",0.1,301,0
+,"0902034210 SP3 Social Welfare and
+Gender","30,338,000","3,277,080","27,060,920",10.8,301,0
+,"0902044210 SP4 Community Mo-
+bilization and Development","6,206,880",,"6,206,880",0.0,301,0
+,Subtotal,"44,455,328","3,281,679","41,173,649",7.4,301,0
+"0903004210 P3
+Promotion of
+other Sports
+Activities","0903014210 SP1 Development and
+Management of Sports Facilities","18,925,000","4,476,140","14,448,860",23.7,301,0
+,Subtotal,"18,925,000","4,476,140","14,448,860",23.7,301,0
+"0503004210 P3
+Sports Develop-
+ment","0503034210 SP3 Sports Develop-
+ment, Training and Competition","53,870,000","148,608","53,721,392",0.3,301,0
+,Subtotal,"53,870,000","148,608","53,721,392",0.3,301,0
+"0904014210
+P1 General
+Administration
+Planning and
+Support Services","0904004210 SP1 General Admin-
+istration Planning and Support
+Services","16,127,862",-,"16,127,862",0.0,301,0
+,Subtotal,"16,127,862",-,"16,127,862",0.0,301,0
+Grand Total,,"6,564,526,496","675,116,308","5,889,410,188",10.3,301,0

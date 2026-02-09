@@ -1,20 +1,159 @@
-S/No,Revenue,"Annual CARA,
-2019 Allocation (in
-Kshs)","Annual Budget
-Allocation (in Kshs)","Actual Receipts in the
-FY 2019/20 (in Kshs.)","Actual Receipts as
-Percentage of Annual
-Allocation (%)",page_number,table_index
-10.,DANIDA Grant,"11,718,750","16,572,474",-,-,95,0
-11.,"Sweden - Agricultural Sector
-Development Support Programme
-(ASDSP) II","18,540,513","18,540,513",-,-,95,0
-12.,"IDA (WB) Credit: Kenya Urban Support
-Project (KUSP) –Urban Institutional
-Grants (UIG)","8,800,000","8,800,000",-,-,95,0
-Sub Total,,"403,048,854","403,048,854",-,-,95,0
-D,Other Sources of Revenue,,,,,95,0
-13.,Own Source Revenue,-,"155,861,337","59,380,623",38.1,95,0
-14.,Balance b/f from FY2018/19,-,"125,016,874","125,016,874",100,95,0
-Sub Total,,-,"280,878,211","59,380,623",21.1,95,0
-Grand Total,,"5,031,755,945","5,093,619,262","797,332,023",15.8,95,0
+Sector,Description,Approved Budget,Actual Payments,Variance,Absorption,page_number,table_index
+County Assembly,"County Assembly infrastructure,
+policy and service support","80,000,000",-,"80,000,000",-,98,0
+,Infrastructure support,"80,000,000",-,"80,000,000",-,98,0
+,Legislative and oversight,"178,738,410","16,112,535","162,625,875",9,98,0
+,Legislative service,"178,738,410","16,112,535","162,625,875",9,98,0
+,Administration and support services,"244,209,207","38,100,728","206,108,479",16,98,0
+,Administration Support Services,"244,209,207","38,100,728","206,108,479",16,98,0
+Governors,"County Governance and
+Coordination Affairs","301,737,492","17,546,312","284,191,180",6,98,0
+,County Governance,"301,737,492","17,546,312","284,191,180",6,98,0
+County secretary,"County Devolved Administrative
+Affairs","19,994,885","300,000","19,694,885",2,98,0
+,Devolved Administrative Affairs,"19,994,885","300,000","19,694,885",2,98,0
+Deputy Governor,Management of County Affairs,"25,000,000",-,"25,000,000",-,98,0
+,County Executive Services,"25,000,000",-,"25,000,000",-,98,0
+Delivery Unit,Prudent use of Financial Resources,"8,024,000","242,800","7,781,200",3,98,0
+,Governors Delivery Unit,"8,024,000","242,800","7,781,200",3,98,0
+"County Public Service
+Board",County Public Service,"59,375,252","1,163,600","58,211,652",2,98,0
+,Administration Support Services,"59,375,252","1,163,600","58,211,652",2,98,0
+Finance,Administration and support services,"360,402,921","23,050,014","337,352,907",6,98,0
+,Personnel Services,"96,235,450","23,050,014","73,185,436",24,98,0
+,Administrative Infrastructure support,"264,167,471",-,"264,167,471",-,98,0
+,Public financial management,"34,664,452","7,284,874","27,379,578",21,98,0
+,Administrative Services,"34,664,452","7,284,874","27,379,578",21,98,0
+,"KDSP(Kenya Devolution Support
+Programme) Conditional Grant","30,000,000",-,"30,000,000",-,98,0
+,Kenya Devolution Support,"30,000,000",-,"30,000,000",-,98,0
+"Economic Planning and
+Coordination","Economic Planning and
+Coordination","62,535,239","676,500","61,858,739",1,98,0
+,Monitoring and Evaluation,"33,417,508","676,500","32,741,008",2,98,0
+,"Economic Policy and County
+Development Plans","10,917,731",-,"10,917,731",-,98,0
+,"County Development Stakeholders
+Forums","6,900,000",-,"6,900,000",-,98,0
+,"County Baseline Surveys on County
+Development Indicators","10,000,000",-,"10,000,000",-,98,0
+,"Capacity building and Support to
+Departments","1,300,000",-,"1,300,000",-,98,0
+Special Programme,Special programmes,"205,346,534","1,293,600","204,052,934",1,98,0
+,Administration & Planning,"9,859,514","1,293,600","8,565,914",13,98,0
+,Disaster management,"195,487,020",-,"195,487,020",-,98,0
+Cohesion,Cohesion and Peace Building,"65,061,199","13,170,360","51,890,839",20,98,0
+,"Administrative and Civic Education
+Services","65,061,199","13,170,360","51,890,839",20,98,0
+Livestock,"Livestock resource management and
+development","156,470,843","3,066,592","153,404,251",2,99,0
+,Livestock Production,"89,729,073","3,066,592","86,662,481",3,99,0
+,livestock infrastructure development,"66,741,770",-,"66,741,770",-,99,0
+,Fisheries development,"10,000,000",-,"10,000,000",-,99,0
+,extension services,"7,000,000",-,"7,000,000",-,99,0
+,Fish hatchery,"3,000,000",-,"3,000,000",-,99,0
+Agriculture,"Administrative, planning, and
+support services","50,191,138","365,943","49,825,195",1,99,0
+,Administration and Support Services,"50,191,138","365,943","49,825,195",1,99,0
+,Crop Productivity Improvement,"234,608,427","23,720,286","210,888,141",10,99,0
+,"Increase food productivity & output
+by 30.","2,000,000",-,"2,000,000",-,99,0
+,Establishment of Demo Farms,"24,040,573","12,020,286","12,020,287",50,99,0
+,"Administration Climate Change
+Mitigation","182,000,000","11,700,000","170,300,000",6,99,0
+,Irrigation,"24,567,854",-,"24,567,854",-,99,0
+,Policy Devt,"2,000,000",-,"2,000,000",-,99,0
+,Value Addition,"30,436,591",-,"30,436,591",-,99,0
+,Veterinary Support Services,"30,436,591",-,"30,436,591",-,99,0
+Lands,Land Survey and land use planning,"82,623,423","5,510,000","77,113,423",7,99,0
+,"County land planning and spatial
+development","32,043,086","120,000","31,923,086",0,99,0
+,County Land Survey and Mapping,"50,580,337","5,390,000","45,190,337",11,99,0
+Roads,Public Works.,"192,867,666","251,532","192,616,134",0,99,0
+,Administration and planning services,"12,001,117","251,532","11,749,585",2,99,0
+,Road Improvement and management,"180,866,549",-,"180,866,549",-,99,0
+Public Works,"Planning and Survey of Urban Areas
+(Modogashe and Ol ndonyiro)","21,373,518","911,307","20,462,211",4,99,0
+,"Administration and Planning
+Services","21,373,518","911,307","20,462,211",4,99,0
+"Municipal
+Administration",KUSP,"102,768,100",-,"102,768,100",-,99,0
+,"Control of invasive species
+(Mathenge)","8,800,000",-,"8,800,000",-,99,0
+,Urban Development,"93,968,100",-,"93,968,100",-,99,0
+,Municipal Administration,"149,973,516","1,212,676","148,760,840",1,99,0
+,General Administration and Planning,"14,437,086","1,212,676","13,224,410",8,99,0
+,Infrastructural Development,"135,536,430",-,"135,536,430",-,99,0
+Education,"Administration, Planning and
+Support Services.","201,321,378","295,460","201,025,918",0,99,0
+,Administration,"166,321,378","295,460","166,025,918",0,99,0
+,Bursary Services,"35,000,000",-,"35,000,000",-,99,0
+,"Provision of education and training
+services","58,729,080",-,"58,729,080",-,99,0
+,ECDE Classroom Infrastructure,"35,700,000",-,"35,700,000",-,99,0
+,Youth Polytechnics,"15,000,000",-,"15,000,000",-,99,0
+,"Promotion of Quality Youth
+empowerment","8,029,080",-,"8,029,080",-,99,0
+Youth & sports,Cultural and Arts Empowerment,"10,833,297",-,"10,833,297",-,100,0
+,Youth Polytechnic Infrastructure,"10,833,297",-,"10,833,297",-,100,0
+,"Management and development of
+Sports and sports facilities","136,359,826","206,262","136,153,564",0,100,0
+,Sports Academy Centre,"120,000,000",-,"120,000,000",-,100,0
+,Youth and Women Empowerment,"16,359,826","206,262","16,153,564",1,100,0
+"Gender , Culture and
+social services",Culture and Social Services,"29,520,114","687,372","28,832,742",2,100,0
+,Culture Development,"29,520,114","687,372","28,832,742",2,100,0
+,County Empowerment support,"27,000,000",-,"27,000,000",-,100,0
+,"Youth and Women Empowerment
+support Services","13,000,000",-,"13,000,000",-,100,0
+,"Marginalized Group Empowerment
+support services","8,000,000",-,"8,000,000",-,100,0
+,Empowerment Support Services,"6,000,000",-,"6,000,000",-,100,0
+Tourism,Tourism Promotion,"144,404,042","126,830","144,277,212",0,100,0
+,Tourism Development,"134,105,033","126,830","133,978,203",0,100,0
+,"Protection of endangered wildlife
+animals.","10,299,009",-,"10,299,009",-,100,0
+Trade& Cooperative,Trade development and promotion,"27,838,787","147,450","27,691,337",1,100,0
+,"Entrepreneurship and business
+management training","20,256,862","147,450","20,109,412",1,100,0
+,"Micro and Small Business Support
+Services","5,000,000",-,"5,000,000",-,100,0
+,Infrastructure support,"2,581,925",-,"2,581,925",-,100,0
+,Co-Operative Development,"8,000,000",-,"8,000,000",-,100,0
+,"Co-operative training and
+supervision","8,000,000",-,"8,000,000",-,100,0
+"Public Services
+Management","Public service administration,
+planning and support services","139,307,540","45,000","139,262,540",-,100,0
+,"General Administration Support
+Services","139,307,540","45,000","139,262,540",-,100,0
+Water & Sanitation,"Provision & Management of
+domestic & livestock rural water
+supply","62,353,668","300,000","62,053,668",1,100,0
+,"Administration and Planning Support
+Services","62,353,668","300,000","62,053,668",1,100,0
+,Water Supply and Storage Services,"134,924,560",-,"134,924,560",-,100,0
+,Water Supply and Storage,"131,924,560",-,"131,924,560",-,100,0
+,"Civil Works-Establishment of Dams
+& Pans","3,000,000",-,"3,000,000",-,100,0
+"Environment & Natural
+Resources","Conservation of Environment &
+Natural Resources","58,456,715","319,000","58,137,715",1,100,0
+,Administration and Support Services,"29,560,668","319,000","29,241,668",1,100,0
+,Environmental Conservation,"28,896,047",-,"28,896,047",-,100,0
+Health Services,"Health Preventive and Promotive
+Services","165,273,436","37,157,116","128,116,320",23,101,0
+,"Preventive and Promotive Health
+Services","116,928,123","37,157,116","79,771,007",32,101,0
+,"Disease Surveillance And Epidemic
+preparedness","11,718,750",-,"11,718,750",-,101,0
+,Health Infrastructure Projects,"36,626,563",-,"36,626,563",-,101,0
+,Health Curative Services,"906,952,274","324,565,630","582,386,644",36,101,0
+,Administration Support Services,"882,952,274","324,565,630","558,386,644",37,101,0
+,"SP4 Administration Support
+services( Medical Services)","24,000,000",-,"24,000,000",-,101,0
+,Administration and Planning,"159,924,859",-,"159,924,859",-,101,0
+,"Curative and Rehabilitative Health
+Services","111,327,350",-,"111,327,350",-,101,0
+,Curative Infrastructure Support,"48,597,509",-,"48,597,509",-,101,0
+Total,,"4,977,602,389","517,829,779","4,459,772,611",10,101,0

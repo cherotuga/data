@@ -4,15 +4,15 @@ Programme,Sub- Programme,"Submitted Estimates
 (%)",page_number,table_index
 "MEDICAL SERVICES,
 PUBLIC HEALTH &
-SANITATION",,,,,,46,1
+SANITATION",,,,,,46,0
 P2 Curative Health Services,"Cash Transfers to Health Fa-
-cilities","110,953,899","53,833,000","57,120,899",,46,1
-,Human Resource Services,"700,000,000","173,688,508","526,311,491",,46,1
-,Policy Development,"2,000,000","500,000","1,500,000",,46,1
-,Administrative services,"12,741,524","2,904,026","9,837,498",,46,1
-COUNTY EXECUTIVE,,,,,,46,1
+cilities","110,953,899","53,833,000","57,120,899",,46,0
+,Human Resource Services,"700,000,000","173,688,508","526,311,491",,46,0
+,Policy Development,"2,000,000","500,000","1,500,000",,46,0
+,Administrative services,"12,741,524","2,904,026","9,837,498",,46,0
+COUNTY EXECUTIVE,,,,,,46,0
 "Programme 1: Administration,
-Planning and Support services",Human Resource Services,"1,779,600,000","422,150,166","1,357,449,834",24,46,1
+Planning and Support services",Human Resource Services,"1,779,600,000","422,150,166","1,357,449,834",24,46,0
 ,"Administration of Human
 Resources in County Public
 Service","59,404,595","14,468,217","44,936,378",24,47,0
@@ -73,3 +73,6 @@ Services",Legislative Services,"301,586,736","52,008,075","249,578,661",17,47,0
 ,Committee Services,"30,492,000","611,760","29,880,240",2,47,0
 Oversight Presentation,Public Participation,"37,236,350","10,400,000","26,836,350",28,47,0
 ,Decentralisation of Services,"30,340,000","8,024,000","22,316,000",26,47,0
+"General Administration and
+Human Resources",H R and Admin Services,"301,962,662","89,817,796","212,144,866",30,48,0
+Total,,"4,217,103,051","948,863,477","3,268,239,573",22.5,48,0

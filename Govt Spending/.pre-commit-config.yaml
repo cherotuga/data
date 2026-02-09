@@ -1,0 +1,16 @@
+# Pre-commit hooks for data-scraping project
+repos:
+  - repo: local
+    hooks:
+      - id: test-program-extraction
+        name: Test program.py CSV extraction
+        entry: python test_program.py
+        language: system
+        files: ^(program\.py|test_program\.py)$
+        pass_filenames: false
+      - id: test-health-analysis
+        name: Test baringo-scraping.py health records extraction
+        entry: python test_baringo_scraping.py
+        language: system
+        files: ^(baringo-scraping\.py|test_baringo_scraping\.py)$
+        pass_filenames: false
