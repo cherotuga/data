@@ -34,10 +34,10 @@ REVENUE_COLUMN_KEYWORDS = {
     'ordinary_osr': ['ordinary osr'],  # Specific to newer format, no generic 'osr target'
     'fif_aia_target': ['fif/aia target', 'fif aia target', 'fif/ aia', 'fif', 'aia target', 'appropriations in aid', 'a-i-a'],
     'total_target': ['total revenue target', 'total target', 'total osr revenue target', 'annual own source revenue', 'annual osr target', 'annual revenue target', 'annual own source revenue target', 'annual local revenue target', 'local revenue target', 'total annual target'],  # Includes 2015_16 Q1 format
-    'osr_actual': ['ordinary osr actual', 'actual realised', 'q1 actual osr', 'actual osr'],  # Specific to newer format
+    'osr_actual': ['ordinary osr actual', 'actual realised', 'q1 actual osr', 'osr actual', 'actual osr'],  # Specific to newer format
     'fif_aia_actual': ['fif/aia actual', 'fif aia actual', 'aia actual', 'q1 actual aia'],
-    'actual_revenue': ['actual revenue', 'total osr revenue', 'osr collection', 'quarter of fy', 'osr actual', 'total own source revenue', 'total own-source revenue', 'total local revenue', 'local revenue collection', 'total (q1)', 'total', 'q1 actual total'],  # Includes 2015_16 Q1 quarterly total format
-    'performance': ['performance', 'performance (%)', 'performance %', 'collection of osr against', '% of collection', '% of local revenue against', '% of own source revenue against', '% of total local revenue', '% of the total local revenue', '% of total revenue', '% of first quarter revenue against annual targets', '% of quarter revenue against', 'percentage of']
+    'actual_revenue': ['actual revenue', 'total osr revenue', 'osr collection', 'quarter of fy', 'total own source revenue', 'total own-source revenue', 'total local revenue', 'local revenue collection', 'total (q1)', 'total', 'q1 actual total'],  # Includes 2015_16 Q1 quarterly total format
+    'performance': ['performance (%)', 'performance %', 'collection of osr against', '% of collection', '% of local revenue against', '% of own source revenue against', '% of total local revenue', '% of the total local revenue', '% of total revenue', '% of first quarter revenue against annual targets', '% of quarter revenue against', 'percentage of']  # Bare 'performance' removed: it false-matched 2019_20's shared "OSR Performance" group-title header on columns D/E/F
 }
 
 # Standard column names for the output CSV
@@ -310,24 +310,33 @@ class RevenueExtractor:
             # Combine main and sub-header text for keyword matching
             combined_header = f"{main_header} {sub_header}".strip()
 
+            # 'ordinary osr' and 'fif' are substrings of both the target and actual
+            # column headers in several formats (e.g. "Ordinary OSR Target" vs.
+            # "Ordinary OSR Actual Realised", "FIF/A-I-A Target" vs. "FIF/AIA Actual").
+            # Any column whose header mentions actual/realised values must never be
+            # classified as a target column, regardless of which broad keyword matches.
+            is_actual_column = bool(re.search(r'\bactual\b', combined_header)) or 'realised' in combined_header or 'realized' in combined_header
+
             if any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['county']):
                 column_map['county'] = i
             elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['performance']):
                 # Check performance first (more specific patterns like "% of...")
                 column_map['performance_percent'] = i
-            elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['ordinary_osr']):
+            elif not is_actual_column and any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['ordinary_osr']):
                 column_map['ordinary_osr_target'] = i
-            elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['fif_aia_target']):
+            elif not is_actual_column and any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['fif_aia_target']):
                 column_map['fif_aia_target'] = i
             elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['total_target']):
                 column_map['total_revenue_target'] = i
-            elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['actual_revenue']):
-                # Check actual_revenue FIRST to catch comprehensive collection terms like "actual osr collection"
-                column_map['actual_revenue'] = i
             elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['osr_actual']):
+                # Check the specific actual-value keyword sets before the generic
+                # actual_revenue catch-all, so e.g. "OSR Actual" maps to
+                # osr_actual_realised rather than being swallowed by actual_revenue.
                 column_map['osr_actual_realised'] = i
             elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['fif_aia_actual']):
                 column_map['fif_aia_actual'] = i
+            elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['actual_revenue']):
+                column_map['actual_revenue'] = i
 
         if DEBUG_TABLE_DETECTION:
             logging.info(f"Headers: {normalized_headers}")

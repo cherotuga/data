@@ -203,6 +203,67 @@ class TestKnownGoodDataRow:
         assert ex._safe_get_column_value(self.ROW, col_map, "performance_percent") == "78"
 
 
+class TestCategoryA_QuarterlyBreakdownVariant:
+    """
+    2018_19 Q4 single-row header: annual target + 4 quarterly OSR columns + FY total +
+    performance. No ordinary/FIF split exists in this wording either - the quarterly
+    columns must be ignored, not misclassified. Captured from 2018_19 Q4 page 25.
+    """
+
+    HEADERS = [
+        "County",
+        "Annual Own\nSource Revenue\nTarget FY 2018/19\n(Kshs.)",
+        "1st Quarter, FY\n2018/19 Own\nSource Revenue\n(Kshs.)",
+        "2nd Quarter,\nFY 2018/19 Own\nSource Revenue\n(Kshs.)",
+        "3rd Quarter, FY\n2018/19 Own\nSource Revenue\n(Kshs.)",
+        "4th Quarter, FY\n2018/19 Own\nSource Revenue\n(Kshs.)",
+        "FY 2018/19 Total\nOwn Source Rev-\nenue (Kshs.)",
+        "% of Own\nSource\nRevenue\nAgainst\nAnnual\nRevenue\nTarget",
+    ]
+
+    def test_column_mapping(self):
+        col_map = _extractor()._analyze_headers(self.HEADERS)
+        assert col_map.get("county") == 0
+        assert col_map.get("total_revenue_target") == 1
+        assert col_map.get("actual_revenue") == 6
+        assert col_map.get("performance_percent") == 7
+        assert "ordinary_osr_target" not in col_map
+        assert "fif_aia_target" not in col_map
+        assert "osr_actual_realised" not in col_map
+        assert "fif_aia_actual" not in col_map
+
+
+class TestCategoryC1Variant_OsrActualRealisedWording:
+    """
+    2024_25 Q1 single-row header: same shape as Category C1 but with "OSR Actual
+    Realised" wording (a third distinct actual-column phrasing alongside C1's bare
+    "OSR Actual" and C2's "Ordinary OSR Actual Realised"). Captured from 2024_25 Q1
+    page 26.
+    """
+
+    HEADERS = [
+        "County",
+        "Ordinary OSR\nTarget (Kshs.)",
+        "FIF/ AIA Target\n(Kshs.)",
+        "Total Revenue\nTarget (Kshs.)",
+        "OSR Actual\nRealised (Kshs.)",
+        "FIF/AIA Actual\n(Kshs.)",
+        "Actual Revenue\n(Kshs.)",
+        "Perfor-\nmance (%)",
+    ]
+
+    def test_column_mapping(self):
+        col_map = _extractor()._analyze_headers(self.HEADERS)
+        assert col_map.get("county") == 0
+        assert col_map.get("ordinary_osr_target") == 1
+        assert col_map.get("fif_aia_target") == 2
+        assert col_map.get("total_revenue_target") == 3
+        assert col_map.get("osr_actual_realised") == 4
+        assert col_map.get("fif_aia_actual") == 5
+        assert col_map.get("actual_revenue") == 6
+        assert col_map.get("performance_percent") == 7
+
+
 class TestCategory2014_15Unaffected:
     """
     2014_15 uses a wholly separate transposed/reversed-text code path
