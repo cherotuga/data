@@ -14,9 +14,12 @@ Known-broken behavior (as of the import commit) that this suite pins down:
 
 Run with: pytest test_extract_revenue.py -v
 """
+import os
+import re
 import sys
 from pathlib import Path
 
+import pandas as pd
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -467,3 +470,260 @@ class TestCategory2014_15Unaffected:
             ["", "", "", "", "", "", "", "aipikiaL"],
         ]
         assert ex._is_2014_15_transposed_table(reversed_table) is True
+
+
+class TestCorpusPopulationBaseline:
+    """
+    Full-corpus regression guard against revenue_data.csv (the checked-in output
+    of running extract_revenue.py over every available PDF).
+
+    These floors were captured from the full 1974-record corpus as of the
+    _analyze_headers() sub-header-noise fix (commit 84bec97). They are floors,
+    not exact-match assertions, because re-running extraction over a growing set
+    of PDFs (newer quarterly reports) is expected to add rows and can only raise
+    these counts - a drop below the floor means a real regression, not just
+    "more data with more gaps". If you intentionally change parsing behavior in
+    a way that legitimately lowers a count, update the floor here and explain
+    why in revenue-extraction/TODO.md.
+
+    ordinary_osr_target / fif_aia_target are populated only in Category B/C table
+    formats (they don't exist in every year's table), so their floors are much
+    lower than the near-universal fields - this is a genuine property of the
+    source data, not a bug (verified against real PDFs; see README.md).
+    """
+
+    CSV_PATH = os.path.join(os.path.dirname(__file__), "revenue_data.csv")
+
+    @pytest.fixture(scope="class")
+    @classmethod
+    def df(cls):
+        if not os.path.exists(cls.CSV_PATH):
+            pytest.skip("revenue_data.csv not present - run extraction first")
+        return pd.read_csv(cls.CSV_PATH, dtype=str)
+
+    def test_total_records(self, df):
+        assert len(df) >= 1974
+
+    def test_core_field_population(self, df):
+        assert df['total_revenue_target'].notna().sum() >= 1970
+        assert df['actual_revenue'].notna().sum() >= 1974
+        assert df['performance_percent'].notna().sum() >= 1970
+
+    def test_breakdown_field_population(self, df):
+        assert df['osr_actual_realised'].notna().sum() >= 517
+        assert df['fif_aia_actual'].notna().sum() >= 342
+        assert df['ordinary_osr_target'].notna().sum() >= 517
+        assert df['fif_aia_target'].notna().sum() >= 344
+
+
+class TestCorpusPopulationByYear:
+    """
+    Per-county, per-year/quarter version of TestCorpusPopulationBaseline.
+
+    A flat corpus-wide floor can hide a real regression in one year behind
+    healthy population in another. This class checks each year/quarter group
+    against what's actually true of the source PDFs, so the tests stay
+    "context aware" instead of just checking an aggregate number:
+
+    - Every year/quarter should have exactly 47 counties (one row per county),
+      except 2017_18 Q2, whose county-level OCOB report was never published
+      (only the national report exists for that quarter - confirmed by
+      checking the PDF corpus directory, not an extraction bug).
+    - total_revenue_target/performance_percent should be present for all 47
+      counties in every year/quarter except two confirmed-genuine PDF gaps
+      (see README.md): 2020_21 Q1 (missing kitui/mandera/wajir) and 2021_22 Q1
+      (missing vihiga).
+    - The OSR/FIF-AIA breakdown columns (ordinary_osr_target, fif_aia_target,
+      osr_actual_realised, fif_aia_actual) only exist in some years' table
+      format:
+        * 2014_15-2018_19 and 2020_21-2022_23: no breakdown at all (0/47) -
+          this table format has no OSR/FIF-AIA split.
+        * 2019_20: ordinary_osr_target/osr_actual_realised are universal
+          (47/47), but fif_aia_target/fif_aia_actual are reported by only a
+          small, *consistent* set of counties each quarter (~7-9/47:
+          bungoma, elgeyo marakwet, embu, homa bay, meru, nairobi city,
+          nakuru, nyandarua, plus one of turkana/west pokot depending on
+          quarter) - a stable subset, not scattered/random, consistent with
+          only some counties having FIF/AIA revenue to report that year
+          rather than a parsing defect.
+        * 2023_24 onwards: ordinary_osr_target/osr_actual_realised are
+          universal (47/47); fif_aia_target/fif_aia_actual are populated for
+          most but not all counties per quarter (as low as 41/47), with the
+          handful of gaps varying county-by-county across quarters (not the
+          same counties every time) - the signature of genuine per-county
+          reporting gaps, not a systematic extraction bug. This lines up with
+          Kenya's Facilities Improvement Financing Act, 2023 (assented
+          2023-10-19, in force 2023-11-02 - right at the start of FY2023/24),
+          which made FIF accounts/reporting a legal requirement for county
+          health facilities. See README.md.
+    """
+
+    CSV_PATH = os.path.join(os.path.dirname(__file__), "revenue_data.csv")
+
+    NO_BREAKDOWN_YEARS = {
+        '2014_15', '2015_16', '2016_17', '2017_18', '2018_19',
+        '2020_21', '2021_22', '2022_23',
+    }
+
+    # 2017_18 Q2: county-level report never published for that quarter.
+    MISSING_QUARTERS = {('2017_18', '02')}
+
+    # Confirmed-genuine gaps (verified against the source PDF - see README.md).
+    KNOWN_TARGET_GAPS = {
+        ('2020_21', '01'): {'kitui', 'mandera', 'wajir'},
+        ('2021_22', '01'): {'vihiga'},
+    }
+
+    @pytest.fixture(scope="class")
+    @classmethod
+    def df(cls):
+        if not os.path.exists(cls.CSV_PATH):
+            pytest.skip("revenue_data.csv not present - run extraction first")
+        return pd.read_csv(cls.CSV_PATH, dtype=str)
+
+    def test_every_year_quarter_has_47_counties_except_known_missing_report(self, df):
+        counts = df.groupby(['year', 'quarter'])['county'].nunique()
+        for (year, quarter), n in counts.items():
+            if (year, quarter) in self.MISSING_QUARTERS:
+                continue
+            assert n == 47, f"{year} Q{quarter}: expected 47 counties, got {n}"
+
+    def test_missing_quarters_have_no_source_pdf(self, df):
+        for year, quarter in self.MISSING_QUARTERS:
+            assert df[(df.year == year) & (df.quarter == quarter)].empty
+
+    def test_target_and_performance_gaps_match_known_pdf_gaps(self, df):
+        for (year, quarter), group in df.groupby(['year', 'quarter']):
+            expected_missing = self.KNOWN_TARGET_GAPS.get((year, quarter), set())
+            actual_missing = set(group[group['total_revenue_target'].isna()]['county'])
+            assert actual_missing == expected_missing, (
+                f"{year} Q{quarter}: total_revenue_target missing counties "
+                f"{actual_missing} != expected {expected_missing}"
+            )
+            # performance_percent has always tracked total_revenue_target 1:1
+            # in this corpus - assert that stays true rather than drifting.
+            actual_missing_perf = set(group[group['performance_percent'].isna()]['county'])
+            assert actual_missing_perf == expected_missing, (
+                f"{year} Q{quarter}: performance_percent missing counties "
+                f"{actual_missing_perf} != expected {expected_missing}"
+            )
+
+    def test_no_breakdown_years_have_zero_breakdown_population(self, df):
+        breakdown_cols = ['ordinary_osr_target', 'fif_aia_target', 'osr_actual_realised', 'fif_aia_actual']
+        subset = df[df['year'].isin(self.NO_BREAKDOWN_YEARS)]
+        for col in breakdown_cols:
+            n = subset[col].notna().sum()
+            assert n == 0, f"{col}: expected 0 in no-breakdown years, got {n}"
+
+    def test_2019_20_ordinary_osr_universal_fif_partial(self, df):
+        subset = df[df['year'] == '2019_20']
+        for quarter, group in subset.groupby('quarter'):
+            assert group['ordinary_osr_target'].notna().sum() == 47, (
+                f"2019_20 Q{quarter}: ordinary_osr_target should be universal"
+            )
+            assert group['osr_actual_realised'].notna().sum() == 47, (
+                f"2019_20 Q{quarter}: osr_actual_realised should be universal"
+            )
+            fif_target_n = group['fif_aia_target'].notna().sum()
+            assert 7 <= fif_target_n <= 9, (
+                f"2019_20 Q{quarter}: fif_aia_target should be a small, stable "
+                f"subset (7-9/47), got {fif_target_n}"
+            )
+
+    def test_2023_24_onwards_ordinary_osr_universal_fif_mostly_populated(self, df):
+        subset = df[df['year'].isin(['2023_24', '2024_25'])]
+        for (year, quarter), group in subset.groupby(['year', 'quarter']):
+            assert group['ordinary_osr_target'].notna().sum() == 47, (
+                f"{year} Q{quarter}: ordinary_osr_target should be universal"
+            )
+            assert group['osr_actual_realised'].notna().sum() == 47, (
+                f"{year} Q{quarter}: osr_actual_realised should be universal"
+            )
+            fif_target_n = group['fif_aia_target'].notna().sum()
+            assert fif_target_n >= 41, (
+                f"{year} Q{quarter}: fif_aia_target should be near-universal "
+                f"(>=41/47), got {fif_target_n}"
+            )
+
+
+def _to_number(value):
+    """Strip currency formatting (commas, 'Kshs', stray %) down to a float."""
+    if pd.isna(value):
+        return None
+    cleaned = re.sub(r'[^0-9.\-]', '', str(value))
+    try:
+        return float(cleaned)
+    except ValueError:
+        return None
+
+
+class TestCorpusValueConsistency:
+    """
+    Population counts alone can't catch a header-mapping bug that keeps every
+    cell filled but swaps values between columns (e.g. writes the FIF value
+    into the ordinary OSR column). These tests instead check the arithmetic
+    relationships between columns that must hold given how the source table
+    is structured, across every row in the corpus where the relevant fields
+    are present:
+
+    - performance_percent must equal actual_revenue / total_revenue_target * 100
+    - ordinary_osr_target + fif_aia_target must equal total_revenue_target
+      (wherever the corpus has the OSR/FIF-AIA breakdown)
+    - osr_actual_realised + fif_aia_actual must equal actual_revenue (ditto)
+
+    All three held for every applicable row (1970 / 344 / 349 rows respectively)
+    in the full corpus as of commit 84bec97 - see README.md.
+    """
+
+    CSV_PATH = os.path.join(os.path.dirname(__file__), "revenue_data.csv")
+    TOLERANCE_PCT = 0.02  # 2% relative tolerance for rounding in the source PDFs
+    TOLERANCE_ABS = 2.0   # plus a small absolute floor for near-zero values
+
+    @pytest.fixture(scope="class")
+    @classmethod
+    def df(cls):
+        if not os.path.exists(cls.CSV_PATH):
+            pytest.skip("revenue_data.csv not present - run extraction first")
+        df = pd.read_csv(cls.CSV_PATH, dtype=str)
+        for col in ['ordinary_osr_target', 'fif_aia_target', 'total_revenue_target',
+                    'osr_actual_realised', 'fif_aia_actual', 'actual_revenue',
+                    'performance_percent']:
+            df[col + '_n'] = df[col].apply(_to_number)
+        return df
+
+    def _assert_no_outliers(self, df, lhs_col, rhs_col, label):
+        subset = df.dropna(subset=[lhs_col, rhs_col])
+        diff = (subset[lhs_col] - subset[rhs_col]).abs()
+        tolerance = subset[rhs_col].abs() * self.TOLERANCE_PCT + self.TOLERANCE_ABS
+        outliers = subset[diff > tolerance]
+        assert outliers.empty, (
+            f"{label}: {len(outliers)} row(s) violate the expected relationship:\n"
+            f"{outliers[['county', 'year', 'quarter', lhs_col, rhs_col]].to_string()}"
+        )
+        return len(subset)
+
+    def test_performance_percent_matches_formula(self, df):
+        subset = df.dropna(subset=['total_revenue_target_n', 'actual_revenue_n', 'performance_percent_n'])
+        subset = subset[subset['total_revenue_target_n'] != 0].copy()
+        subset['calc'] = subset['actual_revenue_n'] / subset['total_revenue_target_n'] * 100
+        n = self._assert_no_outliers(subset, 'calc', 'performance_percent_n', 'performance_percent')
+        assert n >= 1970
+
+    def test_target_breakdown_sums_to_total(self, df):
+        subset = df.dropna(subset=['ordinary_osr_target_n', 'fif_aia_target_n', 'total_revenue_target_n']).copy()
+        subset['sum'] = subset['ordinary_osr_target_n'] + subset['fif_aia_target_n']
+        n = self._assert_no_outliers(subset, 'sum', 'total_revenue_target_n', 'ordinary_osr_target + fif_aia_target')
+        assert n >= 344
+
+    def test_actual_breakdown_sums_to_total(self, df):
+        subset = df.dropna(subset=['osr_actual_realised_n', 'fif_aia_actual_n', 'actual_revenue_n']).copy()
+        subset['sum'] = subset['osr_actual_realised_n'] + subset['fif_aia_actual_n']
+        n = self._assert_no_outliers(subset, 'sum', 'actual_revenue_n', 'osr_actual_realised + fif_aia_actual')
+        assert n >= 349
+
+    def test_no_duplicate_county_quarter_rows(self, df):
+        dupes = df[df.duplicated(subset=['county', 'year', 'quarter'], keep=False)]
+        assert dupes.empty, f"duplicate (county, year, quarter) rows found:\n{dupes[['county', 'year', 'quarter']]}"
+
+    def test_exactly_47_canonical_counties(self, df):
+        assert df['county'].nunique() == 47, sorted(df['county'].unique())
