@@ -17,6 +17,7 @@ Run with: pytest test_extract_revenue.py -v
 import os
 import re
 import sys
+import tempfile
 from pathlib import Path
 
 import pandas as pd
@@ -25,13 +26,17 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent))
 from extract_revenue import RevenueExtractor  # noqa: E402
 
-# Any real PDF path works here - RevenueExtractor.__init__ only checks existence,
-# these tests exercise _analyze_headers() directly and never call extract().
-_SAMPLE_PDF = Path(__file__).parent.parent / "2023_24" / "01" / "county" / "2023_24_01_county.pdf"
+# RevenueExtractor.__init__ only checks the path exists (it never opens/parses
+# the PDF there) - these tests exercise _analyze_headers() directly against
+# synthetic/captured header fixtures and never call extract(). A self-created
+# placeholder keeps the suite runnable on any branch/checkout regardless of
+# whether the (large, not-always-present) real PDF corpus is checked out.
+with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as _f:
+    _f.write(b"%PDF-1.4\n%%EOF")
+    _SAMPLE_PDF = Path(_f.name)
 
 
 def _extractor():
-    assert _SAMPLE_PDF.exists(), f"fixture PDF missing: {_SAMPLE_PDF}"
     return RevenueExtractor(str(_SAMPLE_PDF), year="2023_24", quarter="01")
 
 
