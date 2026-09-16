@@ -115,6 +115,38 @@ class TestCategoryA_NoBreakdown:
         assert "fif_aia_actual" not in col_map
 
 
+class TestCategoryA_ActualOsrCollectionWording:
+    """
+    No-breakdown format where the actual-collection column header is worded
+    "Actual OSR Collection" (word order reversed vs. category C1's bare "OSR
+    Actual"). Must map to actual_revenue, not osr_actual_realised - there is no
+    real breakdown in this format. Captured from 2020_21 Q4 page 24 and
+    2022_23 Q4 page 28.
+    """
+
+    HEADERS = [
+        "County",
+        "Annual Own Source Revenue Target for\nFY 2020/21 (Kshs.)",
+        "Actual OSR Collection (Kshs.)",
+        "% of Collection of OSR\nAgainst Annual Target",
+    ]
+
+    def test_column_mapping(self):
+        col_map = _extractor()._analyze_headers(self.HEADERS)
+        assert col_map.get("county") == 0
+        assert col_map.get("total_revenue_target") == 1
+        assert col_map.get("actual_revenue") == 2, (
+            "'Actual OSR Collection' must map to actual_revenue, not be captured "
+            "by osr_actual's 'actual osr' keyword (reversed word order vs. the "
+            "true breakdown column's 'OSR Actual' wording)"
+        )
+        assert col_map.get("performance_percent") == 3
+        assert "osr_actual_realised" not in col_map
+        assert "ordinary_osr_target" not in col_map
+        assert "fif_aia_target" not in col_map
+        assert "fif_aia_actual" not in col_map
+
+
 class TestCategoryB_TwoRowHeaderBreakdown:
     """2019_20 two-row header - all 8 fields should resolve once fixed."""
 
@@ -127,6 +159,101 @@ class TestCategoryB_TwoRowHeaderBreakdown:
         assert col_map.get("osr_actual_realised") == 4, (
             "column D ('Q1 Actual OSR') must map to osr_actual_realised, not be "
             "swallowed by the 'performance' keyword collision"
+        )
+        assert col_map.get("fif_aia_actual") == 5
+        assert col_map.get("actual_revenue") == 6
+        assert col_map.get("performance_percent") == 7
+
+
+class TestCategoryB_HalfYearWording:
+    """
+    2019_20 Q2 two-row header: same shape as category B but with "Half Year Actual
+    OSR"/"Half Year Actual AIA" sub-header wording, and critically a main/group-title
+    header that itself contains the word "Collection" ("First Half of FY 2019/20 OSR
+    Collection") - the exact phrase that must NOT leak into column D's classification
+    via the main+sub combination. Captured from 2019_20 Q2 page 21.
+    """
+
+    MAIN = [
+        "County",
+        "Annual Own Source Revenue (OSR) Target for FY 2019/20\n(Kshs. Million)",
+        None,
+        None,
+        "First Half of FY 2019/20 OSR Collection (Kshs.\nMillion)",
+        None,
+        None,
+        "% of Collection\nAgainst Annual\nTarget",
+    ]
+    SUB = [
+        None,
+        "Ordinary OSR",
+        "Appropriations In\nAid (A-I-A)",
+        "Total Annual\nTarget",
+        "Half Year Actual\nOSR",
+        "Half Year\nActual AIA",
+        "Half Year Actual\nTotal",
+        None,
+    ]
+
+    def test_column_mapping(self):
+        col_map = _extractor()._analyze_headers(self.MAIN, self.SUB)
+        assert col_map.get("county") == 0
+        assert col_map.get("ordinary_osr_target") == 1
+        assert col_map.get("fif_aia_target") == 2
+        assert col_map.get("total_revenue_target") == 3
+        assert col_map.get("osr_actual_realised") == 4, (
+            "column D ('Half Year Actual OSR') must map to osr_actual_realised even "
+            "though the shared group-title main header contains 'Collection'"
+        )
+        assert col_map.get("fif_aia_actual") == 5, (
+            "column E ('Half Year Actual AIA') - 'actual aia' word order must be "
+            "recognized, not just 'aia actual'"
+        )
+        assert col_map.get("actual_revenue") == 6
+        assert col_map.get("performance_percent") == 7
+
+
+class TestCategoryB_ActualOsrCollectionGroupTitle:
+    """
+    2019_20 Q3/Q4 two-row header: sub-headers are bare "Actual OSR"/"Actual AIA"/
+    "Actual Total" (matching category C1's single-row wording exactly), but the
+    shared main/group-title header says "... Actual OSR Collection ..." (2019_20 Q4)
+    or "... OSR Collection ..." (Q3) - the single-row "collection" guard must not
+    fire here since these columns DO have their own sub-header. Captured from
+    2019_20 Q4 page 22.
+    """
+
+    MAIN = [
+        "County",
+        "Own Source Revenue (OSR) Target for FY 2019/20\n(Kshs. Million)",
+        None,
+        None,
+        "FY 2019/20 Actual OSR Collection\n(Kshs. Million)",
+        None,
+        None,
+        "% of Collec-\ntion Against\nAnnual\nTarget",
+    ]
+    SUB = [
+        None,
+        "Ordinary OSR",
+        "Appropriations In\nAid (A-I-A)",
+        "Total Annual\nTarget",
+        "Actual OSR",
+        "Actual AIA",
+        "Actual Total",
+        None,
+    ]
+
+    def test_column_mapping(self):
+        col_map = _extractor()._analyze_headers(self.MAIN, self.SUB)
+        assert col_map.get("county") == 0
+        assert col_map.get("ordinary_osr_target") == 1
+        assert col_map.get("fif_aia_target") == 2
+        assert col_map.get("total_revenue_target") == 3
+        assert col_map.get("osr_actual_realised") == 4, (
+            "column D ('Actual OSR') must map to osr_actual_realised - the "
+            "single-row 'collection' guard must not apply here since this column "
+            "has its own sub-header, unlike category A's true single-row format"
         )
         assert col_map.get("fif_aia_actual") == 5
         assert col_map.get("actual_revenue") == 6
@@ -262,6 +389,63 @@ class TestCategoryC1Variant_OsrActualRealisedWording:
         assert col_map.get("fif_aia_actual") == 5
         assert col_map.get("actual_revenue") == 6
         assert col_map.get("performance_percent") == 7
+
+
+class TestCategory2015_16_UnitOnlySubHeader:
+    """
+    2015_16 Q1 two-row header where the sub-header for the target column is just a
+    bare currency unit ("Kshs"), not a real column name - the main header ("Local
+    Revenue Target for FY 2015/16") carries the actual meaning. Using the sub-header
+    alone (as the naive sub-header-only design does) loses the target column
+    entirely; the main header must be used as a fallback whenever the sub-header is
+    just unit/formula noise. Captured from 2015_16 Q1 page 27.
+    """
+
+    MAIN_HEADERS = [
+        "First Quarter of FY 2015/16 Revenue (Kshs)",
+        None,
+        None,
+        None,
+        None,
+        "Local Revenue\nTarget for FY\n2015/16",
+        "% of First\nQuarter revenue\nagainst Annual\ntargets",
+    ]
+    SUB_HEADERS = ["County", "July", "August", "September", "Total (Q1)", "Kshs", ""]
+
+    def test_column_mapping(self):
+        col_map = _extractor()._analyze_headers(self.MAIN_HEADERS, self.SUB_HEADERS)
+        assert col_map.get("county") == 0
+        assert col_map.get("actual_revenue") == 4
+        assert col_map.get("total_revenue_target") == 5
+        assert col_map.get("performance_percent") == 6
+
+
+class TestCategory2017_18_FormulaSubHeader:
+    """
+    2017_18 Q3 two-row header where the second row is a spreadsheet-style formula/
+    column-letter row ("A", "B", "C", "D=A+B+C") rather than a real sub-header - the
+    real column names live entirely in the main header. Using the sub-header alone
+    would classify the actual-revenue column by "d=a+b+c", matching nothing. Captured
+    from 2017_18 Q3 page 24.
+    """
+
+    MAIN_HEADERS = [
+        "County Title",
+        "First Quarter\nof FY 2017/18\n( Kshs.Mil)",
+        "First Half of FY\n2017/18 (Kshs.Mil)",
+        "First Nine Months\nof FY 2017/18\n(Kshs.Mil)",
+        "Total Local\nRevenue\nCollection\n(Kshs.Mil)",
+        "Annual Local\nRevenue Target\nFor FY 2017/18\n(Kshs.Mil)",
+        "Percentage\nof total Local\nRevenue\nCollection\nto Annual\nTarget (%)",
+    ]
+    SUB_HEADERS = ["", "A", "B", "C", "D=A+B+C", "", ""]
+
+    def test_column_mapping(self):
+        col_map = _extractor()._analyze_headers(self.MAIN_HEADERS, self.SUB_HEADERS)
+        assert col_map.get("county") == 0
+        assert col_map.get("actual_revenue") == 4
+        assert col_map.get("total_revenue_target") == 5
+        assert col_map.get("performance_percent") == 6
 
 
 class TestCategory2014_15Unaffected:

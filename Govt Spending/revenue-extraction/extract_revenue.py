@@ -34,8 +34,8 @@ REVENUE_COLUMN_KEYWORDS = {
     'ordinary_osr': ['ordinary osr'],  # Specific to newer format, no generic 'osr target'
     'fif_aia_target': ['fif/aia target', 'fif aia target', 'fif/ aia', 'fif', 'aia target', 'appropriations in aid', 'a-i-a'],
     'total_target': ['total revenue target', 'total target', 'total osr revenue target', 'annual own source revenue', 'annual osr target', 'annual revenue target', 'annual own source revenue target', 'annual local revenue target', 'local revenue target', 'total annual target'],  # Includes 2015_16 Q1 format
-    'osr_actual': ['ordinary osr actual', 'actual realised', 'q1 actual osr', 'osr actual', 'actual osr'],  # Specific to newer format
-    'fif_aia_actual': ['fif/aia actual', 'fif aia actual', 'aia actual', 'q1 actual aia'],
+    'osr_actual': ['ordinary osr actual', 'actual realised', 'q1 actual osr', 'osr actual', 'actual osr'],  # Specific to newer format. 'actual osr' (reversed order) is needed for 2019_20 Q2-Q4's "Actual OSR" / "Half Year Actual OSR" sub-headers, but also collides with the no-breakdown "Actual OSR Collection" single-row header - see the collection-guard in _analyze_headers()
+    'fif_aia_actual': ['fif/aia actual', 'fif aia actual', 'aia actual', 'actual aia', 'q1 actual aia'],
     'actual_revenue': ['actual revenue', 'total osr revenue', 'osr collection', 'quarter of fy', 'total own source revenue', 'total own-source revenue', 'total local revenue', 'local revenue collection', 'total (q1)', 'total', 'q1 actual total'],  # Includes 2015_16 Q1 quarterly total format
     'performance': ['performance (%)', 'performance %', 'collection of osr against', '% of collection', '% of local revenue against', '% of own source revenue against', '% of total local revenue', '% of the total local revenue', '% of total revenue', '% of first quarter revenue against annual targets', '% of quarter revenue against', 'percentage of']  # Bare 'performance' removed: it false-matched 2019_20's shared "OSR Performance" group-title header on columns D/E/F
 }
@@ -291,9 +291,20 @@ class RevenueExtractor:
 
         # Normalize sub-headers if provided (2018_19 format)
         normalized_sub_headers = []
+        # Whether each sub-header is noise (a bare unit label like "Kshs", or a
+        # spreadsheet-style formula/column-letter artifact like "D=A+B+C") rather than
+        # a real column name. Computed from the raw text: the full normalization below
+        # strips '=' and '+' (they're not in the allowed punctuation set), which would
+        # otherwise turn "D=A+B+C" into "dabc" and hide the pattern from a check run
+        # on the normalized text.
+        sub_header_is_noise = []
         if sub_headers:
             for header in sub_headers:
                 if header:
+                    raw = re.sub(r'\s+', ' ', str(header).strip().lower())
+                    sub_header_is_noise.append(
+                        bool(re.fullmatch(r'[a-z](\s*=\s*.*)?', raw)) or raw in ('kshs', 'kshs.', 'ksh')
+                    )
                     clean_header = str(header).strip().lower()
                     clean_header = re.sub(r'-\s*\n\s*', '', clean_header)
                     clean_header = re.sub(r'\s*\n\s*', ' ', clean_header)
@@ -303,12 +314,24 @@ class RevenueExtractor:
                     normalized_sub_headers.append(clean_header)
                 else:
                     normalized_sub_headers.append("")
+                    sub_header_is_noise.append(False)
 
         # Map each header to data type using existing keywords
         # Check both main headers and sub-headers for 2018_19 format
+        noise_flags = sub_header_is_noise or [False] * len(normalized_headers)
         for i, (main_header, sub_header) in enumerate(zip(normalized_headers, normalized_sub_headers or [''] * len(normalized_headers))):
-            # Combine main and sub-header text for keyword matching
-            combined_header = f"{main_header} {sub_header}".strip()
+            # For two-row headers, the sub-header is what actually names this specific
+            # column; the main header is frequently just a shared group title spanning
+            # several columns (e.g. "OSR Collection") that would otherwise contaminate
+            # matching for every column under it. Use the sub-header alone when present,
+            # falling back to the main header only for columns with no sub-header text
+            # (single-row formats, and columns like "county" that never have one) OR
+            # where the "sub-header" is just noise rather than a real column name -
+            # e.g. a bare unit label ("Kshs") as in 2015_16 Q1, or a spreadsheet-style
+            # formula/column-letter artifact ("D=A+B+C", "A") as in 2017_18 Q3. Those
+            # carry no classification signal, so the main header must be used instead.
+            using_sub_header = bool(sub_header) and not noise_flags[i]
+            combined_header = sub_header if using_sub_header else main_header
 
             # 'ordinary osr' and 'fif' are substrings of both the target and actual
             # column headers in several formats (e.g. "Ordinary OSR Target" vs.
@@ -328,10 +351,16 @@ class RevenueExtractor:
                 column_map['fif_aia_target'] = i
             elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['total_target']):
                 column_map['total_revenue_target'] = i
-            elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['osr_actual']):
+            elif (using_sub_header or 'collection' not in combined_header) and any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['osr_actual']):
                 # Check the specific actual-value keyword sets before the generic
                 # actual_revenue catch-all, so e.g. "OSR Actual" maps to
                 # osr_actual_realised rather than being swallowed by actual_revenue.
+                # The 'collection' guard only applies to single-row headers: it is
+                # what distinguishes the no-breakdown "Actual OSR Collection" column
+                # (must stay actual_revenue) from a genuine breakdown sub-header like
+                # "Actual OSR" (must map to osr_actual_realised) - a two-row format's
+                # sub-header never carries its own "collection" wording, so the guard
+                # is a no-op there.
                 column_map['osr_actual_realised'] = i
             elif any(keyword in combined_header for keyword in REVENUE_COLUMN_KEYWORDS['fif_aia_actual']):
                 column_map['fif_aia_actual'] = i
